@@ -50,6 +50,7 @@ https://parkhyeonshin.github.io/codingclass/javascript/effect/mouseEffect02.html
 https://parkhyeonshin.github.io/codingclass/javascript/effect/mouseEffect03.html   
 https://parkhyeonshin.github.io/codingclass/javascript/effect/mouseEffect04.html   
 https://parkhyeonshin.github.io/codingclass/javascript/effect/mouseEffect05.html   
+https://parkhyeonshin.github.io/codingclass/javascript/effect/mouseEffect06.html   
 
 ## 슬라이드 이펙트
 https://parkhyeonshin.github.io/codingclass/javascript/effect/sliderEffect01.html   
