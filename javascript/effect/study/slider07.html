@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 슬라이드07</title>
+
+        <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+
+        <style>
+            #main .document .btnflex {
+                display: flex;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="../../../javascript/index.html">Javascript_Slide06</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">슬라이드 효과 07</h2>
+                <div class="t_desc2">
+                   이번 시간에는 5유형에서 만들었던 닷메뉴를 무한으로 왔다갔다 만들어 보겠습니다.
+                   <br>근데 사실 4유형에서 한것과 별다를게 없어서 쓸 내용도 없고 이 유형은 버그가 참많아요 ^_^
+                </div>
+                <hr />
+
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0">
+                    <iframe src="https://parkhyeonshin.github.io/codingclass/javascript/effect/sliderEffect07.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link btnflex">
+                    <a href="https://github.com/Parkhyeonshin/codingclass/blob/main/javascript/effect/sliderEffect07.html" target="_blank"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://parkhyeonshin.github.io/codingclass/javascript/effect/sliderEffect07.html" target="_blank">원본 사이트</a>
+                </div>
+                <hr />
+                <div class="t_desc">
+                </div>
+                <p class="t_desc">
+                    ▶ 동그란 도트모양을 만들어주고 이 닷버튼에 JS를 부여해줍니다.
+                    <br> 이 때 <i>Index값을 잘 활용</i>하면 
+                    아주 쉽게 닷형식의 슬라이더가 완성이 됩니다.
+                </p>
+                <h3 class="t_tit2">JS 소스</h3>
+                <div class="t_code">
+<pre><code class="language-js">const sliderWrap = document.querySelector('.slider__wrap');
+const sliderImg = document.querySelector('.slider__img');
+const sliderInner = document.querySelector('.slider__inner');
+const slider = document.querySelectorAll('.slider');
+const sliderBtn = document.querySelector('.slider__btn');
+const sliderBtnPrev = sliderBtn.querySelector('.slider__btn .prev');
+const sliderBtnNext = sliderBtn.querySelector('.slider__btn .next');
+const sliderDot = document.querySelector('.slider__dot');
+
+let currentIndex = 0;
+let sliderLength = slider.length;
+let sliderWidth = sliderImg.offsetWidth; 	// 이미지 가로 값
+let sliderFirst = slider[0],			 	// 첫번째 이미지
+    sliderLast = slider[sliderLength - 1],	// 마지막 이미지
+    cloneFirst = sliderFirst.cloneNode(true),	// 첫번째 이미지 복사
+    cloneLast = sliderLast.cloneNode(true);		// 마지막 이미지 복사
+dotIndex = "";
+
+// 이미지 총 길이 넣기
+sliderInner.style.width = (sliderWidth * (sliderLength + 3)) + "px";
+
+
+
+sliderInner.appendChild(cloneFirst);
+sliderInner.insertBefore(cloneLast, sliderFirst);
+
+function init() {
+    // 이미지 수만큼 dot 추가
+    for (let i = 0; i &lt; sliderLength; i++) {                
+        dotIndex += "&lt;a href='#' class='dot'>이미지1&lt;/a>";
+    }
+    sliderDot.innerHTML = dotIndex;
+    sliderDot.firstChild.classList.add("active");       // 첫 번째만 + active
+}
+init();
+
+function gotoSlider(direction) {
+    sliderInner.classList.add("transition");    
+    sliderBtn.classList.add("disable");
+    posInitial = sliderInner.offsetLeft;    
+    
+
+    if (direction == -1) {
+        sliderInner.style.left = (posInitial + sliderWidth) + "px"; // 초기화
+        currentIndex--;
+    } else if (direction == 1) {
+        sliderInner.style.left = (posInitial - sliderWidth) + "px"; // 초기화
+        currentIndex++;
+    }
+}
+
+function checkIndex() {
+    sliderInner.classList.remove("transition");
+    console.log(currentIndex);
+
+    // 마지막 - >처음
+    if (currentIndex == sliderLength) {
+        sliderInner.style.left = -(1 * sliderWidth) + "px";
+        currentIndex = 0;
+    }
+
+    // 처음 -> 마지막
+    if (currentIndex == -1) {
+        sliderInner.style.left = -(sliderLength * sliderWidth) + "px";
+        currentIndex = sliderLength - 1;
+    }
+
+    let dotActive = document.querySelectorAll(".slider__dot .dot"); 
+    dotActive.forEach(el => el.classList.remove("active")); 
+
+    dotActive[currentIndex].classList.add("active");    
+}
+
+// 닷 버튼 클릭했을 때 해당 닷버튼의 이미지로 이동 
+document.querySelectorAll('.slider__dot .dot').forEach((a, index) => {
+    a.addEventListener('click', e => {
+        document.querySelectorAll('.slider__dot .dot').forEach(b => {
+            b.classList.remove('active');
+        });
+        a.classList.add('active');
+        sliderInner.style.left = `${-((index + 1) * sliderWidth)}px`;
+        sliderInner.classList.add("transition")
+        currentIndex = index;
+    });
+});
+
+// prev 버튼 클릭했을 때
+sliderBtnPrev.addEventListener("click", () => {
+    gotoSlider(-1)
+    setTimeout(() => {
+        sliderBtn.classList.remove("disable")
+    }, 300);
+});
+
+// next 버튼 클릭했을 때
+sliderBtnNext.addEventListener("click", () => {
+    gotoSlider(1);
+    setTimeout(() => {
+        sliderBtn.classList.remove("disable")
+    }, 300);
+});
+sliderInner.addEventListener("transitionend", checkIndex);  // transitionend : transition 이 끝났을 때 실행하는 이벤트 
+</code></pre>
+                </div>
+                <p class="t_tit2">■ 핵심 찍먹하기🪓</p>
+
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ transitionend 사용하기</h2>
+                <p class="t_desc">
+                    생소한 이친구는 이름 그대로 transition값을 감지해서 transition이 완료된 이후에 발생하는 이벤트 입니다. 
+                    <br> checkIndex()함수를 통해서 인덱스값을 감지하고 컨트롤해주는데요. 트렌지션엔드 이벤트를 통해서 
+                    sliderInner의 트랜지션이 끝난 뒤 자동으로 실행되게 해주면 간편하겠죠?
+                </p>
+
+
+                <hr style="margin-bottom : 10px">
+                <p class="t_desc" style="font-size: 14px; text-align: center;">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+
+                
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
