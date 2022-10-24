@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 유형 01</title>
+
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+        .nexon {
+            font-family: "NexonLv1Gothic";
+            font-weight: 400;
+        }
+
+        /* 리셋 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        img {
+            width: 100%;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+        .section {
+            padding: 120px 0;
+        }
+        .section > h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section > p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .section > span {
+            display: block;
+            text-align: center;
+            font-size: 16px;
+            text-decoration: underline;
+            margin-bottom: 20px;
+            text-underline-position: under;
+        }
+        .mb70{margin-bottom: 70px !important;}
+        /* textType */
+        .text__inner{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .text {
+            width: 32%;
+            margin-bottom: 2%;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            transition: background 0.4s;
+        }
+        .text:hover{
+            background-color: #f5f5f5;
+        }
+        .text__title {
+            font-size: 24px;
+            line-height: 1;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            position: relative;
+            padding-top: 75px;
+        }
+        .text__title::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            background: url(../textType/img/text_type01_fix.svg);
+            border-radius: 50%;
+        }
+        .text.t1 .text__title::before {
+            background-position: 0 0;
+        }
+        .text.t2 .text__title::before {
+            background-position: -60px 0;
+        }
+        .text.t3 .text__title::before {
+            background-position: -120px 0;
+        }
+        .text.t4 .text__title::before {
+            background-position: -180px 0;
+        }
+        .text.t5 .text__title::before {
+            background-position: -240px 0;
+        }
+        .text.t6 .text__title::before {
+            background-position: -300px 0;
+        }
+        .text__desc {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.4;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .text_btn {
+            font-size: 16px;
+            line-height: 1;
+            text-decoration: underline;
+            text-underline-position: under;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <section id="textType" class="text__wrap nexon section">
+        <span>텍스트 유형01</span>
+        <h2 class="mb70">하나무라로 떠납니다</h2>
+        <div class="text__inner container">
+            <div class="text t1">
+                <h3 class="text__title">하나무라</h3>
+                <p class="text__desc">하나무라는 일본에 있나요? 일본을 쓰려고 했는데 갑자기 게임멘트가 생각나서 적어봤는데 실제 있는 지명일까요? 저는 모르겠군밤사세요군밤사세요</p>
+                <a class="text_btn" href="/">더보기</a>
+            </div>
+            <div class="text t2">
+                <h3 class="text__title">하나무라는 성씨</h3>
+                <p class="text__desc">네~ 없네요. 궁금해서 검색해보니깐 하나무라는 일본에서 쓰이는 성씨중의 하나라고 하는군요. 그렇다고합니다다다다다다다다다다다다다다다다</p>
+                <a class="text_btn" href="/">더보기</a>
+            </div>
+            <div class="text t3">
+                <h3 class="text__title">오사카</h3>
+                <p class="text__desc">하나무라는 일본에 있나요? 일본을 쓰려고 했는데 갑자기 게임멘트가 생각나서 적어봤는데 실제 있는 지명일까요? 저는 모르겠군밤사세요군밤사세요</p>
+                <a class="text_btn" href="/">더보기</a>
+            </div>
+            <div class="text t4">
+                <h3 class="text__title">홋카이도</h3>
+                <p class="text__desc">하나무라는 일본에 있나요? 일본을 쓰려고 했는데 갑자기 게임멘트가 생각나서 적어봤는데 실제 있는 지명일까요? 저는 모르겠군밤사세요군밤사세요</p>
+                <a class="text_btn" href="/">더보기</a>
+            </div>
+            <div class="text t5">
+                <h3 class="text__title">도쿄</h3>
+                <p class="text__desc">하나무라는 일본에 있나요? 일본을 쓰려고 했는데 갑자기 게임멘트가 생각나서 적어봤는데 실제 있는 지명일까요? 저는 모르겠군밤사세요군밤사세요</p>
+                <a class="text_btn" href="/">더보기</a>
+            </div>
+            <div class="text t6">
+                <h3 class="text__title">후지산</h3>
+                <p class="text__desc">하나무라는 일본에 있나요? 일본을 쓰려고 했는데 갑자기 게임멘트가 생각나서 적어봤는데 실제 있는 지명일까요? 저는 모르겠군밤사세요군밤사세요</p>
+                <a class="text_btn" href="/">더보기</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

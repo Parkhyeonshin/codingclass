@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 : 기본선택자</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../index.html">jQuery</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="jquery.html">기본</a></li>
+                <li><a href="choice_basic.html">기본 선택자</a></li>
+                <li><a href="choice_el.html">속성 선택자</a></li>
+                <li><a href="choice_filter.html">필터 선택자</a></li>
+                <li><a href="choice_search.html">탐색 선택자</a></li>
+                <li><a href="classMethod.html">클래스 관련 메서드</a></li>
+                <li><a href="elMethod.html">속성 관련 메서드</a></li>
+                <li><a href="styleMethod.html">스타일 관련 메서드</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">기본 선택자 </h2>
+            <p class="t_desc2">
+                제이쿼리의 선택자는 CSS의 선택자와 의미가 같은 게 많습니다. 이번 시간부터 선택자에 대해서 낱낱이 파헤쳐보도록 하겠습니다.
+                오늘은 그 첫번째 시간으로 <i>기본 선택자</i>를 알아볼까요.
+            </p>
+            <br> <a style="color : #ccc;">1. 기본 선택자</a>   
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/75">2. 속성 선택자 보러가기</a>
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/76">3. 필터 선택자 보러가기</a>
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/77">4. 탐색 선택자 보러가기</a>
+            <hr>
+            <h3 class="t_tit2">■ 선택자의 기본 형식</h3>
+            <p class="t_desc">
+                $("선택자")
+                <br>$("#gnb")
+
+            </p>
+            <h3 class="t_tit2">■ 기본 선택자</h3>
+            <table class="t_table">
+                <colgroup>
+                    <col width="20%">
+                    <col width="30%">
+                    <col width="50%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>선택자 종류</th>
+                        <th colspan="2">설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">태그 선택자</td>
+                        <td class="ce">$("p")</td>
+                        <td>p 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">id 선택자</td>
+                        <td class="ce">$("#gnb")</td>
+                        <td>#gnb요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">class 선택자</td>
+                        <td class="ce">$(".logo")</td>
+                        <td>.logo인 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">자식 선택자</td>
+                        <td class="ce">$("#gnb > ul > li")</td>
+                        <td>#gnb의 자식 요소 li를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">하위 선택자</td>
+                        <td class="ce">$("#gnb ul")</td>
+                        <td>#gnb의 하위에 있는 모든 ul 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">인접 선택자</td>
+                        <td class="ce">$("#visual + #content")</td>
+                        <td>#visual 다음에 오는 #content 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">형제 선택자</td>
+                        <td class="ce">$("#visual ~ #footer")</td>
+                        <td>#visual의 형제 요소 #footer를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">종속 선택자</td>
+                        <td class="ce">$("div.util")</td>
+                        <td>div 요소 중 class가 util인 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">그룹 선택자</td>
+                        <td class="ce">$(".left, .right, #banner")</td>
+                        <td>.left, .right, #banner 요소들을 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">전체 선택자</td>
+                        <td class="ce">$("*")</td>
+                        <td>모든 요소를 선택합니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="t_tit2">■ 예시</h2>
+            <p class="t_desc">
+                코드펜을 이용해서 작업했습니다. CDN방식입니다만, 코드펜으로는 CDN활용법을 확인하긴 힘드니깐 CDN쓰는법만 보여드릴게요.
+            </p>
+            <p class="t_box">
+                &lt;script src="jquery-3.6.1.min.js"&gt;&lt;/script&gt;
+            </p>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/MWVNvbv?default-tab=html%2Cresult&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/MWVNvbv">
+                    제이쿼리 기본선택자공부</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            <br>
+            
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 : 속성관련메서드</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../index.html">jQuery</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="jquery.html">기본</a></li>
+                <li><a href="choice_basic.html">기본 선택자</a></li>
+                <li><a href="choice_el.html">속성 선택자</a></li>
+                <li><a href="choice_filter.html">필터 선택자</a></li>
+                <li><a href="choice_search.html">탐색 선택자</a></li>
+                <li><a href="classMethod.html">클래스 관련 메서드</a></li>
+                <li><a href="elMethod.html">속성 관련 메서드</a></li>
+                <li><a href="styleMethod.html">스타일 관련 메서드</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">속성 관련 메서드 </h2>
+            <p class="t_desc2">
+                메서드란 데이터를 참조하고 <i>조작</i>할 수 있는 동작을 의미합니다. 
+                <br><i>제이쿼리에 사용되는 메서드</i>에 대해 알아보겠습니다.
+            </p>
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/85">1. 클래스 관련 메서드</a>   
+            <br> <a style="color : #ccc;" >2. 속성 관련 메서드</a>
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/87">3. 스타일 관련 메서드</a>
+            <hr>
+            <h3 class="t_tit2">■ 메서드의 기본 형식</h3>
+            <p class="t_box">
+                1. <i>$("선택자").메서드명();</i>
+            </p>
+            <p class="t_desc">
+                ⇒매개변수가 없는 유형<br>
+            </p>
+            <p class="t_box">
+                2. <i>$("선택자").메서드명(값);</i>
+            </p>
+            <p class="t_desc">
+                ⇒매개변수가 한개인 유형<br>
+            </p>
+            <p class="t_box">
+                3. <i>$("선택자").메서드명(function(){});</i>
+            </p>
+            <p class="t_desc">
+                ⇒매개변수가 함수인 유형<br>
+            </p>
+            <p class="t_box">
+                4. <i>$("선택자").메서드명(값1,값2,...);</i>
+            </p>
+            <p class="t_desc">
+                ⇒매개변수가 여러개인 유형<br>
+            </p>
+            <p class="t_box">
+                5. <i>$('선택자').메서드명({</i>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<i>옵션: 값,</i>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<i>옵션: 값</i>
+                <br><i>});</i>
+            </p>    
+            <p class="t_desc">
+                ⇒매개변수가 객체방식인 유형
+            </p>
+            <p class="t_desc" style="color: rgb(165, 165, 165);">
+                한개의 메서드가 문법유형을 모두 갖고 있지는 않습니다.
+                <br>어떤 메서드는 한개유형만, 어떤 메서드는 여러개 유형을 가질 수 있습니다.
+            </p>
+            <h3 class="t_tit2">01_ attr() 메서드</h3>
+            <p class="t_desc">선택한 요소의 atribute(속성)을 선택, 생성, 변경할 수 있습니다.</p>
+            <table class="t_table">
+                <colgroup>
+                    <col width="40%">
+                    <col width="60%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>실행 분류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">취득</td>
+                        <td>$("a").attr("href");</td>
+                    </tr>
+                    <tr>
+                        <td class="ce" rowspan="2">생성, 변경</td>
+                        <td>$("a").attr("href", "http://tistory.com").attr("target", "_blank");</td>
+                    </tr>
+                    <tr>
+                        <td>$("a").attr({"href", "http://tistory.com", target: "_blank"});</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>$("a").attr("href", function(index, h){
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;// index는 각 a 요소의 index 0, 1, 2
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;// h는 각 a요소의 class속성
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;return attribute(속성) // 각 a 요소의 속성을 생성 및 변경합니다.
+                        <br>});
+                        <br>...
+                        <br>&lt;a href="http://www.daum.net" target="_balnk" title="새창"&gt;다음&lt;/a&gt;
+                        <br>&lt;a href="http://www.naver.com" target="_balnk" title="새창"&gt;네이버&lt;/a&gt;
+                        <br>&lt;a href="http://www.tistory.net" target="_balnk" title="새창"&gt;티스토리&lt;/a&gt;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="t_tit3"> 예시</h2>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/MWGWdzX?default-tab=html%2Cresult&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/MWGWdzX">
+                    제이쿼리속성메서드1</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            <br>
+            <h3 class="t_tit2">02_ prop() 메서드</h3>
+            <p class="t_desc">요소의 속성을 불린(true/false)로 제어할 수 있습니다.</p>
+            <h2 class="t_tit3"> 예시</h2>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/ZEoENVM?default-tab=html%2Cresult&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/ZEoENVM">
+                    제이쿼리속성메서드2</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            <br>
+            <h2 class="t_tit2">🤷‍♀️ attr()과 prop()의 차이점?</h2>
+            <p class="t_desc2">
+                attr()은 속성과 관련된 메서드입니다. 또 checked속성이 요소에 추가됩니다.
+                <br>prop()은 프로퍼티에 관련된 메서드입니다. 이 메서드의 true는 js의 프로퍼티로 처리됩니다.
+            </p>
+        </div>    
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

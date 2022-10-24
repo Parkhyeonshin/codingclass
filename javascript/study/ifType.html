@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 함수 유형 </title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="effect">
+                <li><a href="../effect/searchEffect.html">검색 효과</a></li>
+                <li><a href="../effect/quizEffect.html">퀴즈 효과</a></li>
+                <li><a href="../effect/dataEffect.html">데이터 효과</a></li>
+                <li><a href="../effect/mouseEffect.html">마우스 효과</a></li>
+                <li><a href="../effect/sliderEffect.html">슬라이드 효과</a></li>
+                <li><a href="../effect/parallaxEffect.html">패랠랙스 효과</a></li>
+                <li><a href="../effect/gameEffect.html">게임 효과</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">데이터 타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+                <li><a href="join.html">배열 메서드</a></li>
+                <li><a href="../effect/study/quiz01.html">퀴즈 만들기</a></li>
+                <li><a href="velog.html">내장함수</a></li>
+                <li><a href="slice.html">문자열 변경 메서드</a></li>
+                <li><a href="indexof.html">문자열 검색 메서드</a></li>
+                <li><a href="RegEXP.html">정규식 표현</a></li>
+                <li><a href="text.html">문자열 결합/템플릿 문자열</a></li>
+                <li><a href="trim.html">소/대문자/공백</a></li>
+                <li><a href="split.html">split()</a></li>
+                <li><a href="repeat.html">replace()/replaceAll()</a></li>
+                <li><a href="concat.html">concat()</a></li>
+                <li><a href="repeat.html">repeat()</a></li>
+                <li><a href="padStart.html">padStart()/padEnd()</a></li>
+                <li><a href="includes.html">includes()</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">함수의 유형</h2>
+            <p class="t_desc2">
+                함수는 저번에 함수에 대해서 배웠듯이 '선언적함수(일반 함수 문법), 익명 함수, 매개변수 함수, 리턴값 함수'로 나뉩니다. 
+                이번에는 이 함수들을 응용해서 실전에서 자주 쓰이는 함수의 여러가지 유형에 대해서 배워보겠습니다.
+                함수가 뭔지 모른다구요? 얼른 달려가서 보고 와주세요!!! <a href="https://sshin4882.tistory.com/10?category=1030202" class="t_link" target="blank">(☞함수 기본☜)</a>
+            </p>
+            <hr>
+            <h3 class="t_tit2">01_ 함수와 매개변수를 이용한 형태</h3>
+            <p class="t_desc">
+                함수와 매개변수를 응용한 케이스입니다. 각 매개변수에 실행문에 기입한 변수를 대입시켜 출력할 수 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">function func(num, str1, str2){
+    document.write(num+"."+str1+str2+"되었니?");
+}
+func("1", "함수", "실행");          //각각 "1" = "num", "함수" = "str1", "실행" = "str2" 에 대응
+func("2", "자바스크립트", "실행");
+func("3", "제이쿼리", "실행");
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div>
+                        1.함수실행되었니? 2.자바스크립트실행되었니? 3.제이쿼리실행되었니?
+                    </div>
+                </details>
+            </div>
+            <h3 class="t_tit2">02_ 함수와 변수를 이용한 형태</h3>
+            <p class="t_desc">
+                1번 유형에서 한단계 더 나아간 모습입니다. 실행문의 변수에 들어갈 변수를 함수 이후에 선언해서
+                1번 유형처럼 대입시켜 출력합니다. 
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">function func(num, str1, str2){
+    document.write(num + ". "+str1+"가 "+str2+"되었습니다.");
+}
+const youNun1 = 1;
+const youNun2 = 2;
+const youNun3 = 3;
+const youStr1 = "함수";
+const youStr2 = "자바스크립트";
+const youStr3 = "제이쿼리";
+const youCom1 = "실행";
+
+func(youNun1, youStr1, youCom1);        
+func(youNun2, youStr2, youCom1);
+func(youNun3, youStr3, youCom1);
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div>
+                        1. 함수가 실행되었습니다. 2. 자바스크립트가 실행되었습니다. 3. 제이쿼리가 실행되었습니다.
+                    </div>
+                </details>
+            </div>
+            <h3 class="t_tit2">03_ 함수와 변수를 이용한 형태2</h3>
+            <p class="t_desc">
+                2번 유형의 단점을 보완한 3번 유형입니다. 변수를 배열안의 객체로 넣어서 활용하는 방법입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">function func(num, str1, str2){
+    document.write(num + ". "+str1+"가 "+str2+"되었습니다.<br>");
+}
+const info = [
+    {
+        num : "1",
+        name : "함수",
+        com : "실행"
+    },
+    {
+        num : "2",
+        name : "자바스크립트",
+        com : "실행"
+    },
+    {
+        num : "3",
+        name : "제이쿼리",
+        com : "실행"
+    }
+];
+
+func(info[0].num, info[0].name, info[0].com);
+func(info[1].num, info[1].name, info[1].com);
+func(info[2].num, info[2].name, info[2].com);
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div>
+                        1. 함수가 실행되었습니다. 2. 자바스크립트가 실행되었습니다. 3. 제이쿼리가 실행되었습니다.
+                    </div>
+                </details>
+            </div>
+            <h3 class="t_tit2">04_ 객체 안에 변수와 함수를 이용한 형태</h3>
+            <p class="t_desc">
+                객체안에 변수와 함수까지 넣어 출력하는 형태입니다.
+                이 방법은 간편하기는 하지만, 함수의 큰 특징인 <i>재활용</i>을 하지 못한다는 단점이 발생합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const info = {
+    num1 : 1,
+    name1 : "함수",
+    com : "실행",
+    num2 : 2,
+    name2 : "자바스크립트",
+    num3 : 3,
+    name3 : "제이쿼리",
+    
+    result1 : function(){
+        document.write(info.num1+". "+info.name1+"가 "+info.com+"되었습니다.");
+    },
+    result2 : function(){
+        document.write(info.num2+". "+info.name2+"가 "+info.com+"되었습니다.");
+    },
+    result3 : function(){
+        document.write(info.num3+". "+info.name3+"가 "+info.com+"되었습니다.");
+    }
+};
+
+info.result1();
+info.result2();
+info.result3();
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div>
+                        1. 함수가 실행되었습니다. 2. 자바스크립트가 실행되었습니다. 3. 제이쿼리가 실행되었습니다.
+                    </div>
+                </details>
+            </div>
+            <h3 class="t_tit2">05_ 객체 생성자 함수</h3>
+            <p class="t_desc">
+                재활용 하지 못하던 4번 유형의 단점을 개선한 케이스입니다. this.를 이용해서 변경되는 변수값을 계속해서 재활용
+                할 수가 있습니다.
+                <br><i>this</i>가 들어가야 하며, <i>인스턴트</i>를 생성해야만 실행이 가능합니다.
+            </p>
+            <p class="t_desc2">this.</p>
+            <p class="t_desc">
+                간단하게 알아보고 갈게요.
+                이 친구는 항상 객체를 참조하고, 어떠한 값이든 될 수 있는 친구입니다.
+                <br>- 단독 사용 : global object를 가리킵니다.
+                <br>- 함수안에서 사용 : 함수의 주인에게 바인딩 됩니다.
+                <br>- 메서드 안에서 사용 : 메서드 내부 코드에서 사용된 this는 해당 메서드를 호출한 객체로 바뀝니다.
+                <br>- 생성자 안에서 사용 : 생성자 함수가 생성하는 객체로 바인딩됩니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">function func(num, name, word){
+    this.num = num;                 
+    this.name = name;
+    this.word = word;
+
+    this.result = function(){
+        document.write(this.num+". "+this.name+"가 "+this.word+"되었습니다.");
+    }
+};
+
+// 인스턴스 생성
+const info1 = new func("1", "함수", "실행");
+const info2 = new func("2", "자바스크립트", "실행");
+const info3 = new func("3", "제이쿼리", "실행");
+
+// 실행
+info1.result();
+info2.result();
+info3.result();
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div>
+                        1. 함수가 실행되었습니다. 2. 자바스크립트가 실행되었습니다. 3. 제이쿼리가 실행되었습니다.
+                    </div>
+                </details>
+            </div>
+            <h3 class="t_tit2">06_ 프로토타입 함수</h3>
+            <p class="t_desc">
+                다중함수 존재시 불필요한 함수까지 실행되는 것을 막기 위해 필요한 함수만 사용하도록
+                프로토타입을 활용합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">function func(num, name, word){
+    this.num = num;                 
+    this.name = name;
+    this.word = word;
+};
+
+func.prototype.result = function(){
+    document.write("<br>"+this.num+". "+this.name+"가 "+this.word+"되었습니다.");
+}
+
+// 인스턴스 생성
+const info1 = new func("1", "함수", "실행");
+const info2 = new func("2", "자바스크립트", "실행");
+const info3 = new func("3", "제이쿼리", "실행");
+
+// 실행
+info1.result();
+info2.result();
+info3.result();
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div>
+                        1. 함수가 실행되었습니다. 2. 자바스크립트가 실행되었습니다. 3. 제이쿼리가 실행되었습니다.
+                    </div>
+                </details>
+            </div>
+            <h3 class="t_tit2">06_ 프로토타입 함수</h3>
+            <p class="t_desc">
+                다중함수 존재시 불필요한 함수까지 실행되는 것을 막기 위해 필요한 함수만 사용하도록
+                프로토타입을 활용합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">function func(num, name, word){
+    this.num = num;                 
+    this.name = name;
+    this.word = word;
+};
+
+func.prototype.result = function(){
+    document.write("<br>"+this.num+". "+this.name+"가 "+this.word+"되었습니다.");
+}
+
+// 인스턴스 생성
+const info1 = new func("1", "함수", "실행");
+const info2 = new func("2", "자바스크립트", "실행");
+const info3 = new func("3", "제이쿼리", "실행");
+
+// 실행
+info1.result();
+info2.result();
+info3.result();
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div>
+                        1. 함수가 실행되었습니다. 2. 자바스크립트가 실행되었습니다. 3. 제이쿼리가 실행되었습니다.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

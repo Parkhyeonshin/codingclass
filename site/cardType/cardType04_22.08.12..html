@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 유형04</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/sebang/SebangGothic.css');
+
+        .Gothic {
+            font-family: 'SebangGothic';
+            font-weight: 300;
+
+        }
+
+        /* 리셋 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        img {
+            width: 100%;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+
+        .wrap {
+            width: 1160px;
+            padding: 120px;
+            margin: 0 auto;
+            min-width: 1160px;
+            /* background-color: #f5f5f5; */
+        }
+        
+        /* header */
+        .wrap span {
+            border-top: 1px solid #000;
+            display: block;
+        }
+        .wrap h2 {
+            width: 130px;
+            height: 25px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #000;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        /* main */
+        .container{
+            display: flex;
+        }
+        .container .main_text {
+            width: 373px;
+            margin-left: 20px;
+        }
+        .container .main_text .p1{
+            margin-bottom: 10px;
+        }
+        .container .main_text h3{
+            margin-bottom: 10px;
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 1.1;
+        }
+        .container .main_text .p2{
+            margin-top: 243px;
+        }
+       /* article */
+       article {
+        border-top: 1px solid #666;
+        margin-top: 30px;
+        padding-top:10px;
+        display: flex;
+        flex-wrap: wrap;
+       }
+       article div {
+        width: 275px;
+        flex-wrap: wrap;
+        display: flex;
+       }
+       article div:nth-child(1),
+       article div:nth-child(2),
+       article div:nth-child(3){
+        margin-right: 20px;
+       }
+       article div p {
+        width: 180px;
+        margin-right: 10px;
+       }
+       article div b {
+        display: block;
+       }
+       
+       article .btmimg img{
+        width: 85px;
+        height: 85px;
+       }
+    </style>
+</head>
+<body>
+    <section id="cardType04" class=" Gothic wrap">
+        <haeder>
+            <span></span>
+            <h2>호박고구마</h2>
+        </haeder>
+        <main class="container">
+            <figure>
+                <img src="img/card_bg04_main.jpg" alt="호박고구마">
+            </figure>
+            <div class="main_text">
+                <p class="p1">
+                    거침없이 하이킥
+                </p>
+                <h3>나문희의 와 박해미의 호박고구마 배틀</h3>
+                <p class="p1">
+                    순재, 문희, 해미, 준하
+                </p>
+                <p class="p2">
+                    음 맛있다~ 어머님 마트... 다녀오셨어요? 아니~ 영기 엄마가 텃밭에서 고구마 호박을 ... 고구마호박 호박고구마 고무마호박 호박고구마
+                </p>
+            </div>
+        </main>
+        <article>
+            <div>
+                <p>박해미 <b>호박고구마요 어머님~</b></p>
+                <figure class="btmimg">
+                    <img  src="img/card_bg04_01.jpg" alt="호박">
+                </figure>
+            </div>
+            <div>
+                <p>나문희 <b>그래그래그래 호구마....!아....아니..</b></p>
+                <figure class="btmimg">
+                    <img  src="img/card_bg04_02.jpg" alt="호박">
+                </figure>
+            </div>
+            <div>
+                <p>박해미 <b>호구마요??(흐흫) 호박-호-박-고-구...</b></p>
+                <figure class="btmimg">
+                    <img  src="img/card_bg04_03.jpg" alt="호박">
+                </figure>
+            </div>
+            <div>
+                <p>나문희 <b>호-박-고구-마- 호박-고구마아아아아아앙!!!!!!</b></p>
+                <figure class="btmimg">
+                    <img  src="img/card_bg04_04.jpg" alt="호박">
+                </figure>
+            </div>
+        </article>
+        
+    </section>
+</body>
+</html>

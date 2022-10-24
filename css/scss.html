@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : SCSS</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+    <style>
+        #main .document .btnflex{
+    	    display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">CSS _ SCSS</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="basic.html">기초</a></li>
+                <li><a href="#.html">주제</a></li>
+                <li><a href="index.html">알파벳</a></li>
+                <li><a href="bector.html">벡터/비트맵 방식</a></li>
+                <li><a href="grammar.html">기본 문법</a></li>
+                <li><a href="media.html">미디어 쿼리</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+                <li class="active"><a href="scss.html">SCSS</a></li>
+                <li><a href="ir.html">이미지스프라이트/IR/백그라운드 표현</a></li>
+                <li><a href="unit.html">단위</a></li>
+                <li><a href="color.html">색상 표현법</a></li>
+                <li><a href="hide.html">요소 숨기기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">SCSS</h2>
+            <div class="t_desc2">
+                CSS는 많이 들어봤는데 SCSS는 생소하시죠...? 오늘은 이 생소한 친구에 대해 파헤쳐 볼건데요.
+                쉽게 생각해서 CSS를 좀더 편하게 쓰기 위한 녀석입니다. 이 언어는 Sass라는 언어와 자주 묶여서 설명이 나오는데요. 이 둘은 
+                문법 생김새는 다르지만 사실 같은 파생언어라고 봐도 무방합니다. 그리고 Sass보다는 SCSS의 활용수, 사용자 수 가 많으므로 여기서는 SCSS를 다룰게요.
+            </div>
+            <hr>
+            <h3 class="t_tit2">■ 개념</h3>
+            <div class="t_desc2"> 
+                Sassy CSS란 뜻인데요. 이걸 풀이하자면 문법적으로 멋있는(Sassy) CSS란 뜻이에요. 
+               <br>SCSS란 매우 쉽게 말하자면 <i>CSS를 편리하게 사용할 수 있도록</i> 하며 추가 기능 또한 있는 확장판 스크립트 언어에요.
+               <br>SCSS는 중첩, 변수 선언, 연산자 등 많은 장점이 있습니다. 그중에서도 가장 대표적인 장점으론 <i>셀렉터 중첩기능</i>이 있습니다.
+            </div>
+            <p class="t_desc">▶셀렉터 중첩 기능 예시</p>
+            <p class="t_box">
+                //<i></i>CSS 작성</i>
+                nav ul {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    margin: 0;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    padding: 0;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    list-style: none;
+                <br>}
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;  nav li {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    display: inline-block;
+                <br>}
+                <br>nav a {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;     display: block;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;   padding: 6px 12px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;  text-decoration: none;
+                <br>}
+
+                <br><br>//<i>같은 코드를 SCSS로 구현</i>
+                <br>nav {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;ul {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; margin: 0;
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; padding: 0;
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; list-style: none;
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;  }
+                  
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;li { display: inline-block; }
+                  
+                      <br>&nbsp;&nbsp;&nbsp;&nbsp;a {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display: block;
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; padding: 6px 12px;
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text-decoration: none;
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;}
+                 <br> }
+            </p>
+            <h3 class="t_tit2">■ 장점</h3>
+            <p class="t_desc">
+                - CSS보다 심플한 표기법
+                <br>- 가독성과 재사용성이 높아 유지보수가 쉽습니다.
+                <br>- 다른 팀엄과의 작업시 수준차이를 평준화 할 수 있습니다.
+                <br>- CSS의 태생적 한계를 보완하기 위해 유용한 기능, 도구(변수의 사용, 조건문과 반복문, 임포트...)을 제공한다.
+                <br>- 선택자의 중첩을 통해 반복되는 부모요소 선택자 사용수를 줄일 수 있습니다.
+                <br>- 반복문, 조건문 사용으로 동적 CSS 
+                <br>- 상속되는 선택자를 계층적 명시를 통해 불필요한 반복사용을 줄일 수 있습니다.
+            </p>
+            <h3 class="t_tit2">■ 단점</h3>
+            <p class="t_desc">
+                - 전처리기를 위한 도구가 필요합니다.
+                <br>- 컴파일 시간이 소요됩니다.
+            </p>
+            <h3 class="t_tit2">■ 사용법</h3>
+            <p class="t_desc">▶ 변수(Variables)
+                <br> CSS에서도 변수선언은 가능하지만, SCSS에서는 더 간편하게 선언 및 사용이 가능합니다.
+            </p>
+            <p class="t_box">
+                $color: #ed5b46;
+                <br>$borderRadius: 5px;
+
+                <br>div {
+                    
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    background-color: $color;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    border-radius: $borderRadius;
+                    <br>}
+            </p>
+            <p class="t_desc">▶ 중첩(Nesting)
+                <br> 셀렉터 중첩이나 속성 중첩 등 상위 요소를 참조하는 것이 가능합니다.
+            </p>
+            <p class="t_box">
+                // 일반 CSS 코드
+                <br>label {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;padding: 3% 0px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;width: 100%;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;cursor: pointer;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;color: $colorPoint;
+                <br>}
+                <br>label:hover {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;color: white;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;background-color: $color8;
+                <br>} 
+                
+                <br><br>// SCSS 코드
+                <br>label {
+                
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;padding: 3% 0px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;width: 100%;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;cursor: pointer;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;color: $colorPoint;
+                
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&:hover {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: white;
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: $color;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;}
+                <br>}
+            </p>
+            <p class="t_desc">▶ 임포트(Import)
+                <br> 기존 CSS import와 기능이 같습니다. 활용도가 단순하고,확실합니다.
+            </p>
+            <p class="t_box">
+                @import "common.scss";
+                <br><br>.label {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;height: 100%;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;align-center: 100%;
+                }
+            </p>    
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

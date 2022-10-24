@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 페럴렉스06</title>
+
+        <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+
+        <style>
+            #main .document .btnflex {
+                display: flex;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">페럴렉스 효과 06</h2>
+                <div class="t_desc2">
+                    이번 시간에는 글씨가 나타나는 효과를 주겠습니다.
+                </div>
+                <hr />
+
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0">
+                    <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/parallaxEffect06.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link btnflex">
+                    <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/parallaxEffect06.html" target="_blank"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/parallaxEffect06.html" target="_blank">원본 사이트</a>
+                </div>
+                <hr />
+                <div class="t_desc">
+                </div>
+                <h3 class="t_tit2">JS 소스</h3>
+                <div class="t_code">
+<pre><code class="language-js">document.querySelectorAll(".split").forEach(text => {
+    let splitText = text.innerText;
+    let splitWrap = splitText.split('').join("&lt;/span&gt;&lt;span aria-hidden='true'&gt;");
+    splitWrap = "&lt;span aria-hidden='true'&gt;" + splitWrap + "&lt;/span&gt;";
+    text.innerHTML = splitWrap;
+    text.setAttribute("aria-label", splitText);
+})
+
+function scroll() {
+    let scrollTop = window.scrollY;
+    document.querySelector("#parallax__info .scroll").innerText = Math.round(scrollTop) + "px";
+
+    document.querySelectorAll(".content__item").forEach(item => {
+        if (scrollTop >= item.offsetTop) {
+            item.querySelectorAll(".split span").forEach((e, i) => {
+                e.classList.add("show")
+                item.querySelector(".split span:nth-child(" + (i + 1) + ")").style.transform = "translateX(10px)";
+                item.querySelector(".split span:nth-child(" + (i + 1) + ")").style.transitionDelay = (i/0.5) + "00ms";//"0."+i+"s"
+                item.querySelector(".split span:nth-child(" + (i + 1) + ")").style.opacity = "1";
+            })
+        }
+    })
+
+    requestAnimationFrame(scroll);
+}
+scroll();
+</code></pre>
+                </div>
+                <h2 class="t_tit2">■ 핵심 찍먹하기🪓</h2>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ addEventListener("scroll")을 대체하자! (재귀함수 쓰기)</h2>
+                <p class="t_desc">
+                    <br>자기 자신을 계속해서 실행하는 재귀함수를 이용할 건데요. 이걸 그냥 사용하게되면 문제가 발생합니다. 
+                    뭘까요? 무한궤도에 빠집니다. 기껏 자기자신을 실행시켰는데 실행 다하고 나니깐 또 자기자신을 실행시키라고 하니깐요. 근데? 이걸 무한반복해야 하니 얼마나 힘들까요.
+                    <br> 그래서 <i>  requestAnimationFrame</i>를 사용해서 1초에 60번만 실행시키도록 해줍니다. 이걸로 컴퓨터도 숨통이 트이겠군요💨
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ 글자를 한개씩 개별로 쪼개자</h2>
+                <p class="t_desc">
+                    글자를 쪼개기 위해서 desc에 split이라는 새로운 class를 부여했고 이걸 활용해서 desc를 가져옵니다. 
+                    이후에   let splitText = text.innerText; 으로 텍스트형식으로 변수에 집어넣습니다
+                </p>
+                <p class="t_box">
+                    한번의 실패와 영원한 실패를 혼동하지 마라
+                </p>
+                <p class="t_desc">
+                    이 가져온 변수에 .split()메서드를 통해서 각각을 배열 구조로 변경합니다.
+                </p>
+                <p class="t_box">
+                    ['한', '번', '의', ' ', '실', '패', '와', ' ', '영', '원', '한', ' ', '실', '패', '를', ' ', '혼', '동', '하', '지', ' ', '마', '라']
+                </p>
+                <p class="t_desc">
+                    그리고 join()메서드를 이용해서 각각을 하나의 span태그로 묶어줍니다. 
+                </p>
+                <p class="t_box">
+                    한&lt;/span&gt;&lt;span aria-hidden='true'&gt;번&lt;/span&gt;&lt;span aria-hidden='true'&gt;의
+                </p>
+                <p class="t_desc">
+                    이후에 맨첫번째 글자도 묶기 위해서 한번 더 반복읋 해줍니다 (splitWrap 참조)
+                </p>
+                <p class="t_box">
+                    &lt;span aria-hidden='true'&gt;한&lt;/span&gt;&lt;span aria-hidden='true'&gt;번&lt;/span&gt;
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ aria-hidden은 왜줌?</h2>
+                <p class="t_desc">
+                    스크린리더가 접근하는 것은 원하지 않지만, 시각적으로 보여주게 하기 위해서 사용하는 속성입니다. true값은 
+                    스크린리더가 접근하지 못하게 합니다.
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ 그럼 'aria-label'은 왜줌?</h2>
+                <p class="t_desc">
+                    aria-label은 태그가 가지고 있는 의미를 적어주는 이름표 역할을 합니다.
+                    예를 들어 ≡ 이런 햄버거 메뉴가 있다고 치는데, 이 햄버거메뉴의 코드는 다음과 같다고 가정해봅시다.
+                </p>
+                <p class="t_box">
+                    &lt; div&gt;
+                    <br>&nbsp;&nbsp;&lt;a herf="#"&gt;&lt;/a&gt;
+                    <br>&lt;/div&gt;
+                </p>
+                <p class="t_desc">a링크에 css를 통해 햄버거 메뉴이미지를 넣었다고 한다면, 우리는 태그와 css정보를 통해 
+                    텍스트는 없지만 메뉴를 펼치고 닫는 버튼이라고 짐작할 수 있습니다. 그런데 스크린 리더는 이런 정보를 우리가 
+                    지정해주지 않으면 알수가 없으므로 (내부-링크)라고 읽을거에요. 그렇다면 여기에 'aria-label = "메뉴"'라고 저희가 지정해준다면요?
+                </p>
+                <p class="t_box">
+                    &lt; div&gt;
+                    <br>&nbsp;&nbsp;&lt;a herf="#" aria-label = "메뉴"&gt;&lt;/a&gt;
+                    <br>&lt;/div&gt;
+                </p>
+                <p class="t_desc">
+                    그럼 스크린리더가 (메뉴 내부-링크)라고 읽을것입니다. 그렇다면 저희가 이번 js태그에 왜 label을 썼는지 짐작이 가시나요?
+                    <br>우리는 각각쪼갠 글자를 'aria-hidden:true'로 스크린리더에 읽히지 않게 했습니다. 
+                    당연히 한글자씩 읽게되면 뭔소린지 알수가없으므로 이렇게 지정한건데요. 그렇다고 스크린리더가 텍스트를 안읽고 지나치게 할 수는 없잖아요?
+                    <br>그래서 기존에 문장전체를 텍스트형식으로 넣었던 'splitText'변수를 그대로 'aria-label'에 집어넣어 스크린리더가 하나의 문장으로 
+                    읽도록 유도한겁니다.
+                    <br>(이해가 안되시는 분들은 한 줄씩 clg를 통해서 직접 보시면 아마 이해가 빠르지 않을까 싶습니다. clg짱👍)
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ 각 텍스트들을 딜레이주기</h2>
+                <p class="t_desc">
+                    우리는 글자를 한글자씩 쪼갰죠? 그럼 이제 한글자씩 차레대로 나타나게 하기 위해서 각각 글자를 딜레이를 줍니다. 
+                    그런데 일일히 지정을 언제하죠? 벌써 한숨이...🤦‍♀️
+                    <br>그래서 우리는 각 span의 index값을 추출한 뒤 'nth-child'를 이용해줍니다. 
+                </p>
+                <p class="t_box">
+                    item.querySelector(".split span:nth-child(" + (i + 1) + ")").style.transitionDelay = (i/0.5) + "00ms";//"0."+i+"s"
+                </p>
+                <p class="t_desc">
+                    이렇게 한다면 번거롭게 수작업하지 않아도 뒤에있는 span일수록 i가 커지므로 당연히 딜레이도 길어지겠죠?
+                    그럼 저희가 원하는 효과를 만들 수 있어요~
+                </p>
+                <h2 class="t_tit2">■ 그림 설명은 못 참지🎨</h2>
+                <img width="100%" src="blogimg/parallax06_blog01.jpg" alt="그림설명">
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

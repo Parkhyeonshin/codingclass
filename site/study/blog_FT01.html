@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>푸터 유형01</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../javascript/assets/css/dracula.css">
+
+    <style>
+        .document #main .btnflex{
+        	display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
+        <h1><a href="../index.html">사이트 만들기</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="#.html">푸터 유형 01</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <div class="document">
+        <div id="main">
+            <h2 class="t_tit">사이트 만들기 _ 푸터 유형01</h2>
+            <p class="t_desc2">
+                오늘은 사이트에서 최하단을 담당하는 푸터 유형을 만들어 보겠습니다. 보통 회사 사이트의 경우 회사의 주소 등을 입력하는 곳입니다.
+            </p>
+
+            <hr>
+
+            <h3></h3>
+            <div class="t_iframe">
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fd1alnzzZPOOZzULTEK3Bv7%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D2095%253A852" allowfullscreen></iframe>
+            </div>
+
+            <hr>
+            <figure class="card__header">
+            </figure>
+            <h3 class="t_tit2">■ 그림으로 미리보기🎨</h3>
+            <img src="../footerType/img/footerType_bg.jpg" alt="이미지1">
+            <h3 class="t_tit2">■ 핵심내용✍</h3>
+            <p class="t_desc">
+                간단한 부분이라 이렇다할 내용은 없습니다. '.footer__menu '안의 내용은 flex로 코딩하여 메뉴들이 일렬로 배치될 수 있도록 해주세요.
+            </p>
+            <h3 class="t_tit2">CSS 속성</h3>
+            <div class="t_code">
+<pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+.nexon {
+    font-family: "NexonLv1Gothic";
+    font-weight: 400;
+}
+
+/* 리셋 */
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+img {
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+li{
+    list-style: none;
+}
+/* common */
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+.section {
+    padding: 120px 0;
+}
+.section > h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.section > p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #666;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.footer__menu {
+    display: flex;
+    margin-bottom: 70px;
+}
+.footer__menu > div {
+    width: 16%;
+}
+.footer__menu h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.footer__menu li a {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0;
+    display: block;
+}
+.footer__right {
+    border-top: 1px solid #d9d9d9;
+    text-align: center;
+    padding-top: 40px;
+    color: #666;
+    line-height: 1.5;
+}
+.blind{
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+</code></pre>
+            </div>
+            <h3 class="t_tit2">HTML 속성</h3>
+            <div class="t_code">
+<pre><code class="language-html">&lt;footer id="footerType" class="footer__wrap nexon section"&gt;
+    &lt;h2 class="blind"&gt;푸터 영역&lt;/h2&gt;
+    &lt;div class="footer__inner container"&gt;
+      &lt;div class="footer__menu"&gt;
+        &lt;div&gt;
+          &lt;h3&gt;사이트&lt;/h3&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href="/"&gt;웹표준 사이트&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;반응형 사이트&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;페럴럭스 사이트&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;포트폴리오 사이트&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h3&gt;사이트&lt;/h3&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href="/"&gt;웹표준 사이트&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;반응형 사이트&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;페럴럭스 사이트&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;포트폴리오 사이트&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h3&gt;헤더 영역&lt;/h3&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href="/"&gt;메뉴 유형01&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;메뉴 유형02&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h3&gt;슬아이드 영역&lt;/h3&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href="/"&gt;슬라이드 유형01&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;슬라이드 유형02&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h3&gt;이미지 영역&lt;/h3&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href="/"&gt;이미지 유형01&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;이미지 유형02&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;이미지/텍스트 유형01&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;이미지/텍스트 유형02&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;텍스트 유형01&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h3&gt;컨텐츠 영역&lt;/h3&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href="/"&gt;카드 유형01&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;카드 유형02&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;카드 유형03&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h3&gt;푸터 영역&lt;/h3&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href="/"&gt;푸터 메뉴 유형01&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;푸터 컨텍트 유형02&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/"&gt;푸터 이메일 유형03&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="footer__right"&gt;
+      2022 Syumay. Portfolio is Power&lt;br /&gt;
+      All rights reserved.
+    &lt;/div&gt;
+  &lt;/footer&gt;
+  &lt;!-- //footerType --&gt;
+</code></pre>
+            </div>
+            <h3 class="t_tit2">결과보기</h3>
+            <div class="t_iframe">
+                <iframe src="https://parkhyeonshin.github.io/Coding/site/footerType/footerType01.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/site/footerType/footerType01.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/site/footerType/footerType01.html" target="_blank">원본 사이트</a>
+            </div>
+        </div>
+    </div>
+        <script src="../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+</body>
+</html>

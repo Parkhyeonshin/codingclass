@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : match </title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="effect">
+                <li><a href="../effect/searchEffect.html">검색 효과</a></li>
+                <li><a href="../effect/quizEffect.html">퀴즈 효과</a></li>
+                <li><a href="../effect/dataEffect.html">데이터 효과</a></li>
+                <li><a href="../effect/mouseEffect.html">마우스 효과</a></li>
+                <li><a href="../effect/sliderEffect.html">슬라이드 효과</a></li>
+                <li><a href="../effect/parallaxEffect.html">패랠랙스 효과</a></li>
+                <li><a href="../effect/gameEffect.html">게임 효과</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">데이터 타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+                <li><a href="join.html">배열 메서드</a></li>
+                <li><a href="../effect/study/quiz01.html">퀴즈 만들기</a></li>
+                <li><a href="velog.html">내장함수</a></li>
+                <li><a href="slice.html">문자열 변경 메서드</a></li>
+                <li><a href="indexof.html">문자열 검색 메서드</a></li>
+                <li><a href="RegEXP.html">정규식 표현</a></li>
+                <li><a href="text.html">문자열 결합/템플릿 문자열</a></li>
+                <li><a href="trim.html">소/대문자/공백</a></li>
+                <li><a href="split.html">split()</a></li>
+                <li><a href="repeat.html">replace()/replaceAll()</a></li>
+                <li><a href="concat.html">concat()</a></li>
+                <li><a href="repeat.html">repeat()</a></li>
+                <li><a href="padStart.html">padStart()/padEnd()</a></li>
+                <li><a href="includes.html">includes()</a></li>
+                <li><a href="search.html">search()</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">match()</h2>
+            <p class="t_desc2">
+                이 함수는 문자열 메서드 중 하나입니다. 오늘도 열심히 함수에 대해 배워보자구요!
+            </p>
+            <hr>
+            <h3 class="t_tit2">■ 개념</h3>
+            <p class="t_desc">
+                이 함수는 문자열을 찾아 <i>배열로 반환</i>합니다.
+                <br>이 메서드도 정규식을 지원합니다.
+            </p>
+            <h3 class="t_tit2">■ 문법</h3>
+            <p class="t_box">
+                "문자열".match("검색값");
+                <br>"문자열".match(정규식);
+            </p>
+            <h3 class="t_tit2">■ 특징</h3>
+            <p class="t_desc">
+                ▶<i>정규식을 지원합니다.</i>
+            </p>
+            <h3 class="t_tit2">■ 예제</h3>
+            <p class="t_desc">이해를 돕기 위해 예시를 들어봅시다. 주석으로 결과값을 작성하였습니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">const str1 ="javascript reference";
+const currentStr1 = str1.match("javascript");   //['javascript']
+const currentStr2 = str1.match("reference");    //['reference']
+const currentStr3 = str1.match("r");            //['r']
+const currentStr4 = str1.match(/reference/);    //['reference']
+const currentStr5 = str1.match(/Reference/);    //null
+const currentStr6 = str1.match(/Reference/i);    //['reference']
+const currentStr7 = str1.match(/r/g);    //['r', 'r', 'r']
+const currentStr8 = str1.match(/e/g);    //['e', 'e', 'e', 'e']
+</code></pre>
+            </div>
+            
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

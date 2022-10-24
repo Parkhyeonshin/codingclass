@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 유형03</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../javascript/assets/css/dracula.css">
+
+    <style>
+        .document #main .btnflex{
+        	display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
+        <h1><a href="../index.html">사이트 만들기</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="#.html">텍스트 유형 03</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <div class="document">
+        <div id="main">
+            <h2 class="t_tit">사이트 만들기 _ 텍스트 유형03</h2>
+            <p class="t_desc2">
+                이번 시간은 텍스트 유형 세번째 시간입니다.
+                이번엔 제가 임의로 만든 사이트라서 제가 여러가지 실험 아닌 실험을 많이한 사이트네요.
+                같이 가보시죠
+            </p>
+
+            <hr>
+
+            <h3></h3>
+            <div class="t_iframe">
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fd1alnzzZPOOZzULTEK3Bv7%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1739%253A1249" allowfullscreen></iframe>
+            </div>
+
+            <hr>
+            <figure class="card__header">
+            </figure>
+            <h3 class="t_tit2">■ 그림으로 미리보기🎨</h3>
+            <img src="../textType/img/text_type03_bg.jpg" alt="이미지1">
+            <h3 class="t_tit2">■ 핵심내용✍</h3>
+            <p class="t_desc" style="color: #999;">ir효과와 이미지스프라이트효과에 대한 설명은 또 할 이유가 있을까요ㅎㅎ패스하겠습니다.</p>
+            <div class="t_desc2">
+                구글 아이콘 활용하기!
+                <br><i>&lt;link rel="stylesheet" href="https:......200" /&gt;</i>
+                <br>&lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                <br>&lt;span class="material-symbols-rounded" style="color:#F1CB64; font-variation-settings:
+                'FILL' 0"&gt;star&lt;/span&gt;
+
+            </div>
+            <p class="t_desc">
+                오늘의 피그마를 보시면 <i>별점</i>을 메기는 박스가 있었는데요. 세개의 박스에 전부 <i>같은 별점그림이면 이미지태그</i>를 썼겠지만 
+                하나는 별점이 4개라서 두개의 이미지로 저장해서 또 넣기는 <i>조금 비효율적</i>인것 같더라구요!그래서  저는 이걸 이미지말고 또 색다른 방법으로 구현을 해보고 싶더라구요.
+                (근데 이게 웹표준을 준수할 수 있는 방법일지...😶) 
+                <br>아.무.튼! 단순하게 이미지파일로 하는것이 아니라 구글에 있는 아이콘을 <i>CDN링크</i>를
+                통해서 불러오고 CSS속성에서 <i>제가 컨트롤할 수 있도록</i> CSS삽입 방식으로 가져와서 작업을 했습니다. 
+                <br>원본은 색이 채워진 별모양인데요. 이러한 방법은 정해진 이름만을 사용해야만 잘 작동하는 단점이 있더라구요.
+                제가 이방법을 쓴 이유는 사실 색을 맘대로 채워넣고 색을 빼버리기 위해서 사용한 것입니다. CSS 스타일 부여는 태그에 직접 작성하는게
+                가장 0순위로 센놈이기 때문에 빈 별엔제가 직접 <i>font-variation-settings:'FILL' 0"</i>를 적용시켜 색을 빼버린것이죠.
+                이렇게 하면 이 사이트는 공부용이라 유지보수 할일은 없겠지만 추후에 유지보수를 할때는 편할 것 같네요!
+            </p>
+            <img src="../textType/img/text_type03_star.jpg" alt="이미지2">
+            <p class="t_desc2">
+                <i>.article__box에 두개로 나누어서</i> 작업하기
+            </p>
+            <p class="t_desc">
+                말로 설명이 힘들어서 그냥 그림으로 설명을 대체하고 싶네요. 그래도 간략하게 설명드리자면
+                아이콘이 있는 부분과 내용(제목, 글, 별점)이 들어갈 부분을 두개로 나눈 뒤 flex를 활용해 
+                나란히 배치 후 내용부분에서 다시한번더 안의 내용들의 배치를 해주는 방식으로 진행했습니다.
+            </p>
+            <img src="../textType/img/text_type03_box.jpg" alt="이미지3">
+            <p class="t_desc2">
+                <br>article:hover {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;background-color: #f5f5f5;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;border-radius: 20px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;animation: spin 1s;
+                <br>}
+                <br>@keyframes spin{
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;0%{transform: rotate(0deg) scaleX(1);}
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;10%{transform: rotate(-5deg)scaleX(1.3);}
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;30%{transform: rotate(5deg)scaleX(1.1);}
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;50%{transform: rotate(-5deg) scaleX(1.3);}
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;70%{transform: rotate(5deg)scaleX(1.1);}
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;100%{transform: rotate(0deg)scaleX(1);}
+                <br>}
+            </p>
+            <p class="t_desc">
+                오버효과를 주었는데요. 좌우로 살짝씩 흔들리면서 양옆으로 조금씩 퍼져보이게 작업했습니다.
+                좌우 회전효과를 위해서 <i>ratate</i>를 사용했고 퍼지는 효과는 <i>scaleX</i>를 사용해서
+                좌우로만 퍼지게끔 작업했습니다.
+            </p>
+            <img src="../textType/img/Web_Texttype3_gif1.gif" alt="이미지4">
+            <h3 class="t_tit2">CSS 속성</h3>
+            <div class="t_code">
+<pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/cookierun/CookieRun.css');
+
+.cookie {
+    font-family: 'CookieRun';
+    font-weight: 400;
+}
+
+/* 리셋 */
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+img {
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+/* common */
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+.section {
+    padding: 120px 0;
+}
+.section > h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+.section > p {
+    font-size: 20px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 70px;
+}
+.ir{
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+/* textType */
+.text__inner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+article{
+    width: 31%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+article:hover {
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    animation: spin 1s;
+}
+@keyframes spin{
+    0%{transform: rotate(0deg) scaleX(1);}
+    10%{transform: rotate(-5deg)scaleX(1.3);}
+    30%{transform: rotate(5deg)scaleX(1.1);}
+    50%{transform: rotate(-5deg) scaleX(1.3);}
+    70%{transform: rotate(5deg)scaleX(1.1);}
+    100%{transform: rotate(0deg)scaleX(1);}
+}
+article p {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+}
+article .article__box{
+    border-top: #666 solid 1px;
+    border-bottom: #666 solid 1px;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+article .article__box .icon{
+    background: url(../textType/img/text_type03.svg) no-repeat;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.text__inner article:nth-child(2) .article__box .icon{
+    background-position: -100px 0;
+}
+.text__inner article:nth-child(3) .article__box .icon{
+    background-position: -200px 0;
+}
+article .article__box .box_desc h3{
+    margin-right: 10px;
+    display: inline;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+article .article__box .box_desc p{
+    display: inline;
+}
+article a{
+    background-color: #ACACAC;
+    display: block;
+    width: 150px;
+    padding: 10px 0;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 50px;
+    font-size: 20px;
+    color: white;
+}
+
+.material-symbols-rounded {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+    font-size: 25px;
+}
+</code></pre>
+            </div>
+            <h3 class="t_tit2">HTML 속성</h3>
+            <div class="t_code">
+<pre><code class="language-html">&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /&gt;
+    &lt;!-- 아이콘링크, head 내부 style보다 위에 작성할것! --&gt;
+
+&lt;section id="textType03" class="text__wrap cookie section"&gt;
+        &lt;h2&gt;잠의 중요성💤&lt;/h2&gt;
+        &lt;p&gt;잠은 정말 소중합니다. 사람이 잠을 안자는게 아니라 못자면...잠시 잠든거 같기도...&lt;/p&gt;
+        &lt;div class="text__inner container"&gt;
+            &lt;article&gt;
+                &lt;p&gt;
+                    올빼미는 밤에 안졸려서 부럽네요. 잠은 언제쯤 자야 좋은걸까요. 잠 들수는 있을까요? 저도 모르겠네요
+                    내가 그린 기린 그림은 목이 긴 기린 그린 그림이고, 네가 그린 기린 그림은 목이 안 긴 기린 그린 그림이다. 야호 곧 7줄이 되....고싶은데 갈길이 먼거같기도하고 아닌거같긴한데 일곱줄효과를 위해 대충적자
+                &lt;/p&gt;
+                &lt;div class="article__box"&gt;
+                    &lt;div class="box_icon"&gt;
+                        &lt;div class="icon"&gt;&lt;span class="ir"&gt;icon&lt;/span&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="box_desc"&gt;
+                        &lt;h3&gt;올빼미&lt;/h3&gt;
+                        &lt;p&gt;는 잠을 안 자나&lt;/p&gt;
+                        &lt;div&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                        &lt;/div&gt;
+
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;a href="#"&gt;자세히보기&lt;/a&gt;
+            &lt;/article&gt;
+            &lt;article&gt;
+                &lt;p&gt;
+                    올빼미는 밤에 안졸려서 부럽네요. 잠은 언제쯤 자야 좋은걸까요. 잠 들수는 있을까요? 저도 모르겠네요
+                    내가 그린 기린 그림은 목이 긴 기린 그린 그림이고, 네가 그린 기린 그림은 목이 안 긴 기린 그린 그림이다. 야호 곧 7줄이 되....고싶은데 갈길이 먼거같기도하고 아닌거같긴한데 일곱줄효과를 위해 대충적자
+                &lt;/p&gt;
+                &lt;div class="article__box"&gt;
+                    &lt;div class="box_icon"&gt;
+                        &lt;div class="icon"&gt;&lt;span class="ir"&gt;icon&lt;/span&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="box_desc"&gt;
+                        &lt;h3&gt;올빼미&lt;/h3&gt;
+                        &lt;p&gt;는 잠을 안 자나&lt;/p&gt;
+                        &lt;div&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64; font-variation-settings:
+                            'FILL' 0"&gt;star&lt;/span&gt;
+                        &lt;/div&gt;
+
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;a href="#"&gt;자세히보기&lt;/a&gt;
+            &lt;/article&gt;
+            &lt;article&gt;
+                &lt;p&gt;
+                    올빼미는 밤에 안졸려서 부럽네요. 잠은 언제쯤 자야 좋은걸까요. 잠 들수는 있을까요? 저도 모르겠네요
+                    내가 그린 기린 그림은 목이 긴 기린 그린 그림이고, 네가 그린 기린 그림은 목이 안 긴 기린 그린 그림이다. 야호 곧 7줄이 되....고싶은데 갈길이 먼거같기도하고 아닌거같긴한데 일곱줄효과를 위해 대충적자
+                &lt;/p&gt;
+                &lt;div class="article__box"&gt;
+                    &lt;div class="box_icon"&gt;
+                        &lt;div class="icon"&gt;&lt;span class="ir"&gt;icon&lt;/span&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="box_desc"&gt;
+                        &lt;h3&gt;올빼미&lt;/h3&gt;
+                        &lt;p&gt;는 잠을 안 자나&lt;/p&gt;
+                        &lt;div&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                            &lt;span class="material-symbols-rounded" style="color:#F1CB64;"&gt;star&lt;/span&gt;
+                        &lt;/div&gt;
+
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;a href="#"&gt;자세히보기&lt;/a&gt;
+            &lt;/article&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+</code></pre>
+            </div>
+            <h3 class="t_tit2">결과보기</h3>
+            <div class="t_iframe">
+                <iframe src="https://parkhyeonshin.github.io/Coding/site/textType/textType03.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/site/textType/textType03.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/site/textType/textType03.html" target="_blank">원본 사이트</a>
+            </div>
+        </div>
+    </div>
+        <script src="../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+</body>
+</html>

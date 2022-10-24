@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 마우스03</title>
+
+        <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+
+        <style>
+            #main .document .btnflex {
+                display: flex;
+            } 
+        </style>
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="../../../javascript/index.html">Javascript_Mouse03</a></h1>
+            <nav class="header_nav">
+                <ul class="study">
+                    <li><a href="mouse01.html">마우스 이펙트1</a></li>
+                    <li><a href="mouse02.html">마우스 이펙트2</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">마우스 효과 03</h2>
+                <div class="t_desc2">
+                    이번 시간에는 마우스 위치에만 배경이미지가 보이는 효과를 만들어 보겠습니다. 
+                    <br>저번과 마찬가지로 <i>GSAP</i>를 활용해 볼 예정입니다.
+                </div>
+                <hr />
+
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0">
+                    <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/mouseEffect03.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link btnflex">
+                    <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/mouseEffect03.html" target="_blank"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/mouseEffect03.html" target="_blank">원본 사이트</a>
+                </div>
+                <hr />
+                <div class="t_desc">
+                </div>
+                <h3 class="t_tit2">JS 소스</h3>
+                <div class="t_code">
+                    <pre><code class="language-js">const cursor = document.querySelector(".mouse__cursor");
+
+// 원의 width값 구하기
+// const circleW = cursor.offsetWidth;		//200
+// const circleH = cursor.offsetHeight;	//200
+// const circle2 = cursor.clientWidth;		//190 : 보더값 제외
+
+//요새는 이걸 많이 씀. 각종값을 객체로 반환
+const circle = cursor.getBoundingClientRect();
+console.log(circle);
+// {x: 0, y: 0, width: 200, height: 200, top: 0, …}
+window.addEventListener("mousemove", (e) => {
+    gsap.to(cursor, {
+        duration: 0.3,
+        left: e.pageX - circle.width / 2,
+        top: e.pageY - circle.height / 2,
+    });
+});
+</code></pre>
+                </div>
+                <p class="t_tit2">■ 핵심 찍먹하기🪓</p>
+
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ GSAP</h2>
+                <p class="t_desc">
+                    CDN으로 항상 스크립트가져오셔야해요! <br>
+                    gsap.to ()에는 2가지 필수값이 필요합니다. 바로 <i>대상과 속성</i>입니다.
+                    그렇다면 우리 소스에서는 어떻게 작동하는걸까요?
+                    <br> 사용된 속성은 다음과 같습니다.
+                </p>
+                <p class="t_box">
+                    - duration : 애니메이션의 지속시간을 설정합니다. 0.3s로 지정했는데 이 지속시간이 계속 누적되어 진행되므로 마치 마우스가
+                    천천히 따라오는듯한 효과를 내는 것입니다.
+                    - left: e.pageX, top : e.pageY : 이제는 다들 아시겠지만 CSS에 left와 top값을 부여했었는데요. 이 값을 pageX,Y(문서 상단 경계 기준으로 좌표값 추출)만큼 이동시킵니다. 
+                </p>
+                <p class="t_desc">
+                    아직도 GSAP는 왜 js보다도 더 부드러운지 이유를 못찾았습니다. 대체 뭘까요
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ getBoundingClientRect()</h2>
+                <p class="t_desc">
+                    우리는 기존 마우스유형에서 계속해서 봤듯이 마우스포인터에 해당하는 클래스 ".mouse__cursor"의 위치좌표를
+                    실시간으로 받아서 적용(?)입력(?)시켜야 합니다. 이 좌표값은 'pageX, Y'로 구할 수 있는데요. 문제는 이렇게만 적용시키면
+                    좌표의 기준값이 좌측상단(0,0)이 기준점이 되므로 커서포인터가 포인터 정중앙에 오지않아요. 그래서 정중앙으로 올 수 있도록
+                    <i>'커서포인터 넓이/2, 높이/2'</i>를 해서 포인터 정중앙에 오도록 만들어야합니다. 
+                </p>
+                <p class="t_box">
+                    원의 가로세로값 구하기
+                    <br>const circleW = cursor.offsetWidth;
+                    <br>const circleH = cursor.offsetHeight;
+                    <br>const circle2 = cursor.clientWidth;
+                </p>
+                <p class="t_desc">
+                    그런데 이 속성을 사용해도 되지만 <i>getBoundingClientRect()</i>를 사용하게되면 해당 요소의
+                    각종 정보를 객체형식으로 뽑아낼 수 있습니다.
+                    그래서 여기서 나온 width와 hieght값을 이용해서 작업한다면 편하게 작업할 수 있습니다.
+                </p>
+                <img src="blogimg/mouseEffect03_blog1.jpg" alt="이미지1">
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ 배경이미지를 커서CSS에 넣기</h2>
+                <p class="t_desc2">
+                    .mouse__cursor {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    position: absolute;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    left: 0;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    top: 0;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    width: 200px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    height: 200px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    z-index: -1;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    border-radius: 50%;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    <i>background-image: url(../assets/img/effect_bg18.jpg);</i>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    <i>background-size: cover;</i>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    <i>background-position: center;</i>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    <i>background-attachment: fixed;</i>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    border: 10px solid snow;
+                    <br>}
+                </p>
+                <p class="t_desc">
+                    배경에 이미지를 넣는게 아니라, 'mouse__cursor'클래스에 배경이미지를 부여해줍니다. 단, 그냥 부여하게 되면
+                    이미지가 요소안에만 들어가게 됩니다. 그래서 배경이미지를 화면 전체에 넣고 고정시키게 합니다.
+                    그러면 요소의 영역은 200px X 200px 이므로 이 영역에 해당되는 부분만 이미지가 보여지게 되겠죠?
+                    <br>그러고 나서 위의 js를 입혀서 마우스에 따라 이동하게 한다면? 마우스포인터가 위치하는 좌표에서 이미지가 보이게 됩니다.
+                </p>
+                <p class="t_box">
+                    background-image: url(../assets/img/effect_bg18.jpg);
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    background-size: cover;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    background-position: center;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    background-attachment: fixed;  
+                </p>
+                <p class="t_desc">
+                    &nbsp;&nbsp;&nbsp; - 배경 이미지 고정 방식
+                    <br> scroll : 기본값, 이미지가 요소기준 상대위치로 잡힙니다.
+                    <br> fixed : 이미지가 윈도우 기준 상대위치로 잡힙니다. 스크롤바를 내려도 이미지 위치는 그대로 입니다.
+                    <br> local : 스크롤 할 때 요소의 내용에 상대적인 위치로 잡힙니다. 잘 안쓰입니다.
+                    overflow:auto처럼 자동으로 스크롤이 생길경우 배경이미지는 스크롤 되지 않는데요. local을 쓰게 되면 내용과 함께 스크롤이 됩니다.
+                    이 속성은 'IE9+, 사파리, 크롬, 오페라'만 지원합니다.
+
+
+                </p>
+
+                <hr style="margin-bottom : 10px">
+                <p class="p_desc" style="font-size: 14px; text-align: center;">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

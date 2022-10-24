@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 배치</title>
+
+    <link rel="stylesheet" href="../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../javascript/assets/css/dracula.css">
+    <style>
+        .document .t_iframe {
+            position: relative;
+            padding-top: 56%;
+            width: 100%;
+            height: 0;
+        }
+
+        .document .t_iframe iframe {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .image-wrapper {
+            position: relative;
+            width: 80%;
+            height: 0;
+            padding-bottom: 60%;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+        .image-wrapper .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">레이아웃(Layout) 배치</h2>
+            <p class="t_desc2">
+                오늘은 기존에 배웠던 float, flex, grid를 활용하여 실제 레이아웃 배치를 해봅시다.
+                (자세한 설명은 <a href="https://sshin4882.tistory.com/6?category=1032248"><b>여기</b></a>를 참고하세요!)<br>
+                첫번째 구조는 가장 기본이 되는 구조입니다.
+            </p>
+            <div class="t_iframe">
+                <iframe
+                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fc9BGcY5k0Hg8INetHu54vZ%2F%25EB%25A0%2588%25EC%259D%25B4%25EC%2595%2584%25EC%259B%2583%3Fnode-id%3D0%253A1"
+                    allowfullscreen></iframe>
+            </div>
+            <hr>
+
+            <h3 class="t_tit2">01_ float을 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    foat:left 속성을 이용해 <i>좌측 빈 공간부터</i> 차곡 차곡 채워나갑니다.
+                    <br>이후 아래 요소가 보이지 않는 <i>버그는 clear:both</i>속성을 사용하여 해결하였습니다.
+                    <br>
+                    반응형 웹을 구현하기 위해서 모바일사이즈에서는 aside와 section의 width값을 100%로 조정해줍니다.
+                </p>
+                <div class="image-wrapper">
+                <img class="image" src="../assets/tistory/layout01/01-float.png">
+                </div>
+                <div class="t_code">
+<pre><code class="language-css">*{
+    margin: 0;
+}
+body{
+    background-color: #FFF3E0;
+}
+#wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+#header{
+    width: 100%;
+    height: 100px;
+    background-color: #FFE0B2;
+}
+#nav{
+    width: 100%;
+    height: 100px;
+    background-color: #FFCC80;
+}
+#aside{
+    width: 30%;
+    height: 780px;
+    background-color: #FFB74D;
+    float: left;
+}
+#section{
+    width: 70%;
+    height: 780px;
+    background-color: #FFA726;
+    float: left;
+}
+#footer{
+    width: 100%;
+    height: 100px;
+    background-color: #FF9800;
+    clear: both;
+}
+@media (max-width: 1200px){
+    #wrap{
+    width: 96%;
+    }
+    #aside{
+    width: 30%;
+    }
+    #section{
+    width: 70%;
+    }
+}
+@media (max-width: 768px){
+    #wrap{
+    width: 100%;
+    }
+    #aside{
+    width: 30%;
+    }
+    #section{
+    width: 70%;
+    }
+}
+@media (max-width: 480px){
+    #wrap{
+    width: 100%;
+    }
+    #aside{
+    width: 100%;
+    height: 300px;
+}
+#section{
+    width: 100%;
+    height: 480px;
+    }
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">02_ flex를 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    <i>부모 요소(wrap)에</i> display:flex와 flex:wrap을 주어 자식요소들을 감쌉니다.
+                    <br>반응형 웹 구현을 위해 flaot방식과 마찬가지로 <i>미디어 쿼리를 이용</i>해서 수치를 조정합니다.
+                </p>
+                <div class="image-wrapper">
+                <img class="image" src="../assets/tistory/layout01/01-flex.png">
+                </div>
+                <div class="t_code">
+<pre><code class="language-css">*{
+    margin: 0;
+}
+body{
+    background-color: #FFF3E0;
+}
+#wrap{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+#header{
+    width: 100%;
+    height: 100px;
+    background-color: #FFE0B2;
+}
+#nav{
+    width: 100%;
+    height: 100px;
+    background-color: #FFCC80;
+}
+#aside{
+    width: 30%;
+    height: 780px;
+    background-color: #FFB74D;
+    
+}
+#section{
+    width: 70%;
+    height: 780px;
+    background-color: #FFA726;
+}
+#footer{
+    width: 100%;
+    height: 100px;
+    background-color: #FF9800;
+}
+@media (max-width: 1220px){
+    #wrap{
+        width: 96%;
+    }
+}
+@media (max-width: 768px){
+    #wrap{
+        width: 100%;
+    }
+}
+@media (max-width: 480px){
+    #wrap{
+        width: 100%;
+    }
+    #aside {
+        width: 100%;
+        height: 300px;
+    }
+    #section {
+        width: 100%;
+        height: 480px;
+    }
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">03_ grid를 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    앞서 grid로 레이아웃을 구성할 시 표로 생각하는게 이해하기 쉽다고 하였습니다. <br>
+                    이 구조를 <i>표로 빗대어 생각</i>하자면 <i>4x2</i>구성+각 열이 넓이를 <i>30/70%</i>씩 차지하며
+                    3행을 제외한 행들은 <i>병합</i>되어 있는 구조로 생각할 수 있습니다.<br>
+                    반응형 웹 구성시 모바일버전에서만 구조가 달라지므로 wrap의  grid 속성을 바꿔서 다시 부여 해줍니다.
+                </p>
+                <div class="image-wrapper">
+                <img class="image" src="../assets/tistory/layout01/01-grid.png">
+                </div>
+                <div class="t_code">
+<pre><code class="language-css">*{
+    margin: 0;
+}
+body{
+    background-color: #FFF3E0;
+}
+#wrap{
+    width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas:
+    "header header"
+    "nav nav"
+    "aside section"
+    "footer footer"
+    ;     
+
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 100px 100px 780px 100px;
+
+}
+#header{
+    grid-area: header;
+    background-color: #FFE0B2;
+}
+#nav{
+    grid-area: nav;
+    background-color: #FFCC80;
+}
+#aside{
+    grid-area: aside;
+    background-color: #FFB74D;
+    
+}
+#section{
+    grid-area: section;
+    background-color: #FFA726;
+}
+#footer{
+    grid-area: footer;
+    background-color: #FF9800;
+}
+@media (max-width: 1220px){
+    #wrap{
+        width: 96%;
+    }
+}
+@media (max-width: 768px){
+    #wrap{
+        width: 100%;
+    }
+}
+@media (max-width: 480px){
+    #wrap{
+        width:100%;
+        grid-template-areas:
+        "header header"
+        "nav nav"
+        "aside aside"
+        "section section"
+        "footer footer"
+        ;     
+
+        grid-template-columns: 30% 70%;
+        grid-template-rows: 100px 100px 380px 480px 100px;
+    }
+}
+</code></pre>
+                </div>
+                <h4 class="t_tit3">결과</h4>
+                <div class="t_iframe">
+                    <iframe src="https://codepen.io/parkhyeonshin/embed/WNzEjmY?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                        See the Pen <a href="https://codepen.io/parkhyeonshin/pen/WNzEjmY">
+                        레이아웃1_float_반응</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                        on <a href="https://codepen.io">CodePen</a>.
+                    </iframe>
+                </div>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

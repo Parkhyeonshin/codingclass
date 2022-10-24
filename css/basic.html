@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 단위 </title>
+
+    <link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet">
+    <style>
+        /* 리셋 (보통 초기설정)*/
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'GmarketSans';
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        li {
+            list-style: none;
+        }
+        /*헤더영역 */
+        #header {
+            padding: 2vw;
+            border-bottom: 1px dashed #cdcdcd;
+        }
+        #header h1 {
+            font-size: 4vw;
+            margin-bottom: 2vw;
+        }
+        #header nav ul li {
+            display: inline-block;
+        }
+        #header nav ul li a {
+            border: 1px solid #000;
+            padding: 0.7vw 1vw 0.3vw 1vw;
+            transition: all 0.3s;
+            margin: 0.7vw;
+            display: inline-block;
+        }
+        #header nav ul li a:hover {  
+            background-color: #000;
+            color: #fff;
+        }
+        /* 컨텐츠 영역 */
+        #contents {
+            padding: 2vw;
+            border-bottom: 1px dashed #cdcdcd;
+        }
+        #contents .box {
+            background-color: #f5f5f5;
+            padding: 15px;
+           
+        }
+
+        #contents h2 {
+            margin-bottom: 10px;
+        }
+        #contents .numList {
+            margin-left: 30px;
+        }
+        #contents .numList li {
+            line-height: 1.6;
+            list-style: decimal-leading-zero;
+        }
+        
+        #contents .numList li .box {
+            background-color: #f5f5f5;
+            padding: 15px;
+           
+        }
+        #contents .table {
+            width: 100%;
+            border-spacing: 0; 
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        #contents .table thead tr th {
+            border: 1px solid #dedede;
+            padding: 10px;
+            font-weight: normal;
+            background-color: #e4eff3;
+        }
+        #contents .table tbody tr td {
+            border: 1px solid #dedede;
+            padding: 10px;
+            font-weight: normal;
+        }
+        #contents .table tbody tr .middle {
+            text-align: center;
+        }
+
+        /* 모바일용 미디어쿼리 */
+        @media (max-width: 800px) {
+            #header h1 {
+                font-size: 40px;
+            }
+            #header nav ul li a {
+                padding: 5px 10px; 
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
+        <h1>CSS</h1>
+        <nav>
+            <ul>
+                <li class="active"><a href="basic.html">기초</a></li>
+                <li><a href="#.html">주제</a></li>
+                <li><a href="index.html">알파벳</a></li>
+                <li><a href="bector.html">벡터/비트맵 방식</a></li>
+                <li><a href="grammar.html">기본 문법</a></li>
+                <li><a href="media.html">미디어 쿼리</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+                <li><a href="scss.html">SCSS</a></li>
+                <li><a href="ir.html">이미지스프라이트/IR/백그라운드 표현</a></li>
+                <li><a href="unit.html">단위</a></li>
+                <li><a href="color.html">색상 표현법</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="contents">
+        <h2>font-size, 단위의 고찰</h2>
+        <br><h3>px</h3>
+        <p>해상도에 따라 상대적으로 달라지는 기본 단위</p>
+        <p class="box">
+            font-size: 12px; <br>
+        </p>
+        <br><h3>%</h3>
+        <p>부모 요소의 글자 크기를 100% 기준으로 계산한 %단위</p>
+        <p class="box">
+            font-size: 150%; <br>
+        </p>
+        <br><h3>em</h3>
+        <p>부모 요소의 글자 크기를 100% 기준으로 계산한 100분의 1단위</p>
+        <p class="box">
+            font-size: 1.5em; <br>
+        </p>
+        <br><h3>rem</h3>
+        <p>최상위 요소의 크기를 100%기준으로 계산. html요소에서 지정한 글자 크기가 1rem이 됩니다.</p>
+        <p class="box">
+            font-size: 1.5rem; <br>
+        </p>
+        <br><h3>vw, vh</h3>
+        <p>너비, 높이값의 100분의 1단위</p>
+        <p class="box">
+            font-size: 10vw; <br>
+        </p>
+    </section>              
+</body>
+</html>

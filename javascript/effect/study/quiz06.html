@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : Quiz06</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+    <style>
+        .document .btnflex{
+        	display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">Javascript_Quiz</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                <li><a href="search01.html">검색 이펙트1</a></li>
+                <li><a href="search02.html">검색 이펙트2</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">퀴즈 만들기_객관식 유형(슬라이드)</h2>
+            <div class="t_desc2">
+                이번시간에는 객관식 유형(다중형)을 만들어보겠습니다!
+                이번엔 60문항이나 만들어야 하는데 일일히 html태그로 입력하기는 번거로우므로 
+                스크립트를 잘~ 이용해서 작업해보겠습니다.
+            </div>
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/quizEffect06.html" frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/quizEffect06.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/quizEffect06.html" target="_blank">원본 사이트</a>
+            </div>
+            <hr>
+            <h3 class="t_tit2">HTML 소스</h3>
+            <p class="t_desc">
+                문제 안의 변하는 내용들은 가변하는 값이지만 기본틀은 변함없으므로 html에서 필요한 부분(<i>기본틀에 해당하는 요소들</i>)만 작성합니다.
+                <br>무엇이 빠지는 건지는 주석처리로 해놨으니 주석표시를 보시면서 확인해 주세요!
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;main id="main"&gt;
+    &lt;div class="quiz__wrap"&gt;
+        &lt;div class="quiz"&gt;
+            &lt;span class="quiz__type"&gt;&lt;/span&gt;
+            &lt;h2 class="quiz__question"&gt;
+                &lt;!-- &lt;span class="number"&gt;&lt;/span&gt;
+                &lt;div class="ask"&gt;&lt;/div&gt; --&gt;
+            &lt;/h2&gt;
+            &lt;div class="quiz__view"&gt;
+                &lt;div class="true"&gt;정답🐾&lt;/div&gt;
+                &lt;div class="false"&gt;오답 입니다!&lt;/div&gt;
+                &lt;div class="dog"&gt;
+                    &lt;div class="head"&gt;
+                        &lt;div class="ears"&gt;&lt;/div&gt;
+                        &lt;div class="face"&gt;&lt;/div&gt;
+                        &lt;div class="eyes"&gt;
+                            &lt;div class="teardrop"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="nose"&gt;&lt;/div&gt;
+                        &lt;div class="mouth"&gt;
+                            &lt;div class="tongue"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="chin"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="body"&gt;
+                        &lt;div class="tail"&gt;&lt;/div&gt;
+                        &lt;div class="legs"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="quiz__answer"&gt;
+                &lt;div class="quiz__selects"&gt;
+                    &lt;!-- &lt;label for="select1"&gt;
+                        &lt;input type="radio" id="select1" class="select" name="select" value="1" &gt;
+                        &lt;span class="choice"&gt;&lt;/span&gt;
+                    &lt;/label&gt;
+                    &lt;label for="select2"&gt;
+                        &lt;input type="radio" id="select2" class="select" name="select" value="2" &gt;
+                        &lt;span class="choice"&gt;&lt;/span&gt;
+                    &lt;/label&gt;
+                    &lt;label for="select3"&gt;
+                        &lt;input type="radio" id="select3" class="select" name="select" value="3" &gt;
+                        &lt;span class="choice"&gt;&lt;/span&gt;
+                    &lt;/label&gt;    
+                    &lt;label for="select4"&gt;
+                        &lt;input type="radio" id="select4" class="select" name="select" value="4" &gt;
+                        &lt;span class="choice"&gt;&lt;/span&gt;
+                    &lt;/label&gt; --&gt;
+                &lt;/div&gt;
+                &lt;div class="result"&gt;&lt;/div&gt;
+                &lt;button class="confirm"&gt; 다음 문제 ≫&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+            </div>
+            <h3 class="t_tit2">JAVASCRIPT 소스</h3>
+            <p class="t_desc2">
+                if(quizInfo.length -1 == quizCount){
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;quizConfirm.innerHTML = "총 " + quizInfo.length +"문제 중 " + answerCount +"문제 정답" + ( (100 / quizInfo.length) * answerCount) + "점 입니다.";
+                    <br> <i>return 0;</i>
+            </p>
+            <p class="t_desc">
+                이번 유형에서 가장 큰 함정은 총 5문제중 5개를 맞췄을 경우 정답이 4개로 출력되는 버그가 있었는데요.
+                이 문제를 해결하기 위해 기존 아래부분에 있던 윗 if문을 최상단으로 올려서 해결했습니다.
+                <br>그리고 임시방편으로 모든 문제를 다 풀경우(5문제니깐 quizCount는 4가 되므로 문제의 전체갯수에서 -1을하면 마지막 문항에서 서로 값이 같아지겠죠 ?)
+                결과 확인하기라는 문구를 출력시켜 다시 최상단의 if문으로 돌아가 총 점수를 표현하는데, 여기서 문제는 밑부분의 quizCount++; 등의 실행문들도 실행히 되버린다는 점입니다.
+                출력엔 이상은없겠지만 검사(F12)로 보게되는경우 오류가 발생하죠. 이 오류를 막기 위해 점수if문이 실행되고나면 실행문을 중단시키기 위해 <i>return 0;</i>를 사용해서 중단시켜버리는 겁니다.
+            </p>
+            <h3 class="t_tit2">return의 용도</h3>
+            <p class="t_desc">
+                1. 함수 중단
+            <br>2. 주어진 값을 함수 호출 지점으로 반환
+            <br>함수에서 return 명령문에 도달하면 함수의 실행문은 그 지점에서 중단되고 값을 제공한 경우 함수를 호출한 곳에 그 값을 반환하는데, 
+            값을 지정하지않을경우 undefined를 반환합니다. 
+            아래는 함수실행 중단 값입니다.
+            </p>
+            <p class="t_box">
+                return;
+                <br>return true;
+                <br>return false;
+                <br>return x;
+                <br>return x + y / 3;
+            </p>
+            <p class="t_desc">▷ 그럼 break와는 무슨 차이가 있나요?</p>
+            <p class="t_desc2">return은 함수 자체를 중단시키는 것이고, break는 명령문이 실행되면 블록 문장에서 빠져나와 다음작업을 시작하는 것입니다.
+                <br> - return : <i>함수 탈출</i>, 해당 함수(메서드)에서 벗어납니다.
+                <br> - break : <i>루프 탈출</i>, for, while, switch등의 함수 내 반복문에서 벗어납니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const quizInfo = [
+    {   
+        answerType : "웹디자인기능사 2013년 02회",
+        answerNum: "1",
+        answerAsk: "굿 디자인(good design)을 위한 디자인의 조건에 포함되지 않는 것은?",
+        answerChoice: [
+            "합목적성",
+            "독창성",
+            "심미성",
+            "모방성",
+        ],
+        answerResult: "모방성",
+        answerEx : "디자인의 조건은 합목적성, 경제성, 심미성, 독창성, 질서성이 있습니다."
+    },
+    {   
+        answerType : "웹디자인기능사 2013년 02회",
+        answerNum: "2",
+        answerAsk: "다음이 설명하는 것은? - 주어진 길이를 가장 이상적으로 나누는 비를 말하며 근사값이 약 1.619인 무리수",
+        answerChoice: [
+            "비례",
+            "황금비율",
+            "삼각분할",
+            "프로포션",
+        ],
+        answerResult: "황금비율",
+        answerEx : "황금비율(길이를 둘로 나누었을때 같은 비율)"
+    },
+    {   
+        answerType : "웹디자인기능사 2013년 02회",
+        answerNum: "3",
+        answerAsk: "색입체는 색의 3속성에 따라 합리적으로 배치한 3차원 색상환으로 (㉠)은/는 둘레의 원으로, (㉡)는 중심선으로부터 방사선으로, (㉢)은/는 중심축으로 배치한 것이다.",
+        answerChoice: [
+            "㉠ 색상, ㉡ 채도, ㉢ 명도",
+            "㉠ 색상, ㉡ 명도, ㉢ 채도",
+            "㉠ 채도, ㉡ 명도, ㉢ 색상",
+            "㉠ 명도, ㉡ 채도, ㉢ 색상",
+        ],
+        answerResult: "㉠ 색상, ㉡ 채도, ㉢ 명도",
+        answerEx : "색상은 둘레의 원으로, 채도는 중심선으로부터 방사선으로, 명도는 중심축으로 배치한 것이다"
+    },
+    {   
+        answerType : "웹디자인기능사 2013년 02회",
+        answerNum: "4",
+        answerAsk: '입체파(Cubism)의 가장 대표적인 화가는?',
+        answerChoice: [
+            "피카소",
+            "쿠르베",
+            "찰스 자보",
+            "도미에",
+        ],
+        answerResult: "피카소",
+        answerEx : "피카소는 대표적인 입체파 화가이다"
+    },
+    {   
+        answerType : "웹디자인기능사 2013년 02회",
+        answerNum: "5",
+        answerAsk: "컬러 인쇄를 위해 C, M, Y, K 4색의 네거필름으로 만드는 과정을 무엇이라 하는가?",
+        answerChoice: [
+            "색분해",
+            "색상좌표",
+            "색도도",
+            "색 수정",
+        ],
+        answerResult: "색분해",
+        answerEx : "색상좌표 (=rgb), 색도도(색도 좌표를 그림으로 표시한 것),"
+    },
+];
+
+// 선택자
+const quizQuestion = document.querySelector(".quiz__question");     //문제 번호, 질문
+const quizSelects = document.querySelector(".quiz__selects");       //객관식 보기
+const quizName = document.querySelector(".quiz__type");
+const quizResult = document.querySelector(".quiz__answer .result");
+const quizConfirm = document.querySelector(".quiz__answer .confirm");
+const quizView = document.querySelector(".quiz__view");         //강아지
+
+let quizCount = 0; 
+let answerCount = 0;
+
+// 문제출력
+const updateQuiz = (index) =&gt; {
+    const questionTag = `
+        &lt;span class="number"&gt;${quizInfo[index].answerNum}. &lt;/span&gt;
+        &lt;div class="ask"&gt;${quizInfo[index].answerAsk}&lt;/div&gt;
+    `;
+    const choiceTag = `
+        &lt;label for="select1"&gt;
+            &lt;input type="radio" id="select1" class="select" name="select" value="1" &gt;
+            &lt;span class="choice"&gt;${quizInfo[index].answerChoice[0]}&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;label for="select2"&gt;
+            &lt;input type="radio" id="select2" class="select" name="select" value="2" &gt;
+            &lt;span class="choice"&gt;${quizInfo[index].answerChoice[1]}&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;label for="select3"&gt;
+            &lt;input type="radio" id="select3" class="select" name="select" value="3" &gt;
+            &lt;span class="choice"&gt;${quizInfo[index].answerChoice[2]}&lt;/span&gt;
+        &lt;/label&gt;    
+        &lt;label for="select4"&gt;
+            &lt;input type="radio" id="select4" class="select" name="select" value="4" &gt;
+            &lt;span class="choice"&gt;${quizInfo[index].answerChoice[3]}&lt;/span&gt;
+        &lt;/label&gt;
+    `;
+
+    // 문제 출력
+    quizName.innerText = quizInfo[0].answerType;    //기출문제 회차
+    quizQuestion.innerHTML = questionTag;           //번호, 질문
+    quizSelects.innerHTML = choiceTag;              //객관식
+    quizResult.innerHTML = quizInfo[0].answerEx;    //해설
+
+    const quizChoice = quizSelects.querySelectorAll(".choice");
+
+    for(let i=0; i&lt;quizChoice.length; i++){
+        quizChoice[i].setAttribute("onclick","choiceSelected(this)")
+
+    }
+
+    // 문제, 해설 숨기기
+    quizResult.style.display = "none";
+    quizConfirm.style.display = "none";
+};
+updateQuiz(quizCount);
+
+const choiceSelected = (answer) =&gt; {
+    let userAnswer = answer.textContent;        //사용자가 체크한 정답
+    let currentAnswer = quizInfo[quizCount].answerResult;   //퀴즈카운트는 전역변수이므로 가져올 수 있음, 인덱스는 여기서는 가져올수없음 매개변수라서
+
+    if(userAnswer == currentAnswer){
+        quizView.classList.remove("dislike");
+        quizView.classList.add("like");
+        answerCount++;
+    } else{
+        quizView.classList.add("dislike");
+        quizView.classList.remove("like");
+        quizResult.style.display = "block";
+    }
+    quizConfirm.style.display = "block";
+}
+
+// 정답 확인 버튼
+const answerQuiz = () => {
+    // 마지막 문제일 경우
+    if(quizInfo.length -1 == quizCount){
+        // quizConfirm.textContent = "총" + quizInfo.length +"문제 중 " + answerCount +" 문제 정답" ;
+        // const total = (100 / quizInfo.length) * answerCount;
+        // console.log(total)
+        quizConfirm.innerHTML = "총 " + quizInfo.length +"문제 중 " + answerCount +"문제 정답<br>" + ( (100 / quizInfo.length) * answerCount) + "점 입니다.";
+        return 0;
+    } 
+    
+    quizCount ++;
+    updateQuiz(quizCount);
+    quizView.classList.remove("like", "dislike");
+    
+    if(quizInfo.length -1 == quizCount){
+        // quizConfirm.textContent = "총" + quizInfo.length +"문제 중 " + answerCount +" 문제 정답" ;
+        // const total = (100 / quizInfo.length) * answerCount;
+        // console.log(total)
+        quizConfirm.innerHTML = "모든 문제를 푸셨습니다. <br>확인하기";
+
+    } 
+}
+quizConfirm.addEventListener("click", answerQuiz);
+</code></pre>
+            </div>
+        </div>
+    </main> 
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,518 @@
+/* font */
+@import url("https://webfontworld.github.io/nhn/Godo.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Godo";
+  font-weight: 500;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+body.img01 {
+  background: url(../img/effect_bg01@2x.jpg) no-repeat center / cover;
+}
+body.img02 {
+  background: url(../img/effect_bg02@2x.jpg) no-repeat center / cover;
+}
+body.img03 {
+  background: url(../img/effect_bg03@2x.jpg) no-repeat center / cover;
+}
+body.img04 {
+  background: url(../img/effect_bg04@2x.jpg) no-repeat center / cover;
+}
+body.img05 {
+  background: url(../img/effect_bg05@2x.jpg) no-repeat center / cover;
+}
+body.img06 {
+  background: url(../img/effect_bg06@2x.jpg) no-repeat center / cover;
+}
+body.img07 {
+  background: url(../img/effect_bg07@2x.jpg) no-repeat center / cover;
+}
+body.img08 {
+  background: url(../img/effect_bg08@2x.jpg) no-repeat center / cover;
+}
+body.img09 {
+  background: url(../img/effect_bg09@2x.jpg) no-repeat center / cover;
+}
+body.img10 {
+  background: url(../img/effect_bg10@2x.jpg) no-repeat center / cover;
+}
+body.img11 {
+  background: url(../img/effect_img12.jpg) no-repeat center / cover;
+}
+body.img12 {
+  background: url(../img/effect_img24.jpg) no-repeat center / cover;
+}
+body.img13 {
+  background: url(../img/effect_img23.jpg) no-repeat center / cover;
+}
+body::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.57);
+  z-index: -1;
+}
+img {
+  width: 100%;
+  vertical-align: top;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* 스크롤 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(71, 71, 71);
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(109, 99, 112);
+}
+
+/* layout */
+#header {
+  z-index: 2000;
+}
+#main {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+}
+#footer {
+  position: relative;
+  z-index: 3000;
+}
+
+/* header */
+#header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #fff;
+  padding: 20px;
+}
+#header h1 {
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #fff;
+  text-shadow: -1px 0 #8545f3, 0 1px #9359f7, 1px 0 #8545f3, 0 -1px #413be1;
+  /* text-shadow: 0 0 20px #8545f3; */
+}
+#header p {
+  margin-bottom: 10px;
+  color: #c4bdd6;
+}
+
+#header li {
+  display: inline-block;
+}
+#header li a {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+}
+#header li.active a {
+  background: #000;
+  color: rgb(187, 127, 255);
+  border-color: rgba(187, 127, 255, 0.6);
+  box-shadow: -1px 1px 2px aquamarine;
+}
+/* footer */
+#footer {
+}
+#footer .source {
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  padding: 10px 20px;
+  font-style: 14px;
+  color: #fff;
+}
+
+/* modal__wrap */
+.modal__wrap {
+}
+.modal__btn {
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  display: inline-block;
+  padding: 10px 20px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s color 0.3s;
+}
+.modal__btn:hover {
+  text-shadow: -1px 0 #8545f3, 0 1px #9359f7, 1px 0 #8545f3, 0 -1px #413be1;
+  border: 1px solid rgba(187, 127, 255, 0.6);
+  box-shadow: -1px 1px 8px aquamarine;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.modal__btn.active {
+  opacity: 0.2;
+  background-color: black;
+  color: #383838;
+  border-color: #383838;
+}
+.modal__cont {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(250, 250, 250, 0.2);
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+}
+
+/* 요소를 안보이게 하는 방법
+    1. display: none;           (애니메이션 x, 영역 사라짐)
+    2. opacity : 0;             (애니메이션 O, 영역 잔존)
+    3. visibility : hidden;     (애니메이션 x, 영역 사라짐)
+    4. width: 0; height: 0;     (애니메이션 x, 영역 사라짐) : blind효과
+    5. transform: scale(0);     (애니메이션 O, 영역 사라짐)
+*/
+.modal__box {
+  width: 85%;
+  height: 70vh;
+  border-radius: 0.6rem;
+  box-shadow: 0 10px 20px -5px hsl(180deg 2% 10%);
+  transform: scale(0);
+}
+
+.modal__box .title {
+  padding-inline: 1rem;
+  cursor: grab;
+  background-color: hsl(0 1% 16%);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  height: 50px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.modal__box .title .dot {
+  width: 15px;
+  height: 15px;
+  background-color: hsl(180 2% 50%);
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  margin-left: 30px;
+}
+.modal__box .title .dot::before {
+  content: "";
+  position: absolute;
+  left: 25px;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  background-color: hsl(253 19% 42%);
+  border-radius: 50%;
+}
+.modal__box .title .dot::after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  background-color: hsl(253 19% 42%);
+  border-radius: 50%;
+}
+.modal__box .title .plus {
+  padding: 0.5rem 0.5rem 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+}
+.modal__box .title .tabs {
+  display: flex;
+  margin-left: 50px;
+}
+.modal__box .title .tabs > div {
+  color: rgb(168, 151, 224);
+  background-color: hsl(22 7% 14%);
+  padding: 0.25rem 0.8rem 0.25rem 0.8rem;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.4rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.modal__box .title .tabs > div:hover {
+  background-color: rgba(168, 151, 224, 0.208);
+}
+.modal__box .title .tabs > div.active {
+  background-color: rgb(67, 53, 111);
+}
+.modal__box .title .tabs > div .em {
+  font-style: normal;
+}
+.modal__box .title .tabs > div .favicon {
+  margin-right: 0.4rem;
+  margin-top: 0.2rem;
+}
+.modal__box .title .tabs > div .close {
+  margin-left: 5rem;
+}
+.modal__box .cont {
+  background-color: #383838;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.modal__box .cont > div {
+  display: none;
+}
+/* 스크롤바 얜머여*/
+/* .modal__box .cont > div::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.modal__box .cont > div::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+.modal__box .cont > div::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+} */
+
+.modal__box .cont > div.active {
+  display: block;
+  height: 100%;
+}
+
+.modal__close svg {
+  color: white;
+}
+
+/* 모달 애니메이션 */
+.modal__cont.show {
+  animation: foldOut 1.3s ease forwards;
+}
+.modal__cont.show.hide {
+  animation: foldIn 1s ease forwards;
+}
+.modal__cont.show .modal__box {
+  transform: scale(0);
+  animation: zoomOut 0.7s 1.3s ease forwards;
+}
+.modal__cont.show.hide .modal__box {
+  transform: scale(0);
+  animation: zoomIn 0.5s ease forwards;
+}
+/* .modal__close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: #1f1f1f;
+    padding: 1rem 1rem 0.8rem 1rem;
+    border-radius: 50%;
+    box-shadow: 0 3px 5px -5px hsl(180deg 2 10%);
+    cursor: pointer;
+    transform: scale(0);
+} */
+.modal__close.show {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background-color: #1f1f1f;
+  padding: 1rem 1rem 0.8rem 1rem;
+  border-radius: 50%;
+  opacity: 0;
+  animation: opacity 1s 2s ease forwards;
+}
+.modal__close.show.hide {
+  animation: opacityOut 0.3s ease forwards;
+}
+.modal__close.show:hover {
+}
+.modal__close:hover {
+  cursor: pointer;
+}
+.modal__close:hover::after {
+  opacity: 1;
+}
+.modal__close::after {
+  content: "";
+  border: 1px solid rgba(187, 127, 255, 0.6);
+  box-shadow: -1px 1px 6px aquamarine;
+  width: 95%;
+  height: 95%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 50%;
+  animation: rotate 5s linear infinite;
+  opacity: 0;
+}
+
+@keyframes foldOut {
+  0% {
+    transform: scaleY(0) scaleX(0.001);
+    rotate: 360deg;
+  }
+  70% {
+    transform: scaleY(1) scaleX(0.003);
+  }
+  80% {
+    transform: scaleY(1) scaleX(0.003);
+    rotate: 0deg;
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+}
+@keyframes foldIn {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+@keyframes zoomOut {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes opacity {
+  0% {
+    transform: rotateY(180deg);
+    scale: (1);
+    opacity: 0.5;
+  }
+  40% {
+    transform: rotateY(0deg);
+    scale: (1);
+  }
+  70% {
+    transform: rotateY(180deg);
+    scale: (1);
+  }
+  100% {
+    transform: rotateY(0deg);
+    scale: (1);
+    opacity: 1;
+  }
+}
+@keyframes opacityOut {
+  0% {
+    transform: rotateY(180deg);
+    scale: (1);
+    opacity: 1;
+  }
+  40% {
+    transform: rotateY(0deg);
+    scale: (1);
+  }
+  70% {
+    transform: rotateY(180deg);
+    scale: (0);
+  }
+  100% {
+    transform: rotateY(0deg);
+    scale: (0);
+    opacity: 1;
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+/* 미디어 */
+@media (max-width: 1000px) {
+  .modal__box .title {
+    overflow: hidden;
+  }
+  .modal__box .title .dot {
+    display: none;
+  }
+  .modal__box .title .tabs {
+    margin-left: 0;
+  }
+  .modal__box .title .tabs > div .close {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  #header {
+    text-align: center;
+    width: 100%;
+  }
+  #header h1 {
+    line-height: 1.4;
+  }
+  .modal__box {
+    width: 96%;
+  }
+  .modal__box .title .dot {
+    display: none;
+  }
+  .modal__box .title .tabs {
+    margin-left: 0;
+  }
+  .modal__box .title .tabs > div .close {
+    display: none;
+  }
+}

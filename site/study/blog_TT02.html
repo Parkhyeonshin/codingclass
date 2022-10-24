@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 유형02</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../javascript/assets/css/dracula.css">
+
+    <style>
+        .document #main .btnflex{
+        	display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
+        <h1><a href="../index.html">사이트 만들기</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="#.html">텍스트 유형 02</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <div class="document">
+        <div id="main">
+            <h2 class="t_tit">사이트 만들기 _ 텍스트 유형02</h2>
+            <p class="t_desc2">
+                이번 시간은 텍스트 유형 두번째 시간입니다. 들어가기에 앞서 이번엔 레이아웃 배치를 원활하게 하기 
+                위해서 <i>dispaly:grid</i>를 사용해서 작업했구요. 더보기링크가 없으므로 아이콘에 a링크를 부여할 예정입니다.
+                한번 따라가 보실까요
+            </p>
+
+            <hr>
+
+            <h3></h3>
+            <div class="t_iframe">
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fd1alnzzZPOOZzULTEK3Bv7%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1569%253A12719" allowfullscreen></iframe>
+            </div>
+
+            <hr>
+            <figure class="card__header">
+            </figure>
+            <h3 class="t_tit2">■ 그림으로 미리보기🎨</h3>
+            <img src="/site/textType/img/Text-TYPE02_bg1.jpg" alt="이미지1">
+            <img src="/site/textType/img/Text-TYPE02_bg2_grid.jpg" alt="이미지2">
+            <h3 class="t_tit2">■ 핵심내용✍</h3>
+            <div class="t_desc2">
+                - html 코드 -
+                <br>&lt;<i>a</i> href="#" class="<i>icon</i>"&gt;&lt;span class="<i>ir</i>"&gt;icon&lt;/span&gt;&lt;/a&gt;
+                <br><br> - css 코드 -
+                <br><i>.ir</i>{
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;position: absolute;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;width: 0;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;height: 0;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;line-height: 0;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;text-indent: -9999px;
+                <br>}
+                <br><i>.icon</i>{
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;background: url(img/text_type02.svg) no-repeat;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;width: 60px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;height: 60px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;border-radius: 50%;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;margin-bottom: 10px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;display: block;
+                <br>}
+            </div>
+            <p class="t_desc">
+                1유형에서는 '더보기'가 존재해서 a링크를 활용해주면 되었지만, 이번시간엔 더보기링크에 해당하는 텍스트가 없으므로 
+                <i>아이콘에 임의로 더보기링크를 만들어 주었습니다.</i>
+                그런데 시각적으로는 아이콘이 표시되지만 웹표준을 준수하기 위해서는 <i>의미없는 div태그에 이미지를 입혀서는 안되겠죠?</i> 
+                <br>그래서 span태그에 그림에 대한 설명을 적어주고 ir효과를 주어서 <i>시각적으로 텍스트는 가리지만 리더기가 읽을 수 있도록 유도</i>합니다.
+            </p>
+            <p class="t_desc2">
+                background: url(img/text_type02.svg) no-repeat;
+                <br>background-position: 0 0;
+            </p>
+            <p class="t_desc">
+                '이미지 스프라이트'를 기억하시나요? 아이콘은 svg파일로 묶어서 만든 뒤 이미지스프라이트 기법을 활용해서 적용해봤습니다.
+                <br>(기억안나시면 <a href="https://sshin4882.tistory.com/53?category=1030446">이 글</a>을 참고해주세요)
+            </p>
+            <p class="t_desc2">
+                .text__wrap {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;width: 1160px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;padding: 120px 20px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;margin: 0 auto;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;min-width: 1160px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;display: grid;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;grid-template-areas: 
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;"header article1 article2"
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;"header article3 article4"
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;grid-template-columns: 31% 31% 31%;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;justify-content: space-between;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;grid-row-gap: 50px;
+                <br>}
+                <br>.text_out{
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;grid-area: header;
+                <br>}
+                <br>.text__wrap div:nth-child(2){
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;grid-area: article1;
+                <br>}
+                <br>...
+            </p>
+            <p class="t_desc"> 
+                레이아웃 배치하는 방법은 개인의 취향이긴 한데요. 저는 개인적으로 grid가 정말 편리하더라구요. 그래서 
+                어떤 방법을 사용할까 하다가 grid를 택했습니다. <i>높이값은</i> 컨텐츠의 양에 따라 <i>유동적으로</i> 변할 수 있도록 하기 
+                위해서 일부러 부여하지 않았구요. 컨텐츠 사이의 행간격이 50px이 있길래 마찬가지로 50px 을 주었습니다.
+                ‼특히 기존에는 제목부분은 제외하고 container로 컨텐츠에 해당하는 부분들만 감싸서 진행을 했었는데요, 
+                    grid로 레이아웃 배치를 위해서 container를 없애고 <i>제목부분과 컨텐츠부분들을 전부 형제관계</i>로 만들어 태그를 작성했습니다.
+                
+            </p>
+            <p class="t_desc2">
+                .text__inner:hover {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;background-color: rgb(221, 221, 221);
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;border-radius: 20px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;transition: all 0.3s;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;animation: scale 0.5s ease forwards;
+                <br>}
+                <br>@keyframes scale {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;0% {transform: scale(0.95); opacity: 0.5;}
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;100% {transform: scale(1.1); opacity: 1;}
+                <br>}
+            </p>
+            <p class="t_desc">
+                그냥 단순히 제가 넣고싶어서 넣긴했는데요. 가장 좌측에있는 제목란은 제외하고 컨텐츠부분에만 
+                적용하기 위해서 class 명을 text__inner와 text_out 으로 구분지었습니다. 마우스 오버시
+                간단한 애니메이션 효과를 부여하기 위해서 animation과 keyframes을 활용해보았습니다.
+            </p>
+
+            <h3 class="t_tit2">CSS 속성</h3>
+            <div class="t_code">
+<pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+.nexon {
+    font-family: 'GmarketSans';
+    font-weight: 500;
+}
+
+/* 리셋 */
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+img {
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+
+/* common */
+.text__wrap {
+    width: 1160px;
+    padding: 120px 20px;
+    margin: 0 auto;
+    min-width: 1160px;
+    display: grid;
+    grid-template-areas: 
+    "header article1 article2"
+    "header article3 article4"
+    ;
+    grid-template-columns: 31% 31% 31%;
+    justify-content: space-between;
+    grid-row-gap: 50px;
+}
+/* .section {
+    padding: 120px 0;
+} */
+.text_out .upper {
+    background-color: #FF7979;
+    width: 135px;
+    height: 20px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+.upper p {
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    line-height: 20px;
+}
+.text_out > h2 {
+    font-size: 50px;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+.text_out > p {
+    font-size: 18px;
+    font-weight: 300;
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.ir{
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+/* 그리드 지정 */
+.text_out{
+    grid-area: header;
+}
+.text__wrap div:nth-child(2){
+    grid-area: article1;
+}
+.text__wrap div:nth-child(3){
+    grid-area: article2;
+}
+.text__wrap div:nth-child(4){
+    grid-area: article3;
+}
+.text__wrap div:nth-child(5){
+    grid-area: article4;
+}
+/* TextType */
+.icon{
+    background: url(img/text_type02.svg) no-repeat;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    display: block;
+}
+.text__wrap div:nth-child(3) .icon{
+    background-position: -100px 0;
+}
+.text__wrap div:nth-child(4) .icon{
+    background-position: -200px 0;
+}
+.text__wrap div:nth-child(5) .icon{
+    background-position: -300px 0;
+}
+.text__inner{
+    padding: 20px;
+    box-sizing: border-box;
+}
+.text__inner h3{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.text__inner p{
+    font-size: 18px;
+    font-weight: 300;
+}
+.text__inner:hover {
+    background-color: rgb(221, 221, 221);
+    border-radius: 20px;
+    transition: all 0.3s;
+    animation: scale 0.5s ease forwards;
+}
+@keyframes scale {
+    0% {transform: scale(0.95); opacity: 0.5;}
+    100% {transform: scale(1.1); opacity: 1;}
+}
+</code></pre>
+            </div>
+            <h3 class="t_tit2">HTML 속성</h3>
+            <div class="t_code">
+<pre><code class="language-html">&lt;section id="TextType02" class="text__wrap nexon section"&gt;
+    &lt;div class="text_out"&gt;
+        &lt;div class="upper"&gt;
+            &lt;p&gt;JAPAN TRIP&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;h2&gt;하나무라로&lt;br&gt; 떠납니다&lt;/h2&gt;
+        &lt;p&gt; 하나무라는 일본에 진짜 있는 지역명
+            인가요? 저도 잘 모르겠어요. 일본이 생각
+            났는데 게임에서 맨날 말하길래 생각이났는데 세줄효과를 위해 좀더 채워볼까까까ㅏㅏㅏ
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="text__inner"&gt;
+        &lt;a href="#" class="icon"&gt;&lt;span class="ir"&gt;icon&lt;/span&gt;&lt;/a&gt;
+        &lt;h3&gt;하나무라&lt;/h3&gt;
+        &lt;p&gt;네~ 없네요. 궁금해서 검색해보니깐 하나무라는 일본에서 쓰이는 성씨중의 하나라고 하는군요. 그렇다고합니다. &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="text__inner"&gt;
+        &lt;a href="#" class="icon"&gt;&lt;span class="ir"&gt;icon&lt;/span&gt;&lt;/a&gt;
+        &lt;h3&gt;도쿄&lt;/h3&gt;
+        &lt;p&gt;도쿄도 또는 도쿄, 동경은 일본의 수도이며 간토지방에 위치하는 도로, 일본의 도 행정구역 가운데서 인구 수가 제일 많다고...&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="text__inner"&gt;
+        &lt;a href="#" class="icon"&gt;&lt;span class="ir"&gt;icon&lt;/span&gt;&lt;/a&gt;
+        &lt;h3&gt;홋카이도&lt;/h3&gt;
+        &lt;p&gt;훗!! 아닙니다. 홋입니다.홋카이도는 일본의 홋카이도 지방에 위치한 섬입니다. 일본열도를 이루는 4개 주요 섬중 하나로 ...&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="text__inner"&gt;
+        &lt;a href="#" class="icon"&gt;&lt;span class="ir"&gt;icon&lt;/span&gt;&lt;/a&gt;
+        &lt;h3&gt;오사카&lt;/h3&gt;
+        &lt;p&gt;오사카시는 일본 오사카부에 있는 도시로 부청 소재지다. 혼슈 긴키 지방의 요도가와 강 하구 오사카 만에 위치해 있으며 ...&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+            </div>
+            <h3 class="t_tit2">결과보기</h3>
+            <div class="t_iframe">
+                <iframe src="https://parkhyeonshin.github.io/Coding/site/textType/textType02.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/site/textType/textType02.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/site/textType/textType02.html" target="_blank">원본 사이트</a>
+            </div>
+        </div>
+    </div>
+        <script src="../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+</body>
+</html>

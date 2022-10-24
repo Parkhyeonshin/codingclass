@@ -1,0 +1,103 @@
+/* textType */
+.text__inner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.text {
+    width: 32%;
+    margin-bottom: 2%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    transition: background 0.4s;
+    overflow: hidden;
+}
+.text:hover{
+    background-color: #e9e9e9;
+}
+.text__title {
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+    padding-top: 75px;
+}
+.text__title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    background: url(../img/SITE01_ICON.svg);
+    border-radius: 50%;
+}
+.text.t1 .text__title::before {
+    background-position: 0 0;
+}
+.text.t2 .text__title::before {
+    background-position: -100px 0;
+}
+.text.t3 .text__title::before {
+    background-position: -200px 0;
+}
+.text.t4 .text__title::before {
+    background-position: -300px 0;
+}
+.text.t5 .text__title::before {
+    background-position: -400px 0;
+}
+.text.t6 .text__title::before {
+    background-position: -500px 0;
+}
+.text__desc {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    color: #666;
+    margin-bottom: 20px;
+}
+.text_btn {
+    font-size: 16px;
+    line-height: 1;
+    text-decoration: underline;
+    text-underline-position: under;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .text__inner{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .text {
+        width: 49%;
+    }
+}
+@media (max-width: 480px) {
+    .text__inner{
+        display: block;
+    }
+    .text {
+        width: 100%;
+    }
+    .text__title {
+        font-size: 20px;
+    }
+    .text__title::before {
+        transform: scale(0.8);
+        left: -5px;
+    }
+    .text__desc {
+        font-size: 16px;
+    }
+}

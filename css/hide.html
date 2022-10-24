@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 요소 숨기기</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+    <style>
+        #main .document .btnflex{
+    	    display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <style>
+        /* .t_box .disn{
+            display: block;
+        } */
+        .t_box .disn:hover{
+            display: none;
+        }
+        .t_box .vis:hover{
+            visibility : hidden
+        }   
+        .t_box .wh{
+            height:50px;
+        }
+        .t_box .wh:hover{
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+        .t_box .op:hover{
+            animation: opacity 1.5s ease forwards;
+        }
+        .t_box .scale:hover{
+            animation: scale  1.5s ease forwards;
+        }
+        @keyframes opacity   {
+            0% {opacity: 1;}
+            100% {opacity: 0;}
+        }
+        @keyframes scale {
+            0%{transform: scale(1);}
+            100%{transform: scale(0);}
+        }
+    </style>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">CSS _ 색표현방법</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="basic.html">기초</a></li>
+                <li><a href="#.html">주제</a></li>
+                <li><a href="index.html">알파벳</a></li>
+                <li><a href="bector.html">벡터/비트맵 방식</a></li>
+                <li><a href="grammar.html">기본 문법</a></li>
+                <li><a href="media.html">미디어 쿼리</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+                <li><a href="scss.html">SCSS</a></li>
+                <li><a href="ir.html">이미지스프라이트/IR/백그라운드 표현</a></li>
+                <li><a href="unit.html">단위</a></li>
+                <li><a href="color.html">색상 표현법</a></li>
+                <li class="active"><a href="hide.html">요소 숨기기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">CSS를 이용해서 요소 숨기기</h2>
+            <!-- 요소를 안보이게 하는 방법
+            1. display: none;           (애니메이션 x, 영역 사라짐)
+            2. opacity : 0;             (애니메이션 O, 영역 잔존)
+            3. visibility : hidden;     (애니메이션 x, 영역 사라짐)
+            4. width: 0; height: 0;     (애니메이션 x, 영역 사라짐) : blind효과
+            5. transform: scale(0);     (애니메이션 O, 영역 사라짐) -->
+
+            <div class="t_desc2">
+                여러분은 반응형웹을 하면서 요소를 숨기는 상황이 많지 않나요? 저는 그런 상황이 많더라고요! 그래서 여태까지
+                display:none만 이용했었는데 이 방법 말고도 더 많은 방법이 있단걸 알고 계신가요?
+                <br>오늘은 CSS를 이용해서 요소를 숨기는 방법에 대해서 알아보겠습니다.
+            </div>
+            <hr>
+            <h3 class="t_tit2">■ <i>display: none;</i></h3>
+            <p class="t_desc">
+                 레이아웃에는 영향을 주지 않습니다. 차지하던 공간자체도 사라지는 개념입니다.
+            </p>
+            <h3 class="t_tit2">■ <i>visibility: hidden;</i></h3>
+            <p class="t_desc">
+                차지하던 공간은 유지한채로 컨텐츠만 사라집니다.고로 사라진 공간은 빈 공간으로 남게 됩니다.
+            </p>
+            <h3 class="t_tit2">■ <i>width: 0; height: 0;</i></h3>
+            <p class="t_desc">
+                넓이와 높이를 0으로 지정해서 보이지 않게 하는 방법입니다. 제가 실험해보니 안에 텍스트가 들어가면 
+                <i>텍스트는 적용이 안되더라구요?</i> 네... 그런듯합니다. 그래서 이 방법을 사용하되 이 텍스튼 어떻게 없앨까 고민하다가
+                "<i>overflow:hidden을 사용</i>해서 가로0, 세로0인 이 요소의 영역밖을 안보이게하면 없어지지 않을까?" 싶어서 해보니 잘~
+                사라지더군요 ^_^ 여러분도 이 점 참고하시어 공부하시길 바랍니다.
+            </p>
+            <h3 class="t_tit2">■ <i>opacity: 0</i> </h3>
+            <p class="t_desc" style="font-size: 15px; color:#cacaca">애니메이션 적용 가능합니다.</p>
+            <p class="t_desc">
+                요소의 불투명도를 0%로 만듭니다. 그냥 이대로도 예상이 가는 가장 직관적인 CSS속성이네요. 차지하던 공간은 유지하고 시야에서 사라집니다.
+                이 속성은 애니메이션 효과가 부여가능합니다.
+            </p>
+            <h3 class="t_tit2">■ <i>transform: scale(0)</i></h3>
+            <p class="t_desc" style="font-size: 15px; color:#cacaca">애니메이션 적용 가능합니다.</p>
+            <p class="t_desc">
+                요소를 극한의 극한까지 축소한 개념입니다. 그러므로 시각적으로 감출 수 있습니다. transform은 변형과 관련된 속성값인데요. 여기서 'scale'은 요소를 
+                축소/확대 해주는 속성값이에요. 0으로 아예 축소에 축소를 해버리니 당연히 안보이겠죠?그리고 역시나 영역은 사라집니다.
+            </p>
+            <hr>
+            <h3 class="t_tit2">■ 함께 하시죠</h3>
+            <p class="t_desc">마우스를 오버해보시면 되겠숨다<br>(제가 실력이 부족한가봐요. 정확히 대셔야 깔끔하게 동작합니다💦)</p>
+            <p class="t_desc">✔ display:none;</p>
+            <div class="t_box" style = "background-color: #eed974; ">
+                <p style = "margin: 20px 0; color:azure; border-radius: 50px; background-color: #3a745fad; height:50px; line-height: 50px; text-align: center;"class="disn">display:none;</p>
+                <p style="color: #3a745f; font-size: 15px; border-top: 2px dashed #aa9737;">
+                    .t_box .disn:hover{
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;display : none;
+                    <br>}
+                </p>
+            </div> 
+            <p class="t_desc">✔ visibility: hidden;</p>
+            <div class="t_box" style = "background-color: #eed974; ">
+                <p style = "margin: 20px 0; color:azure; border-radius: 50px; background-color: #3a745fad; height:50px; line-height: 50px; text-align: center;" class="vis">visibility: hidden;</p>
+                <p style="color: #3a745f; font-size: 15px; border-top: 2px dashed #aa9737;">
+                    .t_box .vis:hover{
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;visibility : hidden;
+                    <br>}
+                </p>
+            </div>
+            <p class="t_desc">✔ width: 0; height: 0;</p>
+            <div class="t_box" style = "background-color: #eed974; ">
+                <p style = "margin: 20px 0; color:azure; border-radius: 50px; background-color: #3a745fad; line-height: 50px; text-align: center;" class="vis">width: 0; height: 0;</p>
+                <p style="color: #3a745f; font-size: 15px; border-top: 2px dashed #aa9737;">
+                    .t_box .wh:hover{
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;width: 0;
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;height: 0;
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden;
+                    <br>}
+                </p>
+            </div>
+            <p class="t_desc">✔ opacity: 0</p>
+            <div class="t_box" style = "background-color: #eed974; ">
+                <p style = "margin: 20px 0; color:azure; border-radius: 50px; background-color: #3a745fad; line-height: 50px; text-align: center;" class="op">opacity: 0</p>
+                <p style="color: #3a745f; font-size: 15px; border-top: 2px dashed #aa9737;">
+                    .t_box .op:hover{
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    animation: opacity 1.5s ease forwards;
+                    <br>}
+                    <br>@keyframes opacity   {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    0% {opacity: 1;}
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;100% {opacity: 0;}
+                    <br>}
+                </p>
+
+            </div>
+            <p class="t_desc">✔ transform: scale(0)</p>
+            <div class="t_box" style = "background-color: #eed974; ">
+                <p style = "margin: 20px 0; color:azure; border-radius: 50px; background-color: #3a745fad; line-height: 50px; text-align: center;" class="scale">transform: scale(0)</p>
+                <p style="color: #3a745f; font-size: 15px; border-top: 2px dashed #aa9737;">
+                    .t_box .scale:hover{
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    animation: scale  1.5s ease forwards;
+                    <br>}
+                    <br>@keyframes opacity   {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    0% {opacity: 1;}
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;100% {opacity: 0;}
+                    <br>}
+                    <br>@keyframes scale {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;   0%{transform: scale(1);}
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;100%{transform: scale(0);}
+                    <br>}
+                </p>
+            </div>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

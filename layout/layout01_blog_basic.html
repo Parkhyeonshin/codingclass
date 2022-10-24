@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 배치</title>
+
+    <link rel="stylesheet" href="../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../javascript/assets/css/drcula.css">
+    <style>
+    .document .t_iframe {
+        position: relative;
+        padding-top: 56%;
+        width: 100%;
+        height: 0;
+    }
+
+    .document .t_iframe iframe {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    </style>
+</head>
+<body>
+    <main id="main">  <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">레이아웃(Layout) 기본</h2>
+            <p class="t_box">
+                레이아웃 배치시 사용할 수 있는 방법으로는 <i>float, flex, grid</i> 방식이 있습니다.
+            </p>
+            <hr>
+            <h3 class="t_tit2">01_ float</h3>
+            <p class="t_desc2">
+                특정 요소(elemnet)를 떠있게, 부유하게 만드는 속성입니다.<br>
+                즉, 박스를 왼쪽(left) 또는 오른쪽(right)으로 배치시키는 방법입니다.<br>
+                flaot를 사용할시 영역이 깨지는 버그(부모요소가 자식요소의 높이를 인지못함)가 있는데, 이 버그는<br>
+                &nbsp;&nbsp;1) 깨지는 영역에 <i>'clear: both'</i> 속성을 사용합니다.(비추)<br>
+                &nbsp;&nbsp;2) 부모 요소 영역에 <i>overflow:hidden</i>을 설정합니다.<br>
+                &nbsp;&nbsp;3) flaot을 사용한 부모요소에 <i>clearfix</i>를 설정합니다
+                <br> float를 취소할 때에는 float:none; 합니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>속성 값</th>
+                        <th>속성 설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">left</td>
+                        <td>좌측 빈공간부터 채워 내려옴</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">right</td>
+                        <td>우측 빈공간부터 채워 내려옴</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">both</td>
+                        <td>어느쪽도 채우지 않고 다시 한단으로 배치</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <p class="t_desc">
+                clearfix를 사용할때는 아래와 같이 사용합니다.
+            </p>
+            <p class="t_box">
+                .clearfix::before,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//- ::before, ::after : 가상요소 사용하여 컨테츠를 사용<br>
+                .clearfix::after {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//- ::before, ::after : 가상요소 사용하여 컨테츠를 사용<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;content: '';<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;display: block;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;line-height: 0;<br>
+            }<br><br>
+            
+            .clearfix::after {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;clear: both;  &nbsp;   //flaot 의 성질을 양족에서 차단하는 역할<br>
+            }
+            </p>
+            <p class="t_desc">
+                overflow 속성값
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>속성 값</th>
+                        <th>속성 설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">visible</td>
+                        <td>기본값. 요소밖으로 넘친 컨텐츠를 그대로 표시합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">hidden</td>
+                        <td>요소 밖으로 넘친 컨텐츠는 잘리고 보이지 않습니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">scroll</td>
+                        <td>넘친 컨텐츠는 잘리고 스크롤바가 생겨서 볼 수 있습니다. 가로/세로 모두 생깁니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">auto</td>
+                        <td>컨텐츠가 넘칠 경우 자동으로 스크롤바가 생성됩니다.가로/세로 모두 생깁니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h4 class="t_tit3"> float를 활용한 기본 구조</h4>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/yLKoorK?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/yLKoorK">
+                    레이아웃1_ float_기본</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            <hr>
+            
+            <h3 class="t_tit2">02_ flex</h3>
+            <p class="t_desc2">
+            flex란 유연성을 뜻하는데, 요소들을 자유자재로  위치시키는 속성입니다.<br>
+            flex요소는 float속성과 다르게 <i>부모요소</i>에만 적용하면 됩니다.<br>
+            flex는 시멘틱 태그를 활용해 주는게 태그 구조를 파악하기 용이하므로 시멘틱 태그를 사용합시다!<br>
+            flex의 속성값은 다양하게 있지만 여기서는 flex-wrap(부모요소에 적용하는 속성값)에 대해서만 알아보겠습니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>속성 값</th>
+                        <th>속성 설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">flex-wrap:wrap</td>
+                        <td>부모요소를 넘어간다면 <i>줄바꿈</i>을 합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">flex-wrap:nowrap</td>
+                        <td>부모요소를 넘어가더라도 계속 <i>한줄</i>에 배치합니다</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">flex-wrap:wrap-reverse</td>
+                        <td>wrap과 같은 방식으로 작동하지만 <i>역순</i>으로 배치가 됩니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- 이미지  -->
+            <h4 class="t_tit3"> flex를 활용한 기본 구조</h4>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/rNdzGeo?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/rNdzGeo">
+                    레이아웃1_flex_기본</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            <hr>
+            
+            <h3 class="t_tit2">03_ grid</h3>
+            <p class="t_desc">
+                컨테이너와 아이템이라는 두가지 개념으로 구분되어있습니다. 콘테이너는 아이템을 감싸는 부모 요소이고 각 아이템(자식 요소)들을 배치할 수 있습니다.
+                <br>레이아웃을 표로 생각하여 배치한다고 생각하면 쉽습니다.
+            </p>
+            <p class="t_desc2">
+                gird-area: 속성으로 이름을 지정한뒤<br>
+                grid-template-areas:를 통해 각자 위치할 영역을 지정합니다.<br>
+                grid-template-columns: 속성은 grid 트랙의 크기들을 지정해주는 속성입니다.(=width)<br>
+                grid-template-rows: 속성은 grid 트랙의 높이들을 지정해주는 속성입니다.(=height)
+            </p>
+            <h4 class="t_tit3"> grid를 활용한 기본 구조</h4>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/xxWLXRv?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/xxWLXRv">
+                    레이아웃1_grid_기본</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+        </div>
+    </main>    <!-- //main end -->
+    <footer id="footer" >
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

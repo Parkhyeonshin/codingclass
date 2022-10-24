@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 검색03</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+    <style>
+        #main .document .btnflex{
+    	    display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">Javascript_Search</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                <li><a href="search01.html">검색 이펙트1</a></li>
+                <li><a href="search02.html">검색 이펙트2</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">검색 효과</h2>
+            <div class="t_desc2">
+                저번시간에 이어서 또 검색 사이트를 만들어보겠습니다.
+                이번엔 일치하는 단어를 찾는것이 아니라 알파벳 순으로 찾기를 만들어 볼게요.
+                또 알파벳순으로 검색된 이후에 나타난 검색 속성값의 갯수를 구해보겠습니다.
+            </div>
+            <hr>
+            
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/searchEffect03.html" frameborder="0"></iframe>
+            </div>
+            
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/searchEffect03.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/searchEffect03.html" target="_blank">원본 사이트</a>
+            </div>
+            <hr>
+            <div class="t_desc"> 
+                ▶ 이 사이트에 사용된 charAt()의 특징에 대해 간단하게만 알아보고 가겠습니다.
+                includes()는 문자열에서 지정한 index(위치값)에 해당하는 값을 문자열로 출력합니다.
+            </div>
+            <p class="t_box">
+                const str1 ="javascript reference";
+                <br>const currentStr1 = str1.charAt();   //j
+                <br>const currentStr2 = str1.charAt("0");   //j
+                <br>const currentStr3 = str1.charAt("1");   //a
+                <br>const currentStr4 = str1.charAt("2");   //v
+            </p>
+            <h3 class="t_tit2">JS 소스 분석하기</h3>
+            <div class="t_code">
+<pre><code class="language-js">const searchkeyWord = document.querySelectorAll(".search__info .keyword span");   //알파벳
+const searchList = document.querySelectorAll(".search__list ul li");    //목록 리스트
+const searchInfo = document.querySelector(".search__info .num");
+
+// 전채 갯수 구하기
+searchInfo.textContent = searchList.length
+
+
+
+// 
+searchkeyWord.forEach(el =>{
+    el.addEventListener("click", () =>{
+        const searchWord = el.innerText;    //사용자가 클릭한 알파벳
+
+
+        searchList.forEach(el => {
+            const cssName = el.querySelector("strong").innerText;           //속성 텍스트
+
+            // 알파벳 첫글자 == CSS 속성의 첫글자
+            if(searchWord.charAt(0)==cssName.charAt(0)){
+                el.classList.remove("hide");
+                
+            } else{
+                el.classList.add("hide");
+            }
+        })
+        const searchList2 = document.querySelectorAll(".search__list ul .hide");
+        searchInfo.textContent = searchList.length -= searchList2.length;
+    });
+});
+</code></pre>
+            </div>
+            <div class="t_desc">
+                html에서 각각의  li태그에 &lt;strong&gt;태그안에 속성명을 넣어주었는데요. 이번엔 이걸 이용, 비교해서 검색효과를
+                만들겠습니다. 이번엔 알파벳 순이므로 a를 눌렀을 경우를 예시로 들어볼게요.
+            </div>
+            <p class="t_box">
+                'a'라는 버튼을 누르게되면 charAt(0)를 통해 a라는 문자를 반환하겠죠? 그리고 cssName.charAt(0)또한 첫번째 문자가 a인 속성값들과 비교하게 됩니다.
+                그러므로 첫 글자가 a가 아닌 문자들은 class=hide가 붙어 미출력되고, 첫 글자가 a인 문자들만 class=hide가 제거되어 우리눈에 보이게 되는것입니다.
+            </p>
+            <br>
+            <p class="t_desc">▶ 이번엔 출력된 갯수만 구하는 스크립트에 대해 알아봐요</p>
+            <p class="t_desc2">
+                const searchList2 = document.querySelectorAll(".search__list ul .hide");
+                <br>searchInfo.textContent = searchList.length -= searchList2.length;
+            </p>
+            <p class="t_desc">
+                저희가 기존 검색효과에서 css속성 전체 갯수를 searchList라는 변수에 넣어주었는데요.
+                <i>"전체 값 - 출력되지 않은 속성들 갯수"</i>를 해주면 간단하게 되겠죠?
+                <br>그래서 새롭게 searchList2라는 변수를 만든 후 이 변수에 if문이 실행된 후 class=hide가 붙은 것들의 갯수를 구하게 합니다.
+                그러면 전체갯수는 이미 구해져 있으므로 그 값에서 새롭게 구한 searchList2값을 빼면 되겠죠?
+                <br> 끝이에요!
+            </p>
+            
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

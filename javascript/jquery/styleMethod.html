@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 : 스타일관련메서드</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../index.html">jQuery</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="jquery.html">기본</a></li>
+                <li><a href="choice_basic.html">기본 선택자</a></li>
+                <li><a href="choice_el.html">속성 선택자</a></li>
+                <li><a href="choice_filter.html">필터 선택자</a></li>
+                <li><a href="choice_search.html">탐색 선택자</a></li>
+                <li><a href="classMethod.html">클래스 관련 메서드</a></li>
+                <li><a href="elMethod.html">속성 관련 메서드</a></li>
+                <li><a href="styleMethod.html">스타일 관련 메서드</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">스타일 관련 메서드 </h2>
+            <p class="t_desc2">
+                메서드란 데이터를 참조하고 <i>조작</i>할 수 있는 동작을 의미합니다. 
+                <br><i>제이쿼리에 사용되는 메서드</i>에 대해 알아보겠습니다.
+            </p>
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/85">1. 클래스 관련 메서드</a>   
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/86">2. 속성 관련 메서드</a>
+            <br> <a style="color : #ccc;" >3. 스타일 관련 메서드</a>
+            <hr>
+            <h3 class="t_tit2">■ 메서드의 기본 형식</h3>
+            <p class="t_box">
+                1. <i>$("선택자").메서드명();</i>
+            </p>
+            <p class="t_desc">
+                ⇒매개변수가 없는 유형<br>
+            </p>
+            <p class="t_box">
+                2. <i>$("선택자").메서드명(값);</i>
+            </p>
+            <p class="t_desc">
+                ⇒매개변수가 한개인 유형<br>
+            </p>
+            <p class="t_box">
+                3. <i>$("선택자").메서드명(function(){});</i>
+            </p>
+            <p class="t_desc">
+                ⇒매개변수가 함수인 유형<br>
+            </p>
+            <p class="t_box">
+                4. <i>$("선택자").메서드명(값1,값2,...);</i>
+            </p>
+            <p class="t_desc">
+                ⇒매개변수가 여러개인 유형<br>
+            </p>
+            <p class="t_box">
+                5. <i>$('선택자').메서드명({</i>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<i>옵션: 값,</i>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<i>옵션: 값</i>
+                <br><i>});</i>
+            </p>    
+            <p class="t_desc">
+                ⇒매개변수가 객체방식인 유형
+            </p>
+            <p class="t_desc" style="color: rgb(165, 165, 165);">
+                한개의 메서드가 문법유형을 모두 갖고 있지는 않습니다.
+                <br>어떤 메서드는 한개유형만, 어떤 메서드는 여러개 유형을 가질 수 있습니다.
+            </p>
+            <h3 class="t_tit2">01_ css() 메서드</h3>
+            <table class="t_table">
+                <colgroup>
+                    <col width="40%">
+                    <col width="60%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>실행 분류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">취득</td>
+                        <td>$("div").css("width");</td>
+                    </tr>
+                    <tr>
+                        <td class="ce" rowspan="2">생성, 변경</td>
+                        <td>$("a").css("background-color", "red").css("padding", "10px");</td>
+                    </tr>
+                    <tr>
+                        <td>$("a").css({background-color:"red", padding:"10px"});</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>$("div").css("width", function(index, w){
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;// index는 각 div 요소의 index 0, 1, 2
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;// w는 각 div요소의 width속성
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;return css 속성 // 각 div 요소의 css속성을 변경합니다.
+                        <br>});
+                        <br>...
+                        <br>&lt;div&gt;내용&lt;/div&gt;
+                        <br>&lt;div&gt;내용&lt;/div&gt;
+                        <br>&lt;div&gt;내용&lt;/div&gt;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="t_tit3"> 예시</h2>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/YzLzozq?default-tab=html%2Cresult&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/YzLzozq">
+                    제이쿼리스타일메서드1</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            <br>
+            <h3 class="t_tit2">02_ width, height 관련 메서드</h3>
+            <p class="t_desc">요소의 속성을 불린(true/false)로 제어할 수 있습니다.</p>
+            <table class="t_table">
+                <colgroup>
+                    <col width="40%">
+                    <col width="60%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>메서드 종류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">width()</td>
+                        <td>요소의 가로 길이를 취득, 변경할 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">innerWidth()</td>
+                        <td>padding이 적용된 요소의 가로 길이를 취득, 변경할 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">outerWidth()</td>
+                        <td>border와 margin이 적용된 요소의 가로 길이를 취득, 변경할 수 있습니다.
+                        <br>outerWidth()는 요소의 width값 + 좌우 border값
+                        <br>outerWidth(true)는 요소의 width값 + 좌우 border값 + 좌우 margin값</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">hieght()</td>
+                        <td>요소의 높이를 취득, 변경할 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">innerhieght()</td>
+                        <td>padding이 적용된 요소의 높이를 취득, 변경할 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">outerHeight()</td>
+                        <td>border와 margin이 적용된 요소의 높이를 취득, 변경할 수 있습니다.
+                        <br>outerWidth()는 요소의 height + 좌우 border값
+                        <br>outerHeight(true)는 요소의 height + 좌우 border값 + 좌우 margin값</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="t_tit3"> 예시</h2>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/XWqWLNL?default-tab=html%2Cresult&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/XWqWLNL">
+                    제이쿼리스타일메서드2</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            <br>
+            <h3 class="t_tit2">03_ 위치 관련 메서드</h3>
+            <table class="t_table">
+                <colgroup>
+                    <col width="40%">
+                    <col width="60%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>메서드 종류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">offset()</td>
+                        <td>
+                            $("div").offset().left
+                            <br>$("div").offset().top
+                            <br>$("div").offset({left:10, top:10})
+                            <br>HTML 기준으로 left, top값을 취득, 변경할 수 있습니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">position()</td>
+                        <td>
+                            $("div").position().left
+                            <br>$("div").position().top
+                            <br>부모 요소 기준으로 left, top값을 취득할 수 있습니다.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="t_tit3"> 예시</h2>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/qBYBzrO?default-tab=html%2Cresult&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/qBYBzrO">
+                    제이쿼리스타일메서드3</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            <br>
+        </div>    
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

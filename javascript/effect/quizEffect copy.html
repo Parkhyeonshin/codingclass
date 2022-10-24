@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 이펙트</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        body {
+            padding: 0;
+            width: 100px;
+            height: 100vh;
+            overflow: hidden;
+            background: #11E8BB; 
+            background: linear-gradient(to bottom,  #11E8BB 0%,#8200C9 100%);
+        }
+        #canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="intro_menu">
+            <ul>
+                <li>01. 퀴즈 이펙트 : 정답 확인하기 <a href="quizEffect01.html">👀</a></li>
+                <li>02. 퀴즈 이펙트 : 주관식 확인하기 <a href="quizEffect02.html">👀</a></li>
+                <li>03. 퀴즈 이펙트 : 주관식(다중형) 확인하기 <a href="quizEffect03.html">👀</a></li>
+                <li>04. 퀴즈 이펙트 : 객관식 확인하기 <a href="quizEffect04.html">👀</a></li>
+                <li>05. 퀴즈 이펙트 : 객관식(다중형) 확인하기 <a href="quizEffect05.html">👀</a></li>
+                <li>06. 퀴즈 이펙트 : 객관식(다중형) 확인하기 - 슬라이드 형식 <a href="quizEffect06.html">👀</a></li>
+            </ul>
+        </div>
+    </main>
+    <div id="canvas"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r77/three.min.js"></script>
+    <script>
+        // threejs 스크립트 
+            // 만들 도형 변수선언
+        let renderer, scene, camera, composer, circle, skelet, particle;
+
+        // 문서가 로딩되면 = 실행시켜라
+        window.onload = function() {
+            init();
+            animate();
+        }
+
+        // 기본셋팅을 함수로 묶어버림(Threejs는 기본셋팅이 꼭!들어가야함)
+        function init(){
+            // 렌더링 효과
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });       
+            renderer.setPixelRatio((window.devicePixelRatio) ? window.devicePixelRatio : 1);        // 화면비율 설정
+            renderer.setSize(window.innerWidth, window.innerHeight);        //사이즈
+            renderer.autoClear = false;
+            renderer.setClearColor(0x000000, 0.0);      
+            document.getElementById('canvas').appendChild(renderer.domElement); 
+            
+            // 화면
+            scene = new THREE.Scene();
+
+            // 카메라
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);      //기본 원근점 표시함. 
+            camera.position.z = 400;
+            scene.add(camera);
+
+            circle = new THREE.Object3D();
+            skelet = new THREE.Object3D();
+            particle = new THREE.Object3D();
+
+            scene.add(circle);
+            scene.add(skelet);
+            scene.add(particle);
+
+            // 지오메트리
+            let geometry = new THREE.TorusKnotGeometry(1, 0.4, 64, 8, 2, 3);
+            let geom = new THREE.TorusKnotGeometry(1, 0.4, 64, 8, 2, 3);
+            let geom2 = new THREE.IcosahedronGeometry(15, 1);
+
+                // 지오메트리의 표면값
+            let material = new THREE.MeshStandardMaterial({
+                color: 0xffffff,
+                shading: THREE.FlatShading
+            });
+
+            let mat = new THREE.MeshPhongMaterial({
+                color: 0xffffff,
+                shading: THREE.FlatShading
+            });
+            let mat2 = new THREE.MeshPhongMaterial({
+                color: 0xffffff,
+                wireframe: true,
+                side: THREE.DoubleSide
+            });
+
+            let planet = new THREE.Mesh(geom, mat);
+            planet.scale.x = planet.scale.y = planet.scale.z = 63;
+            circle.add(planet);
+            let planet2 = new THREE.Mesh(geom2, mat2);
+            planet2.scale.x = planet2.scale.y = planet2.scale.z = 10;
+            skelet.add(planet2);
+
+            for(let i = 0; i<3000; i++){
+                let mesh = new THREE.Mesh(geometry, material);
+                mesh.position.set(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize();
+                //천개만들어서 위치 랜덤값으로 뿌리기
+                mesh.position.multiplyScalar(90 + (Math.random() * 700));
+                mesh.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
+                particle.add(mesh);
+
+            }
+
+
+            // 조명
+            let lights = [];
+            lights[0] = new THREE.DirectionalLight( 0xffffff, 1);
+            lights[0].position.set(1,0,0);
+            lights[1] = new THREE.DirectionalLight( 0x11e8bb, 1);
+            lights[1].position.set(0.75,1,0.5);
+            lights[2] = new THREE.DirectionalLight( 0x8200c9, 1);
+            lights[2].position.set(-0.75,-1,0.5);
+
+            let ambientLight = new THREE.AmbientLight(0x555555 );
+            scene.add(ambientLight);
+
+            scene.add(lights[0]);
+            scene.add(lights[1]);
+            scene.add(lights[2]);
+
+            // 브라우저 움직임 감지
+            window.addEventListener("resize", onWindowResize, false)    //값이 변했을때 실행시키라는 뜻
+        }
+
+        // 화면 사이즈
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        // 애니메이션
+        function animate () {
+            requestAnimationFrame(animate);         //1초에 60번실행시킴 (무한에빠지는 에러방지용)
+            
+            circle.rotation.x += 0.002;
+            circle.rotation.y += 0.001;
+            circle.rotation.z += 0.005;
+
+            skelet.rotation.x -= 0.003;
+            skelet.rotation.y -= 0.004;
+
+            particle.rotation.z -= 0.0005;
+            particle.rotation.y -= 0.001;
+            particle.rotation.x += 0.001;
+
+            renderer.render(scene, camera);
+        }
+    </script>
+</body>
+</html>

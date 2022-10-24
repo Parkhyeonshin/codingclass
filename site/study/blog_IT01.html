@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 유형01</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../javascript/assets/css/dracula.css">
+
+    <style>
+        .document #main .btnflex{
+        	display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
+        <h1><a href="../index.html">사이트 만들기</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="#.html">이미지 유형 01</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <div class="document">
+        <div id="main">
+            <h2 class="t_tit">사이트 만들기 _ 이미지 유형01</h2>
+            <p class="t_desc2">
+                이번엔 새로운 유형인 이미지 유형에 대해 알아보겠습니다. 기존에 했었던 카드타입과 굉장히 유사했던 부분이라 
+                어렵지 않게 따라하실 수 있을거에요.
+            </p>
+
+            <hr>
+
+            <h3></h3>
+            <div class="t_iframe">
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fd1alnzzZPOOZzULTEK3Bv7%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1106%253A156" allowfullscreen></iframe>
+            </div>
+
+            <hr>
+            <figure class="card__header">
+                <img src="../imageType/img/image_type01_bg_01.jpg" alt="블로그용 이미지">
+            </figure>
+            <div class="t_desc">
+                기존 카드타입01번과 레이아웃은 크게 다르지 않으므로 카드타입01번의 코드를 조금 활용해서 작업했습니다.
+            </div>
+            <p class="t_desc2">
+                background: url(이미지경로) no-repeat center;
+            </p>    
+            <p class="t_desc">
+                이미지 위에 글씨를 나타내기 위해서는 여태까지 position을 이용했었는데요. 이번에 새롭게 등장한 이녀석은 배경 자체에 그림을 입히는 방법입니다.
+                no-repeat과 center는 선택사항이고, <i>url()안에 이미지경로만 입력</i>해주면 원하는 그림을 단색배경대신 사용할 수 있습니다.
+                <br> * no-repeat: background-repeat속성에 해당하는 값으로 작은이미지일경우 <i>반복출력여부</i>를 조정할 수 있는 속성값입니다.
+                <br> * center: background-position속성에 해당하는 값으로 <i>이미지의 좌표</i>를 수정할 수 있습니다. px단위, left, top, right등등을 사용할 수 있습니다.
+            </p>
+
+            <h3 class="t_tit2">CSS 속성</h3>
+            <div class="t_code">
+<pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+.nexon {
+    font-family: "NexonLv1Gothic";
+    font-weight: 400;
+}
+
+/* 리셋 */
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+img {
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+/* common */
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+.section {
+    padding: 120px 0;
+}
+.section > h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.section > p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #666;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+/* imageType */
+.image__inner{
+    display: flex;
+    justify-content: space-between;
+}
+.image{
+    width: 49%;
+    height: 370px;
+    color: #fff;
+    padding: 200px 30px 30px 30px;
+    box-sizing: border-box;
+}
+.image.img1{
+    background: url(img/image_type01_01.jpg) no-repeat center;
+}
+.image.img2{
+    background: url(img/image_type01_02.jpg) no-repeat center;
+}
+.image__title{
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.image__desc{
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-weight: 300;
+}
+.image__btn{
+    font-size: 16px;
+    color: #fff;
+    background-color: #49442C;
+    display: inline-block;
+    padding: 10px 20px;
+}
+.image__btn{
+    background-color: #737263;
+}
+</code></pre>
+            </div>
+            <h3 class="t_tit2">HTML 속성</h3>
+            <div class="t_code">
+<pre><code class="language-html">&lt;section id="imgType01" class="image__wrap nexon section"&gt;
+    &lt;h2&gt;도베르만이 세상을 구한다🐺🐾&lt;/h2&gt;
+    &lt;p&gt;아파트에서 도베르만 키우고 싶다... 아파트에도 마당이 있었으면 좋겠네요.... 마당 설치 해주실분?&lt;/p&gt;
+    &lt;div class="image__inner container"&gt;
+        &lt;article class="image img1"&gt;
+            &lt;h3 class="image__title"&gt;도베르만이 세상을 구한다&lt;/h3&gt;
+            &lt;p class="image__desc"&gt;늠름한 도베르만을 보세요. 이 도베르만은 안덥나봐요. 이렇게 더운날에 얘는 안더울까요? 좋겠다 나도 바다 가고 싶다...&lt;/p&gt;
+            &lt;a class="image__btn" href="/" title="자세히 보기"&gt;자세히 보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="image img2"&gt;
+            &lt;h3 class="image__title"&gt;도베르만이 세상을 구한다&lt;/h3&gt;
+            &lt;p class="image__desc"&gt;늠름한 도베르만을 보세요. 이 도베르만은 안덥나봐요. 이렇게 더운날에 얘는 안더울까요? 좋겠다 나도 바다 가고 싶다...&lt;/p&gt;
+            &lt;a class="image__btn yellow" href="/" title="자세히 보기"&gt;자세히 보기&lt;/a&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+            </div>
+            <h3 class="t_tit2">결과보기</h3>
+            <div class="t_iframe">
+                <iframe src="https://parkhyeonshin.github.io/Coding/site/imageType/imageType01.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/site/imageType/imageType01.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/site/imageType/imageType01.html" target="_blank">원본 사이트</a>
+            </div>
+        </div>
+    </div>
+        <script src="../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+</body>
+</html>

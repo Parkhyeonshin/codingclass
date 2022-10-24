@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 슬라이더01</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+    <style>
+        #main .document .btnflex{
+    	    display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">Javascript_Slider</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                <li><a href="search01.html">검색 이펙트1</a></li>
+                <li><a href="search02.html">검색 이펙트2</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+                <li><a href="slider01.html">슬라이드 이펙트1</a></li>
+                <li><a href="slider02.html">슬라이드 이펙트2</a></li>
+                <li><a href="slider03.html">슬라이드 이펙트3</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">이미지 슬라이드 효과</h2>
+            <div class="t_desc2">
+                웹페이지를 보면서 가장 많이 접했을 유형이기도 한데요. 오늘은 이미지가 슬라이드 형식으로 
+                변화하는 효과를 배워보겠습니다. 
+            </div>
+            <hr>
+            
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/sliderEffect01.html" frameborder="0"></iframe>
+            </div>
+            
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/sliderEffect01.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/sliderEffect01.html" target="_blank">원본 사이트</a>
+            </div>
+            <hr>
+            <div class="t_desc"> 
+                ▶ 슬라이드 유형 사이트는 iframe상의 '소스 보기'를 누르시면 각각 사용된 코드를 확인하실 수 있습니다. 
+                그래서 이번엔 js소스만 올려드리고 같이 알아보는 시간을 가져볼게요. 
+            </div>
+            <h3 class="t_tit2">JS 소스 분석하기</h3>
+            <div class="t_code">
+<pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");
+const sliderImg = sliderWrap.querySelector(".slider__img");
+const slider = sliderImg.querySelectorAll(".slider");
+
+let currentIndex = 0;       //현재 보이는 이미지
+let sliderCount = slider.length;        //이미지 갯수
+
+// 함수를 여러번 반복해서 실행하기위해서 사용함, 1000=1s
+setInterval(() =>{
+    // console.log("실행")  &lt;-- clg로확인하면 1초마다실행중임
+    
+    let nextIndex = (currentIndex + 1) % sliderCount;    //다음이미지
+    
+    slider[currentIndex].style.opacity = "0";      
+    slider[nextIndex].style.opacity = "1";      
+
+    currentIndex = nextIndex;
+    console.log(currentIndex)
+},1000)
+</code></pre>
+            </div>
+            
+            <p class="t_tit2">■ 핵심 파헤치기✍</p>
+            <p class="t_desc2">
+                이미지가 5개인데 이 이미지를 계속해서 바뀌게 해주어야 하는데요. 이미지의 순서는 각각 0부터 4까지라는 점은 이제는 
+                다들 아실거라 생각됩니다. 그런데 이 <i>0부터4까지를 계속해서 반복</i>해주어야 하는데 js로는 어떻게 구현할 수 있을까요?
+                들어가기에 앞서 밑의 체크포인트를  꼭!꼭! 숙지하고 읽어주세요.
+                <br><br>
+                ✔ x = y ?  일반 수학공식에서 "x는y와 같다"와 같이 해석되겠지만 우리는 절대 이렇게 해석하면 안돼요!❌
+                이 의미는 <i>y를 x에 대입</i>하라는 뜻입니다.
+                <br>✔ setInterval(,second) ? 이 메서드는 <i>지정한 ms초만큼 반복해서 실행</i>하는 메서드입니다. 
+
+            </p>
+            <p class="t_box">
+                let currentIndex = 0; 
+                <br>let sliderCount = slider.length;
+            </p>
+            <p class="t_desc">
+                ▶ 여기서 currentIndex는 현재 보이는 이미지의 순서를 의미합니다. 첫번째 이미지부터 보여야하므로 변수를 통해 0으로 선언합니다.
+                <br>그리고 전체 슬라이드 이미지의 갯수를 구하기 위해 length를 sliderCount라는 변수를 이용합니다.
+            </p>
+            <p class="t_box">
+                let nextIndex = (currentIndex + 1) % sliderCount;
+            </p>
+            <p class="t_desc">
+                ▶ 첫 시작이 0이므로, 위의 값은 최초 시작시 0+1, 즉 1이됩니다. 그럼 1 % sliderCount(여기서는 5)이므로 nextIndex에는 1이 대입이 됩니다.
+            </p>
+            <p class="t_box">
+                slider[currentIndex].style.opacity = "0";      
+                <br>slider[nextIndex].style.opacity = "1";      
+            </p>
+            <p class="t_desc">
+                ▶ 첫줄은 0번째 슬라이드(첫번째이미지)의 투명도를 0(투명)하게,
+                <br> 둘째줄은 1번재 슬라이드(두번재이미지)의 투명도를 1(불투명)하게 이므로 첫번째 이미지가 사라지고 두번째 이미지가 노출되게 됩니다.
+            </p>
+            <p class="t_box">
+                currentIndex = nextIndex;
+            </p>
+            <p class="t_desc">
+                ▶ =는 대입이라고 했죠? js는 순서가 항상 위부터 아래입니다. 그래서 최초 1의 값을 대입받은 nextindex가 다시 currentIndex에 1을 대입시킵니다.
+                그리고 이 구조가 1000ms = 1초마다 반복되게 되는 겁니다!
+                <br>
+            </p>
+
+            <h3 class="t_tit3"><i>Q. 근데 왜 0-4까지 되는건가요?</i></h3>
+            <p class="t_desc">
+                A. 간단합니다! <i>x % y 는 x를 y로 나눈 나머지값</i>을 구하는건데요. 위의 예제를 보자면
+                0 % 5 ==> 0
+                <br>1 % 5 ==> 1
+                <br>2 % 5 ==> 2
+                <br>3 % 5 ==> 3
+                <br>4 % 5 ==> 4
+                <br>5 % 5 ==> 0
+                <br> 이렇기 때문에 계속해서 무한으로 실행이 가능한겁니다. 더 이상은 표현못하겠어요! 
+            </p>
+            
+            <h1 class="t_tit3">- 끝.이.에.요 -</h1>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

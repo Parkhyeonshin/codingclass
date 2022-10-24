@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameEffect01</title>
+
+
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../assets/css/bg.css">
+    <link rel="stylesheet" href="../assets/css/game.css">
+    <link rel="stylesheet" href="../assets/css/music.css">
+
+    <style>
+        .modal__wrap {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 1px;
+            /* z-index: -1; */
+        }
+
+        .modal__btn {
+            position: absolute;
+            top: 800px;
+            left: 50px;
+            width: 85px;
+            /* z-index: -1; */
+        }
+
+        .modal__btn img {
+            width: 100%;
+        }
+
+        .modal__btn span {
+            display: block;
+            text-align: center;
+            border-radius: 5px;
+            background: #000;
+            color: white;
+            padding: 2px;
+            white-space: nowrap;
+        }
+
+        .modal__btn:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .modal__btn:hover span {
+            color: yellow;
+        }
+
+        .modal__btn.active {
+            display: none;
+        }
+
+        .modal__cont {
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0);
+            display: none;
+            /* transition: all 0.5s ease; */
+            z-index: -1;
+        }
+        .modal__cont.show{
+            transform: scale(1);;
+            display: flex;
+            z-index: 1;
+        }
+        .modal__close {
+            font-size: 50px;
+            background: #000;
+            color: white;
+            width: 100px;
+            transition: all 0.5s ease;
+        }
+        .modal__close:hover{
+            color: yellow;
+        }
+        .modal__close.active {
+            font-size: 50px;
+            background: #000;
+            color: white;
+            width: 100px;
+        }
+        .modal__close.hide{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header">
+        <h1>BangBang In To The Room</h1>
+        <div class="time"></div>
+
+    </header>
+    <!-- // header -->
+    <main id="main">
+        <div class="mouse__cursor">
+            <img src="../assets/img/cursor8.png" alt="커서">
+        </div>
+        <div class="icon_box">
+            <div class="icon1 icon">
+                <img src="../assets/img/icon01.svg" alt="뮤직">
+                <span>Search Game</span>
+            </div>
+            <div class="icon2 icon">
+                <img src="../assets/img/icon02.svg" alt="뮤직">
+                <span>Folder 02</span>
+            </div>
+            <div class="icon3 icon">
+                <img src="../assets/img/icon03.svg" alt="뮤직">
+                <span>Folder 03</span>
+            </div>
+            <div class="icon4 icon">
+                <img src="../assets/img/icon04.svg" alt="뮤직">
+                <span>Folder 04</span>
+            </div>
+            <div class="icon5 icon">
+                <img src="../assets/img/icon05.svg" alt="뮤직">
+                <span>Folder 05</span>
+            </div>
+            <div class="icon6 icon">
+                <img src="../assets/img/icon06.svg" alt="뮤직">
+                <span>Folder 06</span>
+            </div>
+        </div>
+    </main>
+    <!-- // main -->
+    <footer id="footer">
+        <div class="agent"></div>
+
+    </footer>
+    <!-- // footer -->
+
+    <!-- MusicPlayer -->
+    <div class="music__wrap">
+        <div class="music__inner">
+            <div class="music__header">
+                <div>◁</div>
+                <h2>Music Player</h2>
+                <div>▷</div>
+            </div>
+            <div class="music__contents">
+                <div class="music__view">
+                    <div class="img">
+                        <img src="../assets/img/music_view01.png" alt="커버">
+                    </div>
+                    <div class="title">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="music__control">
+                    <div class="progress">
+                        <div class="bar">
+                            <audio id="main-audio" src="../assets/audio/music_audio01.mp3"></audio>
+                        </div>
+                        <div class="timer">
+                            <span class="current">0:00</span>
+                            <span class="duration">4:00</span>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <i title="전체 반복" class="repeat" id="control-repeat"></i>
+                        <i title="이전곡 재생" class="prev" id="control-prev"></i>
+                        <i title="재생" class="play" id="control-play"></i>
+                        <i title="다음곡 재생" class="next" id="control-next"></i>
+                        <i title="재생 목록" class="list" id="control-list"></i>
+                        <i title="음소거" class="mute" id="control-mute"></i>
+                        <div class="volumeBox">
+                            <i title="볼륨 감소" class="volumeDown" id="control-volumeDown"></i>
+                            <input type="range" min="0" max="10" id="control-volume" class="volume__bar">
+                            <i title="볼륨 증가" class="volumeUp" id="control-volumeUp"></i>
+                        </div>
+                        <!-- <i title="음소거 해제" class="sound" id="control-mute">ddd</i> -->
+                        <!-- <i title="한곡 반복" class="repeat_one"></i>-->
+                        <!-- <i title="랜덤 반복" class="shuffle"></i> -->
+                        <!-- <i title="정지" class="stop"></i> -->
+                    </div>
+                </div>
+            </div>
+            <div class="music__footer">
+                <div class="music__list">
+                    <h3><span class="list"></span>MUSIC LIST</h3>
+                    <ul>
+                        <!-- <li>
+                            <strong>제목</strong>
+                            <em>아티스트</em>
+                            <span>재생시간</span>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //MusicPlayer -->
+    <div class="modal__wrap">
+        <div class="modal__btn">
+            <img src="../assets/img/modal__icon01.png" alt="모달창버튼">
+            <span>소스 보기</span>
+        </div>
+        <div class="modal__cont">
+            <div class="iframe__box">
+                <iframe style="width: 80vw; height: 90vh"
+                    src="https://github1s.com/Parkhyeonshin/Coding/blob/HEAD/javascript/effect/gameEffect01.html"
+                    frameborder="0">
+                </iframe>
+            </div>
+            <div class="modal__close">닫기</div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!-- <script src="../assets/js/gsap.js"></script> -->
+    <script src="../assets/js/music.js"></script>
+    <script src="../assets/js/searchgame.js"></script>
+    <script>
+        const cursor = document.querySelector(".mouse__cursor img");
+
+        // function poketmon(){
+        //     let poketmoncount = Math.floor(Math.random()*12)
+        // }
+
+        // const Icon = document.querySelectorAll(".icon_box > div");
+        // Icon.forEach(e=>{
+        //     e.addEventListener("click",()=>{
+        //         poketmon();
+        //     })
+        // })
+        const iconAll = document.querySelectorAll(".icon_box .icon")
+        let poketmon = Math.floor(Math.random() * 12) + 1;
+        iconAll.forEach(e => {
+            e.addEventListener("click", () => {
+                // cursor.style.borderRadius = 0 + "%";
+                poketmon = Math.floor(Math.random() * 12) + 1;
+                console.log(poketmon)
+            })
+        })
+
+        // 아이콘 이동시키기
+        $(".icon1").draggable({
+            drag: function () {
+                $(".mouse__cursor img").attr("src", `../assets/img/cursor${poketmon}.png`)
+            }
+        });
+        $(".icon2").draggable({
+            drag: function () {
+                $(".mouse__cursor img").attr("src", `../assets/img/cursor${poketmon}.png`)
+            }
+        });
+        $(".icon3").draggable({
+            drag: function () {
+                $(".mouse__cursor img").attr("src", `../assets/img/cursor${poketmon}.png`)
+            }
+        });
+        $(".icon4").draggable({
+            drag: function () {
+                $(".mouse__cursor img").attr("src", `../assets/img/cursor${poketmon}.png`)
+            }
+        });
+        $(".icon5").draggable({
+            drag: function () {
+                $(".mouse__cursor img").attr("src", `../assets/img/cursor${poketmon}.png`)
+            }
+        });
+        $(".icon6").draggable({
+            drag: function () {
+                $(".mouse__cursor img").attr("src", `../assets/img/cursor${poketmon}.png`)
+            }
+        });
+        $(".music__wrap").draggable();
+        $(".modal__btn").draggable();
+
+        // 마우스커서변경
+
+        window.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.pageX - 0 + "px";
+            cursor.style.top = e.pageY - 0 + "px";
+            // gsap.to(cursor, {left: e.pageX -1, top: e.pageY -1});
+        });
+
+
+        function printTime() {
+            const clock = document.querySelector('.time');
+            const now = new Date();
+            let nowHour = now.getHours();
+            let nowMin = now.getMinutes();
+            let nowSec = now.getSeconds();
+            // 13=01,14=02...24=00, 0=00
+            if (nowHour >= 13 && nowHour < 24) {
+                nowHour = nowHour - 12;
+                if (nowHour < 10) {
+                    nowHour = `PM 0${nowHour}`;
+                } else {
+                    nowHour = `PM ${nowHour}`;
+                };
+            } else if (nowHour < 10) {
+                nowHour = `AM 0${nowHour}`;
+            } else if (nowHour == 11 || nowHour == 10) {
+                nowHour = `AM ${nowHour}`;
+            } else {
+                nowHour = `PM ${nowHour}`;
+            };
+
+            if (nowSec < 10) nowSec = `0${nowSec}`;
+            if (nowMin < 10) nowMin = `0${nowMin}`;
+
+            const nowTime = `${now.getFullYear()}년 ${now.getMonth()}월 ${now.getDate()}일 ${nowHour} : ${nowMin} : ${nowSec}`;
+            clock.innerHTML = nowTime;
+            setTimeout(() => {
+                printTime();
+            }, 1000);
+        }
+
+
+        function printAgent() {
+            const agent = document.querySelector('.agent');
+            const os = navigator.userAgent.toLocaleLowerCase();
+            agent.innerHTML = os;
+            if (os.indexOf("windows")) {
+                agent.innerHTML = "현재 윈도우를 사용하고, 화면 크기는 " + screen.width + " *" + screen.height + " 입니다.";
+                document.querySelector('body').classList.add('window');
+            }
+            else if (os.indexOf("macintosh")) {
+                agent.innerHTML = "현재 맥을 사용하고, 화면 크기는 " + screen.width + " *" + screen.height + " 입니다.";
+                document.querySelector('body').classList.add('mac');
+            }
+            else if (os.indexOf("iphone")) {
+                agent.innerHTML = "현재 아이폰을 사용하고, 화면 크기는 " + screen.width + " *" + screen.height + " 입니다.";
+                document.querySelector('body').classList.add('iphone');
+            }
+            else if (os.indexOf("android")) {
+                agent.innerHTML = "현재 안드로이드를 사용하고, 화면 크기는 " + screen.width + " *" + screen.height + " 입니다.";
+                document.querySelector('body').classList.add('android');
+            }
+        }
+        window.onload = function () {
+            printTime();
+            printAgent();
+        }
+
+        // 모달
+        const modalBtn = document.querySelector(".modal__btn");
+        const modalClose = document.querySelector(".modal__close");
+        const modalCont = document.querySelector(".modal__cont");
+
+        modalBtn.addEventListener("click", () => {
+            modalCont.classList.add("show");
+            modalCont.classList.remove("hide");
+            modalClose.classList.remove("hide");
+            modalClose.classList.add("show");
+            modalBtn.classList.add("active");
+        })
+        modalClose.addEventListener("click", () => {
+            modalCont.classList.add("hide");
+            modalCont.classList.remove("show");
+            modalClose.classList.add("hide");
+            modalClose.classList.remove("show");
+            modalBtn.classList.remove("active");
+        })
+    </script>
+</body>
+
+</html>

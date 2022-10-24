@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 마우스01</title>
+
+        <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+
+        <style>
+            #main .document .btnflex {
+                display: flex;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="../../../javascript/index.html">Javascript_Parallax02</a></h1>
+            <nav class="header_nav">
+                <ul class="study">
+                    <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                    <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                    <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                    <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                    <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                    <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                    <li><a href="search01.html">검색 이펙트1</a></li>
+                    <li><a href="search02.html">검색 이펙트2</a></li>
+                    <li><a href="animation.html">애니메이션 만들기</a></li>
+                    <li><a href="slider01.html">슬라이드 이펙트1</a></li>
+                    <li><a href="slider02.html">슬라이드 이펙트2</a></li>
+                    <li><a href="slider03.html">슬라이드 이펙트3</a></li>
+                    <li><a href="parallax01.html">패럴랙스 이펙트1</a></li>
+                    <li><a href="parallax02.html">패럴랙스 이펙트2</a></li>
+                    <li><a href="parallax03.html">패럴랙스 이펙트3</a></li>
+                    <li><a href="mouse01.html">마우스 이펙트1</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">마우스 효과 01</h2>
+                <div class="t_desc2">
+                    이번시간에는 마우스관련 메서드를 이용해서 마우스를 따라다니는 효과를 만들어 보겠습니다. 
+                    또, 좌측하단에 각 메서드의 값들이 출력되게 해놨으니 어떻게 다른지 한번 보시면서 참고해보세요.
+                </div>
+                <hr />
+
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0">
+                    <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/mouseEffect01.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link btnflex">
+                    <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/mouseEffect01.html" target="_blank"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/mouseEffect01.html" target="_blank">원본 사이트</a>
+                </div>
+                <hr />
+                <div class="t_desc">
+                    ▶ 좌측 하단에는 .mouse__info 를 이용해서 각 위치값에 대한 정보를 입력하고, 
+                    문구에 span태그와 class속성을 이용해서 마우스오버 효과도 각각 다르게 부여합니다.
+                    마우스포인터가 사라지는 것은 <i>cursor:none</i>을 이용했습니다.
+                </div>
+                <h3 class="t_tit2">JS 소스</h3>
+                <div class="t_code">
+                    <pre><code class="language-js">window.addEventListener("mousemove", (event) => {
+    document.querySelector(".clientX").innerText = event.clientX;
+    document.querySelector(".clientY").innerText = event.clientY;
+    document.querySelector(".offsetX").innerText = event.offsetX;
+    document.querySelector(".offsetY").innerText = event.offsetY;
+    document.querySelector(".pageX").innerText = event.pageX;
+    document.querySelector(".pageY").innerText = event.pageY;
+    document.querySelector(".screenX").innerText = event.screenX;
+    document.querySelector(".screenY").innerText = event.screenY;
+});
+    
+const cursor = document.querySelector(".mouse__cursor");
+    
+window.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX - 25 + "px";
+    cursor.style.top = e.clientY - 25 + "px";
+});
+  
+//   getAttribute : =  속성을 가져오겠다  / 사용 이유 : 스타일 번호가 바뀌어도 바뀐 클래스명을 속성값으로 가져오므로 바뀐 스타일로 적용이 가능함.
+document.querySelectorAll(".mouse__wrap span").forEach((span) => {
+    let attr = span.getAttribute("class");
+
+    span.addEventListener("mouseover", () => {
+        cursor.classList.add(attr);
+    });
+    span.addEventListener("mouseout", () => {
+        cursor.classList.remove(attr);
+    });
+});
+</code></pre>
+                </div>
+                <p class="t_tit2">■ 핵심 파헤치기🪓</p>
+
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ 좌표(위치)관련</h2>
+                <img src="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/study/blogimg/mouseEffect01_blog1.jpg?raw=true" alt="좌표">
+                <p class="t_desc">
+                    client : 웹페이지가 보여지는 영역을 기준으로 합니다. 스크롤바가 움직이더라도 특정 지점의 X,y는 고정됩니다.
+                    <br>offset : 좌표를 출력하는 이벤트가 걸려있는 DOM node를 기준으로 합니다. 그림과 같이 특정 div 영역에서 출력한다면 div의 왼쪽 상단 모서리 부분이 기준점이 됩니다.
+                    <br>page : 전체 문서를 기준으로 합니다. 스크롤이 생긴다면 특정 지점의 Y좌표값은 페이지가 스크롤될때마다 변경됩니다.
+                    <br>screen : 모니터 화면을 기준으로 합니다.
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ 마우스를 따라다니는 원 만들기</h2>
+                <pre class="t_box">window.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX - 25 + "px";
+    cursor.style.top = e.clientY - 25 + "px";
+});</pre>
+                <p class="t_desc">
+                    CSS를 이용해서 마우스를 따라다닐 원을 만든 뒤 left: 0, top: 0을 주었습니다.
+                    이 원은 마우스포인터를 보여지는 웹상에서 계속해서 따라다닐 원이기때문에 client를 이용해서 left와 top에 값을 넣어주는 것입니다. 그러면
+                    계속해서 left와 top값이 변하므로 마치 포인터를 따라다니는 것처럼 보이게 되는것입니다.
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ getAttribute</h2>
+                <p class="t_desc">선택한 요소의 <i>특정 속성값</i>을 가져옵니다.</p>
+                <p class="t_box">
+                    문법 : element.getAttribute( 'attributename' )
+                </p>
+                <p class="t_desc">
+                    Q.왜 굳이 이 메서드를 사용한걸까요?
+                    <br>A. 추후 span태그에 다른 style을 부여하고자 할때 매번 번거롭게 js코드도 변경해주어야 하는데, 이것보다는 이 메서드를 이용해서 가져오게 되면 HTML상의 class명만 변경해주면 되기 때문입니다.
+                    변경된 class명을 그대로 가져오게 되니깐요!
+                </p>
+                
+
+                <h2 class="t_tit2">■ 코드 내멋대로 풀어헤치기👕</h2>
+                <p class="t_desc">이번 내용은 '핵심 파헤치기'에서 거의다 설명드려서 딱히 풀어헤칠게 없긴하지만 그래도 한번 작성해볼게요. 언제든 틀린점이 있다면 지적은 감사합니다.😙</p>
+                <p class="t_desc">
+                    1. 마우스가 움직일때마다 X, Y값을 입력합니다.
+                    <br><br>
+                    2. 마우스가 움직일때마다 마우스를따라다닐 원의 left, top값을 변화시켜 마우스를 따라다니는 효과를 냅니다.
+                    <br><br>
+                    3. 각 span의 class값을 가져와서 해당하는 span에 마우스를 오버하면 attr을 부여하고 span에서 마우스오버를 해제하면 attr을 제거합니다.
+                </p>
+
+                <h2 class="t_tit3">- 끝.이.에.요 -</h2>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

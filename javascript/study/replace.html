@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : replace </title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="effect">
+                <li><a href="../effect/searchEffect.html">검색 효과</a></li>
+                <li><a href="../effect/quizEffect.html">퀴즈 효과</a></li>
+                <li><a href="../effect/dataEffect.html">데이터 효과</a></li>
+                <li><a href="../effect/mouseEffect.html">마우스 효과</a></li>
+                <li><a href="../effect/sliderEffect.html">슬라이드 효과</a></li>
+                <li><a href="../effect/parallaxEffect.html">패랠랙스 효과</a></li>
+                <li><a href="../effect/gameEffect.html">게임 효과</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">데이터 타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+                <li><a href="join.html">배열 메서드</a></li>
+                <li><a href="../effect/study/quiz01.html">퀴즈 만들기</a></li>
+                <li><a href="velog.html">내장함수</a></li>
+                <li><a href="slice.html">문자열 변경 메서드</a></li>
+                <li><a href="indexof.html">문자열 검색 메서드</a></li>
+                <li><a href="RegEXP.html">정규식 표현</a></li>
+                <li><a href="text.html">문자열 결합/템플릿 문자열</a></li>
+                <li><a href="trim.html">소/대문자/공백</a></li>
+                <li><a href="split.html">split()</a></li>
+                <li><a href="repeat.html">replace()/replaceAll()</a></li>
+                <li><a href="concat.html">concat()</a></li>
+                <li><a href="repeat.html">repeat()</a></li>
+                <li><a href="padStart.html">padStart()/padEnd()</a></li>
+                <li><a href="includes.html">includes()</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">replace() / replaceAll()</h2>
+            <p class="t_desc2">
+                어떤 패턴에 일치하는 일부 또는 모든 부분이 <i>교체된 새로운 문자열을 반환합니다.</i>
+                그 패턴은 문자열이나 정규식(RegExp)이 될 수 있으며, 교체 문자열은 문자열이나 모든 매치에 대해서 호출된 함수일 수 있습니다. 
+            </p>
+            <hr>
+            <h3 class="t_tit2">■ 문법</h3>
+            <p class="t_desc">
+                원문은 'String.prototype.replace()'이나 String.prototype은 생략이 가능합니다.
+                <br>replaceAll의 문법또한 repalce와 같습니다.
+            </p>
+            <p class="t_box">
+                "문자열".replace("찾을 문자열", "변경할 문자열")
+                <br>"문자열".replace(정규식)
+                <br>"문자열".replace(정규식, 변경할 문자열)
+            </p>
+            <h3 class="t_tit2">■ 특징</h3>
+            <p class="t_desc">
+                ▶ 기존 replace()메서드는 중복된 문자의 경우 <i>중복문자 중 첫번째 문자만</i> 바꾸어준다는 특징이 있었습니다. 
+                이러한 문제점을 개선해서 나온 따끈한 신상이 repalceAll()메서드 인것입니다. 
+                이 메서드의 경우 중복이 되어도 <i>전부 다 바꿔줍니다.</i>
+            </p>
+            <h3 class="t_tit2">■ 예시</h3>
+            <p class="t_desc">
+                이해를 돕기 위해 예시를 들어봅시다. 주석으로 결과값을 작성하였습니다.
+                <br>기존에는 정규식표현을 사용했으나 repalceAll의 등장으로 한결 코드작성이 수월해진 모습입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const str1 = "javascript reference";
+const currentStr1 = str1.replace("javascript", "자바스크립트"); //자바스크립트 reference
+const currentStr2 = str1.replace("j", "J"); //Javascript reference
+const currentStr3 = str1.replace("e", "E"); //javascript rEference : 중복된것은 첫번째만 바뀜
+const currentStr4 = str1.replaceAll("e","E");   //javascript rEfErEncE : 중복된것도 다 바뀜
+const currentStr5 = str1.replace(/e/g,"E");   //javascript rEfErEncE : All이 나오기 이전까진 이렇게 정규식 사용함.g는 여러개(=all)
+const currentStr6 = str1.replace(/e/gi,"E");   //javascript rEfErEncE : i는 소대문자 구분없이 찾아줌.
+
+const str2 = "https://www.naver.com/img01.jpg";
+// const currentStr7 = str2.replace(1, 2); //이렇게 해도되지만 이러면 오류날 가능성 多
+const currentStr7 = str2.replace("img01.jpg", "img02.jpg"); 
+
+const str3 = "010-2000-1000";
+const currentStr8 = str3.replace("-","");       //0102000-1000
+const currentStr9 = str3.replaceAll("-","");    //01020001000
+const currentStr10 = str3.replace(/-/g,"");     //01020001000
+const currentStr11 = str3.replace(/-/g," ");    //010 2000 1000
+const currentStr12 = str3.replace(/-/g,"*");    //010*2000*1000
+const currentStr13 = str3.replace(/[1-9]/g,"*");    //0*0-*000-*000 : [0-9]:0부터9까지의 숫자 검색
+</code></pre>
+            </div>
+            
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

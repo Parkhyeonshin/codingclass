@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 코드펜으로 따라만들기2</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+    <style>
+        #main .document .btnflex{
+    	    display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <style>
+        /* .t_box .disn{
+            display: block;
+        } */
+        .t_box .disn:hover{
+            display: none;
+        }
+        .t_box .vis:hover{
+            visibility : hidden
+        }   
+        .t_box .wh{
+            height:50px;
+        }
+        .t_box .wh:hover{
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+        .t_box .op:hover{
+            animation: opacity 1.5s ease forwards;
+        }
+        .t_box .scale:hover{
+            animation: scale  1.5s ease forwards;
+        }
+        @keyframes opacity   {
+            0% {opacity: 1;}
+            100% {opacity: 0;}
+        }
+        @keyframes scale {
+            0%{transform: scale(1);}
+            100%{transform: scale(0);}
+        }
+    </style>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">CSS _ 미역같은 원 만들기</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="basic.html">기초</a></li>
+                <li><a href="#.html">주제</a></li>
+                <li><a href="index.html">알파벳</a></li>
+                <li><a href="bector.html">벡터/비트맵 방식</a></li>
+                <li><a href="grammar.html">기본 문법</a></li>
+                <li><a href="media.html">미디어 쿼리</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+                <li><a href="scss.html">SCSS</a></li>
+                <li><a href="ir.html">이미지스프라이트/IR/백그라운드 표현</a></li>
+                <li><a href="unit.html">단위</a></li>
+                <li><a href="color.html">색상 표현법</a></li>
+                <li class="active"><a href="hide.html">요소 숨기기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">미역같이 움직이게 하기</h2>
+            <div class="t_desc2">
+                미역마냥 펄럭이는 원의 집합체(?)를 만들어보겠습니다. <i>html을 pug, css는 scss</i> 사용했습니다.
+            </div>
+            <hr>
+            <h3 class="t_tit2">■ HTML (PUG)</h3>
+            <div class="t_code">
+<pre><code class="language-html">div.circle-wrap
+  -for (var x = 1; x&lt;=12; x++)
+    div.row
+      -for (var y = 1; y&lt;=12; y++)
+        div.circle
+</code></pre></div>
+            <h3 class="t_tit2">■ CSS (SCSS)</h3>
+            <div class="t_code">
+<pre><code class="language-css">@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body {
+    @include center;
+    height: 100vh;
+    background-image: linear-gradient(45deg, #00DBDE 0%, #FC00FF 100%)
+}
+.row {
+    display: flex;
+.circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 5px 10px;
+    background: #fff;
+    transform-origin: top center;
+    animation: spin 1s linear infinite;
+}
+
+}
+
+@keyframes spin {
+    0% {transform:scale(1.1) rotate(0deg)}
+    50% {transform:scale(0.2) rotate(180deg)}
+    100% {transform:scale(1.1) rotate(360deg)}
+}
+
+@for $i from 1 through 12 {
+    .row:nth-child(#{$i}) .circle{animation-delay: 100ms * $i}
+}
+</code></pre>
+            </div>
+            <h2  class="t_tit2">■ 결과</h2>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/YzLVEjG?default-tab=result&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/YzLVEjG">
+                    Untitled</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                  </iframe>
+            </div>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

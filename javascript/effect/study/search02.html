@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 검색01</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+    <style>
+        #main .document .btnflex{
+    	    display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">Javascript_Search</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                <li><a href="search01.html">검색 이펙트1</a></li>
+                <li><a href="search02.html">검색 이펙트2</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">검색 효과</h2>
+            <div class="t_desc2">
+                저번시간에 이어서 또 검색 사이트를 만들어보겠습니다. 저번 시간에는 indexOF()를 사용했었죠? 이번엔 
+                includes()를 이용해서 만들어보겠습니다.
+            </div>
+            <hr>
+            
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/searchEffect02.html" frameborder="0"></iframe>
+            </div>
+            
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/searchEffect02.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/searchEffect02.html" target="_blank">원본 사이트</a>
+            </div>
+            <hr>
+            <div class="t_desc"> 
+                ▶ 이 사이트에 사용된 includes()의 특징에 대해 간단하게만 알아보고 가겠습니다.
+                includes()는 문자열 포함 여부를 검색해서 불린(true/false)을 반환합니다.
+            </div>
+            <p class="t_box">
+                const str1 ="javascript reference";
+                <br>const currentStr1 = str1.includes("javascript"); //true
+                <br>const currentStr2 = str1.includes("j"); //true
+                <br>const currentStr3 = str1.includes("b"); //false
+            </p>
+            <p class="t_desc">
+                크게 어려운 내용없이 검색할 문자가 포함이 되어있다면 true가 반환됩니다.
+            </p>
+            <h3 class="t_tit2">JS 소스 분석하기</h3>
+            <div class="t_code">
+<pre><code class="language-js">const searchBox = document.querySelector(".search__box input");   //input 박스(검색영역)
+const searchList = document.querySelectorAll(".search__list ul li");    //목록 리스트
+const searchInfo = document.querySelector(".search__info .num");
+
+// 전채 갯수 구하기
+searchInfo.textContent = searchList.length
+
+// 
+searchBox.addEventListener("keyup", () => {
+    const searchWord = searchBox.value;     //사용자가 입력한 키워드
+
+    searchList.forEach(el => {
+        const cssName = el.dataset.name;        //CSS 속성 모든 값
+        
+        if(cssName.includes(searchWord)){
+            el.classList.remove("hide");
+        } else{
+            el.classList.add("hide");
+        }
+    });
+});
+</code></pre>
+            </div>
+            <div class="t_desc">
+                html에서 각각의  li태그에 'data-name="all"'같은 데이터네임을 지어줬는데요. 이걸 활용해볼거에요.
+                <br>위의 if문이 "all"인 경우를 예로 들자면,
+            </div>
+            <p class="t_box">
+                "all".includes("all")은 true로 반환 되므로 true에 해당하는 요소에 class hide를 지워줍니다. 앞서 1번유형에서 
+                봤듯이 hide가 지워지므로 화면에 출력이 되겠죠? 반대로 검색 되지 않은 나머지요소들(else에 해당)은 hide가 붙으므로 당연히 
+                화면에 보이지 않게 됩니다. 
+            </p>
+        
+            
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

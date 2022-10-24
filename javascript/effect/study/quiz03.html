@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : Quiz02</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">Javascript_Quiz</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                <li><a href="search01.html">검색 이펙트1</a></li>
+                <li><a href="search02.html">검색 이펙트2</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">퀴즈 만들기_주관식 유형(다중)</h2>
+            <div class="t_desc2">
+                이번시간에는 저번시간에 만들었던 주관식 퀴즈의 다중유형을 만들어보겠습니다!
+                <br>문제가 여러개가 될 경우 <i>일일히 하나하나</i> 언제 다 입력하겠어요? 이런 <i>불편함</i>을 자바스크립트를
+                통해서 보다 쉽게 <i>해결</i>해 봅시다.
+            </div>
+           
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/quizEffect03.html" frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/quizEffect03.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+            <h3 class="t_tit2">1_ 문제정보 및 선택자 지정</h3>
+            <div class="t_box">
+                각 문제정보를 'quizInfo'라는 배열에 입력하고 저장시킨 후 <i>반복</i>해서 출력해야 하기 때문에 <i>반복문을
+                활용</i>해서 작업을 할거에요.
+                <br>기존과 마찬가지로 querySelector를 활용하지만 이번엔 같은 이름을 가진 요소들이 중복되므로
+                중복되는 요소들 중에서도 <i>특정 n번째 요소를 선택</i>해 줄 수 있게 하기 위해서 
+                <i>querySelectorAll</i>을 활용해서 작업해 주겠습니다.
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">// 선택자
+const quizType = document.querySelectorAll(".quiz__type");                        // 퀴즈 종류
+const quizNumber = document.querySelectorAll(".quiz__question .number");    // 퀴즈 번호
+const quizAsk = document.querySelectorAll(".quiz__question .ask");              // 퀴즈 질문
+const quizconfirm = document.querySelectorAll(".quiz__answer .confirm");    // 정답 확인 버튼
+const quizResult = document.querySelectorAll(".quiz__answer .result");         // 정답 결과
+const quizInput = document.querySelectorAll(".quiz__answer .input");           // 사용자 정답
+const quizView = document.querySelectorAll(".quiz__view");                        // 댕댕이
+
+// 문제정보
+const quizInfo = [
+    {
+        answerType:"웹디자인기능사 2015년 4회",
+        answerNum: "1",
+        answerAsk: "클라이언트의 웹 브라우저가 웹 서버와 접속할 때 사용하는 통신 규약으로 맞는 것은?",
+        answerResult: "HTTP"
+    },
+    {
+        answerType:"웹디자인기능사 2015년 4회",
+        answerNum: "2",
+        answerAsk: "고해상도의 원본 이미지의 포맷을 변경해서 저장하였을 경우 다음 중 파일용량이 가장 큰 것은?",
+        answerResult: "BMP"
+    },
+    {
+        answerType:"웹디자인기능사 2015년 4회",
+        answerNum: "3",
+        answerAsk: "자연에서 쉽게 찾을 수 있고, 온화함이 있지만 때로는 단조로움을 주는 디자인 원리는?",
+        answerResult: "유사조화"
+    },
+    {
+        answerType:"웹디자인기능사 2015년 4회",
+        answerNum: "4",
+        answerAsk: "이미지를 구성하는 최소 단위는?",
+        answerResult: "픽셀"
+    }
+]
+</code></pre>
+            </div>
+            <h3 class="t_tit2">2_ 문제 출력하기</h3>
+            <div class="t_box">
+                배열에 객체로 저장한 문제정보를 각각 순서에 맞게 출력을 해주어야겠죠?
+                가장 원시적방법은 일일히 각각문제에 맞게 실행문을 작성하는 방법인데요. 이렇게 하면 손목이 살려달라고 소리칠지도 몰라요...😅
+                또, 문제가 추가될때마다 실행문도 그에 맞게 계속 추가해주어야 한다는 단점이 있습니다.
+                <br>그래서 이번엔 <i>for문을 이용</i>해서 우리의 손목을 지킬 수 있습니다.
+                <br>더 나아가서 <i>forEach문</i>으로도 응용 가능하겠죠?
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">// 원시적인 방법_ 손목이 살려달라고 소리칠지도 모름...
+    // 1번문제
+//quizType[0].textContent = quizInfo[0].answerType;             //첫번째 quizType에 quizInfo배열의 첫번째의 answerType값을 가져와서 출력
+//quizNumber[0].textContent = quizInfo[0].answerNum + ". ";
+//quizAsk[0].textContent = quizInfo[0].answerAsk;
+//quizResult[0].textContent = quizInfo[0].answerResult;
+ // 2번문제
+//quizType[1].textContent = quizInfo[1].answerType;
+//quizNumber[1].textContent = quizInfo[1].answerNum + ". ";
+//quizAsk[1].textContent = quizInfo[1].answerAsk;
+//quizResult[1].textContent = quizInfo[1].answerResult;
+ // 3번문제
+//quizType[2].textContent = quizInfo[2].answerType;
+//quizNumber[2].textContent = quizInfo[2].answerNum + ". ";
+//quizAsk[2].textContent = quizInfo[2].answerAsk;
+//quizResult[2].textContent = quizInfo[2].answerResult;
+ // 4번문제
+//quizType[3].textContent = quizInfo[3].answerType;
+//quizNumber[3].textContent = quizInfo[3].answerNum + ". ";
+//quizAsk[3].textContent = quizInfo[3].answerAsk;
+//quizResult[3].textContent = quizInfo[3].answerResult;
+
+
+//문제출력 for문으로 변경
+//for(let i = 0; i&lt;=3; i++){
+//    quizType[i].textContent = quizInfo[i].answerType;
+//    quizNumber[i].textContent = quizInfo[i].answerNum + ". ";
+//    quizAsk[i].textContent = quizInfo[i].answerAsk;
+//    quizResult[i].textContent = quizInfo[i].answerResult;
+//}
+
+
+// forEach문
+quizInfo.forEach((e, i) => {           //배열의 index값을 가져오기 위해 사용, 현재 배열의 i값은 총4개이므로 i는 0-3까지 4번반복함.
+    quizType[i].textContent = quizInfo[i].answerType;
+    quizNumber[i].textContent = quizInfo[i].answerNum + ". ";
+    quizAsk[i].textContent = quizInfo[i].answerAsk;
+    quizResult[i].textContent = quizInfo[i].answerResult;
+})
+</code></pre>
+            </div>
+            <h3 class="t_tit2">3_ 정답 숨기기</h3>
+            <div class="t_box">
+                문제를 푸는데 정답이 보이면 안되겠죠? 정답을 우선은 숨겨놓기 위한 스크립트입니다.
+                <br>스크립트에서도 스타일 속성을 지정할 수 있습니다.
+                <br>마찬가지로 손목보호를 위해 for, forEach를 활용해서 작업합시다.
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">// quizResult[0].style.display = "none";         //첫번째 정답을 숨김처리함
+// quizResult[1].style.display = "none";
+// quizResult[2].style.display = "none";
+// quizResult[3].style.display = "none";
+
+// for로 변환
+// for(let i = 0; i&lt;quizInfo.length; i++){           //배열의 갯수 :4 이므로 조건에 맞는 i의값은 0,1,2,3
+//     quizResult[i].style.display = "none";
+// }
+
+// forEach로 변환
+quizInfo.forEach((e, i) => {                    //배열의 index값 가져옴
+    quizResult[i].style.display = "none";
+});
+</code></pre>
+            </div>
+            <h3 class="t_tit2">4_ 정답 확인</h3>
+            <div class="t_box">
+                '정답확인하기'는 중복되는 요소지만 우리는 querySelectorAll을 통해 각각 몇번째 '정답확인하기'버튼인지 n번째 값을 가져올 수 있습니다.
+                <br>자바스크립트는 애석하게도 우리가 forEach를 통해 버튼이 4개인 것을 알려줘야해요. <i>알려주지 않으면 4개라는것을 몰라서 오류가 납니다!</i>
+                <br>그래서 forEach로 버튼이 4개라는 걸 <i>확인시켜주고,</i> 그 버튼이 클릭되었을때 발생할 <i>실행문</i>(정답비교해서 정답or오답 출력할 조건문)을 넣어주어야 합니다.
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">// quizconfirm.addEventListener("click",() => {                  //버튼이 여러개가있어서 오류 발생
+//     alert("gd") 
+// });                                                      
+
+// quizconfirm.forEach((btn) => {                            //forEach로 버튼이 4개임을 확인시켜줌
+//     btn.addEventListener("click", () => {
+//         alert("d");
+//     })
+// }); //btn에 confirm을 가져오는데 현재 문제는 4개라서 4번반복, 버튼(confirm)에 클릭이벤트시 발생하는 실행문을 4번반복시킴
+
+
+//실전
+quizconfirm.forEach((btn, num) => {                         //forEach로 버튼이 4개임을 확인시킴과 동시에 num에 i값을 가져옴
+    btn.addEventListener("click", () => {
+        
+        // 사용자 입력 정답
+        const userWord = quizInput[num].value;              //userWord라는 변수에 사용자가 n번 문제에 입력한 정답을 저장
+        // 사용자 정답 비교
+        if(userWord == quizInfo[num].answerResult){         //n번입력정답과 n번정답을 비교함
+            quizView[num].classList.add("like");                //quizView가 선택된 요소에 class"like"를 추가함
+            quizconfirm[num].style.display="none";
+        }else {
+            quizView[num].classList.add("dislike");
+            quizconfirm[num].style.display="none";
+            quizResult[num].style.display = "block";            //오답이므로 감춰놓았던 정답을 보여주기 위해 사용
+            quizInput[num].style.display = "none";
+        }
+    })
+});
+</code></pre>
+            </div>
+            
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

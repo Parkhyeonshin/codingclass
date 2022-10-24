@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    {
+        function func() {
+            document.write("1번기본<br>");
+        }
+        func();
+    }
+    // 2  --?>??
+    {
+        const func = function () {
+            document.write("2번기본<br>")
+        }
+        func();
+    }
+    // 3
+    {
+        function fucn(x) {
+            document.write(x);
+        }
+        fucn("3번기본<bR>")
+    }
+    {
+
+    }
+    {
+        func = () => document.write("화살표기본<br>");
+        func();
+    }
+    {
+        const xyz = () => document.write("2화살표<br>");
+        xyz();
+    }
+    {
+        fucn = (i) => document.write("3화살표<br>");
+        fucn();
+    }
+    {
+
+    }
+</script>
+
+</html>

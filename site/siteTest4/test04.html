@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹디 테스트04</title>
+
+
+    <style>
+        @import url('https://webfontworld.github.io/naver/NanumGothic.css');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+            font-family: 'NanumGothic';
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .container {
+            width: 1100px !important;
+            margin: 0 auto;
+        }
+
+        .blind {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            clip: rect(0 0 0 0);
+            overflow: hidden;
+        }
+
+        #header {
+            display: flex;
+            align-items: flex-end;
+            margin-top: 60px;
+            vertical-align: text-bottom;
+            box-sizing: border-box;
+            padding: 0 1%;
+
+        }
+
+        #header .logo {
+            width: 30%;
+            margin-bottom: 15px;
+            margin-left: 80px;
+        }
+
+        #header .logo a {
+            font-size: 1.8rem;
+            position: relative;
+            font-weight: bold;
+
+        }
+
+        #header .logo a::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -50px;
+            width: 40px;
+            height: 50px;
+            background: url(../siteTest4/img/logo.png) no-repeat;
+            background-size: contain;
+
+        }
+
+        #header .desc {
+            width: 70%;
+        }
+
+        #header ul {
+            text-align: right;
+            margin-bottom: 5px;
+        }
+
+        #header li {
+            display: inline-block;
+            margin: 15px;
+        }
+
+        #header .desc li a {
+            font-size: 1.1rem;
+        }
+
+        #slide {
+            width: 100%;
+            height: 600px;
+        }
+
+        .img__wrap {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            box-sizing: border-box;
+            /* overflow: hidden; */
+            position: relative;
+        }
+
+        .img__box {
+            display: flex;
+        }
+
+        .img__box img {
+            width: 100%;
+            height: 600px;
+        }
+
+        .img__wrap .left::before {
+            content: '';
+            position: absolute;
+            top: 45%;
+            left: 10px;
+            width: 30px;
+            height: 40px;
+            background: url(img/slide_left.png) no-repeat;
+            background-size: contain;
+        }
+
+        .img__wrap .right::before {
+            content: '';
+            position: absolute;
+            top: 45%;
+            right: 10px;
+            width: 30px;
+            height: 40px;
+            background: url(img/slide_right.png) no-repeat;
+            background-size: contain;
+        }
+
+        .img__wrap .img__desc {
+            width: 1100px;
+            margin: 0 auto;
+            position: absolute;
+            top: 100%;
+            left: 40px;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .img__wrap .img__desc h2 {
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        #card {
+            width: 100%;
+            background: #f5f5f5;
+        }
+
+        .card__container {
+            width: 1100px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 30px 0;
+            position: relative;
+        }
+
+        .card__container h2 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .card__container a {
+            position: absolute;
+            display: block;
+            top: 25px;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            background: url(img/more.png) no-repeat;
+            background-size: contain;
+            border: 1px solid black;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .card__wrap {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card__wrap>.card {
+            background: #fff;
+            width: 24%;
+            box-sizing: border-box;
+            padding: 30px;
+            border: 1px solid #c6c6c6;
+        }
+
+        .card>div:nth-child(1) {
+            display: inline-block;
+            padding: 5px 15px;
+            border: 1px solid rgb(101, 148, 209);
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+
+        .card>div:nth-child(2) {
+            font-size: 1.1rem;
+            margin: 20px 0;
+        }
+
+        .card>div:nth-child(3) {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .card>div:nth-child(3) p:first-child,
+        .card>div:nth-child(4) p:first-child {
+            color: white;
+            padding: 3px;
+            background: rgb(101, 148, 209);
+            border-radius: 5px;
+            display: inline;
+            font-size: 0.7rem;
+        }
+
+        .card>div:nth-child(3) p:last-child,
+        .card>div:nth-child(4) p:last-child {
+            display: inline;
+            font-size: 0.8rem;
+        }
+
+        #text {
+            background: #888;
+        }
+
+        #wrap {
+            display: grid;
+            grid-template-areas:
+                "text1 text2"
+                "text3 text4";
+            grid-template-columns: 30% 70%;
+        }
+
+        .text1 {
+            grid-area: text1;
+        }
+
+        .text2 {
+            grid-area: text2;
+        }
+
+        .text3 {
+            grid-area: text3;
+        }
+
+        .text4 {
+            grid-area: text4;
+        }
+
+        /* footer */
+        #footer {
+            background-color: #27405f;
+            padding-bottom: 40px;
+            position: relative;
+        }
+
+        #footer::before {
+            content: '';
+            width: 100%;
+            height: 1px;
+            background-color: #6f8094;
+            position: absolute;
+            left: 0px;
+            top: 80px;
+        }
+
+        .footer__inner {
+            width: 1100px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+
+        #footer .top ul {
+            float: left;
+        }
+
+        #footer .top ul li {
+            display: inline;
+        }
+
+        #footer .top ul li a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #6f8094;
+            font-size: 14px;
+        }
+
+        #footer .top img {
+            float: right;
+            width: 150px;
+        }
+
+        #footer .bot {
+            margin-top: 40px;
+        }
+
+        #footer .bot .left {
+            float: left;
+            display: flex;
+            align-items: center;
+        }
+
+        #footer .bot .left ul {
+            margin-left: 20px;
+            margin-right: 20px;
+            padding-top: 10px;
+        }
+
+        #footer .bot .left ul li {
+            color: #6f8094;
+            margin-bottom: 10px;
+        }
+
+        #footer .bot .left img.sm {
+            width: 200px;
+        }
+
+        #footer .bot .left img.sns {
+            width: 150px;
+        }
+
+        #footer .bot .right {
+            float: right;
+        }
+
+        #footer .bot .right .call {
+            font-size: 16px;
+            color: #fff;
+        }
+
+        #footer .bot .right .number {
+            font-size: 27px;
+            color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header id="header" class="container">
+        <div class="logo">
+            <a href="#">K I T A <span>.NET</span></a>
+        </div>
+        <div class="desc">
+            <ul>
+                <li><a href="#">무역통상정보</a></li>
+                <li><a href="#">회원/업무지원</a></li>
+                <li><a href="#">무역통계</a></li>
+                <li><a href="#">협회안내</a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- //header -->
+    <main>
+        <section id="slide" class="slide">
+            <div class="img__wrap">
+                <div class="img__box">
+                    <img src="img/slide_img01.jpg" alt="1">
+                    <img src="img/slide_img02.jpg" alt="2">
+                    <img src="img/slide_img03.jpg" alt="3">
+                </div>
+                <a href="#" class="left"><span class="blind">이전</span></a>
+                <a href="#" class="right"><span class="blind">다음</span></a>
+                <div class="img__desc">
+                    <h2>STARTUP Germany<br>2019 참가업체 모집</h2>
+                    <p>사업기간2019-07-02 ~ 2019-08-09</p>
+                </div>
+            </div>
+        </section>
+        <!-- //slide -->
+        <section id="card">
+            <div class="card__container">
+                <h2>KITA 사업 일정</h2>
+                <a href="#"><span class="blind">더보기</span></a>
+                <div class="card__wrap">
+                    <div class="card">
+                        <div>모집마감 -4일</div>
+                        <div>『2019 태국 국제식품전시회』업체모집</div>
+                        <div>
+                            <p>사업기간</p>
+                            <p> 2019-05-28 ~ 2019-06-01</p>
+                        </div>
+                        <div>
+                            <p>모집기간</p>
+                            <p> 2019-01-17 ~ 2019-02-12</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div>모집마감 -4일</div>
+                        <div>[아카데미]무역실무기초 단기속성(1차,야간)개최</div>
+                        <div>
+                            <p>사업기간</p>
+                            <p> 2019-02-18 ~ 2019-02-22</p>
+                        </div>
+                        <div>
+                            <p>모집기간</p>
+                            <p> 2019-01-23 ~ 2019-02-12</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div>모집마감 -4일</div>
+                        <div>해외 온라인판매 글로벌 셀러 양성과정 참가자 모집</div>
+                        <div>
+                            <p>사업기간</p>
+                            <p> 2019-02-14 ~ 2019-03-05</p>
+                        </div>
+                        <div>
+                            <p>모집기간</p>
+                            <p> 2019-01-25 ~ 2019-02-12</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div>모집마감 -4일</div>
+                        <div>대전 수출활력 촉진단 행사 개최(2/14)</div>
+                        <div>
+                            <p>사업기간</p>
+                            <p> 2019-02-14 ~ 2019-02-14</p>
+                        </div>
+                        <div>
+                            <p>모집기간</p>
+                            <p> 2019-02-01 ~ 2019-02-12</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- //card -->
+        <section id="notice">
+            <div class="notice__inner clearfix">
+                <div class="left">
+                    <div class="top">
+                        <h3><a href="#" class="active">보도자료 </a> <span> | </span> <a href="#">언론기고</a></h3>
+                        <ul class="subMenu active">
+                            <li>민관합동 현장중심 수출활력촉진단 가동</li>
+                            <li class="small">2019-01-31</li>
+                            <li>민간기업이 주도하는 유럽 스타트업 캠퍼스</li>
+                            <li class="small">2019-01-31</li>
+                        </ul>
+                        <ul class="subMenu">
+                            <li>123</li>
+                            <li class="small">2019-01-31</li>
+                            <li>123</li>
+                            <li class="small">2019-01-31</li>
+                        </ul>
+                        <a href="#" class="nPlus"><img src="./asset/img/plus.png" alt="plus"></a>
+                    </div>
+
+                    <div class="bot">
+                        <div class="img">
+                            <h3>온라인 세미나</h3>
+                            <p class="desc">
+                                무역협외에서 실시하는 국내 무역 관련 세미나, 설명회 등을 VOD 서비스로 제공
+                            </p>
+
+                            <a href="#" class="go">바로가기</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- left -->
+
+                <div class="right">
+                    <div class="top">
+                        <h3>KITA 연구보고서</h3>
+                        <ul class="text">
+                            <li><span>[Trade Brief]</span> 2019년 수출기업의 경영환경 전망 조사</li>
+                            <li><span>[KITA</span> [토론회 자료] WTO 전자상거래 협상을 위한 공청회 겸 디지털 통상정책 토론회 발</li>
+                            <li><span>[KITA]</span> [설명회 자료] 브렉시트(Brexit) 설명회 발표자료</li>
+                            <li><span>[Trade Brief]</span>스타트업 사례를 통해 본 2018 중국 AI시장 트렌드</li>
+                        </ul>
+                        <ul class="absol">
+                            <li>2019-01-17</li>
+                            <li>2019-01-17</li>
+                            <li>2019-01-17</li>
+                            <li>2019-01-17</li>
+                        </ul>
+                        <a href="#" class="nPlus"><img src="./asset/img/plus.png" alt="plus"></a>
+                    </div>
+
+                    <div class="bot">
+                        <h3>KITA 통상 정보</h3>
+                        <div class="botWrap clearfix">
+                            <ul class="top">
+                                <li>한미 통상현안 사례분석집</li>
+                                <li>2019-10-31</li>
+                                <li>[통상리포트] 킥오프된 브렉시트 후반전 : 향후 통</li>
+                                <li>2019-10-31</li>
+                            </ul>
+                            <ul class="bot">
+                                <li>한미 통상현안 사례분석집</li>
+                                <li>2019-10-31</li>
+                                <li>[통상리포트] 킥오프된 브렉시트 후반전 : 향후 통</li>
+                                <li>2019-10-31</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="nPlus"><img src="./asset/img/plus.png" alt="plus"></a>
+                    </div>
+                </div>
+                <!-- right -->
+            </div>
+        </section>
+        <!-- notice -->
+
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <div class="footer__inner">
+            <div class="top clearfix">
+                <ul>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">이용약관2</a></li>
+                    <li><a href="#">이용약관3</a></li>
+                    <li><a href="#">이용약관4</a></li>
+                    <li><a href="#">이용약관5</a></li>
+                    <li><a href="#">이용약관6</a></li>
+                </ul>
+                <img src="img/logo_btm.png" alt="02">
+            </div>
+
+            <div class="bot clearfix">
+                <div class="left">
+                    <img src="./asset/img/footer.png" alt="footer" class="sm">
+                    <ul>
+                        <li>서울시 강남구 영동대로 5411(삼성동)</li>
+                        <li>copyright kita all rights resecsed</li>
+                    </ul>
+                    <img src="./asset/img/icon.png" alt="sns" class="sns">
+                </div>
+                <div class="right">
+                    <p class="call">트레이드 콜센터</p>
+                    <p class="number">1566-5114</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer -->
+</body>
+
+</html>

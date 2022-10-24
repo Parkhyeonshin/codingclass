@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 배치</title>
+
+    <link rel="stylesheet" href="../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../javascript/assets/css/dracula.css">
+    <style>
+        .document .t_iframe {
+            position: relative;
+            padding-top: 56%;
+            width: 100%;
+            height: 0;
+        }
+
+        .document .t_iframe iframe {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .image-wrapper {
+            position: relative;
+            width: 80%;
+            height: 0;
+            padding-bottom: 60%;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+        .image-wrapper .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">레이아웃(Layout) 배치</h2>
+            <p class="t_desc2">
+                레이아웃 배치 다섯번째 시간입니다.<br>
+                (float, flex, grid에 대한 자세한 설명은 <a href="https://sshin4882.tistory.com/6?category=1032248"><b>여기</b></a>를 참고하세요!)<br>
+                저번 시간에 배웠던 container요소와 기존에 계속해서 학습했던 레이아웃속성값들을 이용해서 구조화 해볼게요!
+                그리고 flex에도 grid처럼 <i>시멘틱태그를 활용</i>해서 구조화 해 볼 예정입니다.
+            </p>
+            <div class="t_iframe">
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fc9BGcY5k0Hg8INetHu54vZ%2F%25EB%25A0%2588%25EC%259D%25B4%25EC%2595%2584%25EC%259B%2583%3Fnode-id%3D521%253A2" allowfullscreen></iframe>
+            </div>
+            <hr>
+
+            <h3 class="t_tit2">01_ float을 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    foat:left 속성을 이용해 <i>좌측 빈 공간부터</i> 차곡 차곡 채워나갑니다.
+                    <br>float로 인해 깨지는 영역은 clearfix를 활용해서 해결합니다.
+                    <br>
+                    반응형 웹을 구현하기 위해서 width와 height의 값을 조정해줍니다.
+                </p>
+                <!-- <div class="image-wrapper">
+                <img class="image" src="../assets/tistory/layout02/02-float.png">
+                </div> -->
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrap {
+    width: 100%;
+}
+
+#header {
+    width: 100%;
+    height: 100px;
+    background-color: #EEEBE9;
+}
+
+#nav {
+    width: 100%;
+    height: 100px;
+    background-color: #B9AAA5;
+}
+
+#main {
+    width: 100%;
+    height: 780px;
+    background-color: #886F65;
+}
+
+#footer {
+    width: 100%;
+    height: 100px;
+    background-color: #4E342E;
+}
+
+.container {
+    width: 1200px;
+    height: inherit;
+    background-color: rgb(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+.contents .cont1 {
+    width: 100%;
+    height: 100px;
+    background-color: #74574A;
+}
+
+.contents .cont2 {
+    width: 100%;
+    height: 200px;
+    background-color: #684D43;
+}
+
+.contents .cont3 {
+    width: 50%;
+    height: 480px;
+    background-color: #594139;
+    float: left;
+}
+
+.contents .cont4 {
+    width: 50%;
+    height: 480px;
+    background-color: #4A352F;
+    float: left;
+}
+
+.clearfix::before,
+.clearfix::after {
+    content: '';
+    display: block;
+    line-height: 0;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        width: 96%;
+    }
+    .contents .cont1 {
+        width: 30%;
+        height: 780px;
+        float: left;
+    }
+    .contents .cont2 {
+        width: 70%;
+        height: 390px;
+        float: left;
+    }
+    .contents .cont3 {
+        width: 35%;
+        height: 390px;
+    }
+    .contents .cont4 {
+        width: 35%;
+        height: 390px;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+    .contents .cont2 {
+        width: 70%;
+        height: 260px;
+    }
+    .contents .cont3 {
+        width: 70%;
+        height: 260px;
+    }
+    .contents .cont4 {
+        width: 70%;
+        height: 260px;
+    }
+}
+@media (max-width: 480px) {
+    .contents .cont1 {
+        width: 100%;
+        height: 150px;
+    }
+    .contents .cont2 {
+        width: 100%;
+        height: 210px;
+    }
+    .contents .cont3 {
+        width: 100%;
+        height: 210px;
+    }
+    .contents .cont4 {
+        width: 100%;
+        height: 210px;
+    }
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">02_ flex를 이용한 레이아웃</h3>
+                <p class="t_desc2">
+
+                    right>cont속성들의 부모요소인 right에 flex:wrap을 주어 left요소 옆에 배치할 수 있도록 설정합니다.
+                    <br>반응형 웹 구현을 위해 flaot방식과 마찬가지로 미디어 쿼리를 이용해서 수치를 조정합니다.
+                </p>
+                <!-- <div class="image-wrapper">
+                <img class="image" src="../assets/tistory/layout01/01-flex.png">
+                </div> -->
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrap {}
+
+#header {
+    height: 100px;
+    background-color: #eeebe9;
+}
+
+#nav {
+    height: 100px;
+    background-color: #B9AAA5;
+}
+
+#main {
+    height: 780px;
+    background-color: #886F65;
+}
+
+#footer {
+    height: 100px;
+    background-color: #4E342E;
+}
+
+.container {
+    width: 1200px;
+    height: inherit;
+    background-color: rgb(0, 0, 0, 0.3);
+    margin: 0 auto;
+}
+.contents .left .cont1 {
+    width: 100%;
+    height: 100px;
+    background-color: #74574A;
+}
+
+.contents .right {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contents .right .cont2 {
+    width: 100%;
+    height: 200px;
+    background-color: #684D43;
+}
+
+.contents .right .cont3 {
+    width: 50%;
+    height: 480px;
+    background-color: #594139;
+}
+
+.contents .right .cont4 {
+    width: 50%;
+    height: 480px;
+    background-color: #4A352F;
+}
+
+@media (max-width: 1220px) {
+    .container {
+        width: 96%;
+    }
+
+    .contents {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .contents .left {
+        width: 30%;
+    }
+
+    .contents .left .cont1 {
+        width: 100%;
+        height: 780px;
+    }
+
+    .contents .right {
+        width: 70%;
+    }
+
+    .contents .right .cont2 {
+        width: 100%;
+        height: 390px;
+    }
+
+    .contents .right .cont3 {
+        width: 50%;
+        height: 390px;
+    }
+
+    .contents .right .cont4 {
+        width: 50%;
+        height: 390px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+    .contents .right .cont2 {
+        width: 100%;
+        height: 260px;
+    }
+
+    .contents .right .cont3 {
+        width: 100%;
+        height: 260px;
+    }
+
+    .contents .right .cont4 {
+        width: 100%;
+        height: 260px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contents {
+        flex-wrap: wrap;
+    }
+
+    .contents .left {
+        width: 100%;
+        height: 150px;
+    }
+
+    .contents .left .cont1 {
+        height: 150px;
+    }
+
+    .contents .right {
+        width: 100%;
+        height: 630px;
+    }
+
+    .contents .right .cont2 {
+        height: 210px;
+    }
+
+    .contents .right .cont3 {
+        height: 210px;
+    }
+
+    .contents .right .cont4 {
+        height: 210px;
+    }
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">03_ grid를 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    기존 처럼 표로 이해하자면<br>
+                    주요컨텐츠부분(container 혹은 contents)들을 제외하면 고정이므로
+                    contents 부분만 표로 생각하여 레이아웃을 구성합시다.
+                    <i>3x2</i>구성+각 열이 넓이를 <i>50/50%</i>씩 차지하며
+                    3행을 제외한 행들은 <i>병합</i>되어 있는 구조로 생각할 수 있습니다.<br>
+                    반응형 웹 구성시 각 해상도에서 wrap의  grid 속성을 바꿔서 다시 부여 해줍니다.
+                </p>
+                <!-- <div class="image-wrapper">
+                <img class="image" src="../assets/tistory/layout01/01-grid.png">
+                </div> -->
+                <div class="t_code">
+<pre><code class="language-css">*
+{
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    height: 100px;
+    background-color: #EEEBE9;
+}
+
+#nav {
+    height: 100px;
+    background-color: #B9AAA5;
+}
+
+#main {
+    height: 780px;
+    background-color: #886F65;
+}
+
+#footer {
+    height: 100px;
+    background-color: #4E342E;
+}
+
+.container {
+    margin: 0 auto;
+    height: inherit;
+    width: 1200px;
+    background-color: rgb(0, 0, 0, 0.3);
+}
+
+.contents {
+    display: grid;
+    grid-template-areas:
+        "cont1 cont1"
+        "cont2 cont2"
+        "cont3 cont4"
+    ;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100px 200px 480px;
+}
+
+.contents .cont1 {
+    background-color: #74574A;
+    grid-area: cont1;
+}
+
+.contents .cont2 {
+    background-color: #684D43;
+    grid-area: cont2;
+}
+
+.contents .cont3 {
+    background-color: #594139;
+    grid-area: cont3;
+}
+
+.contents .cont4 {
+    background-color: #4A352F;
+    grid-area: cont4;
+}
+
+@media (max-width: 1220px) {
+    .container {
+        width: 96%;
+    }
+
+    .contents {
+        display: grid;
+        grid-template-areas:
+            "cont1 cont2 cont2"
+            "cont1 cont3 cont4"
+        ;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(2,1fr);
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+    .contents {
+        display: grid;
+        grid-template-areas:
+            "cont1 cont2"
+            "cont1 cont3"
+            "cont1 cont4"
+        ;
+        grid-template-columns: 30% 70%;
+        grid-template-rows: repeat(3,1fr);
+    }
+}
+@media (max-width: 480px) {
+    .contents {
+        display: grid;
+        grid-template-areas:
+            "cont1"
+            "cont2"
+            "cont3"
+            "cont4"
+        ;
+        grid-template-columns: 100%;
+        grid-template-rows: 150px 210px 210px 210px;
+    }
+}
+</code></pre>
+                </div>
+                <h4 class="t_tit3">결과</h4>
+                <div class="t_iframe">
+                    <iframe src="https://codepen.io/parkhyeonshin/embed/GRxyZmR?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                        See the Pen <a href="https://codepen.io/parkhyeonshin/pen/GRxyZmR">
+                        레이아웃05_grid</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                        on <a href="https://codepen.io">CodePen</a>.
+                      </iframe>
+                </div>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

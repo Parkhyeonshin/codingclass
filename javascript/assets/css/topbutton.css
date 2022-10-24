@@ -1,0 +1,30 @@
+.top__button {
+    position: fixed;
+    left: 50%;
+    bottom: -50vh;
+    z-index: 10000px;
+    transform: translate(-50%);
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: rgb(191, 127, 127);
+    border: 3px solid #96141428;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgba(253, 238, 238, 1);
+    transition: all 0.2s;
+}
+.top__button.show {
+    bottom: 20px;
+}
+.top__button:hover {
+    background-color: rgba(253, 238, 238, 1);
+    color: black;
+    box-shadow: 0px 0px 8px #bb4a4a;
+    text-shadow: 0px 0px 10px #961414;
+    border-color: rgba(0,0,0,0);
+    color:#fdfbfb;
+}

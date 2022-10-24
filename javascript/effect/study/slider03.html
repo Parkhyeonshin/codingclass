@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 슬라이더03</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+    <style>
+        #main .document .btnflex{
+    	    display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">Javascript_Slider</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                <li><a href="search01.html">검색 이펙트1</a></li>
+                <li><a href="search02.html">검색 이펙트2</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+                <li><a href="slider01.html">슬라이드 이펙트1</a></li>
+                <li><a href="slider02.html">슬라이드 이펙트2</a></li>
+                <li><a href="slider03.html">슬라이드 이펙트3</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">이미지 슬라이드 효과 03</h2>
+            <div class="t_desc2">
+                저번 시간에 이어서 세번재 시간입니다. 한단계식 계속해서 업그레이드 될 것 같네요.
+                2번유형에서는 딱딱해서 밋밋한 맛을 없애기 위해서 부드럽게 전환되는 효과를 주었는데요.
+                5번이미지에서 다시 1번이미지로 돌아갈때 빠르게 넘어가서 보기 불편하지는 않으셨는지...(전 사실..안불편했는데...할말하않)
+                무튼 그래서 이번엔 5번이미지 이후에도 좌측으로 넘어가서 다시 시작하는게 아닌 표현 그대로
+                <br><i>1~5, 1~5 순환하듯이 보이는</i>구조를 표현해 보겠습니다!
+            </div>
+            <hr>
+            
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/sliderEffect03.html" frameborder="0"></iframe>
+            </div>
+            
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/sliderEffect03.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/sliderEffect03.html" target="_blank">원본 사이트</a>
+            </div>
+            <hr>
+            <div class="t_desc"> 
+                ▶ 오늘의 유형은 말씀드렸듯이 마지막 순서에서 첫번째 순서로 다시 넘어갈때 확~!하고 넘어가는게 아니라 물 흐르듯 자연스럽게 계속해서 
+                순환하는 구조로 짜볼게요. 그러기 위해서는 이미지를 평상시처럼 5개로만 활용하는게 아닌! 1번이미지를 5번뒤로 다시한번더 보내서<i>총 6개의 이미지</i>로 
+                첫 구조를 짜야합니다. 왜 그래야 하는지는 저도 처음엔 이해가 안되었는데요. 왜 이렇게 해야하는지 저와 같이 공부해보시면서 이해해 볼까요?
+            </div>
+            <img src="../../../assets/tistory/SLIDE_03_blg01.jpg" alt="그림">
+            <h3 class="t_tit2">JS 소스</h3>
+            <div class="t_code">
+<pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");
+const sliderImg = document.querySelector(".slider__img");           //보여지는 영역
+const sliderInner = document.querySelector(".slider__inner");       //움직이는 영역
+const slider = document.querySelectorAll(".slider");                //개별 이미지
+
+let currrentInedex = 0;                                             //현재 이미지
+let sliderCount = slider.length;                                    //이미지 갯수
+let sliderWidth = sliderImg.offsetWidth;                            //이미지 넓이값 구하기
+let sliderClone = sliderInner.firstElementChild.cloneNode(true);    //첫번째 이미지를 복사
+sliderInner.appendChild(sliderClone);                               //첫번째 이미지를 마지막에 넣음    
+
+function sliderEffect(){
+    currrentInedex++;
+    sliderInner.style.transition = "all 0.6s";
+    sliderInner.style.transform = "translateX(-"+ sliderWidth * currrentInedex +"px)";
+
+    // sliderInner.style.transform = "translateX(-800px)";   800*1
+    // sliderInner.style.transform = "translateX(-1600px)"; 800*2
+    // sliderInner.style.transform = "translateX(-2400px)"; 800*3
+    // sliderInner.style.transform = "translateX(-3200px)"; 800*4
+    // sliderInner.style.transform = "translateX(-4000px)"; 800*5
+    // sliderInner.style.transform = "translateX(-4800px)"; 800*6
+
+    // 마지막사진(6번째_1번이미지)에 위치했을 때
+    if(currrentInedex == sliderCount){
+        setTimeout( () =>{
+            sliderInner.style.transition = "0s";                //애니메이션 안줌
+            sliderInner.style.transform = "translateX(0px)";    //0px로 초기화
+        },700);
+
+        currrentInedex = 0;
+    }
+}
+setInterval(sliderEffect,2000);
+</code></pre>
+            </div>
+            <p class="t_tit2">■ 핵심 파헤치기🪓</p>
+            
+            <h2 class="t_tit3" >✔ offsetWidth</h2>
+            <p class="t_desc">
+                 <i>요소(Element)의 넓이값</i>을 반환합니다. 메서드가 아니고 속성값이므로 값만 가져올 수 있습니다.
+                <br> (padding + border + scrollbar 사이즈 전부 포함)
+            </p>
+            <h2 class="t_tit3" >✔ sliderInner.firstElementChild.cloneNode(true); </h2>
+            <p class="t_desc">
+                 .firstElementChild : <i>첫번째 자식요소를 선택</i>합니다. 여기서는 '.slider__inner'의 첫번째 요소, 즉 첫번째 이미지에 해당되겠네요
+                 <br>.cloneNode(true) : <i>복제하는 함수</i>입니다. 복제를 원하는 노드를 이 함수 앞에 배치시키면 되겠군요. 기본값은 flase인데 이 경우 자식노드는 복사하지 않습니다. <i>자식노드</i>역시 복제해야하므로 true를 사용해야합니다.
+                 <br><i>∴ </i>'.slider__inner'안의 첫번째 요소(첫번째 이미지)를 복제하겠다~
+            </p>
+            <h2 class="t_tit3" >✔ appendChild </h2>
+            <p class="t_desc">
+                한 노드를 특정 부모 자식의 자식 노드 중 마지막 자식으로 붙여버리는 메서드입니다.
+                <br>조금 이해가 어렵다면...복사 + 붙여넣기를 하는데  <i>"붙여넣기의 방식이 넣을 위치의 가장 마지막에 붙여진다"</i>고 생각하세요!
+           </p>
+           <br>
+
+           <h2 class="t_tit3" ><i>✔ setTimeout </i></h2>
+           <p class="t_desc">
+                엥?이게뭐죠...새로운 메서드네요? 어렵지 않습니다. 여태까지 저희 setInterval 잘만 썼잖아요!!
+                <br> 이 메서드는 지정한 시간(ms단위)이 지난 이후 지정한 함수를 실행하는 메서드입니다.
+                <br>약간 핸드폰의 <i>타이머같은(?)기능</i>을 가지고 있네요 :) 
+           </p>
+
+           <h2 class="t_tit2">■ 코드 내멋대로 풀어헤치기👕</h2>
+           <p class="t_desc2">
+                오늘 내용은 새로운 메서드들이 조금 많아서 특별히 풀어헤치기 시간을 가져볼까 합니다. 소스 같이 보시면서
+                따라와 주시구요. 말로 
+                제가 잘 설명할 수 있을진 모르겠는데 조금이나마 이해되시길 바라며 시작해보겠습니다!
+            </p>
+            <p class="t_desc">
+                1. 스크립트에서 활용할 것들을 <i>선택자</i>를 통해 지정해봅시다.
+                 늘 그랬듯 필요한건 '각 이미지', '이미지가 보이는 영역', '움직이게 해주는 영역'이 필요하겠네요.
+                <br><br>2. 시작이미지(즉, 현재이미지를 0으로 우선 시작)와  전체 이미지갯수를 '.length'를 통해서 구해줍니다.
+                <br><br>3. 2번 유형과 비슷한 논리로 이미지의 넓이만큼 움직이게 해주기 위해 offsetWidth로 편하게 이미지의 넓이를 구해서 sliderWidth라는 변수에 넣습니다.
+                <br><br>4. 'cloneNode(true)'로 첫번째이미지를 복사해서 sliderClone에 집어넣고 이 집어넣은걸 sliderInner의 마지막자식요소로 넣어버립니다.
+                <i>(≒ 복붙)</i>
+                <br><br>5. 맨마지막에 'setInterval' 메서드로 인해 2초마다 함수가 실행될건데요. 첫번째구문부터 'currrentInedex++'이므로 currrentInedex가 1로 증가합니다. 
+                <br><br>6. 이후에 움직이는영역을 통제할부분인 'sliderInner'에 'transition'으로 0.6초에 걸쳐 부드럽게 진행될 수 있게 해줍니다.
+                <br><br>7. 2번 유형에서 해봐서 아시겠지만 마찬가지로 'translateX'로 '-800 x currrentInedex'만큼 이동시켜줍니다. 처음 실행이니깐 -800x1 = -800, <i>오른쪽으로 800px</i>만큼 이동하네요.
+                이미지의 넓이값은 800px이므로 두번째 이미지가 노출됩니다.
+                <br><br>8. ...이런식으로 <i>6번째이미지(복제된 첫번째 이미지)</i>까지 진행을하다가 
+                <br><br>9. if문의 조건이 'currrentInedex == sliderCount'이므로 <i>'6==6'이란 조건이 성립되어 if문이 실행</i>됩니다.
+                <br><br>10. if문의 실행내용은 'setTimeout메서드'이므로 <i>0.7초 이후</i>에 'setTimeout'안의 실행문이 실행됩니다.
+                (실행문의 내용 : 움직이는 영역의 0.6초에 걸친 효과를 0초로 바꾸므로 효과가 없는게 됨, translateX를 0으로바꿔 0px로 초기화함 = 첫번째이미지로 되돌아감, 'currrentInedex '를 0으로 변경하므로 첫번째 이미지로 돌아감)
+                <br><br>11. <i>'currrentInedex'가 0이 되었으므로 다시 무한 반복됩니다. </i>
+            </p>
+
+            
+            
+            <h1 class="t_tit3">- 끝.이.에.요 -</h1>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

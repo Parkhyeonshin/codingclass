@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터 이펙트3</title>
+
+    <link rel="stylesheet" href="../assets/css/data.css">
+    <link rel="stylesheet" href="../assets/css/prism.css">
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <ul>
+                <li><a href="dataEffect01.html">1</a></li>
+                <li><a href="dataEffect02.html">2</a></li>
+                <li class="active"><a href="dataEffect03.html">3</a></li>
+            </ul></nav>
+    </header>
+    <!-- /header -->
+
+    <main id="main">
+        <div class="container">
+            <div class="text_box">
+                <h3 class="title">1.1 for문 이용해서 테이블 출력하기</h3>
+                <div class="code">
+<pre><code class="line-numbers language-js">let table = "&lt;table&gt;";
+
+    for( let i = 0; i &lt; 10; i++ ){
+        table += "&lt;tr&gt;";
+
+        for( let j = 0; j &lt; 10; j++){            // for문 안의 for문
+            table += "&lt;td&gt;😎&lt;/td&gt;"
+        }
+        table += "&lt;/tr&gt;";
+    }
+    table += "&lt;/table&gt;";
+
+document.write(table);
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample01_result">
+
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../assets/js/prism.min.js"></script>
+    <script>
+        {
+            let table = "<table>";
+
+            for( let i = 0; i < 10; i++ ){
+                table += "<tr>";
+
+                for( let j = 0; j < 10; j++){            // for문 안의 for문
+                    table += "<td>😎</td>"
+                }
+                table += "</tr>";
+            }
+            table += "</table>";
+
+           document.querySelector(".sample01_result").innerHTML = table;
+        }
+    </script>
+</body>
+</html>

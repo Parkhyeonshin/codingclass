@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 : 탐색선택자</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../index.html">jQuery</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="jquery.html">기본</a></li>
+                <li><a href="choice_basic.html">기본 선택자</a></li>
+                <li><a href="choice_el.html">속성 선택자</a></li>
+                <li><a href="choice_filter.html">필터 선택자</a></li>
+                <li><a href="choice_search.html">탐색 선택자</a></li>
+                <li><a href="classMethod.html">클래스 관련 메서드</a></li>
+                <li><a href="elMethod.html">속성 관련 메서드</a></li>
+                <li><a href="styleMethod.html">스타일 관련 메서드</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">탐색 선택자 </h2>
+            <p class="t_desc2">
+                제이쿼리의 선택자는 CSS의 선택자와 의미가 같은 게 많습니다. 
+                오늘은 세번째 시간입니다.<i>필터 선택자</i>를 알아볼까요.
+            </p>
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/74">1. 기본 선택자 보러가기</a>
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/75">2. 속성 선택자 보러가기</a>
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/76">3. 필터 선택자 보러가기</a>
+            <br> <a style="color : #ccc;">4. 탐색 선택자</a>
+            <hr>
+            <h3 class="t_tit2">■ 선택자의 기본 형식</h3>
+            <p class="t_desc">
+                $("선택자")
+                <br>$("#gnb")
+            </p>
+            <h3 class="t_tit2">■ 기본 탐색 선택자</h3>
+            <table class="t_table">
+                <colgroup>
+                    <col width="20%">
+                    <col width="30%">
+                    <col width="50%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>선택자 종류</th>
+                        <th colspan="2">설명</th>
+                    </tr>
+                </thead> 
+                <tbody>
+                    <tr>
+                        <td class="ce">children()</td>
+                        <td class="ce">$("div").children()</td>
+                        <td>div 요소의 자식 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">parent()</td>
+                        <td class="ce">$("p").parent()</td>
+                        <td>p 요소의 부모 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">parents()</td>
+                        <td class="ce">$("p").parents("div")</td>
+                        <td>p 요소의 부모가 되는 모든 div 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">closest()</td>
+                        <td class="ce">$("p").closest("div")</td>
+                        <td>p 요소의 부모가 되는 첫번째 div 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">next()</td>
+                        <td class="ce">$("div.m").next()</td>
+                        <td>div.m 요소의 다음 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">nextAll()</td>
+                        <td class="ce">$("div.m").nextAll()</td>
+                        <td>div.m 요소의 다음 요소들을 모두 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">nextUntil()</td>
+                        <td class="ce">$("div.m").nextUntil("p")</td>
+                        <td>div.m 다음 요소부터 p 요소 전까지의 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">prev()</td>
+                        <td class="ce">$("div.m").prev()</td>
+                        <td>div.m 요소의 이전 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">prevAll()</td>
+                        <td class="ce">$("div.m").prevAll()</td>
+                        <td>div.m 요소의 이전 요소들을 모두 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">prevUntil()</td>
+                        <td class="ce">$("div.m").prevUntil("p")</td>
+                        <td>div.m 이전 요소부터 p 요소 다음 요소까지를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">siblings()</td>
+                        <td class="ce">$("div").siblings("p")</td>
+                        <td>div요소의 형제 요소 중 p요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">find()</td>
+                        <td class="ce">$("div").find("span")</td>
+                        <td>div 요소의 하위 요소 중 span요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">filter()</td>
+                        <td class="ce">$("div").filter(".m")</td>
+                        <td>div 요소 중 class가 "m" 인 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">not()</td>
+                        <td class="ce">$("div").not(".m")</td>
+                        <td>div 요소 중 class가 "m"이 아닌 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">has()</td>
+                        <td class="ce">$("div").has("span")</td>
+                        <td>div 요소 중 span 요소를 포함하고 있는 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">eq()</td>
+                        <td class="ce">$("div").eq(0)</td>
+                        <td>div 요소 중 index가 0인 요소들을 선택합니다. index 0번은 첫번째 요소입니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">gt()</td>
+                        <td class="ce">$("div").gt(0)</td>
+                        <td>index가 0보다 큰 div요소들을 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">lt()</td>
+                        <td class="ce">$("div").lt(3)</td>
+                        <td>index가 3보다 작은 div요소들을 선택합니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="t_tit2">■ 예시(기본 탐색 선택자)</h2>
+            <p class="t_desc">
+                코드펜을 이용해서 작업했습니다. CDN방식입니다만, 코드펜으로는 CDN활용법을 확인하긴 힘드니깐 CDN쓰는법만 보여드릴게요.
+            </p>
+            <p class="t_box">
+                &lt;script src="jquery-3.6.1.min.js"&gt;&lt;/script&gt;
+            </p>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/eYrOZgQ?default-tab=html%2Cresult&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/eYrOZgQ">
+                    제이쿼리 탐색선택자 공부1</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            <hr>
+
+            <h3 class="t_tit2">■ 기타 탐색 선택자</h3>
+            <table class="t_table">
+                <colgroup>
+                    <col width="30%">
+                    <col width="70%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>선택자 종류</th>
+                        <th>설명</th>
+                    </tr>
+                </thead> 
+                <tbody>
+                    <tr>
+                        <td class="ce">add()</td>
+                        <td>$("div").add("p")<br>div 요소와 p 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">addBack()</td>
+                        <td>$("div").children("p").addBack()<br>p요소와 이전 선택요소 div를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">end()</td>
+                        <td>
+                            $("div").find("span").css(...).end().find("em").css(...)
+                            <br>$("div").find("span").css(...)의 실행이 끝나면 처음 선택자 $("div")로 다시 돌아와 $("div").find("em").css(...)가 실행됩니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">is()</td>
+                        <td>
+                            선택한 요소를 판별해 주는 선택자로 보통 if문의 조건식에 사용됩니다.
+                            <br>if("div").children().is("p")){
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("p요소가 맞습니다.");
+                            <br>}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="t_tit2">■ 예시(기타 탐색 선택자)</h2>
+            <p class="t_desc">
+                코드펜을 이용해서 작업했습니다. CDN방식입니다만, 코드펜으로는 CDN활용법을 확인하긴 힘드니깐 CDN쓰는법만 보여드릴게요.
+            </p>
+            <p class="t_box">
+                &lt;script src="jquery-3.6.1.min.js"&gt;&lt;/script&gt;
+            </p>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/abGoNyg?default-tab=html%2Cresult&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/abGoNyg">
+                    제이쿼리 탐색선택자 공부2</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

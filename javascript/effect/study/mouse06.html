@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 마우스06</title>
+
+        <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+
+        <style>
+            #main .document .btnflex {
+                display: flex;
+            } 
+        </style>
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="../../../javascript/index.html">Javascript_Mouse06</a></h1>
+            <nav class="header_nav">
+                <ul class="study">
+                    <li><a href="mouse01.html">마우스 이펙트1</a></li>
+                    <li><a href="mouse02.html">마우스 이펙트2</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">마우스 효과 06</h2>
+                <div class="t_desc2">
+                    마우스 효과 여섯번째 시간입니다. 텍스트에 기울기 효과를 주고 오버시 글씨에 반전효과도 줘 보겠습니다.
+                </div>
+                <hr />
+
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0">
+                    <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/mouseEffect06.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link btnflex">
+                    <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/mouseEffect06.html" target="_blank"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/mouseEffect06.html" target="_blank">원본 사이트</a>
+                </div>
+                <hr />
+                <h3 class="t_tit2">■ n줄 요약</h3>
+                <div class="t_desc">
+                    ▶ 텍스트에 hover시, 마우스커서에 "mix-blend-mode : difference"를 주어 마우스포인터(원)이 겹치는 부분에 반전효과를 줄 수 있습니다.
+                    <br>텍스트는 skew를 주어 비틀기효과(≒기울기)를 줄 수 있고, "overflow:hidden"을 통해 마치 두개의 글씨가 이어져있지만 반반씩 달라보이는 효과를 줍니다.
+                </div>
+                <h3 class="t_tit2">HTML 소스</h3>
+                <div class="t_code">
+<pre><code class="language-js">&lt;div class="mouse__text"&gt;
+    &lt;div class="line"&gt;
+        &lt;div class="left"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanSlow"&gt;"i thought you would"&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="right"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanSlow"&gt;"i thought you would"&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="line"&gt;
+        &lt;div class="left"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanFast"&gt;If you know please tell me in advance&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="right"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanFast"&gt;If you know please tell me in advance&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="line"&gt;
+        &lt;div class="left"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanSlow"&gt;"내 너 그럴줄 알았다"&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="right"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanSlow"&gt;"내 너 그럴줄 알았다"&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="line"&gt;
+        &lt;div class="left"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanFast"&gt;알았으면 제발 미리 말을 해줘라&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="right"&gt;
+            &lt;div class="spanWrap"&gt;
+                &lt;span class="spanFast"&gt;알았으면 제발 미리 말을 해줘라&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+                <h3 class="t_tit2">CSS 소스</h3>
+                <div class="t_code">
+<pre><code class="language-css">.mouse__text .line .left {
+    width: 50vw;
+    color: orange;
+    overflow: hidden;
+    transform: skew(0deg, -15deg);
+}
+.mouse__text .line .left .spanWrap {
+    width: 100vw;
+    text-align: center;
+}
+.mouse__text .line .right {
+    width: 50vw;
+    overflow: hidden;
+    transform: skew(0deg, 15deg);
+}
+.mouse__text .line .right .spanWrap {
+    width: 100vw;
+    text-align: center;
+    transform: translateX(-50vw);
+}
+
+</code></pre>
+            </div>
+                <h3 class="t_tit2">JS 소스</h3>
+                <div class="t_code">
+<pre><code class="language-js">const mouseMove = (e) => {
+    let positionSlow = (e.pageX - window.innerWidth / 2) * 0.1;
+    let positionFast = (e.pageX - window.innerWidth / 2) * 0.2;
+
+    gsap.to(".spanSlow", { duration: .4, x: positionSlow });
+    gsap.to(".spanFast", { duration: .4, x: -positionFast });
+    gsap.to(".mouse__cursor", { duration: 0.3, left: e.pageX - 5, top: e.pageY - 5 });
+};
+
+window.addEventListener("mousemove", mouseMove);
+
+
+
+const text = document.querySelectorAll(".spanSlow");
+const text2 = document.querySelectorAll(".spanFast");
+text.forEach((e) => {
+    e.addEventListener("mouseenter", () => {
+        document.querySelector(".mouse__cursor").classList.add("active");
+    });
+    e.addEventListener("mouseleave", () => {
+        document.querySelector(".mouse__cursor").classList.remove("active");
+    });
+});
+text2.forEach((e) => {
+    e.addEventListener("mouseenter", () => {
+        document.querySelector(".mouse__cursor").classList.add("active");
+    });
+    e.addEventListener("mouseleave", () => {
+        document.querySelector(".mouse__cursor").classList.remove("active");
+    });
+});
+</code></pre>
+                </div>
+                <p class="t_tit2">■ 핵심 찍먹하기🪓</p>
+
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ GSAP</h2>
+                <p class="t_desc">
+                    CDN으로 항상 스크립트가져오셔야해요! <br>
+                    gsap.to ()에는 2가지 필수값이 필요합니다. 바로 <i>대상과 속성</i>입니다.
+                    대상은 변수로 지정하지 않고, 위와 같이 <i>선택자를 바로 지정</i>할 수도 있습니다.
+                    그렇다면 우리 소스에서는 어떻게 작동하는걸까요?
+                    <br> 사용된 속성은 다음과 같습니다.
+                </p>
+                <p class="t_box">
+                    - duration : 애니메이션의 지속시간을 설정합니다. '.4'은 '0.4s'의 의미와 동일합니다.
+                    <br>- left: CSS에 left와 top값을 부여했었는데요. 이 값을 pageX,Y(문서 상단 경계 기준으로 좌표값 추출)만큼 이동시킵니다. 
+                    
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ mouseenter 사용</h2>
+                <p class="t_desc">
+                    예전 글에서도 언급드렸는데, mouseover와 mouseenter는 마우스오버 이벤트이지만 조금 다른 이벤트값입니다.
+                    mouseover는 이벤트를 걸지않은 요소에 포인터를 갖다대도 이벤트가 발생하는 반면, mouseenter는 오로지 자기자신에게만 포인터가 
+                    와야 이벤트가 발생하는 차이점이 있습니다. 그러므로 우리는 mouseenter를 사용해야겠죠?
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ skew와 overflow 이용하기</h2>
+                <p class="t_desc">
+                    이번글에는 특별히 html소스와 css소스를 둘 다 언급했는데요. 저희가 원하는 텍스트 효과는 
+                    글씨가 기울어짐과 이 기울어진 글씨가 서로 이어져 하나의 글씨처럼 보이게 하기 위한 효과죠.
+                    <br>1. 기울어짐 효과는 비틀기효과인 skew를 이용합니다.
+                    <br>&nbsp;말이 비틀기이지 사실은 기울기 효과에요. 문법은 다음과 같습니다
+                    <br>&nbsp;&nbsp;skew(X축의 기울기 각도, Y축의 기울기 각도)
+                    <br>2. overflow:hidden을 이용하기
+                    <br>&nbsp;잘 아시는 overflow:hidden입니다. 동일한 텍스트를 두번 반복시킨 뒤 width값을 반반씩 지정해준 뒤 영역밖으로 벗어나면 hidden으로 안보이게 
+                    해준다면? 저희가 원하는 효과를 만들 수 있습니다. 
+                </p>
+                <img src="blogimg/mouseEffect06_blog1.jpg" alt="1">
+
+
+                
+
+                <hr style="margin-bottom : 10px">
+                <p class="p_desc" style="font-size: 14px; text-align: center;">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

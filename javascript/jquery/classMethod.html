@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 : 클래스관련메서드</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../index.html">jQuery</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="jquery.html">기본</a></li>
+                <li><a href="choice_basic.html">기본 선택자</a></li>
+                <li><a href="choice_el.html">속성 선택자</a></li>
+                <li><a href="choice_filter.html">필터 선택자</a></li>
+                <li><a href="choice_search.html">탐색 선택자</a></li>
+                <li><a href="classMethod.html">클래스 관련 메서드</a></li>
+                <li><a href="elMethod.html">속성 관련 메서드</a></li>
+                <li><a href="styleMethod.html">스타일 관련 메서드</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">클래스 관련 메서드 </h2>
+            <p class="t_desc2">
+                메서드란 데이터를 참조하고 <i>조작</i>할 수 있는 동작을 의미합니다. 
+                <br><i>제이쿼리에 사용되는 메서드</i>에 대해 알아보겠습니다.
+            </p>
+            <br> <a style="color : #ccc;">1. 클래스 관련 메서드</a>   
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/86">2. 속성 관련 메서드</a>
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/87">3. 스타일 관련 메서드</a>
+            <hr>
+            <h3 class="t_tit2">■ 메서드의 기본 형식</h3>
+            <p class="t_box">
+                1. <i>$("선택자").메서드명();</i>
+            </p>
+            <p class="t_desc">
+                ⇒매개변수가 없는 유형<br>
+            </p>
+            <p class="t_box">
+                2. <i>$("선택자").메서드명(값);</i>
+            </p>
+            <p class="t_desc">
+                ⇒매개변수가 한개인 유형<br>
+            </p>
+            <p class="t_box">
+                3. <i>$("선택자").메서드명(function(){});</i>
+            </p>
+            <p class="t_desc">
+                ⇒매개변수가 함수인 유형<br>
+            </p>
+            <p class="t_box">
+                4. <i>$("선택자").메서드명(값1,값2,...);</i>
+            </p>
+            <p class="t_desc">
+                ⇒매개변수가 여러개인 유형<br>
+            </p>
+            <p class="t_box">
+                5. <i>$('선택자').메서드명({</i>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<i>옵션: 값,</i>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<i>옵션: 값</i>
+                <br><i>});</i>
+            </p>    
+            <p class="t_desc">
+                ⇒매개변수가 객체방식인 유형
+            </p>
+            <p class="t_desc" style="color: rgb(165, 165, 165);">
+                한개의 메서드가 문법유형을 모두 갖고 있지는 않습니다.
+                <br>어떤 메서드는 한개유형만, 어떤 메서드는 여러개 유형을 가질 수 있습니다.
+            </p>
+            <h3 class="t_tit2">01_ addClass() 메서드</h3>
+            <p class="t_desc">요소에 class 속성을 추가합니다.</p>
+            <table class="t_table">
+                <colgroup>
+                    <col width="40%">
+                    <col width="60%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>실행 분류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">추가</td>
+                        <td>$("div").addClass("클래스명");</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>$("div").addClass(function(index, calssName){
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;// index는 각 div 요소의 index 0, 1, 2
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;// calssName은 각 div의 class속성
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;return class 속성 // 각 div에 class속성을 추가합니다.
+                        <br>});
+                        <br>...
+                        <br>&lt;div&gt;내용1&lt;/div&gt;
+                        <br>&lt;div&gt;내용2&lt;/div&gt;
+                        <br>&lt;div&gt;내용3&lt;/div&gt;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="t_tit3"> 예시</h2>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/RwywmNz?default-tab=html%2Cresult&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/RwywmNz">
+                    제이쿼리클래스관련메서드</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            <br>
+            <h3 class="t_tit2">02_ removeClass() 메서드</h3>
+            <p class="t_desc">요소에서 class 속성을 제거합니다.</p>
+            <table class="t_table">
+                <colgroup>
+                    <col width="40%">
+                    <col width="60%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>실행 분류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">제거</td>
+                        <td>$("div").removeClass("클래스명");</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>$("div").removeClass(function(index, calssName){
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;// index는 각 div요소의 index 0, 1, 2
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;// calssName은 각 div의 class속성 m1, m2, m3
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;return class 속성 // 각 div에 class속성을 제거합니다.
+                        <br>});
+                        <br>...
+                        <br>&lt;div class="m1"&gt;내용1&lt;/div&gt;
+                        <br>&lt;div class="m2"&gt;내용2&lt;/div&gt;
+                        <br>&lt;div class="m3"&gt;내용3&lt;/div&gt;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="t_tit3"> 예시</h2>
+            <img src="../../assets/tistory/JQuery06_클래스관련메서드_bg.jpg" alt="dd">
+            <br>
+            <h3 class="t_tit2">03_ toggleClass() 메서드</h3>
+            <p class="t_desc">요소에 class속성이 없으면 addClass()가 적용되고 class속성이 있으면 removeClass()가 적용됩니다.</p>
+            <table class="t_table">
+                <colgroup>
+                    <col width="40%">
+                    <col width="60%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>실행 분류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">추가, 제거</td>
+                        <td>$("div").toggleClass("클래스명");</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>$("div").addClass(function(index, calssName){
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;// index는 각 div 요소의 index 0, 1, 2
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;// calssName은 각 div의 class속성
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;return class 속성 // 각 div에 class속성을 추가합니다.
+                        <br>});
+                        <br>...
+                        <br>&lt;div&gt;내용1&lt;/div&gt;
+                        <br>&lt;div&gt;내용2&lt;/div&gt;
+                        <br>&lt;div&gt;내용3&lt;/div&gt;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="t_tit3"> 예시</h2>
+            <p class="t_desc">
+                서브 메뉴(ul 요소)가 존재하는  a 요소(.m)을 클릭하면,
+                <br>$(this).toggleClass("on") // 자신 요소(.m)의 폰트컬러를 주황색, 회색으로 toggle시킵니다.
+                <br>$(this).next().toggleClass("on") // 자신의 서브 메뉴를 show, hide로 toggle시킵니다.
+                <br>$(this).next().find(".m. ul").removeClass("on") // 자신의 하위 메뉴들과 하위 서브 메뉴들을 초기화 시킵니다.
+                <br>$(this).next().parent().siblings().find(".m. ul").removeClass("on") // 다른 메뉴들을 초기화 시킵니다.
+            </p>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/RwywmNz?default-tab=html%2Cresult&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/RwywmNz">
+                    제이쿼리클래스관련메서드</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            <br>
+            <h3 class="t_tit2">04_ hasClass() 메서드</h3>
+            <p class="t_desc">if문의 조건식으로 사용됩니다. 선택한 요소 클래스가 있으면 true, 없으면 false를 반환합니다.</p>
+<pre class="t_box">if($("#box").hasClass("m")){
+    console.log("클래스 있음");     //클래스 있음
+}else {
+    console.log("클래스 없음");
+}
+...
+&lt;div id = "#box" class="m"&gt;내용&lt;/div&gt;
+</pre>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+@import url('https://webfontworld.github.io/DungGeunMo/DungGeunMo.css');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DungGeunMo';
+    font-weight: normal;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    cursor: none;
+}
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    background-color: #011937;
+    padding: 0 15px;
+    z-index: 3000;
+}
+#header h1 {
+    font-size: 25px;
+    color: #fff;
+    padding: 4px 0px 7px 0px;
+}
+#header .time {
+    font-size: 16px;
+    color: #fff;
+}
+
+.mouse__cursor img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    /* background: url(../img/cursor.png) no-repeat; 
+    background-size: cover; */
+    user-select: none;
+    pointer-events: none;
+    z-index: 1000000;
+    /* border-radius: 50%; */
+  }
+
+.icon1 {
+    position: absolute;
+    left: 100px;
+    top: 450px;
+    /* width: 85px; */
+}
+.icon img {
+    width: 85px;
+    display: block;
+    margin: 0 auto;
+}
+.icon span {
+    display: inline-block;
+    background: #000;
+    color: white;
+    padding: 4px 6px 6px 6px;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 3px;
+}
+.icon2 {
+    position: absolute;
+    left: 250px;
+    top: 450px;
+    width:85px;
+}
+
+.icon3 {
+    position: absolute;
+    left: 400px;
+    top: 450px;
+    width:85px;
+}
+
+.icon4 {
+    position: absolute;
+    left: 100px;
+    top: 300px;
+    width:85px;
+}
+
+.icon5 {
+    position: absolute;
+    left: 250px;
+    top: 300px;
+    width:85px;
+}
+
+.icon6 {
+    position: absolute;
+    left: 400px;
+    top: 300px;
+    width:85px;
+}
+.icon:hover{
+    filter:brightness(120%);
+    transform: scale(1.1);
+    transition: all 0.5s ease;
+}
+.icon:not(:hover){
+    transition: all 0.5s ease;
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #011937;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    color: #fff;
+    z-index: 3000;
+}
+#footer .agent {
+}
+.window #footer {
+}
+.mac #footer {
+}
+.iphone #footer {
+}
+.android #footer {
+}

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 슬라이드05</title>
+
+        <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+
+        <style>
+            #main .document .btnflex {
+                display: flex;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="../../../javascript/index.html">Javascript_Slide04</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">슬라이드 효과 05</h2>
+                <div class="t_desc2">
+                    이번 시간에는 저번 버튼형식의 슬라이더에 추가로 하단에 도트를 추가해보겠습니다.
+                    <br>그리고 당연하게도 이 버튼을 눌렀을때도 이미지가 바뀌게 구성해야 합니다 ^^!
+                </div>
+                <hr />
+
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0">
+                    <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/sliderEffect05.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link btnflex">
+                    <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/sliderEffect05.html" target="_blank"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/sliderEffect05.html" target="_blank">원본 사이트</a>
+                </div>
+                <hr />
+                <div class="t_desc">
+                </div>
+                <p class="t_desc">
+                    ▶ 동그란 도트모양을 만들어주고 이 닷버튼에 JS를 부여해줍니다.
+                    <br> 이 때 <i>Index값을 잘 활용</i>하면 
+                    아주 쉽게 닷형식의 슬라이더가 완성이 됩니다.
+                </p>
+                <h3 class="t_tit2">JS 소스</h3>
+                <div class="t_code">
+<pre><code class="language-js">const sliderWrap = document.querySelector('.slider__wrap');
+    const sliderImg = document.querySelector('.slider__img');
+    const sliderInner = document.querySelector('.slider__inner');
+    const slider = document.querySelectorAll('.slider');
+    const sliderBtn = document.querySelector('.slider__btn');
+    const sliderBtnPrev = sliderBtn.querySelector('.prev');
+    const sliderBtnNext = sliderBtn.querySelector('.next');
+    const sliderDot = document.querySelector('.slider__dot');
+
+    let currentIndex = 0;
+    let sliderCount = slider.length;
+    let sliderWidth = sliderImg.offsetWidth; // 이미지 가로 값
+
+    // 이미지 총 길이 넣기
+    sliderInner.style.width = (sliderWidth * sliderCount) + "px";
+
+    let dotIndex = "";
+    function init() {
+        slider.forEach((el, index) => dotIndex += `&lt;a href="#" class="dot"&gt;이미지${index + 1}&lt;/a&gt;`);
+        sliderDot.innerHTML = dotIndex;
+
+        // 첫 번째 닷 버튼한테 활성화 표시
+        sliderDot.firstElementChild.classList.add('active');
+    }
+    init();
+
+    // 이미지이동
+    function gotoSlider(num) {
+        sliderInner.style.transition = "all 400ms";
+        sliderInner.style.transform = "translateX(" + -sliderWidth * num + "px)";
+        currentIndex = num;
+        console.log(-sliderWidth * num)
+
+
+        // 두번째 이미지 --> 두번째 닷 클래스 추가
+        // 1. 닷메뉴 클래스 모두 삭제
+        // 2. 해당 이미지 해당 닷 메뉴 클래스 추가
+        const sliderDotAs = sliderDot.querySelectorAll('a');    
+        sliderDotAs.forEach((a) => a.classList.remove('active'));
+        sliderDotAs[num].classList.add('active');
+
+
+    }
+    // 버튼 클릭시
+    document.querySelectorAll(".slider__btn a").forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+            let prevIndex = (currentIndex + (sliderCount - 1)) % sliderCount;
+            let nextIndex = (currentIndex + 1) % sliderCount;
+
+            if (btn.classList.contains("prev")) {
+                gotoSlider(prevIndex);
+            } else {
+                gotoSlider(nextIndex);
+            }
+        });
+    });
+
+
+    // 닷 버튼 클릭했을 때
+    document.querySelectorAll(".slider__dot .dot").forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            gotoSlider(index);
+        });
+    })
+                
+</code></pre>
+                </div>
+                <p class="t_tit2">■ 핵심 찍먹하기🪓</p>
+
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ 움직이는 영역에 총이미지의 넓이값을 계산시키자!</h2>
+                <p class="t_box">
+                    -JS-
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;sliderInner.style.width = (sliderWidth * sliderCount) + "px";
+                    <br>
+                    -CSS-
+                    <br>
+                    .slider__inner {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    /* 이미지를 감싸고 있는 부모 : 움직이는 부분 */
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;display: flex;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;flex-wrap: wrap;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    height: 450px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;position: relative;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<i>이곳에 '이미지 넓이 X 갯수'가 계산되어 들어가게 됩니다.</i>
+                    <br>}
+                </p>
+                <p class="t_desc">
+                    기존 유형들(4유형 제외)은 계속해서 'slider__inner'의 width값이 고정되어 있어서 5개까지만 제대로 출력할 수 있었는데요.
+                    저번 유형부터 저는 이미지의 갯수가 추가되어도 따로 CSS를 수정하지 않아도 되게 하기 위해서 JS에 이미지의 전체 길이를 구하는 코드를 짜 주었습니다. 
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ dot의 html코드는 JS로 넣어주기</h2>
+                <p class="t_desc">
+                    이미지의 갯수가 늘어날 때 번거롭게 dot의 html코드를 추가/제거해주기 귀찮을 수 있으므로 JS로 
+                    이미지의 인덱스를 구해주어 이미지 갯수만큼 알아서 코드가 변경되게 만들어 줍니다.
+                    <br> 이 때, <i>index는 0부터 시작이므로 +1을</i> 해주는 것! 잊지마세요~
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ dot 선택자 주의하기</h2>
+                <p class="t_box">
+                    const sliderDotAs = <i>sliderDot</i>.querySelectorAll('a');
+                </p>
+                <p class="t_desc">
+                    a태그 전체를 선택해서 당황하셨나요? 잘 보시면 sliderDot라고 적혀있는데요. 이건 저희가 sliderDot이라고 변수를 지정해줬는데 
+                    이 변수의 범위안에서만 a 태그를 찾겠단 뜻입니다. 주의해주세요
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ dot 버튼 클릭하기</h2>
+                <p class="t_desc">
+                    닷 버튼을 클릭했을 때 이미 만들어놓은 gotoSlider()함수의 매개변수로 해당 닷의 index를 넣어줍니다.
+                    이미 <i>닷버튼의 갯수는 전체 이미지의 갯수와 같으므로 index는 동일</i>합니다. 
+                    <br>그러므로 '2번째 닷 = 2번째 이미지' 이런식으로 이미지를 이동할 수 있습니다.
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ 혹시 모를 next, prev버튼에 대한 설명</h2>
+                <p class="t_desc">
+                    이미 04유형에서 사용했던 방식이며, 코드또한 달라진 점이 없으므로 아무런 수정없이 04유형의 내용을 복붙했습니다. 
+                    참고하실분은 아래 버튼을 통해 확인해주세요.
+                    <br>↓↓↓↓↓
+                </p>
+                <div>
+                    <details>
+                        <summary class="t_summary">next, prev버튼 JS 설명(04유형 내용 재탕)</summary>
+                        <div style="background-color:rgba(206, 206, 206, 0.279); padding: 10px;"> 
+                            <p class="t_desc">
+                                제 4유형은 이미지가 총 9개입니다. 그럼 각 div의 index은 0부터 8이 됩니다.
+                                그리고 변수 sliderCount는 9입니다.
+                                <br>그럼 <i>오른쪽버튼만 누른다고 생각</i>해볼까요? 이미지의 순서가 어떻게 반복되나요? <i>0~8이 계속해서 반복</i>하게 짜주면 되겠죠?
+                                <br>여태까지 한 유형들이 다 이런 방식이었어요. '현재이미지+1'을 '전체이미지'로 나눈 값의 '나머지'를 구해서 이 나머지를 익명함수의 변수로 선언해 주면 되겠죠?
+                            </p>
+                            <p class="t_box">
+                                첫번째이미지 -> 두번째이미지
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp; 첫번째 이미지(0) -> 두번째이미지(1)로 만들면 되겠죠.
+                            </p>
+                            <p class="t_desc">
+                                ☞ nextIndex = (0 + 1) % 9 즉, 1이 대입되게 됩니다. 그럼 함수의 변수로 1이 들어가므로 -800px만큼 이동하겠네요.(=두번째이미지)
+                            </p>
+                            <p class="t_box">
+                                <br>마지막이미지 -> 첫번째이미지
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp; 마지막 이미지(8) -> 첫번째이미지(0)로 만들면 되겠죠.
+                            </p>
+                            <p class="t_desc">    
+                                ☞  nextIndex = (8 + 1) % 9 즉, 0이 대입되게 됩니다. 그럼 함수의 변수로 0이 들어가므로 0만큼 이동하겠네요(=최초이미지)
+                            </p>
+                            <p class="t_desc2">
+                                좋아요 여기까지는 쉬워요. 우리가 여태까지 계속 했던방식이니까요. 그럼 이제 왼쪽버튼을 어떻게 구현해야 할까요? 힌트는 드렸습니다. 
+                                제 사이트 기준 876543210, 876543210 순으로 되게끔 해주시면 됩니다.
+                                해보면서 느낀게 나머지값을 하나씩 감소시키는건 어렵지 않습니다.
+                                다만 <i>0 다음에 8 이 올 수 있게</i> 만드는게 조금 헷갈리긴 하는데 조금만 바꿔서 생각해보면 되긴 됩니다!
+                                <br>아래는 왼쪽버튼에 대한 설명 들어갑니다.
+                            </p>
+                            <p class="t_box">
+                                두번째이미지 -> 첫번째이미지
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp; 두번째 이미지(1) -> 첫번째이미지(0)로 만들면 되겠죠.
+                            </p>
+                            <p class="t_desc">
+                                ☞ nextIndex = (1 + 9-1) % 9 즉, 0이 대입되게 됩니다. 그럼 함수의 변수로 0이 들어가므로 0px만큼 이동하겠네요.(=첫번째이미지)
+                            </p>
+                            <p class="t_box">
+                                <br>첫번째이미지 -> 마지막이미지
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp; 첫번째 이미지(0) -> 마지막이미지(8)로 만들면 되겠죠.
+                            </p>
+                            <p class="t_desc">
+                                잠시 생각해볼까요. 9를 9로 나누면 나머지는 0이 나옵니다. 우리가 원하는건 8이라는 나머지 값인데... <i>9를 뭘로 나눠야 나머지가 8</i>이 나올까요?
+                                <br> 뭘 어떻게 나눠요. 어렵게 생각하지 맙시다 우리!! 그냥 <i>8을 9로</i> 나누면 될 것 같은데요? 그럼 9로는 못 나누니깐 그대로 <i>8이 나머지</i>로 반환되겠죠.
+                                그럼 'nextindex = (0 + ｘ) % 9 ' 0 + ｘ = 8, <i>∴ currentIndex + 8</i> 이라는 조건이 나옵니다.
+                                <br><br> 이제 이 '(currentIndex + 8)'의 조건으로 다른 값들도 나눠보면 감소가 잘되는지 확인해야 겠죠.
+                                <br> 세번째(2) -> 두번째(1)이라고 가정해봅시다. 그럼 이 조건을 활용하면? 
+                                <br> nextIndex = (2 + 8) % 9 ∴ nextIndex에 1이 대입됩니다. 원하는 알고리즘을 얻었군요...👍
+                                <br> 기세를 몰아 하나만 더 확인해봅시다. 5->4 라면?
+                                <br> nextIndex = (5 + 8) % 9 ∴ nextIndex에 4가 대입! 굿이네요.👍👍👍
+                                <br> 이제 왜 <i>8이 아니라 'sliderCount-1'일까요?</i>
+                                <br> 왜긴요! sliderCount = 전체갯수잖아요. 그럼<i> 이미지 갯수가 늘어나도 우리가 도출해낸 알고리즘은 계속 유지</i>시킬 수 있어요.
+                                그럼 제가 초반에 말씀드렸던 이미지갯수가 가변되도 js코드를 따로 손대지 않아도 되는 그런 방식이 완성되는 겁니다.
+                                <br><br>☞ 문제로 돌아가서 얻어낸 정보를 대입해볼까요.
+                                <br> nextIndex = (0 + 9-1) % 9 즉, 8이 대입되게 됩니다. 그럼 함수의 변수로 8이 들어가므로 -6400px만큼 이동하겠네요.(=마지막 이미지)
+                            </p>
+                            <p class="t_desc">
+                                <i>혹시 여기까지 다 보셨나요? 너무 고생하셨습니다 :)👏</i>
+                            </p>
+                        </div>
+                    </details>
+                </div>
+
+
+                <hr style="margin-bottom : 10px">
+                <p class="t_desc" style="font-size: 14px; text-align: center;">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+
+                
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

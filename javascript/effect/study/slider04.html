@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 슬라이드04</title>
+
+        <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+
+        <style>
+            #main .document .btnflex {
+                display: flex;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="../../../javascript/index.html">Javascript_Slide04</a></h1>
+            <nav class="header_nav">
+                <ul class="study">
+                    <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                    <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                    <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                    <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                    <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                    <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                    <li><a href="search01.html">검색 이펙트1</a></li>
+                    <li><a href="search02.html">검색 이펙트2</a></li>
+                    <li><a href="animation.html">애니메이션 만들기</a></li>
+                    <li><a href="slider01.html">슬라이드 이펙트1</a></li>
+                    <li><a href="slider02.html">슬라이드 이펙트2</a></li>
+                    <li><a href="slider03.html">슬라이드 이펙트3</a></li>
+                    <li><a href="slider04.html">슬라이드 이펙트4</a></li>
+                    <li><a href="parallax01.html">패럴랙스 이펙트1</a></li>
+                    <li><a href="parallax02.html">패럴랙스 이펙트2</a></li>
+                    <li><a href="parallax03.html">패럴랙스 이펙트3</a></li>
+                    <li><a href="parallax04.html">패럴랙스 이펙트4</a></li>
+                    <li><a href="mouse01.html">마우스 이펙트1</a></li>
+                    <li><a href="mouse02.html">마우스 이펙트2</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">슬라이드 효과 04</h2>
+                <div class="t_desc2">
+                    이번에는 슬라이드형식 네번째! <i>버튼으로 슬라이드 조작</i>을 해보겠습니다.
+                    들어가기에 앞서 추후에 이미지를 추가해도 js를 별도로 수정하지 않아도 되게끔 하기 위해서
+                    확인을 하다보니 이미지가 9개까지 되버린점은... 감안하고 봐주세요 ㅎㅎ;
+                </div>
+                <hr />
+
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0">
+                    <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/sliderEffect04.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link btnflex">
+                    <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/sliderEffect04.html" target="_blank"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/sliderEffect04.html" target="_blank">원본 사이트</a>
+                </div>
+                <hr />
+                <div class="t_desc">
+                </div>
+                <p class="t_desc">
+                    ▶ 버튼을 누르면 다음 이미지로 이동하는 방식인데요. 생각만으론 참 간단하지만 함정카드가 존재합니다.
+                    첫번째 이미지에서 이전이미지 버튼을 누르면 마지막 이미지로 가야하고, 마지막 이미지에서 다음이미지버튼을 누르면 첫번째 이미지로 
+                    가게끔 만들어야 합니다.
+                    <br>if문을 사용하는것도 방법인데요. 저는 if문을 사용하지 않고 다른 방법을 사용해보았으니 
+                    같이 보시죠!
+                </p>
+                <h3 class="t_tit2">JS 소스</h3>
+                <div class="t_code">
+                    <pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");
+const sliderImg = document.querySelector(".slider__img"); //보여지는 영역
+const sliderInner = document.querySelector(".slider__inner"); //움직이는 영역
+const slider = document.querySelectorAll(".slider"); //개별 이미지
+const sliderBtn = document.querySelector(".slider__btn");	//버튼
+const sliderBtnPrev = document.querySelector(".prev");		//왼쪽버튼
+const sliderBtnNext = document.querySelector(".next");		//오른쪽버튼
+
+let currentIndex = 0;		//현재 이미지
+let sliderCount = slider.length;	//이미지 갯수
+let sliderWidth = sliderImg.offsetWidth;	//이미지 가로값
+
+
+// 이미지 총 길이 넣기
+sliderInner.style.width = (sliderWidth * sliderCount) + "px";
+
+// 이미지 움직이는 영역
+function gotoSlider(num){
+    sliderInner.style.transition = "all 400ms";
+    sliderInner.style.transform = "translateX("+ -sliderWidth * num +"px)";
+    currentIndex = num;
+}
+
+// 왼쪽버튼 클릭
+sliderBtnPrev.addEventListener ("click", () => {
+    let nextIndex = (currentIndex + sliderCount-1) % sliderCount
+    gotoSlider(nextIndex);
+    // 876543210 876543120
+})
+
+// 오른쪽버튼 클릭
+sliderBtnNext.addEventListener ("click", () => {
+    let nextIndex = (currentIndex +1) % sliderCount
+    gotoSlider(nextIndex);
+    // 01234...8 01234...8
+});
+</code></pre>
+                </div>
+                <p class="t_tit2">■ 핵심 찍먹하기🪓</p>
+
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ 움직이는 영역에 총이미지의 넓이값을 계산시키자!</h2>
+                <p class="t_box">
+                    -JS-
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;sliderInner.style.width = (sliderWidth * sliderCount) + "px";
+                    <br>
+                    -CSS-
+                    <br>
+                    .slider__inner {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    /* 이미지를 감싸고 있는 부모 : 움직이는 부분 */
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;display: flex;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;flex-wrap: wrap;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    height: 450px;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;position: relative;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<i>이곳에 '이미지 넓이 X 갯수'가 계산되어 들어가게 됩니다.</i>
+                    <br>}
+                </p>
+                <p class="t_desc">
+                    위에서 설명드렸듯이 저는 이번 유형은 추후에 js코드를 손대지 않아도 되게끔 해보기 위해서 이미지의 총길이도 
+                    계산시키게 짜봤습니다. 이미지의 개별 넓이가 800px인데 총 이미지갯수가 여기서는 9개입니다. 그런데 
+                    총 넓이가 4000px이라면 이미지는 우리가 아무리 js코드를 잘 짜봤자 5개밖에 출력이 되지 않습니다. 그래서 
+                    이 값도 js로 계산하게끔 해주었습니다.
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ 익명함수를 활용하기</h2>
+                <p class="t_desc">
+                    기존에는 우측으로만 무한정 넘겨줬기 때문에 'translateX'의 값을 -800px씩만 해주면 되었는데요. 이번엔 
+                    좌, 우로 변경해주어야 하므로 num의 값이 계속 <i>증가만 하는게 아니라 증감</i>이 되어야 합니다.
+                    그래서 익명함수를 활용해서 '이전버튼'을 누를 시 현재보다 하나 적은 값을 곱하게 만들어주고,
+                    '다음버튼'을 누를 시 현재보다 하나 높은 값을 곱하게 해주어 마치 이미지가 이전, 다음 이미지로 변하는 효과를 줍니다.
+                    <br>(수학 하듯이 0에서 이전누른다고 -1된다고 생각은 잠시 접어주세요. 여기서 0에서 이전버튼은 마지막 이미지에 해당하는 값입니다 ㅠㅠ)
+                </p>
+                <div>
+                    <details>
+                        <summary class="t_summary">예시로 설명해보기 (매운맛 주의)</summary>
+                        <div style="background-color:rgba(206, 206, 206, 0.279); padding: 10px;"> 
+                            <p class="t_desc">
+                                제 4유형은 이미지가 총 9개입니다. 그럼 각 div의 index은 0부터 8이 됩니다.
+                                그리고 변수 sliderCount는 9입니다.
+                                <br>그럼 <i>오른쪽버튼만 누른다고 생각</i>해볼까요? 이미지의 순서가 어떻게 반복되나요? <i>0~8이 계속해서 반복</i>하게 짜주면 되겠죠?
+                                <br>여태까지 한 유형들이 다 이런 방식이었어요. '현재이미지+1'을 '전체이미지'로 나눈 값의 '나머지'를 구해서 이 나머지를 익명함수의 변수로 선언해 주면 되겠죠?
+                            </p>
+                            <p class="t_box">
+                                첫번째이미지 -> 두번째이미지
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp; 첫번째 이미지(0) -> 두번째이미지(1)로 만들면 되겠죠.
+                            </p>
+                            <p class="t_desc">
+                                ☞ nextIndex = (0 + 1) % 9 즉, 1이 대입되게 됩니다. 그럼 함수의 변수로 1이 들어가므로 -800px만큼 이동하겠네요.(=두번째이미지)
+                            </p>
+                            <p class="t_box">
+                                <br>마지막이미지 -> 첫번째이미지
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp; 마지막 이미지(8) -> 첫번째이미지(0)로 만들면 되겠죠.
+                            </p>
+                            <p class="t_desc">    
+                                ☞  nextIndex = (8 + 1) % 9 즉, 0이 대입되게 됩니다. 그럼 함수의 변수로 0이 들어가므로 0만큼 이동하겠네요(=최초이미지)
+                            </p>
+                            <p class="t_desc2">
+                                좋아요 여기까지는 쉬워요. 우리가 여태까지 계속 했던방식이니까요. 그럼 이제 왼쪽버튼을 어떻게 구현해야 할까요? 힌트는 드렸습니다. 
+                                제 사이트 기준 876543210, 876543210 순으로 되게끔 해주시면 됩니다.
+                                해보면서 느낀게 나머지값을 하나씩 감소시키는건 어렵지 않습니다.
+                                다만 <i>0 다음에 8 이 올 수 있게</i> 만드는게 조금 헷갈리긴 하는데 조금만 바꿔서 생각해보면 되긴 됩니다!
+                                <br>아래는 왼쪽버튼에 대한 설명 들어갑니다.
+                            </p>
+                            <p class="t_box">
+                                두번째이미지 -> 첫번째이미지
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp; 두번째 이미지(1) -> 첫번째이미지(0)로 만들면 되겠죠.
+                            </p>
+                            <p class="t_desc">
+                                ☞ nextIndex = (1 + 9-1) % 9 즉, 0이 대입되게 됩니다. 그럼 함수의 변수로 0이 들어가므로 0px만큼 이동하겠네요.(=첫번째이미지)
+                            </p>
+                            <p class="t_box">
+                                <br>첫번째이미지 -> 마지막이미지
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp; 첫번째 이미지(0) -> 마지막이미지(8)로 만들면 되겠죠.
+                            </p>
+                            <p class="t_desc">
+                                잠시 생각해볼까요. 9를 9로 나누면 나머지는 0이 나옵니다. 우리가 원하는건 8이라는 나머지 값인데... <i>9를 뭘로 나눠야 나머지가 8</i>이 나올까요?
+                                <br> 뭘 어떻게 나눠요. 어렵게 생각하지 맙시다 우리!! 그냥 <i>8을 9로</i> 나누면 될 것 같은데요? 그럼 9로는 못 나누니깐 그대로 <i>8이 나머지</i>로 반환되겠죠.
+                                그럼 'nextindex = (0 + ｘ) % 9 ' 0 + ｘ = 8, <i>∴ currentIndex + 8</i> 이라는 조건이 나옵니다.
+                                <br><br> 이제 이 '(currentIndex + 8)'의 조건으로 다른 값들도 나눠보면 감소가 잘되는지 확인해야 겠죠.
+                                <br> 세번째(2) -> 두번째(1)이라고 가정해봅시다. 그럼 이 조건을 활용하면? 
+                                <br> nextIndex = (2 + 8) % 9 ∴ nextIndex에 1이 대입됩니다. 원하는 알고리즘을 얻었군요...👍
+                                <br> 기세를 몰아 하나만 더 확인해봅시다. 5->4 라면?
+                                <br> nextIndex = (5 + 8) % 9 ∴ nextIndex에 4가 대입! 굿이네요.👍👍👍
+                                <br> 이제 왜 <i>8이 아니라 'sliderCount-1'일까요?</i>
+                                <br> 왜긴요! sliderCount = 전체갯수잖아요. 그럼<i> 이미지 갯수가 늘어나도 우리가 도출해낸 알고리즘은 계속 유지</i>시킬 수 있어요.
+                                그럼 제가 초반에 말씀드렸던 이미지갯수가 가변되도 js코드를 따로 손대지 않아도 되는 그런 방식이 완성되는 겁니다.
+                                <br><br>☞ 문제로 돌아가서 얻어낸 정보를 대입해볼까요.
+                                <br> nextIndex = (0 + 9-1) % 9 즉, 8이 대입되게 됩니다. 그럼 함수의 변수로 8이 들어가므로 -6400px만큼 이동하겠네요.(=마지막 이미지)
+                            </p>
+                            <p class="t_desc">
+                                <i>혹시 여기까지 다 보셨나요? 너무 고생하셨습니다 :)👏</i>
+                            </p>
+                        </div>
+                    </details>
+                </div>
+
+
+                <hr style="margin-bottom : 10px">
+                <p class="p_desc" style="font-size: 14px; text-align: center;">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+
+                
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

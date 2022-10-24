@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 블록</title>
+    <!-- <link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet"> -->
+    
+    <link rel="stylesheet" href="assets/css/dracula.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'GmarketSans';
+
+        }
+        #header {
+            padding: 2vw;
+            border-bottom: 1px dashed #dedede;
+        }
+        #header h1{
+            font-size: 4vw;
+            margin-bottom: 2vw;
+        }
+        #header nav ul li {
+            list-style: none;
+            display: inline;
+        }
+        #header nav ul li a {
+            text-decoration: none;
+            color: #000;
+            border: 1px solid #000;    
+            padding: 0.6vw  1vw 0.3vw 1vw;
+            display: inline-block;
+        }
+        #header nav ul li a:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        /* 컨텐츠 */
+        #contents {
+            padding: 2vw;
+        }
+        #contents .menu {
+            border-bottom: 1px dashed #dedede;
+            padding-bottom: 2vw;
+
+        }
+        #contents .menu ul li {
+            list-style: none;
+            display: inline;
+        }
+        #contents .menu ul li a {
+            text-decoration: none;
+            color: #000;
+            border: 1px solid #000;
+            background-color: #000;
+            color: #fff;
+            padding: 0.6vw  1vw 0.3vw 1vw;
+            word-break: keep-all;
+            margin-bottom: 0.3vw;
+            margin-top: 0.3vw;
+            display: inline-block;
+        }
+        
+        .article {
+            padding: 2vw 0;
+            line-height: 1.6;
+        }
+        .article h2 {
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+        .article h3 {
+            font-weight: normal;
+            margin-bottom: 10px;
+            }
+        .article p {
+            margin-bottom: 10px;
+        }
+        .article .table {
+            width: 100%;
+            border-spacing: 0; 
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        .article .table tr th {
+            border: 1px solid #dedede;
+            padding: 10px;
+            font-weight: normal;
+            background-color: #f5f5f5;
+        }
+        .article .table tr td {
+            border: 1px solid #dedede;
+            padding: 10px;
+        }
+        .article .table .center {
+            text-align: center;
+        }
+        .article .box {
+            background-color: #f5f5f5;
+            padding: 15px;
+        }
+
+        /* 미디어 쿼리(핸드폰에서 보이는 설정)*/
+        @media  (max-width: 800px){
+            #header {
+                padding: 16px;
+            }
+            #header h1{
+                font-size: 40px;
+            }
+            #header nav ul li a{
+                padding: 5px;
+                font-size: 18px;
+            }
+            #contents{
+                padding: 16px;
+            }
+        }
+   
+   </style> -->
+</head>
+<body>
+    <header id = "header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 박현신</span>
+    </header>
+    <!-- /header -->
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기본 문서</a></li>
+                <li><a href="markup.html">기본 규칙</a></li>
+                <li class="active"><a href="block.html">블록/인라인 구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic markup.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+                <li><a href="parts.html">구조 관련 요소</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">블록/인라인</h2>
+                <p class="t_desc2">
+                    오늘은 웹사이트의 기본중의 기본이죠. 비전공자도 어디선가 들어봤을법한 키워드!
+                    정말 이것도 모르고 어디가서 코딩한다고 하면 안되겠죠?
+                    <br>블록 구조와 인라인 구조에 대해서 알아보겠습니다. 각각 간단히 설명 후 비교하여 설명하는게 더 이해하기 쉬우므로 비교위주로 설명 들어갈게요~</p>
+                <hr>
+                <h3 class="t_tit2">01_ 블록 레벨 요소</h3> <!--01-->
+                <p class="t_desc2">
+                    마크업 할 때 줄이 바뀌는 특성을 가집니다. 좀 더 알기 쉽게 표현하자면 <i>한줄에 하나만 표현</i>된다는 것입니다.
+                    즉, 가로 정렬이 안되는 것입니다.
+                </p>
+<pre class="t_box">&lt; !DOCTYPE html &gt;
+&lt; html lang="ko" &gt;
+&lt; head &gt;
+        &lt;meta charset = "UTF-8"&gt;
+        &lt;title&gt;블록 레벨 요소&lt;/title&gt;
+&lt; /head &gt;
+&lt; body &gt;
+        &lt;h1&gt;블록 레벨 요소&lt;/h1&gt;
+        &lt;h2&gt;블록 레벨 요소&lt;/h2&gt;
+        &lt;p&gt;블록 레벨 요소&lt;/p&gt;
+&lt; /body &gt;
+&lt; /html &gt;
+
+//결과
+블록 레벨 요소
+블록 레벨 요소
+블록 레벨 요소
+</pre>
+                <p class="t_desc">&lt;h&gt;요소들은 블록의 성질을 가지고 있어 화면상 줄 바꿈 현상이 일어나는 걸 확인할 수 있습니다.</p>
+                <h3 class="t_tit2">02_ 인라인 요소(Inline Element)</h3> <!--02-->
+                <p class="t_desc2">줄 바꿈 특성이 없어 행이 바뀌지 않고 한 줄로 출력됨. 그래서 가로정렬이 됩니다.</p>
+<pre class="t_box">&lt; !DOCTYPE html &gt;
+&lt; html lang="ko" &gt;
+&lt; head &gt; 
+        &lt;meta charset = "UTF-8"&gt;
+        &lt;title&gt;인라인 요소&lt;/title&gt;
+&lt; /head &gt;
+&lt; body &gt;
+        &lt;strong&gt;인라인 요소&lt;/strong&gt;
+        &lt;span&gt;인라인 요소는 한 줄로 출력됩니다.&lt;/span&gt;
+&lt; /body &gt;
+&lt; /html &gt;
+
+//결과
+인라인 요소 인라인 요소는 한 줄로 출력됩니다.
+</pre>
+                <p class="t_desc">&lt;strong&gt;, &lt;span&gt;요소들은 인라인 성질을 지니고 있어 한 줄로 출력됩니다.</p>
+                <h3 class="t_tit2">03_ 블록 레벨 요소와 인라인 요소의 특성</h3> <!--03-->
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>요소 유형</th>
+                            <th>특징</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>블록 레벨 요소</td>
+                            <td>1. 블록 레벨 요소는 <i>줄 바꿈</i>이 일어납니다.<br>
+                                2. 블록 레벨 요소는 <i>텍스트(문자)와 인라인 요소를 자식 요소로 포함</i>할 수 있습니다.<br>
+                                3. 블록 레벨 요소 중에는 블록 레벨 요소를 자식 요소를 포함 할 수 있는 요소와 포함할 수 없는 요소가 있습니다.
+                                <br>4. 인라인 요소 보다 더 큰 구조를 생성할 수 있습니다.
+                                <br>5. 새로운 줄에서 시작합니다.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>인라인 요소</td>
+                            <td>1. 인라인 요소는 <i>줄 바꿈이 일어나지 않습니다.</i><br>
+                                2. 인라인 요소는 텍스트(문자)와 인라인 요소를 자식 요소로 포함할 수 있습니다.<br>
+                                3. 인라인 요소는 <i>블록 레벨 요소를 자식 요소로 포함할 수 없습니다.</i>
+                                <br>4.줄의 어느곳에서나 시작이 가능합니다.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="t_desc">콘텐츠의 종류와 태그</p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>콘텐츠 종류</th>
+                            <th>내용</th>
+                            <th>해당 요소</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>메타데이터 콘텐츠<br>(Metadata Content)</td>
+                            <td> &lt;head&gt; 태그 안에 포함되는 요소들로 콘텐츠의 표현, 동작 설정,
+                                 문서 관계 설정, 정보전달을 포함하는 요소 의미
+                            </td>
+                            <td>&lt;base&gt;, &lt;link&gt;, &lt;meta&gt;, &lt;noscript&gt;, &lt;script&gt;, &lt;style&gt;, &lt;title&gt; ...</td>
+                        </tr>
+                        <tr>
+                            <td>플로우 콘텐츠<br>(Flow Content)</td>
+                            <td>&lt;body&gt; 태그 안에 포함되는 대부분의 요소들로 내용 흐름에 관한 요소를 의미</td>
+                            <td>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;, &lt;address&gt;, &lt;p&gt;, &lt;a&gt;, &lt;img&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;dl&gt;, &lt;table&gt;, &lt;form&gt; ...</td>
+                        </tr>
+                        <tr>
+                            <td>섹션 콘텐츠<br>(Sectioning Content)</td>
+                            <td>heading과 footer의 범위를 정의하는 요소를 의미</td>
+                            <td>&lt;article&gt;, &lt;aside&gt;, &lt;nav&gt;, &lt;section&gt;</td>
+                        </tr>
+                        <tr>
+                            <td>헤딩 콘텐츠<br>(Heading Content)</td>
+                            <td>섹션의 헤더를 정의하는 요소를 의미</td>
+                            <td>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;</td>
+                        </tr><tr>
+                            <td>프레이징 콘텐츠<br>(Phrasing Content)</td>
+                            <td>텍스트를 마크업하는 요소를 의미</td>
+                            <td>&lt;a&gt;, &lt;em&gt;, &lt;strong&gt;, &lt;sub&gt, &lt;sup&gt;, &lt;label&gt;...</td>
+                        </tr><tr>
+                            <td>임베디드 콘텐츠<br>(Embedded Content)</td>
+                            <td>HTML 문서에 다른 리소스를 삽입하는 요소 의미</td>
+                            <td>&lt;img&gt;, &lt;audio&gt;, &lt;video&gt;, &lt;iframe&gt;...</td>
+                        </tr>
+                        <tr>
+                            <td>인터랙티브 콘텐츠<br>(Interactive Content)</td>
+                            <td>사용자의 상호작용 위한 요소</td>
+                            <td>&lt;a&gt;, &lt;button&gt;, &lt;audio&gt;, &lt;video&gt;, &lt;select&gt; ...</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <h3 class="t_tit2">04_ inline-block</h3>
+                <p class="t_desc2">
+                    인라인 구조 중에서도 특이한 속성값이 존재합니다. 바로 <i>블록과 인라인의 중간</i> 성질을 지닌 
+                    inline-block입니다.
+                </p>
+                <h3 class="t_tit3">■ 무슨 특징이...?</h3>
+                <p class="t_desc">
+                    &lt;ul&gt;, &lt;li&gt;태그의 경우 대표적인 블록 구조를 지닌 태그입니다. 그렇기 때문에 각각 한줄씩 출력이 되는데요.
+                    이 리스트목록들을 한줄로 표현하되, padding이나 margin 값까지 주고 싶을 때가 있습니다. 본디 한줄로 표현하기 위해서는
+                    단순히 인라인 속성만 부여하면 되겠지만 인라인구조특성상 여백을 부여할 수가 없죠. 그럴때 사용하는 것이 이 인라인-블럭 입니다.
+                </p>
+                <img src="../assets/tistory/HTML_블록,인라인_bg01.jpg" alt="인라인블록">
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer" >
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

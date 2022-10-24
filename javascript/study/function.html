@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 연산자</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="effect">
+                <li><a href="../effect/searchEffect.html">검색 효과</a></li>
+                <li><a href="../effect/quizEffect.html">퀴즈 효과</a></li>
+                <li><a href="../effect/dataEffect.html">데이터 효과</a></li>
+                <li><a href="../effect/mouseEffect.html">마우스 효과</a></li>
+                <li><a href="../effect/sliderEffect.html">슬라이드 효과</a></li>
+                <li><a href="../effect/parallaxEffect.html">패랠랙스 효과</a></li>
+                <li><a href="../effect/gameEffect.html">게임 효과</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">데이터 타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+                <li><a href="join.html">배열 메서드</a></li>
+                <li><a href="../effect/study/quiz01.html">퀴즈 만들기</a></li>
+                <li><a href="velog.html">내장함수</a></li>
+                <li><a href="slice.html">문자열 변경 메서드</a></li>
+                <li><a href="indexof.html">문자열 검색 메서드</a></li>
+                <li><a href="RegEXP.html">정규식 표현</a></li>
+                <li><a href="text.html">문자열 결합/템플릿 문자열</a></li>
+                <li><a href="trim.html">소/대문자/공백</a></li>
+                <li><a href="split.html">split()</a></li>
+                <li><a href="repeat.html">replace()/replaceAll()</a></li>
+                <li><a href="concat.html">concat()</a></li>
+                <li><a href="repeat.html">repeat()</a></li>
+                <li><a href="padStart.html">padStart()/padEnd()</a></li>
+                <li><a href="includes.html">includes()</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">  <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">함수</h2>
+            <p class="t_desc2">
+                함수는 자바스크립트의 기본적인 구성 중 하나입니다. 함수는 작업을 수행하거나 계산하는 문장 집합 같은 개념입니다.
+                함수는 쉽게말해 <i>실행문</i>이라고 생각하면 편합니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">01_ 선언적 함수</h3>
+            <p class="t_desc">가장 <b>기본</b>이 되는 함수 방식입니다.</p>
+            
+            <div class="t_code">
+<pre><code class="language-js">function func(){
+    document.write("함수가 실행되었습니다.1")
+};
+func();
+</code></pre>
+</div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div class="sample01_result">
+                        함수가 실행되었습니다.1
+                    </div>
+                </details>
+            </div>
+            
+            <h3 class="t_tit2">02_ 익명 함수</h3>
+            <p class="t_desc">함수의 이름이 선언되지 않아 <b>변수 이름을 따라갑니다</b>.(변수 속의 함수)</p>
+            <div class="t_code">
+<pre><code class="language-js">const func = function(){
+    document.write("함수가 실행되었습니다.2");
+}
+func();
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div class="sample02_result">
+                        함수가 실행되었습니다.2
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">03_ 매개변수 함수</h3>
+            <p class="t_desc">
+            함수의 매개변수(parameter)란 함수를 호출할 때 인수로 전달된 값을
+            함수 내부에서 사용할 수 있게 해주는 변수입니다
+            <br><i>parameter에 변수를 입력하여</i> 실행할 수 있습니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">function func(str){
+    document.write(str)
+}
+func("함수가 실행되었습니다.3");
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div class="sample03_result">
+                        함수가 실행되었습니다.3
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">04_ 리턴값 함수</h3>
+            <p class="t_desc">리턴값이란 함수가 어떠한 기능을 수행하고 그 결과를 호출한 곳으로 돌려주는 값을 말합니다.<br>
+                함수가 어떤 기능을 수행하고 돌려줄 값이 있으면 return명령을 사용합니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">function func(){
+    const str = "함수가 실행되었습니다.4";
+    return str; //실행문은 아니지만 결과값으로 저장됨.
+};
+document.write(func());
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div class="sample04_result">
+                        함수가 실행되었습니다.4
+                    </div>
+                </details>
+            </div>
+            <h3 class="t_tit2">05_ 화살표 함수_1</h3>
+            <p class="t_desc">화살표 함수 표현은 함수표현을 간단하게 할 수 있는 대안입니다.
+                <br>- 리턴값 함수는 <i>두줄</i>이기때문에 {}는 생략불가합니다
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">//func = () => {            //function 을 없애고 = () => {}로 표현가능합니다.
+    //document.write("함수가 실행되었습니다.5");
+//}
+//func();
+    
+func = () => document.write("함수가 실행되었습니다.5");     //중괄호도 생략가능
+func();
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div class="sample05_result">
+                        함수가 실행되었습니다.5
+                    </div>
+                </details>
+            </div>
+            <!-- 블로그용 __추가내용/220728 -->
+            <h3 class="t_tit2">06_ 화살표 함수_2</h3>
+            <p class="t_desc">화살표 함수 표현은 함수표현을 간단하게 할 수 있는 대안입니다.<br>
+                익명 함수와 매개 변수, 리턴값 을 <i>한번에</i> 사용할 수 있고, <i>괄호()생략</i>에 더불어 <i>리턴(return)도 생략</i> 가능합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const func = str => str;            //리턴 생략가능 + 중괄호 생략
+
+document.write(func("함수가 실행되었습니다.6<br>"));
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div class="sample05_result">
+                        함수가 실행되었습니다.6
+                    </div>
+                </details>
+            </div>
+            <h3 class="t_tit2">07_ 화살표 함수_3</h3>
+            <p class="t_desc">화살표 함수 표현은 함수표현을 간단하게 할 수 있는 대안입니다.<br>
+                선언적 함수와 매개 변수, 리턴값 을 <i>한번에</i> 사용할 수 있고, <i>괄호()생략</i>에 더불어 <i>리턴(return)도 생략</i> 가능합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const func = str => str;            //리턴 생략가능 + 중괄호 생략
+
+document.write(func("함수가 실행되었습니다.7<br>"));
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div class="sample05_result">
+                        함수가 실행되었습니다.7
+                    </div>
+                </details>
+            </div>
+        </div>
+    </main>    <!-- //main end -->
+    <footer id="footer" >
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

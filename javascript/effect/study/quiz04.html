@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : Quiz02</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">Javascript_Quiz</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                <li><a href="search01.html">검색 이펙트1</a></li>
+                <li><a href="search02.html">검색 이펙트2</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">퀴즈 만들기_객관식 유형</h2>
+            <div class="t_desc2">
+                이번시간에는 객관식 유형(단일형)을 만들어보겠습니다!
+                <br>객관식 문항을 만들기 위해서 &lt;input&gt;태그를 이용하여 작성합니다.
+            </div>
+            <div class="t_box"> 
+                들어가기에 앞서서 input태그의 성질에 대해 하나만 알아보고 갈게요. 이 태그는 이용자가 체크할 시 우리 눈에 보이지는 않지만
+                checked라는 속성값을 부여합니다.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;○ 문항 체크 ❌
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" id="select1" class="select" name="select" value="1"&gt;
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;● 문항 체크 ⭕
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" id="select1" class="select" name="select" value="1" <i>checked</i>&gt;
+            </div>
+           
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/quizEffect04.html" frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/quizEffect04.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+            <h3 class="t_tit2">1_ 문제정보 및 선택자 지정</h3>
+            <div class="t_box">
+                문제정보는 기존과 같이 작성하되, 객관식이라 4개의문제가 있으므로 배열-객체-배열 구조로 작성합니다.
+                다중선택할 일은 없기 때문에 querySelector를 사용하되, <i>객관식은 4번 반복되므로 querySelectorAll을 사용</i>하여 선택해주겠습니다.
+                <br><i>선택자지정시 한가지 꿀팁!!!</i>
+                <br>quizChoice와quizSelect는 지금은 갯수가 몇개 없어 상관없지만 나중에 문제가 100개정도가 되면 choice의 갯수는 400개가넘어가겠죠?
+                그때 document.로 지정해준다면 문서전체내에서 찾게 되므로 지연시간이 길어지는 문제가 발생합니다. 바쁘다바빠현대사회에서 이런건 골치아프죠
+                <i>그래서!</i>document.가 아닌 quizSelects.로 지정해주어 .quiz_selects내에서만 찾을 수 있도록 유도하여 지연시간을 단축시켜 줍니다.
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">// 선택자
+const quizType = document.querySelector(".quiz__type");                     // 퀴즈 종류
+const quizNumber = document.querySelector(".quiz__question .number");       // 퀴즈 번호
+const quizAsk = document.querySelector(".quiz__question .ask");             // 퀴즈 질문
+const quizconfirm = document.querySelector(".quiz__answer .confirm");       // 정답 확인 버튼
+const quizResult = document.querySelector(".quiz__answer .result");         // 정답 결과
+const quizView = document.querySelector(".quiz__view");                      // 댕댕이
+const quizSelects = document.querySelector(".quiz_selects");                //객관식 보기
+const quizChoice = quizSelects.querySelectorAll(".choice");                    //객곽식 보기        //choice의 갯수가 많아지면 문서내에서 찾는것보다 quizsecltor안에서 찾도록 유도함. 지연시간단축
+const quizSelect = quizSelects.querySelectorAll(".select");                    //객곽식 보기
+
+// 문제정보
+const quizInfo = [
+    {   
+        answerType : "웹디자인기능사 2022년 01회",
+        answerNum: "1",
+        answerAsk: "웹 그래픽 제작에서 백그라운드 이미지 삽입에 관한 설명으로 가장 적합하지 않은 것은??",
+        answerChoice: ["줄무늬를 배경이미지로 제작", "도형을 이용한 패턴 제작", "부드러운 그라데이션 제작", "동영상을 배경 이미지로 제작"],
+        answerResult: "4",
+        answerEx : "동영상을 배경이미지로 제작하지는 않는다."       //오답시 출력할 설명 
+    }
+];
+</code></pre>
+            </div>
+            <h3 class="t_tit2">2_ 문제 출력하기</h3>
+            <div class="t_box">
+                문제를 출력해 줍시다. 반복문을 활용해주는게 편합니다.
+                이후에 발생할 혹시모를 <i>충돌방지를 위해</i> fucntion으로 그룹화 해 줍니다.
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">//문제출력 함수
+function updateQuiz(){
+
+    quizType.textContent = quizInfo[0].answerType;
+    quizNumber.textContent = quizInfo[0].answerNum + ". ";
+    quizAsk.textContent = quizInfo[0].answerAsk;
+    quizResult.textContent = quizInfo[0].answerEx;
+
+
+    for(let i = 0; i&lt;quizSelect.length; i++){                            //quizInfo.length = 1이므로 주의!
+        quizChoice[i].textContent = quizInfo[0].answerChoice[i];            //quizInfo 첫번째 배열 - answerChoice객체 i번째 값 출력
+    }
+
+    // 해설 숨기기
+    quizResult.style.display="none";
+};
+updateQuiz();           //실행
+</code></pre>
+            </div>
+            <h3 class="t_tit2">3_ 정답 확인</h3>
+            <div class="t_box">
+                객관식 문항에선 정답과 정답을 비교하기전에 객관식 문항을 체크되었는지 먼저 확인해야합니다.
+                <br>객관식 문제를 만들기 위해 input을 사용했습니다. 이 &lt;input&gt;태그는 사용자가 <i>체크하면 checked라는 보이지 않는 속성값이 부여가 되는 성질이 있습니다.</i>
+                <br>이를 이용해서 value로 "n"이라는 숫자값을 가져오고 정답과 비교하면 정답을 비교할 수 있습니다.
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">function answerQuiz(){
+    // 사용자가 선택한 정답(사용자가 클릭한 input값 --> checked라는 속성이 생기는걸 이용) vs 정답
+    for(let i = 0; i&lt;quizSelect.length; i++){
+        if(quizSelect[i].checked == true){          //보기에 체크가 된 상태
+            //체크 번호 vs 문제번호
+            if(quizSelect[i].value == quizInfo[0].answerResult){
+                // alert ("정답");
+                quizView.classList.add("like");
+            } else{
+                // alert("오답");
+                quizView.classList.add("dislike");
+                quizResult.style.display="block";
+                quizconfirm.style.display="none";
+
+            } 
+        }
+    }
+};
+quizconfirm.addEventListener("click",answerQuiz);               //정답확인 버튼을 눌렀을 때 함수(answerQuiz)실행함
+</code></pre>
+            </div>
+            
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

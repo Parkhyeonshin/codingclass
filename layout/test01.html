@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 테스트</title>
+</head>
+    <style>
+        *{
+            margin: 0 auto;
+            background-color: #E8F5E9;
+        }
+        #box {
+            width: 1200px;
+        }
+        #box .header{
+            width: 100%;
+            height: 100px;
+            background-color: #C8E6C9;
+        }
+        #box .body{
+            width: 100%;
+            height: 100px;
+            background-color: #A5D6A7;
+        }
+        #box .left{
+            width: 25%;
+            height: 780px;
+            background-color: #81C784;
+            float: left;
+        }
+        #box .center{
+            width: 50%;
+            height: 780px;
+            background-color: #66BB6A;
+            float: left;
+        }
+        #box .right{
+            width: 25%;
+            height: 780px;
+            background-color: #4CAF50;
+            float: left;
+        }
+        #box .footer{
+            width: 100%;
+            height: 100px;
+            background-color: #43A047;
+            clear: both;
+        }
+
+        @media (max-width: 1220px){
+            #box{
+                width: 96%;
+            }
+        }
+        @media (max-width: 768px){
+            #box{
+                width: 100%;
+            }
+            #box .left{
+                width: 40%;
+                height: 630px;
+            }
+            #box .center{
+                width: 60%;
+                height: 630px;
+            }
+            #box .right{
+                width: 100%;
+                height: 150px;
+            }
+        }
+        @media (max-width: 480px){
+            #box{
+                width: 100%;
+            }
+            #box .left{
+                width: 100%;
+                height: 200px;
+            }
+            #box .center{
+                width: 100%;
+                height: 430px;
+            }
+            #box .right{
+                width: 100%;
+                height: 150px;
+            }
+        }
+    </style>
+
+<body>
+    <main>
+        <div id = "box">
+            <div class="header"></div>
+            <div class="body"></div>
+            <div class="left"></div>
+            <div class="center"></div>
+            <div class="right"></div>
+            <div class="footer"></div>
+        </div>
+    </main>    
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 유형01</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+        .nexon {
+            font-family: "NexonLv1Gothic";
+            font-weight: 400;
+        }
+
+        /* 리셋 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        img {
+            width: 100%;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+        .section {
+            padding: 120px 0;
+        }
+        .section > h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section > p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* cardType */
+        .card__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+        .card {
+            width: 32%;
+            background: #f5f5f5;
+        }
+        .card__body { 
+            padding: 24px;
+        }
+        .card__body .tit{
+            font-size: 24px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .card__body .desc{
+            font-size: 18px;
+            line-height: 1.4;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: 300;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4; 
+            -webkit-box-orient: vertical;
+        }
+    </style>
+</head>
+    
+<body>
+    <section id="cardType01" class="card__wrap nexon section">
+        <h2>도베르만이 세상을 구한다🐺🐾</h2>
+        <p>아파트에서 도베르만 키우고 싶다... 아파트에도 마당이 있었으면 좋겠네요.... 마당 설치 해주실분?</p>
+        <div class="card__inner container">
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg01_01.jpg" alt="외형에 대한 오해 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">외형에 대한 오해</h3>
+                    <p class="desc">
+                        도베르만은 귀가 쫑긋하고 꼬리는 짧다고 생각합니다. 이는 단이와 단미를 한 것뿐이지 태생적으로 짧은 꼬리와 뾰족 선 귀를 가지고 있는 것은 아닙니다. 불쌍한 도베르만....
+                    </p>
+                    <a class="btn" href="/">
+                        더 자세히 보기
+                        <span aria-hidden="true">
+                            <svg width="65" height="8" viewBox="0 0 65 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z" fill="black"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg01_02.jpg" alt="도베르만의 성격 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">도베르만의 성격</h3>
+                    <p class="desc">
+                        용맹하고 충실하며 대담한 성격을 지니고 있습니다. 이러한 성격은 사역견으로써 역할을 충분히 수행할 수 있습니다. 너무 너무 키우고 싶네요....어디서 분양받을 수 있을까요                
+                    </p>
+                    <a class="btn" href="/">
+                        더 자세히 보기
+                        <span aria-hidden="true">
+                            <svg width="65" height="8" viewBox="0 0 65 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z" fill="black"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg01_03.jpg" alt="도베르만을 키울때 주의할 점 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">도베르만을 키울때 주의할 점</h3>
+                    <p class="desc">
+                        우울증에 걸리기 쉬운 견종입니다. 왕성한 활동량을 충족시켜줘야 합니다. 건강한 견종이지만 심장 관련 질병이 빈번한 편입니다.                 
+                    </p>
+                    <a class="btn" href="/">
+                        더 자세히 보기
+                        <span aria-hidden="true">
+                            <svg width="65" height="8" viewBox="0 0 65 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z" fill="black"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+</html>

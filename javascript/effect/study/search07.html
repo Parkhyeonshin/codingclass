@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 검색07</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+    <style>
+        #main .document .btnflex{
+    	    display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">Javascript_Search</a></h1>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">검색 효과07</h2>
+            <div class="t_desc2">
+                검색 효과 여섯번째 시간입니다. 속성 찾기 게임을 해보도록해요.
+            </div>
+            <hr>
+            
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/searchEffect07.html" frameborder="0"></iframe>
+            </div>
+            
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/searchEffect07.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/searchEffect07.html" target="_blank">원본 사이트</a>
+            </div>
+            <hr>
+           
+            
+            <h3 class="t_tit2">JS 소스</h3>
+            <div class="t_code">
+<pre><code class="language-js">// 내용소스는 아이프레임 참조해주세요.
+const serachTime = document.querySelector(".time span");
+const serachList = document.querySelector(".search__list");
+const searchAnswers = document.querySelector(".search__answers");
+const searchMissAnswers = document.querySelector(".search__missAnswers");
+const searchStart = document.querySelector(".search__box .start");
+const searchInput = document.querySelector("#search");
+const searchAudio = document.querySelector("#audio");
+const searchNum = document.querySelector(".search__info .num");     //전체 개수
+const musicStop = document.querySelector(".search__audio .stop");
+const searchResult = document.querySelector(".search__result .result");
+const searchResultWrap = document.querySelector(".search__result");
+const searchRestart = document.querySelector(".search__result .restart");
+
+
+let timeReamining = 120,        // 남은 시간
+    score = 0,                  // 점수
+    answers = {};               // 새로운 정답
+
+let answerCount = 0;
+let Timer = 0;
+
+
+function updateList() {
+    cssProperty.forEach(data => {
+        serachList.innerHTML += `&lt;span>${data.name}&lt;/span>`;
+    });
+    searchNum.innerHTML = cssProperty.length; // 프로퍼티 총 갯수 
+}
+updateList();
+
+// 게임 시작하기
+function startQuiz() {
+    // 인풋박스 초기화
+    searchInput.value = "";
+
+    answerCount = 0;
+    // 시작 버튼 없애기, 속성 리스트 없애기
+    searchStart.style.display = "none";
+    serachList.style.display = "none";
+
+    // 게임 시작되면? --> 시간 설정
+
+    // setInterval(Timer);
+    Timer = setInterval(reduceTime, 1000);
+
+    // 음악 추가하기
+    musicStop.style.display = "block";
+    searchAudio.play();
+
+    // 점수 계산
+
+
+
+
+    // 정답 체크
+    checkAnswers();
+
+};
+
+
+
+// 인풋 체크(인풋박스 감지?)
+function checkInput() {
+    let input = event.currentTarget.value.trim().toLowerCase();       // 사용자가 쓴 값 
+
+    if (answers.hasOwnProperty(input) && !answers[input]) {      // input입력값을 확인해서 T/F 반환
+        answers[input] = true;              // 일치하면 T 반환이므로 객체 값 T로 변환
+        // 정답 표시
+        searchAnswers.style.display = "block";
+        searchAnswers.innerHTML += `&lt;span>${input}&lt;/span>`;
+
+        answerCount++;
+        document.querySelector(".answerNum").innerText = answerCount;
+
+        // 정답 초기화
+        searchInput.value = "";
+
+    }
+
+}
+
+// 정답 체크하기 : 정답을 객체화 시키기 (기본값 false로)
+function checkAnswers() {
+    cssProperty.forEach(item => {
+        let answer = item.name.trim().toLowerCase();
+        answers[answer] = false;
+    });
+}
+
+// 오답 보여주기
+function missAnswers() {
+    searchMissAnswers.style.display = "block";
+
+    cssProperty.forEach(item => {
+        let answer = item.name.trim().toLocaleLowerCase();
+        if (!answers[answer]) {
+            searchMissAnswers.innerHTML += `&lt;span>${answer}&lt;/span>`;
+        }
+    })
+
+}
+
+
+// 시간 설정하기
+function reduceTime() {
+    timeReamining--;
+    if (timeReamining &lt; 11) {
+        document.querySelector(".time").style.background = "red";
+    }
+    if (timeReamining == 0) {
+        endQuiz();
+    }
+
+    serachTime.innerText = displayTime();
+}
+
+// 시간 표시하기 (분, 초 변환)
+function displayTime() {
+    if (timeReamining &lt;= 0) {
+        return "0:00";
+    } else {
+        let minutes = Math.floor(timeReamining / 60);
+        let seconds = Math.floor(timeReamining % 60);
+
+        // 초 단위가 한자리 일때 0 추가
+        if (seconds &lt; 10) seconds = "0" + seconds;
+        return minutes + ":" + seconds;
+    }
+}
+
+// 게임 끝
+function endQuiz() {
+    // alert("게임 끝");
+
+    // 오답 보여주기
+    missAnswers();
+
+    searchAudio.pause();
+    musicStop.style.display = "none";
+    document.querySelector(".search__audio .play").style.display = "none";
+
+    // 시작버튼 재활성화
+    searchStart.style.display = "block";
+    document.querySelector(".time").style.background = "#223547";
+    timeReamining = 120;
+
+    clearInterval(Timer);
+
+    // 메세지 출력
+    searchResultWrap.classList.add("show");
+    let point = Math.round((answerCount / cssProperty.length) * 100);
+    searchResult.innerHTML = `END &lt;br> ${answerCount} / ${cssProperty.length} &lt;br> Score : ${point}`
+
+}
+
+// 다시 셋팅하기(다시시작버튼 누름)
+function restart(){
+    searchResultWrap.classList.remove("show");
+    searchStart.style.display = "block";
+    serachList.style.display = "none";
+    searchAnswers.style.display = "none";
+    searchAnswers.innerHTML = ``;
+    searchMissAnswers.style.display = "none";
+    searchMissAnswers.innerHTML = ``;
+    answerCount = 0;
+    document.querySelector(".answerNum").innerText = answerCount;
+    startQuiz();
+}
+
+// 버튼 이벤트
+searchStart.addEventListener("click", startQuiz);
+searchInput.addEventListener("input", checkInput);
+searchRestart.addEventListener("click", restart);
+
+console.log(searchRestart)
+
+// 음악 정지눌렀을 때 
+musicStop.addEventListener("click", () => {
+    searchAudio.pause();
+    searchAudio.currentTime = 0;
+    musicStop.style.display = "none";
+    document.querySelector(".search__audio .play").classList.add("show");
+    document.querySelector(".search__audio .play").style.display = "block";
+})
+const musicPlay = document.querySelector(".search__audio .play").addEventListener("click", () => {
+    searchAudio.play();
+    musicStop.style.display = "block";
+    document.querySelector(".search__audio .play").style.display = "none";
+
+})
+</code></pre>
+            </div>
+
+            <hr style="margin-bottom : 10px">
+            <p class="p_desc" style="font-size: 14px; text-align: center;">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

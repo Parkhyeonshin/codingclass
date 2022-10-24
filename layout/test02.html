@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            width: 1200px;
+            margin: 0 auto;
+            font-size: 40px;
+        }
+        #main1 {
+            width: 1200px;
+            height: 100px;
+            background-color: #111;
+            overflow: hidden;
+            text-align: center;
+            line-height: 100px;
+        }
+        #main1 .logo {
+            width: 300px;
+            height: 100px;
+            background-color: rgb(247, 103, 103);
+            float: left;
+            color: #fff;
+        }
+        #main1 .menu {
+            width: 900px;
+            height: 100px;
+            background-color: rgb(248, 184, 184);
+            float: left;
+            color: #fff;
+        }
+        #main2 {
+            width: 1200px;
+            height: 400px;
+            background-color: #333;
+            overflow: hidden;
+            text-align: center;
+            line-height: 400px;
+        }
+        #main2 .img {
+            width: 800px;
+            height: 400px;
+            background-color: rgb(255, 147, 147);
+            float: left;
+            color: #fff;
+            
+        }
+        #main2 .ad {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(252, 46, 46);
+            float: left;
+            color: #fff;
+        }
+        #main3 {
+            width: 1200px;
+            height: 300px;
+            background-color: #666;
+            text-align: center;
+            line-height: 300px;
+            overflow: hidden;
+        }
+        #main3 .gong {
+            width: 400px;
+            height: 300px;
+            background-color: rgb(255, 106, 106);
+            float: left;
+            color: #fff;
+            
+        }
+        #main3 .gal {
+            width: 400px;
+            height: 300px;
+            background-color: rgb(255, 162, 162);
+            float: left;
+            color: #fff;
+        }
+        #main3 .pop {
+            width: 400px;
+            height: 300px;
+            background-color: rgb(255, 82, 82);
+            float: left;
+            color: #fff;
+        }
+        #main4 {
+            width: 1200px;
+            height: 100px;
+            background-color: #999;
+            overflow: hidden;
+        }
+        #main4 .footer {
+            width: 200px;
+            height: 100px;
+            background-color: rgb(255, 82, 82);
+            float: left;
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+        }
+        #main4 .copy {
+            width: 800px;
+            height: 100px;
+            background-color: rgb(255, 121, 121);
+            float: left;
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+        }
+        #main4 .sns {
+            width: 200px;
+            height: 100px;
+            background-color: rgb(255, 149, 149);
+            float: left;
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="main1">
+            <div class="logo">로고</div>
+            <div class="menu">
+                <script>
+                    {
+                        for(let i = 1; i<=13; i++){
+                            document.write(i);
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+        <div id="main2">
+            <div class="img">
+                <script>
+                    {
+                        for(let i = 1; i<=9; i++){
+                            if( i % 2 == 1){
+                                document.write(i)
+                            }else{};
+                        }
+                    }   
+                </script>
+            </div>
+            <div class="ad">광고</div>
+        </div>
+        <div id="main3">
+            <div class="gong">공지사항</div>
+            <div class="gal">갤러리</div>
+            <div class="pop">팝업</div>
+        </div>
+        <div id="main4">
+            <div class="footer">푸터</div>
+            <div class="copy">COYRIGHT</div>
+            <div class="sns">SNS</div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

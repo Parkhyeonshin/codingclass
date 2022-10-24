@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 색표현방법</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+    <style>
+        #main .document .btnflex{
+    	    display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">CSS _ 색표현방법</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="basic.html">기초</a></li>
+                <li><a href="#.html">주제</a></li>
+                <li><a href="index.html">알파벳</a></li>
+                <li><a href="bector.html">벡터/비트맵 방식</a></li>
+                <li><a href="grammar.html">기본 문법</a></li>
+                <li><a href="media.html">미디어 쿼리</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+                <li><a href="scss.html">SCSS</a></li>
+                <li><a href="ir.html">이미지스프라이트/IR/백그라운드 표현</a></li>
+                <li><a href="unit.html">단위</a></li>
+                <li class="active"><a href="color.html">색상 표현법</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">CSS 색표현방법</h2>
+            <div class="t_desc2">
+                CSS를 공부하시면서 가장 많이 사용되는 속성이 뭘까요? 바로 <i>color</i>입니다.🎨 그런데 
+                단순히 color값을 지정한다고 하면 뭐 별거 있어요? "빨간색이면 빨간색이고 노란색이면 노란색이죠"
+                <br>아니요~ 빨간색도 채도, 명도 등에 따라 정말 많은 색이 존재한답니다. 그렇다면 이 수많은 색상을 도대체 저흰 어떻게 표현해줘야할까요?
+                오늘은 이 색을 표현하는 방법에 대해 알아볼까 합니다.
+            </div>
+            <hr>
+            <h3 class="t_tit2">01_ 색상명으로 표현하기</h3>
+            <p class="t_desc2">
+                제가 소개글에 단순하게 "빨간색은 빨간색이죠"라고 말씀드렸듯이 가장 원초적인 방법입니다.
+               그냥 저희가 <i>알고있는 색상명</i>을 입력하는 것입니다. CSS에서는 140가지의 이름을 지원한다고 합니다.
+               일일히 나열할 수는 없어서 몇가지 색상만 예시로 보여드릴게요.
+            </p>
+            <p class="t_desc">
+                ▶ 표현은 다음과 같이 합니다.
+            </p>
+            <p class="t_box">
+                background-color : 색상명;
+            </p>
+            <p class="t_desc">▶ 예시</p>
+            <table class="t_table">
+                <colgroup>
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="10%">
+                </colgroup>
+                <tr>
+                    <td>aqua</td>
+                    <td style="background-color: aqua;"></td>
+                    <td>black</td>
+                    <td style="background-color: black;"></td>
+                    <td>blue</td>
+                    <td style="background-color: blue;"></td>
+                    <td>fuchsia</td>
+                    <td style="background-color: fuchsia;"></td>
+                </tr>
+                <tr>
+                    <td>gray</td>
+                    <td style="background-color: gray;"></td>
+                    <td>green</td>
+                    <td style="background-color: green;"></td>
+                    <td>lime</td>
+                    <td style="background-color: lime;"></td>
+                    <td>maroon</td>
+                    <td style="background-color: maroon;"></td>
+                </tr>
+                <tr>
+                    <td>navy</td>
+                    <td style="background-color: navy;"></td>
+                    <td>olive</td>
+                    <td style="background-color: olive;"></td>
+                    <td>purple</td>
+                    <td style="background-color: purple;"></td>
+                    <td>red</td>
+                    <td style="background-color: red;"></td>
+                </tr>
+                <tr>
+                    <td>silver</td>
+                    <td style="background-color: silver;"></td>
+                    <td>teal</td>
+                    <td style="background-color: teal;"></td>
+                    <td>white</td>
+                    <td style="background-color: white;"></td>
+                    <td>yellow</td>
+                    <td style="background-color: yellow;"></td>
+                </tr>
+            </table>
+            <h3 class="t_tit2">02_ RGB로 표현하기</h3>
+            <p class="t_desc2">
+                RGB색상표기법은 <i>(red, green, blue, alpha)</i>형식으로 색상을 표현하는 방법입니다. 각 요소는 0-255사이의 숫자를 가집니다.단, 
+                alpha는 투명도를 뜻하므로 0-1사이의 숫자만 지원하게 되고 0은 투명도 100%를 의미합니다.
+                참고로 투명도까지 지정할 수 있는 RGBA는 CSS3에서 추가된 기능입니다.
+            </p>
+            <p class="t_desc">
+                ▶ 표현은 다음과 같이 합니다.
+            </p>
+            <p class="t_box">
+                background-color : rgb(0-255, 0-255, 0-255);
+                <br>background-color : rgba(0-255, 0-255, 0-255, 0-1);
+            </p>
+            <p class="t_desc">▶ 예시</p>
+            <table class="t_table">
+                <colgroup>
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="10%">
+                </colgroup>
+                <tr>
+                    <td>0,255,255</td>
+                    <td style="background-color: aqua;"></td>
+                    <td>0,0,0</td>
+                    <td style="background-color: black;"></td>
+                    <td>0,0,255</td>
+                    <td style="background-color: blue;"></td>
+                    <td>255,0,255</td>
+                    <td style="background-color: fuchsia;"></td>
+                </tr>
+                <tr>
+                    <td>128,128,128</td>
+                    <td style="background-color: gray;"></td>
+                    <td>0,128,0</td>
+                    <td style="background-color: green;"></td>
+                    <td>0,255,0</td>
+                    <td style="background-color: lime;"></td>
+                    <td>128,0,0</td>
+                    <td style="background-color: maroon;"></td>
+                </tr>
+                <tr>
+                    <td>0,0,128</td>
+                    <td style="background-color: navy;"></td>
+                    <td>128,128,0</td>
+                    <td style="background-color: olive;"></td>
+                    <td>128,0,128</td>
+                    <td style="background-color: purple;"></td>
+                    <td>255,0,0</td>
+                    <td style="background-color: red;"></td>
+                </tr>
+                <tr>
+                    <td>192,192,192</td>
+                    <td style="background-color: silver;"></td>
+                    <td>0,128,128</td>
+                    <td style="background-color: teal;"></td>
+                    <td>255,255,255</td>
+                    <td style="background-color: white;"></td>
+                    <td>255,255,0</td>
+                    <td style="background-color: yellow;"></td>
+                </tr>
+            </table>
+            <h3 class="t_tit2">03_ 헥사코드(16진수)로 표현하기</h3>
+            <p class="t_desc2">
+                이름그대로 16진수로 색을 표현하는 방법입니다. <i>#과 6자리 숫자의 조합</i>으로 표현하며, 
+                #00000(검정) - #ffffff(하양)까지의 색이 표현됩니다.
+            </p>
+            <p class="t_desc">
+                ▶ 표현은 다음과 같이 합니다.
+            </p>
+            <p class="t_box">
+                background-color : 헥사코드;
+            </p>
+            <p class="t_desc">▶ 예시</p>
+            <table class="t_table">
+                <colgroup>
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="10%">
+                </colgroup>
+                <tr>
+                    <td>#00FFFF</td>
+                    <td style="background-color: aqua;"></td>
+                    <td>#000000</td>
+                    <td style="background-color: black;"></td>
+                    <td>#0000FF</td>
+                    <td style="background-color: blue;"></td>
+                    <td>#FF00FF</td>
+                    <td style="background-color: fuchsia;"></td>
+                </tr>
+                <tr>
+                    <td>#808080</td>
+                    <td style="background-color: gray;"></td>
+                    <td>#008000</td>
+                    <td style="background-color: green;"></td>
+                    <td>#00FF00</td>
+                    <td style="background-color: lime;"></td>
+                    <td>#800000</td>
+                    <td style="background-color: maroon;"></td>
+                </tr>
+                <tr>
+                    <td>#000080</td>
+                    <td style="background-color: navy;"></td>
+                    <td>#808000</td>
+                    <td style="background-color: olive;"></td>
+                    <td>#800080</td>
+                    <td style="background-color: purple;"></td>
+                    <td>#FF0000</td>
+                    <td style="background-color: red;"></td>
+                </tr>
+                <tr>
+                    <td>#C0C0C0</td>
+                    <td style="background-color: silver;"></td>
+                    <td>#008080</td>
+                    <td style="background-color: teal;"></td>
+                    <td>#000000</td>
+                    <td style="background-color: white;"></td>
+                    <td>#FFFF00</td>
+                    <td style="background-color: yellow;"></td>
+                </tr>
+            </table>
+            <h3 class="t_tit2">04_ HSL/HSLA으로 표현하기</h3>
+            <p class="t_desc2">
+                HSL은 Hue(색상), Saturation(채도), Lightness(명도)로 색상을 지정하는 방법입니다.
+                HSLA는 당연히 생각하셨듯이 투명도가 추가된 개념입니다.
+                <br>색상은 0-360까지 <i>색상환</i>에 따라 결정되며 <i>0:red, 120: green, 240:blue</i>로 나타나고 <i>채도, 명도는 백분율</i>로 나타냅니다.
+            </p>
+            <p class="t_desc">
+                ▶ 표현은 다음과 같이 합니다.
+            </p>
+            <p class="t_box">
+                background-color : hsl(0-360, 0-100%, 0-100%);
+                <br>background-color : hsla(0-360, 0-100%, 0-100%, 0-1);
+            </p>
+            <p class="t_desc">▶ 예시</p>
+            <table class="t_table">
+                <colgroup>
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="10%">
+                </colgroup>
+                <tr>
+                    <td>120, 100%, 60%</td>
+                    <td style="background-color: hsla(120, 100%, 60%);"></td>
+                    <td>120, 100%, 20%</td>
+                    <td style="background-color: hsla(120, 100%, 20%);"></td>
+                    <td>120, 40%, 20%</td>
+                    <td style="background-color: hsla(120, 40%, 20%);"></td>
+                    <td>120, 40%, 60%</td>
+                    <td style="background-color: hsla(120, 40%, 60%);"></td>
+                </tr>
+            </table>
+            <hr>
+            <h3 class="t_tit2">🎅도움이 될만한 사이트</h3>
+             <p class="t_desc">
+                ≫<a href="https://www.w3schools.com/cssref/css_colors.asp">CSS에서 지원하는 색상이름표는 여기서 확인하세요</a>≪
+                <br>≫<a href="https://www.rapidtables.com/web/color/RGB_Color.html">원하는 색상표 찾기 사이트</a>≪
+                <br>≫<a href="https://rgb.to/"><i>HSL까지 지원하는 사이트</i></a>≪ 
+                <br>└ 이 사이트는 'type your color value here!'에 색상코드를 입력하시면 됩니다.
+                <br>≫<a href="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=rgb%EA%B0%92">naver 색 추출</a>≪
+                <br>└ (제가 여태 몰랐을때는 네이버만 썼는데 좋은게 많네요...^_^)
+             </p>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

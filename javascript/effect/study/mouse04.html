@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 마우스04</title>
+
+        <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+
+        <style>
+            #main .document .btnflex {
+                display: flex;
+            } 
+        </style>
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="../../../javascript/index.html">Javascript_Mouse04</a></h1>
+            <nav class="header_nav">
+                <ul class="study">
+                    <li><a href="mouse01.html">마우스 이펙트1</a></li>
+                    <li><a href="mouse02.html">마우스 이펙트2</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">마우스 효과 04</h2>
+                <div class="t_desc2">
+                    이번 시간에는 정가운데에 있는 그림내부에서만 마우스오버 효과가 작동하고, 
+                    이미지가 마우스위치에 따라서 살짝씩 움직이는 효과를 만들어보겠습니다.
+                </div>
+                <hr />
+
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0">
+                    <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/mouseEffect04.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link btnflex">
+                    <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/mouseEffect04.html" target="_blank"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/mouseEffect04.html" target="_blank">원본 사이트</a>
+                </div>
+                <hr />
+                <h3 class="t_tit2">■ n줄 요약</h3>
+                <div class="t_desc">
+                    ▶ 그림 위에 클릭이벤트(마우스오버)를 부여해서 그림위에서만 작동할 수 있게 구성하고, 
+                    <br>그림의 이동은 마우스좌표값을 화면의 정가운데로 초기화 시킨 뒤 그 값에 포인터 좌표값을 빼주어서 
+                    이동효과를 부여합니다.
+                </div>
+                <h3 class="t_tit2">JS 소스</h3>
+                <div class="t_code">
+<pre><code class="language-js">const cursor = document.querySelector(".mouse__cursor");
+const cursorRect = cursor.getBoundingClientRect();
+
+document.querySelector(".mouse__wrap figure").addEventListener("mousemove", (e) => {
+    // 커서
+    gsap.to(cursor, {
+        duration: .5,
+        left: e.pageX - cursorRect.width / 2,
+        top: e.pageY - cursorRect.height / 2,
+    })
+
+    // 마우스 좌표 값
+    let mousePageX = e.pageX;
+    let mousePageY = e.pageY;
+
+    // 전체 가로
+    // window.innerWidth;		//1920 : 브라우저 크기
+    // window.outerrWidth;		//1920 : 브라우저 크기 (스크롤바 포함)
+    // window.screen.width;		//1920 : 화면 크기
+
+    // 마우스 좌표 값 가운데로 초기화
+    // 전체 길이/2 - 마우스 좌표값 == 0
+    let centerPageX = window.innerWidth / 2 - mousePageX;
+    let centerPageY = window.innerHeight / 2 - mousePageY;
+
+    // 이미지 움직이기
+    const imgMove = document.querySelector(".mouse__wrap figure img");
+    // imgMove.style.transform = "translate("+centerPageX / 20 +"px, "+ centerPageY / 20 +"px)";
+    // js를 쓰면 부드럽지가않아서 gsap로 더 부드럽게 ㄱㄱ
+
+    gsap.to(imgMove, {
+        duration: .3,
+        x: centerPageX /20,
+        y: centerPageY /20,
+    })
+
+    // 출력
+    document.querySelector(".mousePageX").textContent = mousePageX;
+    document.querySelector(".mousePageY").textContent = mousePageY;
+    document.querySelector(".centerPageX").textContent = centerPageX;
+    document.querySelector(".centerPageY").textContent = centerPageY;
+}); 
+</code></pre>
+                </div>
+                <p class="t_tit2">■ 핵심 찍먹하기🪓</p>
+
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ GSAP</h2>
+                <p class="t_desc">
+                    CDN으로 항상 스크립트가져오셔야해요! <br>
+                    gsap.to ()에는 2가지 필수값이 필요합니다. 바로 <i>대상과 속성</i>입니다.
+                    그렇다면 우리 소스에서는 어떻게 작동하는걸까요?
+                    <br> 사용된 속성은 다음과 같습니다.
+                </p>
+                <p class="t_box">
+                    - duration : 애니메이션의 지속시간을 설정합니다. 0.3s로 지정했는데 이 지속시간이 계속 누적되어 진행되므로 마치 마우스가
+                    천천히 따라오는듯한 효과를 내는 것입니다.
+                    <br>- left: e.pageX, top : e.pageY : 이제는 다들 아시겠지만 CSS에 left와 top값을 부여했었는데요. 이 값을 pageX,Y(문서 상단 경계 기준으로 좌표값 추출)만큼 이동시킵니다. 
+                    <br>- x, y : transform : translate 속성을 의미합니다.
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ getBoundingClientRect() 이용해서 포인터 위치 조절하기</h2>
+                <p class="t_desc">
+                    'mouse__cursor'요소의 각종 속성들을 객체로 불러온 뒤 우리가 필요한 가로, 세로를 뽑아내서 포인터 위치를 조절합니다. 
+                    (이정돈 이젠 구구절절 설명할 필요가 없겠죠?)
+                    <br>이후에 마우스 좌표값을 변수(mousePageX, Y)로 넣어줍니다.
+                    이후에 그림을 이동할 건데요.
+                    <br>그림을 이동하려면 transform: translate를 이용해야 겠죠? 그래서 마우스 좌표값을 정가운데에 왔을때 (0,0)으로 초기화 해줘야 합니다.
+                    <br> <i>좌표값 정가운데를 0,0으로 만들기</i> : <i>전체 길이 /2 - 마우스 포인터 위치</i>(정가운데 있다고 가정) <i>= 0</i>
+                    그렇게 초기화를 하고 마우스포인터 위치값을 빼면 이미지는 좌표의 반대값만큼 이동하게 됩니다.
+                    <br>그리고 이렇게 만들면 너무 많이 이동하니까 ÷ 20을 해서 반대로 조금만 이동하게 만들어서 
+                    좀더 그럴듯하게 만들어줍니다. 더 그럴듯하게 만들어 주려면 이미지박스에 'overflow: hidden'을 줍시다.
+                </p>
+                <img src="blogimg/mouseEffect04_blog1.jpg" alt="이미지">
+                
+
+                <hr style="margin-bottom : 10px">
+                <p class="p_desc" style="font-size: 14px; text-align: center;">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+    <link href="https://webfontworld.github.io/cookierun/CookieRun.css" rel="stylesheet">
+    <style>
+        /* 초기화 */
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'CookieRun';
+        }
+        #main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            border: 1vw solid #415457;
+            box-sizing: border-box;
+            
+        }
+
+        #main h1{
+            text-align: center;
+            font-size: 10vw;
+            margin-bottom: 4.7vw;
+            color: #415457;
+            line-height: 1.2;
+            font-weight: normal;
+        }
+        #main h1 em {
+            display: block;
+            font-style: normal;
+        }
+        #main nav {}
+        #main nav ul{}
+        #main nav ul li{
+            list-style: none;
+            display: inline;
+        }
+        #main nav ul li a{
+            text-decoration: none;  
+            border: 1px solid #6a8488;
+            color: #415457;
+            padding: 1vw;
+            font-size: 3vw;
+        }   
+        #main nav ul li a:hover{
+            background-color: #136572;
+            color: yellowgreen;
+        }
+
+
+    </style>
+</head>
+<body>
+    <main id="main">
+        <h1>LAYOUT <em>레퍼런스 북</em></h1>
+        <nav>
+            <ul>
+                <li><a href="layout01_blog.html">기초</a></li>
+                <li><a href="#">주제</a></li>
+                <li><a href="#">알파벳</a></li>
+            </ul>
+        </nav>
+    </main>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+    
+    <link rel="stylesheet" href="assets/css/dracula.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- 구글아이콘(휴지통) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id = "header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 박현신</span>
+    </header>
+    <!-- /header -->
+
+    <main id = "main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기본 문서</a></li>
+                <li><a href="markup.html">기본 규칙</a></li>
+                <li><a href="block.html">블록/인라인 구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic markup.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+                <li><a href="parts.html">구조 관련 요소</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li class="active"><a href="#.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">레이아웃02</h2>
+                <p class="t_desc">
+                    기본 구조2
+                </p>
+                <div class="t_iframe">
+                    <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fc9BGcY5k0Hg8INetHu54vZ%2F%25EB%25A0%2588%25EC%259D%25B4%25EC%2595%2584%25EC%259B%2583%3Fnode-id%3D39%253A83" allowfullscreen></iframe>
+                </div>
+
+                <h3 class="t_tit2">float을 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    foat:left 속성을 이용해 좌측 빈 공간부터 채워나갑니다.
+                    <br>이후 아래 요소가 보이지 않는 버그는 clear:both속성을 사용하여 해결합니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">*{
+    margin: 0;
+}
+body{
+    background-color: #E8F5E9;
+}
+#wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+#header{
+    width: 100%;
+    height: 100px;
+    background-color: #C8E6C9;
+}
+#nav{
+    width: 100%;
+    height: 100px;
+    background-color: #A5D6A7;
+}
+#aside{
+    width: 25%;
+    height: 780px;
+    background-color: #81C784;
+    float: left;
+}
+#section{
+    width: 50%;
+    height: 780px;
+    background-color: #66BB6A;
+    float: left;
+}
+#article{
+    width: 25%;
+    height: 780px;
+    background-color: #4CAF50;
+    float: left;
+}
+#footer{
+    width: 100%;
+    height: 100px;
+    background-color: #43A047;
+    clear: both;
+}
+@media (max-width: 1220px){
+    #wrap{
+        width: 96%;
+    }
+    #aside{
+        width: 25%;
+    }
+    #section{
+        width: 50%;
+    }
+    #article{
+        width: 25%;
+    }
+}
+@media (max-width: 768px){
+    #wrap{
+        width: 100%;
+    }
+    #aside{
+        width: 30%;
+        height: 630px;
+    }
+    #section{
+        width: 70%;
+        height: 630px;
+    }
+    #article{
+        width: 100%;
+        height: 150px;
+    }
+}
+@media (max-width: 480px){
+    #wrap{
+        width: 100%;
+    }
+    #aside{
+        width: 100%;
+        height: 200px;
+    }
+    #section{
+        width: 100%;
+        height: 430px;
+    }
+    #article{
+        width: 100%;
+        height: 150px;
+    }
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">flex를 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    부모 요소에 flex:wrap을 주어 자식요소들을 감쌉니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">*{
+    margin: 0;
+}
+body{
+    background-color: #E8F5E9;
+}
+#wrap{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+#header{
+    width: 100%;
+    height: 100px;
+    background-color: #C8E6C9;
+}
+#nav{
+    width: 100%;
+    height: 100px;
+    background-color: #A5D6A7;
+}
+#aside{ 
+    width: 25%;
+    height: 780px;
+    background-color: #81C784;
+}
+#section{
+    width: 50%;
+    height: 780px;
+    background-color: #66BB6A;
+}
+#article{
+    width: 25%;
+    height: 780px;
+    background-color: #4CAF50;
+}
+#footer{
+    width: 1200px;
+    height: 100px;
+    background-color: #43A047;
+}
+@media (max-width: 1220px){
+    #wrap{
+        width: 96%;
+    }
+}
+@media (max-width: 768px){
+    #wrap{
+        width: 100%;
+    }
+    #aside{
+        width: 30%;
+        height: 630px;
+    }
+    #section {
+        width: 70%;
+        height: 630px;
+    }
+    #article{
+        width: 100%;
+        height: 150px;
+    }
+}  
+@media (max-width: 480px){
+    #wrap{
+        width: 100%;
+    }
+    #aside {
+        width: 100%;
+        height: 200px;
+    }
+    #section {
+        width: 100%;
+        height: 430px;
+    }
+    #article{
+        width: 100%;
+        height: 150px;
+    }
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">grid를 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    gird-area: 속성으로 이름을 지정한뒤<br>
+                    grid-template-areas:를 통해 각자 위치할 영역을 지정합니다.<br>
+                    grid-template-columns: 속성은 grid 트랙의 크기들을 지정해주는 속성입니다.(=width)<br>
+                    grid-template-rows: 속성은 grid 트랙의 높이들을 지정해주는 속성입니다.(=height)
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">*{
+    margin: 0;
+}
+body{
+    background-color: #E8F5E9;
+}
+#wrap{
+    width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "nav nav nav"
+        "aside section article"
+        "footer footer footer"
+        ;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 100px 100px 780px 100px;
+}
+#header{
+    grid-area: header;
+    background-color: #C8E6C9;
+}
+#nav{
+    grid-area: nav;
+    background-color: #A5D6A7;
+}
+#aside{ 
+    grid-area: aside;
+    background-color: #81C784;
+}
+#section{
+    grid-area: section;
+    background-color: #66BB6A;
+}
+#article{
+    grid-area: article;
+    background-color: #4CAF50;
+}
+#footer{
+    grid-area: footer;
+    background-color: #43A047;
+}
+@media (max-width: 1220px){
+    #wrap{
+        width: 96%;
+    }
+}
+@media (max-width: 768px){
+    #wrap{
+        width:100%;
+        grid-template-areas:
+        "header header"
+        "nav nav"
+        "aside section"
+        "article article"
+        "footer footer"
+        ;     
+
+        grid-template-columns: 40% 60%;
+        grid-template-rows: 100px 100px 630px 150px 100px;
+    }
+}
+@media (max-width: 480px){
+    #wrap{
+        width:100%;
+        grid-template-areas:
+        "header"
+        "nav"
+        "aside"
+        "section"
+        "article"
+        "footer"
+        ;     
+
+        grid-template-columns: 100%;
+        grid-template-rows: 100px 100px 200px 430px 150px 100px;
+    }
+}
+</code></pre>
+                </div>
+                <h4 class="t_tit3">결과</h4>
+                <div class="t_iframe">
+                    <iframe src="https://codepen.io/parkhyeonshin/embed/GRxvMoN?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                        See the Pen <a href="https://codepen.io/parkhyeonshin/pen/GRxvMoN">
+                        레이아웃2_float_반응</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                        on <a href="https://codepen.io">CodePen</a>.
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- /main -->
+
+    <footer id="footer" >
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

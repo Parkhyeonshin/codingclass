@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+    
+    <link rel="stylesheet" href="assets/css/dracula.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- 구글아이콘(휴지통) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id = "header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 박현신</span>
+    </header>
+    <!-- /header -->
+
+    <main id = "main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기본 문서</a></li>
+                <li><a href="markup.html">기본 규칙</a></li>
+                <li><a href="block.html">블록/인라인 구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic markup.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+                <li class="active"><a href="parts.html">구조 관련 요소</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">구조 관련 요소</h2>
+                <p class="t_desc2">
+                    기존 콘텐츠의 구조를 구분하는 시맨틱한 요소가 제공되지 않던 HTML과 다르게 
+                    <i>HTML5</i>에서는 main, nav, section, header, article, aside, footer등 다양한 구조 관련 요소가 <i>추가</i>되었습니다.
+                    덕분에 조금더 쉽게 구조파악이 가능합니다!
+                </p>
+                <table class="t_table">
+                    <colgroup>
+                        <col style="width: 15%;">
+                        <col style="width: 25%;">
+                        <col style="width: 70%;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>요소 유형</th>
+                            <th>태그명</th>
+                            <th>설명</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="12" class="ce">블록 레벨<br>요소</td>
+                            <td rowspan="2" class="ce">&lt;header&gt;<br>&lt;/header&gt;</td>
+                            <td>1. HTML 문서의 헤더 영역을 의미하는 태그입니다. 제목이나 내비게이션, 검색 등의 내용을 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있지만, &lt;header&gt;, &lt;footer&gt; 태그는 포함할 수 없습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="ce">&lt;section&gt;<br>&lt;/section&gt;</td>
+                            <td>1. HTML 문서에서 맥락이 같은 요소들을 주제별로 그룹화해주는 태그입니다. 주제에 대한 제목요소(<i>h태그</i>)를 포함하는 것이 좋습니다. </td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="ce">&lt;footer&gt;<br>&lt;/footer&gt;</td>
+                            <td>1. HTML 문서의 푸터 영역을 의미하는 태그입니다. 섹션 작성자나 저작권에 대한 정보, 관련 문서 링크를 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있지만, &lt;header&gt;, &lt;footer&gt; 태그는 포함할 수 없습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="ce">&lt;nav&gt;<br>&lt;/nav&gt;</td>
+                            <td>1. HTML 문서의 메인 메뉴, 목차 등을 정의해주는 태그입니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="ce">&lt;article&gt;<br>&lt;/article&gt;</td>
+                            <td>1. HTML 문서 내에서 독립적으로 배포나 재사용 가능한 게시물, 뉴스 기사, 블로그 포스팅 등을 의미하는 태그입니다. 제목요소(h태그)를 포함하는것이 좋습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="ce">&lt;asdie&gt;<br>&lt;/asdie&gt;</td>
+                            <td>1. 콘텐츠와 관련이 없는 영역을 의미하는 태그입니다. 오른쪽이나 왼쪽의 사이드 메뉴나 광고 영역에 사용됩니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있습니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit3">* 예시</h3>
+                <div class="t_code">
+<pre><code class="language-html">&lt;header&gt;
+    &lt;h1&gt;&lt;a href="#"&gt;반응형 웹&lt;/a&gt;&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;MENU01&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;MENU02&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;MENU03&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;MENU04&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;MENU05&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+&lt;section&gt;
+    &lt;h2&gt;콘텐츠 그룹01&lt;/h2&gt;
+&lt;/section&gt;
+&lt;section&gt;
+    &lt;h2&gt;콘텐츠 그룹02&lt;/h2&gt;
+&lt;/section&gt;
+&lt;div&gt;
+    &lt;article&gt;
+        &lt;h2&gt;주요기사&lt;/h2&gt;
+    &lt;/article&gt;
+    &lt;aside&gt;
+        광고
+    &lt;/aside&gt;
+&lt;/div&gt;
+&lt;footer&gt;
+    &lt;address&gt;경기도 떡잎마을 코-딩동댕유치원 코딩하는두목님  032)123-2424    co-ding@email.com&lt;/address&gt;
+    &lt;p&gt;COPYRIGHT @ ALL  rights reserved.&lt;/p&gt;
+&lt;/footer&gt;
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>   
+                        <summary>결과보기</summary>
+                        <div class="sample03_result">
+                            <figure>
+                                <img src="../assets/tistory/HTML_parts_blog01.jpg" alt="블로그이미지">
+                            </figure>
+                        </div>
+                    </details>
+                </div>
+
+                <hr>
+                
+                <h3 class="t_tit3">* 예시 활용하기</h3>
+                <p class="t_desc2">
+                    위의 html소스를 응용해서, css를 입혀서 이번엔 제법 사이트같아보이는 레이아웃구조를 만들어볼게요.
+                    이미지와 같은 파일을 구현하기 위해 html소스가 추가되었는데요. 오늘의 주제인 '구조관련요소'를 이해하는데 방해가 되지않기
+                    위해서 추가된 소스는 div에 class를 부여해서 코드를 작성했습니다!
+                    사용된 소스는 아래를 참고하시고, 상세설명은 제 블로그의 <a href="https://sshin4882.tistory.com/category/SITE" target="_blank">[사이트만들기,</a><a href="https://sshin4882.tistory.com/category/CSS" target="_blank">레이아웃</a>]을 참고해서 이해하시면 될 것 같네요!
+                </p>
+                <figure>
+                    <img src="../assets/tistory/html_parts_blog02.jpg" alt="">
+                </figure>
+                <div class="result">
+                    <details>   
+                        <summary>소스 및 결과 보기</summary>
+                        <div class="t_code">
+<pre><code class="language-css">/* fonts  */
+@import url('https://webfontworld.github.io/NanumSquare/NanumSquare.css');
+
+/* 리셋 */
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'NanumSquare';
+    font-weight: 400;
+
+}
+
+/* common */
+body{
+    background-color: #E1E1E1;
+}
+#wrap {
+    width: 1160px;
+    min-width: 1160px;
+    margin: 20px auto;
+    background-color: #f5f5f5;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+a:hover {
+    text-decoration: underline;
+    background-color: rgb(172, 71, 71);
+}
+li {
+    list-style: none;
+    display: inline-block;
+}
+h1, h2, h3 {
+    font-weight: normal;
+}
+.small_t{
+    width: 67px;
+    height: 20px;
+    background-color: #666666;
+    color: #fff;
+    line-height: 20px;
+}
+.big_t{
+    width: 75px;
+    height: 20px;
+    background-color: #000;
+    color: #fff;
+    line-height: 20px;
+}
+/* header */
+header{
+    height: 150px;
+    background-color: #729E3B;
+    display: flex;
+    flex-wrap: wrap;
+}
+header .h1 {
+    width: 110px;
+    height: 110px;
+    background-color: #96B76D;
+    margin: 20px;
+}
+header .small_t{
+    display: inline-block;
+    margin: 10px 0 16px 0;
+}
+header .h1 a{
+    display: block;
+}
+header .header_right{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    width: 900px;
+    height: 110px;
+    
+}
+header .header_right span{
+    width: 900px;
+    height: 55px;
+    margin: 0 auto;
+}
+header .header_right span .big_t{
+    margin: 10px auto 0 auto;
+}
+header .header_right nav {
+    width: 900px;
+    height: 55px;
+    line-height: 55px;
+    background-color: #96B76D;
+    padding-left: 80px;
+    position: relative;
+}
+header .header_right nav .small_t{
+    position: absolute;
+    left: 15px;
+    top: 0;
+}
+header .header_right nav ul li{
+    width: 15%;
+    justify-content: space-between;
+}
+/* container */
+#container{
+    margin-top: 20px;
+    height: 400px;
+    background-color: #729E3B;
+    display: flex;
+    flex-wrap: wrap;
+}
+#container section{
+    width: 400px;
+    height: 360px;
+    background-color: #96B76D;
+    position: relative;
+    margin: 20px;
+}
+#container section:nth-child(2){
+    margin-left: 0;
+}
+#container section .small_t {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+}
+#container section h2 {
+    line-height: 360px;
+}
+#container .container_right {
+    margin: 20px 20px 20px 0;
+}
+#container .container_right article{
+    width: 280px;
+    height: 170px;
+    background-color: #96B76D;
+    margin-bottom: 20px;
+    line-height: 170px;
+    position: relative;
+}
+#container .container_right article .small_t{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#container .container_right aside{
+    width: 280px;
+    height: 170px;
+    background-color: #96B76D;
+    margin-bottom: 20px;
+    line-height: 170px;
+    position: relative;
+}
+#container .container_right aside .small_t{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* footer */
+footer{
+    height: 80px;
+    padding: 10px;
+    background-color: #729E3B;
+    position: relative;
+    margin-top: 20px;
+}
+footer div{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+footer .big_t{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+footer address{
+    width: 463px;
+    padding-left: 87px;
+    height: 35px;
+    line-height: 35px;
+    background-color: #96B76D;
+    margin-left: 140px;
+    font-size: 12px;
+    text-align: left;
+}
+footer .small_t{
+    position: absolute;
+    top: 0px;
+    left: 140px;
+}
+footer .footer_p{
+    margin-top: 10px;
+    width: 463px;
+    padding-left: 87px;
+    height: 35px;
+    line-height: 35px;
+    background-color: #96B76D;
+    margin-left: 140px;
+    font-size: 12px;
+    text-align: left;
+}
+footer .small_t2{
+    width: 67px;
+    height: 20px;
+    background-color: #666666;
+    color: #fff;
+    line-height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 140px;
+}
+</code></pre>
+                        </div>
+                        <div class="t_code">
+<pre><code class="language=html">&lt;div id="wrap"&gt;
+    &lt;header&gt;
+        &lt;div class="h1"&gt;
+            &lt;p class="small_t"&gt;h1&lt;/p&gt;
+            &lt;a href="#"&gt;반응형 웹&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="header_right"&gt;
+            &lt;span&gt;
+                &lt;p class="big_t"&gt;header&lt;/p&gt;
+            &lt;/span&gt;
+            &lt;nav&gt;
+                &lt;p class="small_t"&gt;nav&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;MENU01&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;MENU02&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;MENU03&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;MENU04&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;MENU05&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/nav&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;div id="container"&gt;
+        &lt;section&gt;
+            &lt;p class="small_t"&gt;section&lt;/p&gt;
+            &lt;h2&gt;콘텐츠 그룹01&lt;/h2&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+            &lt;p class="small_t"&gt;section&lt;/p&gt;
+            &lt;h2&gt;콘텐츠 그룹02&lt;/h2&gt;
+        &lt;/section&gt;
+        &lt;div class="container_right"&gt;
+            &lt;article&gt;
+                &lt;p class="small_t"&gt;section&lt;/p&gt;
+                &lt;h2&gt;주요기사&lt;/h2&gt;
+            &lt;/article&gt;
+            &lt;aside&gt;
+                &lt;p class="small_t"&gt;section&lt;/p&gt;
+                광고
+            &lt;/aside&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;footer&gt;
+        &lt;p class="big_t"&gt;footer&lt;/p&gt;
+        &lt;div&gt;
+            &lt;p class="small_t"&gt;address&lt;/p&gt;
+            &lt;address&gt;경기도 떡잎마을 코-딩동댕유치원 코딩하는두목님  032)123-2424    co-ding@email.com&lt;/address&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;p class="small_t2"&gt;p&lt;/p&gt;
+            &lt;p class="footer_p"&gt;COPYRIGHT @ ALL  rights reserved.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div class="t_iframe">
+                            <iframe src="https://codepen.io/parkhyeonshin/embed/oNqajgB?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                                See the Pen <a href="https://codepen.io/parkhyeonshin/pen/oNqajgB">
+                                Untitled</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                                on <a href="https://codepen.io">CodePen</a>.
+                            </iframe>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- /main -->
+
+    <footer id="footer" >
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

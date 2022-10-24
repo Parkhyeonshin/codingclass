@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 콜백함수 </title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="effect">
+                <li><a href="../effect/searchEffect.html">검색 효과</a></li>
+                <li><a href="../effect/quizEffect.html">퀴즈 효과</a></li>
+                <li><a href="../effect/dataEffect.html">데이터 효과</a></li>
+                <li><a href="../effect/mouseEffect.html">마우스 효과</a></li>
+                <li><a href="../effect/sliderEffect.html">슬라이드 효과</a></li>
+                <li><a href="../effect/parallaxEffect.html">패랠랙스 효과</a></li>
+                <li><a href="../effect/gameEffect.html">게임 효과</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">데이터 타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+                <li><a href="join.html">배열 메서드</a></li>
+                <li><a href="../effect/study/quiz01.html">퀴즈 만들기</a></li>
+                <li><a href="velog.html">내장함수</a></li>
+                <li><a href="slice.html">문자열 변경 메서드</a></li>
+                <li><a href="indexof.html">문자열 검색 메서드</a></li>
+                <li><a href="RegEXP.html">정규식 표현</a></li>
+                <li><a href="text.html">문자열 결합/템플릿 문자열</a></li>
+                <li><a href="trim.html">소/대문자/공백</a></li>
+                <li><a href="split.html">split()</a></li>
+                <li><a href="repeat.html">replace()/replaceAll()</a></li>
+                <li><a href="concat.html">concat()</a></li>
+                <li><a href="repeat.html">repeat()</a></li>
+                <li><a href="padStart.html">padStart()/padEnd()</a></li>
+                <li><a href="includes.html">includes()</a></li>
+                <li><a href="search.html">search()</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">콜백함수</h2>
+            <p class="t_desc2">
+                콜백함수는 잘 쓰면 정말 좋은 함수죠. 콜백함수를 잘 사용한다면 
+                함수의 실행순서를 내 멋대로 조절할 수 가 있게 됩니다. 대신 가독성저하는 사용횟수에 비례할듯;;
+            </p>
+            <hr>
+            <h3 class="t_tit2">■ 넌 뭐니?</h3>
+            <p class="t_desc">
+                이름 그대로 나중에 호출되는 함수를 말합니다. 호출방식에 의한 구분입니다.
+                <br>이 친구는 자체로 특별한 선언이나 문법적 특징을 가지진 않습니다. 
+                <i>다른 함수의 인자로써 넘겨진 후 특정 이벤트에 의해 호출되는 함수</i>입니다.
+            </p>
+
+            <h3 class="t_tit2">■ 반복문 형식</h3>
+            <p class="t_desc">
+                첫번째 함수가 실행되고나서 다음 함수를 실행합니다. 함수에 순서를 부여(?), 반복문 사용해서 할 수 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js" style="margin-bottom: 0;">// 콜백함수 반복문
+function func(index){
+    document.write("함수가 실행되었습니다." + index);
+}
+
+function callback(num){
+    for(let i = 1; i&lt;=10; i++){
+        num(i);
+    }
+}
+
+callback(func);
+</code></pre>
+            </div>
+            <div>
+                <details>
+                    <summary>결과보기</summary>
+                    함수가 실행되었습니다.1함수가 실행되었습니다.2함수가 실행되었습니다.3함수가 실행되었습니다.4함수가 실행되었습니다.5함수가 실행되었습니다.6함수가 실행되었습니다.7함수가 실행되었습니다.8함수가 실행되었습니다.9함수가 실행되었습니다.10
+                </details>
+            </div>
+            <h3 class="t_tit2">■ 동기 / 비동기</h3>
+            <p class="t_desc">
+                동기는 "동시"라는 뜻으로 해석함이 적절합니다. 앞서 말씀드린것처럼 
+                함수의 순서를 정할 수 도 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js" style="margin-bottom: 0;">// 동기
+function funcA(){
+    document.write("funcA가 실행되었습니다.");
+}
+function funcB(){
+    document.write("funcB가 실행되었습니다.");
+}
+funcA();
+funcB();
+//a > b
+
+
+function funcA(){
+    setTimeout(()=>{
+        console.log("funcA가 실행되었습니다.");
+    }, 1000);
+}
+function funcB(){
+    console.log("funcB가 실행되었습니다.");
+}
+funcA();
+funcB();
+
+// b > a
+
+//비동기 a가실행된 뒤 b가 실행됨. 순서확인하려면 b에도 셋타임넣어보기
+function funcA(callback){
+    setTimeout(()=>{
+        console.log("funcA가 실행되었습니다.")
+        callback();
+    },1000);
+}
+function funcB(){
+    console.log("funcB가 실행되었습니다.")
+}
+funcA(function(){
+    funcB();
+})
+// a > b
+
+function funcA(callback){
+    setTimeout(()=>{
+        console.log("funcA가 실행되었습니다.")
+        callback();
+    },1000);
+}
+function funcB(callback){
+    setTimeout(() => {
+        console.log("funcB가 실행되었습니다.")
+        callback();
+    }, 1000);
+}
+function funcC(callback){
+    setTimeout(() => {
+        console.log("funcC가 실행되었습니다.")
+        callback();
+    }, 1000);
+}
+function funcD(callback){
+    setTimeout(() => {
+        console.log("funcD가 실행되었습니다.")
+    }, 1000);
+}
+funcA(function(){
+    funcB(function(){
+        funcC(function(){
+            funcD();
+        })
+    });
+})
+</code></pre>
+            </div>
+            <div>
+                <details>
+                    <summary>결과보기</summary>
+                    // 맨마지막 비동기만 작성함 (직접 clg로 봐야 이해감)
+                    <br>funcA가 실행되었습니다.
+                    <br>funcB가 실행되었습니다.
+                    <br>funcC가 실행되었습니다.
+                    <br>funcD가 실행되었습니다.
+                </details>
+            </div>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

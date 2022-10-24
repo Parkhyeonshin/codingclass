@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시험1</title>
+
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+        .nexon {
+            font-family: "NexonLv1Gothic";
+            font-weight: 400;
+        }
+
+        /* 리셋 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        img {
+            width: 100%;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+        em, i, address{
+            font-style: normal;
+        }
+        h2, li > a {
+            font-size: 17px;
+            font-weight: 700;
+        }
+        p {
+            font-style: 17px;
+            color: #999;
+            font-weight: 300;
+        }
+        li{
+            list-style: none;
+            font-style: 17px;
+            color: #999;
+            font-weight: 300;
+        }
+
+        /* common */
+        body{
+            width: 960px;
+            padding: 120px 20px;
+            margin: 0 auto;
+            min-width: 960px;
+        }
+        /* .container {
+            width: 960px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 960px;
+        }
+        .section {
+            padding: 120px 0;
+        }
+        .section > h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section > p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .section > span {
+            display: block;
+            text-align: center;
+            font-size: 16px;
+            text-decoration: underline;
+            margin-bottom: 20px;
+            text-underline-position: under;
+        }
+        .mb70{margin-bottom: 70px !important;} */
+
+        /* main */
+        #main {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 50px;
+            box-sizing: border-box;
+        }
+        /* header */
+        .header__inner{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        .header__logo {
+            width: 20%;
+            align-items: left;
+        }
+        .header__logo img {
+            width: 50%;
+        }
+        .header__menu {
+            width: 70%;
+            text-align: right;
+        }
+        .header__menu li {
+            display: inline;
+        }
+        .header__menu li a {
+            padding: 0 15px;
+            transition: background-color 0.3s;
+        }
+        .header__menu li a:hover {
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            padding: 10px 15px;
+        }
+
+        /* 슬라이드 */
+        .slider__wrap {
+            width: 100%;
+            height: 362px;
+            display: flex;
+            /* align-items: center; */
+            /* justify-content: center; */
+        }
+        .slider__img{
+            position: relative;
+            width: 100%;
+        }
+        .slider {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .slider:nth-child(1){
+            z-index: 5;
+        }
+        .slider:nth-child(2){
+            z-index: 4;
+        }
+        .slider:nth-child(3){
+            z-index: 3;
+        }
+        .slider:nth-child(4){
+            z-index: 2;
+        }
+        .slider:nth-child(5){
+            z-index: 1;
+        }
+
+        /* 이텍 */
+        .imgText__inner {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .imgText__inner > div {
+            width: 49%;
+            /* height: 300px; */
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        .Tab {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        /* .imgText__txt{
+            display: flex;
+            flex-wrap: wrap;
+        } */
+        .imgText__txt .tab1 {
+            display: inline;
+        }
+        .imgText__txt .tab2 {
+            display: inline;
+            margin-left: 4px;
+        }
+        .imgText__txt .more{
+            display: inline;
+            position: absolute;
+            right: 20px;   
+            top: 1px;
+        }
+        .imgText__txt .Tab .more a::before{
+            content: '';
+            width: 17px;
+            height: 17px;
+            background: url(img/more.jpg) no-repeat ;
+            background-size: contain;
+            border-radius: 50%;
+            position: absolute;
+            left: 52px;
+
+        }
+        .more a{
+            color: #999;
+            font-size: 17px;
+            font-weight: 300;
+        }
+    
+        .imgText__img {
+            background: url(img/jhm.jpg) no-repeat ;
+            background-size: cover;
+        }
+        
+        .list ul li {
+            padding: 10px 0;
+            position: relative;
+        }
+        .list ul li:last-child {
+            padding-bottom: 0;
+        }
+        .list ul li a{
+            font-weight: 300;
+            font-size: 17px;
+            color: #999;
+        }
+        .list ul li a:nth-child(1)::before{
+            content: '2018.11.19';
+            position: absolute;
+            right: 0px;
+        }
+
+
+        /* 카드 */
+        .card__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+        .card {
+            width: 24%;
+        }
+        .card__body .desc{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4; 
+            -webkit-box-orient: vertical;
+            margin-top: 15px;
+        }
+
+        /* footer */
+        footer p {
+            color: #999;
+        }
+        .lotte {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header id="headerType" class="header__wrap nexon">
+        <div class="header__inner">
+            <div class="header__logo">
+                <img src="img/logo.jpg" alt="로고">
+            </div>
+            <nav class="header__menu">
+                <ul>
+                    <li><a href="#">즐길거리</a></li>
+                    <li><a href="#">요금/우대혜택</a></li>
+                    <li><a href="#">참여프로그램</a></li>
+                    <li><a href="#">이용가이드</a></li>
+                    <li><a href="#">소통서비스</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- 헤더영역 끝-->
+    <main id="main">
+        <section id="slideType" class="slide__wrap nexon section">
+            <div class="slider__wrap">
+                <div class="slider__img">
+                    <div class="slider"><img src="img/slider01.jpg" alt="이미지1"></div>
+                    <div class="slider"><img src="img/slider02.jpg" alt="이미지2"></div>
+                    <div class="slider"><img src="img/slider03.jpg" alt="이미지3"></div>
+                    <div class="slider"><img src="img/slider04.jpg" alt="이미지4"></div>
+                </div>
+            </div>
+        </section>
+        <!-- 슬라이드 끝 -->
+
+        <section id="imgTextType" class="imgText__wrap nexon section gray">
+            <div class="imgText__inner container">
+                <div class="imgText__txt">
+                    <div class="Tab">
+                        <h2 class="tab1">롯데월드 소식 &nbsp;|</h2>
+                        <p class="tab2"> 뉴스·공지</p>
+                        <div class="more"><a href="#">더보기</a></div>   
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li><a href="#">그림사진관 미라클</a></li>
+                            <li><a href="#">드림스테이지 '힘내 소중한 나'</a></li>
+                            <li><a href="#">'힘내 소중한 너'음원 발매</a></li>
+                            <li><a href="#">이용 요금 조정 안내</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="imgText__img img1">
+                    
+                </div>
+            </div>
+        </section>
+        <!-- 이미지 텍스트영역 -->
+
+        <section id="cardType" class="card__wrap nexon section">
+            <h2>특별한 경험</h2>
+            <div class="card__inner container">
+                <article class="card">
+                    <figure class="card__header">
+                        <img src="img/mini1.jpg" alt="카드1">
+                    </figure>
+                    <div class="card__body">
+                        <p class="desc">
+                            연간회원안내
+                        </p>
+                    </div>
+                </article>
+                <article class="card">
+                    <figure class="card__header">
+                        <img src="img/mini2.jpg" alt="카드2">
+                    </figure>
+                    <div class="card__body">
+                        <p class="desc">
+                            프리미엄투어
+                        </p>
+                    </div>
+                </article>
+                <article class="card">
+                    <figure class="card__header">
+                        <img src="img/mini3.jpg" alt="카드3">
+                    </figure>
+                    <div class="card__body">
+                        <p class="desc">
+                            관련참여프로그램
+                        </p>
+                    </div>
+                </article>
+                <article class="card">
+                    <figure class="card__header">
+                        <img src="img/mini4.jpg" alt="카드4">
+                    </figure>
+                    <div class="card__body">
+                        <p class="desc">
+                            단체프로그램
+                        </p>
+                    </div>
+                </article>
+               
+            </div>
+        </section>
+        <!-- 카드 영역 -->
+
+    </main>
+    <!-- 메인끝 -->
+
+    <footer>
+        <div class="adress">
+            <p>
+            서울특별시 송파구 올림픽로 240 호텔롯데 롯데월드 &nbsp; | &nbsp; 대표자:박동기
+            <br>사업자등록번호:219-85-00014 &nbsp; | &nbsp; 통신판매업신고번호:송파 제5513호 &nbsp; | &nbsp; 전화:1661-2000
+            </p>    
+        </div>
+        <div class="lotte">
+            <p>
+                COPYRIGHT 2018 LOTTEWORD.ALL RIGHTS RESERVED.
+            </p>
+        </div>
+    </footer>
+    <!-- 푸터 끝 -->
+
+
+    <!-- 스크립트 부분 -->
+    <script>
+        const sliderWrap = document.querySelector(".slider__wrap");
+        const sliderImg = sliderWrap.querySelector(".slider__img");
+        const slider = sliderImg.querySelectorAll(".slider");
+
+        let currentIndex = 0;       
+        let sliderCount = slider.length;        
+
+        setInterval(() =>{
+            let nextIndex = (currentIndex + 1) % sliderCount;    
+            
+            slider[currentIndex].style.opacity = "0";      
+            slider[nextIndex].style.opacity = "1";      
+
+            currentIndex = nextIndex;
+          
+        },1000)
+    </script>
+</body>
+</html>

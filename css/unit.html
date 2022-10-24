@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 단위</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+    <style>
+        #main .document .btnflex{
+    	    display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">CSS _ 단위</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="basic.html">기초</a></li>
+                <li><a href="#.html">주제</a></li>
+                <li><a href="index.html">알파벳</a></li>
+                <li><a href="bector.html">벡터/비트맵 방식</a></li>
+                <li><a href="grammar.html">기본 문법</a></li>
+                <li><a href="media.html">미디어 쿼리</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+                <li><a href="scss.html">SCSS</a></li>
+                <li><a href="ir.html">이미지스프라이트/IR/백그라운드 표현</a></li>
+                <li class="active"><a href="unit.html">단위</a></li>
+                <li><a href="color.html">색상 표현법</a></li>
+                <li><a href="hide.html">요소 숨기기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">CSS 단위</h2>
+            <div class="t_desc2">
+                우리가 웹을 코딩 후 디자인을 할때 CSS를 사용해야 한다는 것은 당연히 알고 있는 사실인데요. 
+                대부분이 px(픽셀)과 %단위만 알고 있지 다른 단위값도 있다는 것을 아시나요? 심지어 
+                반응형 웹이 기본이 된 지금! 더 알고 있어야겠죠?
+                <br>오늘은 이 CSS를 좀 더 정교하게 만들 수 있는 CSS의 기본이 되는 <i>단위</i>에 대해 낱낱히 파헤쳐 보겠습니다.
+            </div>
+            <hr>
+            <h3 class="t_tit2">| 절대 길이 단위 |</h3>
+            <p class="t_desc2">
+                절대 길이 단위는 화면이 어떤 사이즈이던간에 항상 동일한 크기를 지니는 단위값입니다.
+                그래서 <i>화면 출력보다는 인쇄</i>에 사용할 때 더 유용합니다.단, 반응형을 고려하지 않을시에는 괜찮게 쓰입니다.
+            </p>
+            <h3 class="t_tit3">■ px</h3>
+            <div class="t_desc"> 
+                픽셀이라고 불리며, 가장 익숙한 단위입니다. 화면의 크기를 1920x1080이라 가정한다면 
+                px은 가로: 1920개, 세로: 1080개가 있다는 뜻입니다.
+                <br>즉, <i>픽셀이란 하나의 점</i>을 의미합니다.
+            </div>
+            <h3 class="t_tit3">■ 참고</h3>
+            <table class="t_table">
+                <colgroup>
+                    <col width="10%">
+                    <col width="25%">
+                    <col width="65%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>단위</th>
+                        <th>이름</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">cm</td>
+                        <td>센티미터</td>
+                        <td>1cm = 96px/2.54</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">mm</td>
+                        <td>밀리미터</td>
+                        <td>1mm = 1/10th of 1cm</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">Q</td>
+                        <td>4 분의 1 밀리미터</td>
+                        <td>1Q = 1/40th of 1cm</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">in</td>
+                        <td>인치</td>
+                        <td>1in = 2.54cm = 96px</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">pc</td>
+                        <td>Picas</td>
+                        <td>1pc = 1/6th of 1in</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">pt</td>
+                        <td>포인트</td>
+                        <td>1pt = 1/72th of 1in</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">px</td>
+                        <td>픽셀</td>
+                        <td>1px = 1/96th of 1in</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <h3 class="t_tit2">| 상대 길이 단위 |</h3>
+            <p class="t_desc2">
+                상대 길이 단위는 상위 요소의 글꼴 크기 또는 뷰포트의 크기와 관련이 있습니다. 이 단위를 사용하게되면
+                텍스트나 다른 요소의 크기가 페이지의 다른 모든 것들에 영향을 받게 조정됩니다.
+                <br>가장 핵심인 <i>반응형 웹</i>을 하기에 최적화 되어 있다고 할 수 있습니다.
+            </p>
+            <h3 class="t_tit3">■ %</h3>
+            <div class="t_desc">
+                부모 엘리먼트의 크기에 따라 가변하는 단위입니다.
+                <i>부모 기준으로 자식의 크기</i>를 따지기 때문에 부모 태그의 넓이 혹은 길이가 중요합니다.
+            </div>
+
+            <h3 class="t_tit3">■ vh</h3>
+            <div class="t_desc">
+                Vh는 "Viewport height"라는 뜻입니다. 여기서 |Viewport=웹사이트에서 보여지는 영역| 입니다.
+                vh는 <i>높이값의 1/100</i>이라는 뜻입니다.
+                <br>예를 들어, 브라우저 높이가 900px이라면 1vh는 9px이 됩니다.
+            </div>
+            <h3 class="t_tit3">■ vw</h3>
+            <div class="t_desc">
+                vh를 보셨다면 감이 오시죠?
+                Vh는 "Viewport weight"라는 뜻입니다. vw는 <i>넓이값의 1/100</i>이라는 뜻이 되는거구요.
+                <br>1vw로 속성값을 설정하면 뷰포트 너비의 1%만큼 계산이 됩니다.
+                <br>스크린의 너비값에 꽉 차는 헤드라인을 만들고 싶다면 vw를 사용해보세요! 브라우저의 너비에 맞춰서 계속해서
+                꽉차는 폰트를 유지할 겁니다.
+            </div>
+            <h3 class="t_tit3">■ em</h3>
+            <div class="t_desc">
+                em은 <i>부모 엘리먼트의 폰트 사이즈를 기준</i>으로 측정이되는 단위입니다.
+                <br>1em = 부모 엘리먼트의 font size
+            </div>
+            <h3 class="t_tit3">■ rem</h3>
+            <div class="t_desc">
+                rem의 r=root(최상위)입니다.<br>
+                rem은 <i>최상위 엘리먼트의 폰트 사이즈를 기준</i>으로 측정이되는 단위입니다.
+                보통 최상위 태그는 &lt;html&gt;입니다.
+                <br>1em = 최상위 엘리먼트의 font size
+                <br>rem의 경우 em보다 접근성이 더 뛰어납니다.
+            </div>
+            <h3 class="t_tit3">em과 rem의 차이를 아직도 모르겠어요...🤦‍♂️</h3>
+<pre class="t_box">body {
+    font-size : 14px;    
+}
+div {
+    font-size : 1.2em;
+}
+</pre>
+            <p class="t_desc">위와 같이 body태그 안에 div가 하나만 있는 html 코드가 있다면 부모의 글자크기가 14px이므로 div의 폰트사이즈는 14px을 기준으로 1.2배가 됩니다.
+                그러므로, 16.8px이 되는거죠. 그런데 이 div의 자식 요소들이 계속해서 생긴다면 어떤 현상이 일어날까요? 아래를 보시죠
+            </p> 
+<pre class="t_box">body {
+    font-size : 14px;    
+}
+div {
+    font-size : 1.2em;
+}
+span {
+    font-size: 1.2rem;
+}
+</pre>
+            <img src="../assets/tistory/CSS_07_단위_bg01.jpg" alt="dd">
+            <p class="t_desc">
+                각각의 div들은 em단위이므로 계속해서 바로위의 부모요소들의 영향을 받습니다. 그렇기 때문에 자꾸만 텍스트크기가 늘어나게 되는거죠.
+                만약 이 자식요소들도 통일감 있게 단일 사이즈로 표현하고 싶다면 어떻게 해야할까요?
+                <br><br><i>A.</i> 물론 px을 써도 되겠죠! 하.지.만 반응형도 고려하는 우리라면 최상위태그 html에 하나의 폰트사이즈를 지정한 후 
+                div요소에 rem을 사용하는 겁니다. 그럼 어떤 자식요소들이 들어와도 최상위태그인 html의 폰트사이즈의 배수로 적용되므로 
+                아주 간단하게 통일성있는 폰트사이즈를 지정할 수 있는겁니다. 
+                <bR>바로 이게 em과 rem의 차이점입니다.
+            </p>
+            <h3 class="t_tit3">■ 참고</h3>
+            <table class="t_table">
+                <colgroup>
+                    <col width="10%">
+                    <col width="90%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>단위</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">em</td>
+                        <td>요소의 글꼴 크기</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">ex</td>
+                        <td>요소 글꼴의 x-height</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">ch</td>
+                        <td>요소 글꼴의 glybp "0"의 사전 너비</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">rem</td>
+                        <td>루트 요소의 글꼴 크기</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">lh</td>
+                        <td>요소의 라인 높이</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">vw</td>
+                        <td>뷰포트 너비의 1%</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">vh</td>
+                        <td>뷰포트 높이의 1%</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">vmin</td>
+                        <td>뷰포트 최소 치수의 1%</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">vmax</td>
+                        <td>뷰포트 최대 치수의 1%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

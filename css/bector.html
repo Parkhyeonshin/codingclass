@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 벡터/비트맵</title>
+
+    <link rel="stylesheet" href="../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../javascript/assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
+        <h1><a href="../index.html">CSS</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="basic.html">기초</a></li>
+                <li><a href="#.html">주제</a></li>
+                <li><a href="index.html">알파벳</a></li>
+                <li class="active"><a href="bector.html">벡터/비트맵 방식</a></li>
+                <li><a href="grammar.html">기본 문법</a></li>
+                <li><a href="media.html">미디어 쿼리</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+                <li><a href="scss.html">SCSS</a></li>
+                <li><a href="ir.html">이미지스프라이트/IR/백그라운드 표현</a></li>
+                <li><a href="unit.html">단위</a></li>
+                <li><a href="color.html">색상 표현법</a></li>
+                <li><a href="hide.html">요소 숨기기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">  <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">벡터와 비트맵 방식</h2>
+            <p class="t_desc2">
+                그래픽 도구에는 페인팅을 위한 프로그램과 드로잉을 위한 프로그램으로 나눌 수 있는데, 2차원에서 이미지를 구성하는 방식은 비트맵이미지와 벡터이미지로 나눌 수 있습니다.
+                <br> 말이 너무 어렵죠? 쉽게 말하자면 결국 <i>이미지 표현 방식</i>입니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">벡터 방식 </h3>
+            <p class="t_desc2">
+                <i>점과 점</i>을 연결함으로써 <i>수학적 함수 관계에 의해</i> 이미지를 표현해서 선, 면을 만들어 냅니다. 이런 방식으로 만들어진 선이
+                두께값과 색상 값, 곡률값을 갖거나 면이 색상 값을 가지면서 그래픽을 만들게 되는 것입니다.
+            </p>
+            <p class="t_desc">
+                벡터는 좌표계(x,y)로 구성되기 때문에 비트맵과 달리 이미지크기 조절 혹은 변형으로 인해 해상도가 깨지지 않습니다.
+                아무리 <i>크기를 키워도 깨짐현상이 나타나지 않죠</i>.
+                <br>그렇기 때문에 크기조절이 자유로워야 하는 <i>로고나 서체, 캐릭터</i> 등을 제작할 때에 사용합니다.
+                <br>또 픽셀로 구현되는 비트맵보다 용량이 적기 때문에 가볍습니다.
+                <br>대표적인 프로그램으로는 <i>일러스트레이터</i>, 코렐드로우, 폰트랩 등이 있습니다.
+            </p>
+            <h3 class="t_tit3">확장자</h3>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td >.ai</td>
+                        <td>
+                            일러스트에서 개발한 파일 포맷. 벡터방식의 <i>대표</i>
+                            아무리 크게 늘려놔도 깨지지 않음
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>.swf</td>
+                        <td>뚜렷함</td>
+                    </tr>
+                    <tr>
+                        <td>.wmf</td>
+                        <td>계단현상이 없으므로 대형 인쇄물 등에 용이함</td>
+                    </tr>
+                    <tr>
+                        <td>.svg</td>
+                        <td>XML을 기반으로 한 벡터 파일 형식. 웹이나 텍스트로 여는 게 가능함.
+                            메타데이터를 입력해 검색에 용이하도록 작업할 수 있고 그래픽 작업도 가능함
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+
+            <h3 class="t_tit2">비트맵 방식</h3>
+            <p class="t_desc2">
+                비트맵은 '비트의 지도(map of bits)'라는 뜻으로, 각 픽셀에 저장된 비트 정보가 집합된 것입니다. 
+                예를 들어 600x500 사이즈의 이미지가 있다면 600x500 = 300,000개의 픽셀이 한 픽셀마다 다른 색상 정보 값을 가지고 있으므로
+                각기 다른 픽셀이 조합되었을 때 하나의 이미지가 되는 것입니다.
+            </p>
+            <p class="t_desc">
+                <br>벡터와 다르게 픽셀의 점 하나하나가 이미지를 이루는 요소라서 벡터보다 정교한 이미지 표현이 가능합니다.
+                그래서 펙셀의 수가 많아질수록 <i>화질은 뛰어나지만</i> 용량이 커지게 되고 이미지를 확대하거나 축소하면 픽셀의 수가 변하게 되어서 깨짐 현상과 품질 저하가 발생합니다.
+                <br>대표적인 프로그램으로 <i>포토샵</i>, 페인터 등이 있습니다.
+            </p>
+            <h3 class="t_tit3">확장자</h3>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>.bmp</td>
+                        <td>
+                            MS에서 윈도우 환경의 비트맵 데이터를 표현하기 위해 개발.
+                            압축을 사용하지 않는 가장 단순한 파일 포맷. 용량이 큼
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>.jpeg</td>
+                        <td>그레이스케일이나 컬러 정지화상의 압축에 관한 국제 표준안.
+                            압축 효율이 좋아 웹상에서도 많이 사용됨. 사용자가 이미지 크기를 조절할 수 있음.
+                            손상을 최소화하면서 사용자가 원하는 이미지 퀄리티와 크기를 설정할 수 있는 장점이 있음.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>.gif</td>
+                        <td>인터넷이나 네크워크 상 이미지 전송시 전송시간 최소화를 위해 개발됨.8비트 256색상 표현 가능하며 애니메이션 기능(움짤)용도로 많이 사용됨.
+                            여러장의 이미지를 하나로 표현하는 것이 가능하고 압축률이 높지만, 지원색상이 적어 평균이상의 퀄리티 요구시 부적합함.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>.png</td>
+                        <td>
+                            비손실 압축 파일 포맷 중 하나. 알파채널(투명도채널)을 지원하는 가장 큰 특징 소유.
+                            안티레이싱 기능이 있어 부드러운 경계처리 가능. 이미지 손실이 없으면서 웹상 빠른 출력이 가능해 웹에서도 많이 이용됨.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>.psd</td>
+                        <td>
+                            포토샵 전용 파일 포맷. 기존 이미지 정보에 레이어 패스, 벡터, 채널 등을 포함해서 저장할 수 있는 특징.
+                            같은 어도비사 소프트웨어간의 뛰어난 호환성이 장점. 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>.tga</td>
+                        <td>
+                            트루비전사의 타가보드에서 사용하기 위해 만들어진 포맷. 32비트 컬러까지 지원하고 RLE(비손실 압축방식)사용.
+                            게임 분야에서 스크린샷 저장기능으로 활용되는 경우가 많음. 고퀄리티 이미지 압축에는 부적합하며 단순한 이미지에 괜찮은 압축률을 자랑함.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <h3 class="t_tit2">벡터와 비트맵 비교 </h3>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>벡터</th>
+                        <th>비트맵</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>확대</td>
+                        <td>아무리 늘려도 깨지지 않음</td>
+                        <td>깨짐(계단현상 발생)</td>
+                    </tr>
+                    <tr>
+                        <td>경계</td>
+                        <td>뚜렷함</td>
+                        <td>픽셀색이 각자 달라 뚜렷하지 않음</td>
+                    </tr>
+                    <tr>
+                        <td>장점</td>
+                        <td>계단현상이 없으므로 대형 인쇄물 등에 용이함</td>
+                        <td>다채로운 색감으로 사실적인 표현 가능, 특수효과 가능</td>
+                    </tr>
+                    <tr>
+                        <td>크기</td>
+                        <td>크기 제약 없음, 용량 변하지 않음</td>
+                        <td>사이즈, 해상도 등으로 변화함</td>
+                    </tr>
+                    <tr>
+                        <td>프로그램</td>
+                        <td>포토샵, 페인터...</td>
+                        <td>일러스트레이터, 코렐드로우, 폰트랩, 플래시...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>    <!-- //main end -->
+    <footer id="footer" >
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

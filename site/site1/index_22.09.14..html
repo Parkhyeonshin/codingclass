@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사이트 만들기 1</title>
+
+    <!-- SEO -->
+    <meta name="author" content="박현신" />
+    <meta name="description" content="사이트 만들기 튜토리얼" />
+    <meta name="keyword" content="사이트, 만들기, 튜토리얼" />
+    <meta name="robots" content="all" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/font.css" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+
+    <!-- CSS(섹션별) -->
+    <link rel="stylesheet" href="assets/css/card.css" />
+    <link rel="stylesheet" href="assets/css/image.css" />
+    <link rel="stylesheet" href="assets/css/text.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="assets/css/imgText.css" />
+    <link rel="stylesheet" href="assets/css/banner.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/slider.css" />
+
+    <!-- CSS 슬라이드 스와이프-->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/> -->
+    <link rel="stylesheet" href="assets/css/swiper.css" />
+
+    <!-- 위로가기 버튼 -->
+    <style>
+      .top__button{
+        position: fixed;
+        bottom: -200px;
+        right: 10px;;
+        width: 100px;
+        height: 30px;
+        background-color: #000;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        box-sizing: border-box;
+        padding-top: 7px;
+        transition: all 0.3s ease;
+      }
+      .top__button:hover{
+        background-color: rgba(0, 0, 0, 0.104);
+        backdrop-filter: blur(2px);
+        color: #000;
+      }
+      .top__button.show{
+        bottom: 0;
+        right: 10px;;
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+    <div id="skip">
+      <a href="#">헤더 영역 바로가기</a>
+      <a href="#">슬라이드 영역 바로가기</a>
+      <a href="#">이미지 영역 바로가기</a>
+      <a href="#">이미지/텍스트 영역 바로가기</a>
+      <a href="#">카드 영역 바로가기</a>
+      <a href="#">배너 영역 바로가기</a>
+      <a href="#">텍스트 영역 바로가기</a>
+      <a href="#">푸터 영역 바로가기</a>
+    </div>
+    <!-- //skip -->
+
+    <header id="headerType" class="header__wrap nexon">
+      <div class="header__inner">
+        <div class="header__logo">
+          <a href="#">SSHINY<em> PERFUME</em></a>
+        </div>
+        <nav class="header__menu">
+          <ul>
+            <li><a class="active" href="#sliderType">MAIN</a></li>
+            <li><a href="#imgType">NEW</a></li>
+            <li><a href="#imgTextType">PERSONAL</a></li>
+            <li><a href="#cardType">BEST</a></li>
+            <li><a href="#bannerType">DAILY</a></li>
+            <li><a href="#textType">ABOUT</a></li>
+          </ul>
+        </nav>
+        <div class="header__member">
+          <a href="#">LOGIN</a>
+        </div>
+      </div>
+
+      <div class="header__inner__side">
+        <div class="header__tab"><a class="blind">사이드바 열기/닫기</a></div>
+        <div class="header__box">
+          <div class="header__logo2">
+            <a href="#">SSHINY<em> PERFUME</em></a>
+          </div>
+          <div class="header__member2">
+            <a href="#">LOGIN</a>
+          </div>
+          <nav class="header__menu2">
+            <ul>
+              <li><a class="active" href="#sliderType">MAIN</a></li>
+              <li><a href="#imgType">NEW</a></li>
+              <li><a href="#imgTextType">PERSONAL</a></li>
+              <li><a href="#cardType">BEST</a></li>
+              <li><a href="#bannerType">DAILY</a></li>
+              <li><a href="#textType">ABOUT</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- //headerType -->
+    
+    <main id="mainType">
+      <section id="sliderType" class="slider__wrap  ">
+        <h2 class="blind">슬라이드영역</h2>
+        <div class="slider__inner">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide slide01">
+                <div class="desc">
+                  <span>NEW Product</span>
+                  <h3>SPRING SEASON</h3>
+                  <p>
+                    따스한 햇살을 타고 부드러운 꽃 향이 다가오는 지금
+                    <br>향기를 타고 봄이 다가온다
+                  </p>
+                  <div class="btn">
+                    <a href="#">자세히 보기</a>
+                    <a href="#" class="black">제품 보기</a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide slide02">
+                <div class="desc">
+                  <span>NEW Product</span>
+                  <h3>SPRING SEASON</h3>
+                  <p>
+                    따스한 햇살을 타고 부드러운 꽃 향이 다가오는 지금
+                    <br>향기를 타고 봄이 다가온다
+                  </p>
+                  <div class="btn">
+                    <a href="#">자세히 보기</a>
+                    <a href="#" class="black">제품 보기</a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide slide03">
+                <div class="desc">
+                  <span>NEW Product</span>
+                  <h3>SPRING SEASON</h3>
+                  <p>
+                    따스한 햇살을 타고 부드러운 꽃 향이 다가오는 지금
+                    <br>향기를 타고 봄이 다가온다
+                  </p>
+                  <div class="btn">
+                    <a href="#">자세히 보기</a>
+                    <a href="#" class="black">제품 보기</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button">
+              <div class="swiper-button-play"><span class="ir">play</span></div>
+              <div class="swiper-button-stop"><span class="ir">stop</span></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <!-- <div class="slider">
+            <div class="slider__img">
+              <div class="desc">
+                <span>NEW Product</span>
+                <h3>SPRING SEASON</h3>
+                <p>
+                  따스한 햇살을 타고 부드러운 꽃 향이 다가오는 지금
+                  <br>향기를 타고 봄이 다가온다
+                </p>
+                <div class="btn">
+                  <a href="#">자세히 보기</a>
+                  <a href="#" class="black">제품 보기</a>
+                </div>
+              </div>
+            </div>
+            <div class="slider__arrow">
+              <a href="#" class="left"><span class="ir">이전 이미지</span></a>
+              <a href="#" class="right"><span class="ir">다음 이미지</span></a>
+            </div>
+            <div class="slider__dot">
+              <a href="#" class="dot active"><span class="ir">1</span></a>
+              <a href="#" class="dot"><span class="ir">2</span></a>
+              <a href="#" class="dot"><span class="ir">3</span></a>
+              <a href="#" class="play"><span class="ir">플레이</span></a>
+              <a href="#" class="stop"><span class="ir">정지</span></a>
+            </div>
+          </div> -->
+        </div>
+      </section>
+      <!--//sliderType-->
+
+      <section id="imgType" class="image__wrap  section">
+        <h2>화사한 봄꽃처럼</h2>
+        <p>햇살이 반기는 맑은 하늘과 포근한 공기, 그 사이로 스며든 기분 좋은 향조들.</p>
+        <div class="image__inner container image__box">
+          <article class="image img1">
+            <h3 class="image__title">SPRING COOLTON</h3>
+            <p class="image__desc">
+              연분홍빛 꽃을 닮은 부드럽고 사랑스러운 향기.
+              <br>로즈와 스위트 재스민삼박, 프리지어의 폭발적인 달콤함을 느낄 수 있습니다.
+            </p>
+            <a class="image__btn" href="#" title="자세히 보기">자세히 보기</a>
+          </article>
+          <article class="image img2">
+            <h3 class="image__title">FLOWER BOM</h3>
+            <p class="image__desc">
+              생동감이 폭발하는 봄을 닮은 향수.
+              <br>아이리스와 은방울꽃으로 시작해 센티폴리아 로즈, 우드 노트로 끝나는 향기를 느껴보세요.
+            </p>
+            <a class="image__btn yellow" href="#" title="자세히 보기">자세히 보기</a>
+          </article>
+        </div>
+      </section>
+      <!--//imageType-->
+
+      <section id="imgTextType" class="imgText__wrap  section gray">
+        <h2 class="blind">유용한 사이트 살펴보기</h2>
+        <div class="imgText__inner container ">
+          <div class="imgText__txt">
+            <span class="blind">이미지 텍스트 유형01</span>
+            <h3>당신의 향수에<br>
+              만족하시나요?</h3>
+            <p>수 만개의 향수 중 당신의 향수를 찾는 것
+              <br>그것은 운명과도 같은 일입니다.</p>
+            <ul>
+              <li><a href="#">당신만의 향수</a></li>
+              <li><a href="#">무료로 시향하세요</a></li>
+              <li><a href="#">당일 주문 / 당일 출고</a></li>
+              <li><a href="#">당신만의 향수</a></li>
+              <li><a href="#">무료로 시향하세요</a></li>
+              <li><a href="#">당일 주문 / 당일 출고</a></li>
+            </ul>
+          </div>
+          <div class="imgbox">
+            <div class="imgText__img img1">
+              <a href="#">PERSONAL</a>
+            </div>
+            <div class="imgText__img img2">
+              <a href="#" class="blue">CUSTOM</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--//imgTextType-->
+
+      <section id="cardType" class="card__wrap  section">
+        <h2>선인장에서 추출한 이국적 향</h2>
+        <p>지중해 연안을 상징하는 선인장 열매인 프리클리 페어를 메인으로 시작되는 BSET EDITION</p>
+        <div class="card__inner container ">
+          <article class="card">
+            <figure class="card__header">
+              <img src="assets/img/card_bg01_01_1.jpg" alt="외형에 대한 오해 이미지" />
+            </figure>
+            <div class="card__body">
+              <h3 class="tit">Cactus</h3>
+              <p class="desc">
+                오가닉 버베나와 선인장 추출물이
+                조화를 이루는 향으로
+                여름 갈증을 해소하는 이국적이고
+                상쾌한 기운을 느낄 수 있습니다.
+                <br>여름과 어울리는 밝고 신선한 향을 선사합니다.
+              </p>
+              <a class="btn" href="#">
+                더 자세히 보기
+                <span aria-hidden="true">
+                  <svg width="35" height="8" viewBox="0 0 65 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z"
+                      fill="black"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </article>
+          <article class="card">
+            <figure class="card__header">
+              <img src="assets/img/card_bg01_02_1.jpg" alt="도베르만의 성격 이미지" />
+            </figure>
+            <div class="card__body">
+              <h3 class="tit">무더운 날씨에도 꽃피우는 향기</h3>
+              <p class="desc">
+                청량한 느낌이 낯설다면, 아마 이 향수가 없어서가 아닐까요?
+                <br>고객님들이 사랑해주신 이 향수
+                <br>당신과 어울리는 밝고 신선한 향을 선사해드립니다.
+              </p>
+              <a class="btn" href="#">
+                더 자세히 보기
+                <span aria-hidden="true">
+                  <svg width="35" height="8" viewBox="0 0 65 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z"
+                      fill="black"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </article>
+          <article class="card">
+            <figure class="card__header">
+              <img src="assets/img/card_bg01_03_1.jpg" alt="도베르만을 키울때 주의할 점 이미지" />
+            </figure>
+            <div class="card__body">
+              <h3 class="tit">Very Royal Cactus</h3>
+              <p class="desc">
+                오가닉 버베나와 선인장 추출물이
+                조화를 이루는 향으로
+                여름 갈증을 해소하는 이국적이고
+                상쾌한 기운을 느낄 수 있습니다.
+                <br>여름과 어울리는 밝고 신선한 향을 선사합니다.
+              </p>
+              <a class="btn" href="#">
+                더 자세히 보기
+                <span aria-hidden="true">
+                  <svg width="35" height="8" viewBox="0 0 65 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z"
+                      fill="black"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!--//cardType-->
+
+      <section id="bannerType" class="banner__wrap ">
+        <h2 class="blind">배너 영역</h2>
+        <div class="banner__inner">
+          <h3 class="title">Daily Perfume</h3>
+          <p class="desc">
+            따스한 일요일 아침 화이트 셔츠의 두근거리는 설렘
+            <a href="#" title="새로운 페이지 열림" target="_blank">sshin4882.tistory.com</a>
+          </p>
+          <span class="small">SSHINY PERFUME</span>
+        </div>
+      </section>
+      <!--//bannerType-->
+
+      <section id="textType" class="text__wrap  section">
+        <span class="blind">텍스트 유형01</span>
+        <h2 class="mb70">ABOUT US</h2>
+        <div class="text__inner container">
+          <div class="text t1">
+            <h3 class="text__title">글루텐 프리</h3>
+            <p class="text__desc">
+              알레르기를 유발할 수 있는 글루텐을 넣지 않음으로써, 남녀노소 모두가 쓸 수 있는 향수를 만듭니다.
+            </p>
+            <a class="text_btn" href="#">더보기</a>
+          </div>
+          <div class="text t2">
+            <h3 class="text__title">비건 향수</h3>
+            <p class="text__desc">
+              끗한 향수를 만들어 믿고 사용할 수 있는 제품을 만드는데 힘쓰고 있습니다. 친환경 원료만 사용해서 만든 대표적인 비건 향수입니다.
+            </p>
+            <a class="text_btn" href="#">더보기</a>
+          </div>
+          <div class="text t3">
+            <h3 class="text__title">크룰티 프리</h3>
+            <p class="text__desc">
+              동물 실험을 거치지 않고 만들어지는 향수입니다. 생명을 소중히 하며 윤리적인 기업이 되고자 노력하고 있습니다.
+            </p>
+            <a class="text_btn" href="#">더보기</a>
+          </div>
+          <div class="text t4">
+            <h3 class="text__title">리사이클러블 </h3>
+            <p class="text__desc">
+              자연을 침해하지 않는 범위 내에서 만들어진 클린의 제품들은 사용 후 다시 그대로 자연으로 돌아가는 전제품 ‘리사이클러블’을 추구하고 있습니다.
+            </p>
+            <a class="text_btn" href="#">더보기</a>
+          </div>
+          <div class="text t5">
+            <h3 class="text__title">환경친화 </h3>
+            <p class="text__desc">
+              최초 환경친화적인 지속 가능한 원료를 사용하여 깨끗한 지구 만들기에 앞장서고 있습니다.
+            </p>
+            <a class="text_btn" href="#">더보기</a>
+          </div>
+          <div class="text t6">
+            <h3 class="text__title">지속가능성 </h3>
+            <p class="text__desc">
+              자연과 환경을 사랑하는 우리는 천연자원의 고갈을 피하기 위해 지속 가능한 원료를 사용합니다.
+            </p>
+            <a class="text_btn" href="#">더보기</a>
+          </div>
+        </div>
+      </section>
+      <!--//textType-->
+    </main>
+    <!-- //mainType -->
+
+    <footer id="footerType" class="footer__wrap nexon section">
+      <h2 class="blind">푸터 영역</h2>
+      <div class="footer__inner container">
+        <div class="footer__menu">
+          <div>
+            <h3>시즌</h3>
+            <ul>
+              <li><a href="#">봄</a></li>
+              <li><a href="#">여름</a></li>
+              <li><a href="#">가을</a></li>
+              <li><a href="#">겨울</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>회사 소개</h3>
+            <ul>
+              <li><a href="#">이용 약관</a></li>
+              <li><a href="#">광고 제휴</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>출처</h3>
+            <ul>
+              <li><a href="#">비레디</a></li>
+              <li><a href="#">UNSPLASH</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>메뉴</h3>
+            <ul>
+              <li><a href="#">메뉴</a></li>
+              <li><a href="#">신제품</a></li>
+              <li><a href="#">퍼스널 향수</a></li>
+              <li><a href="#">베스트셀러</a></li>
+              <li><a href="#">ABOUT US</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>회원</h3>
+            <ul>
+              <li><a href="#">회원 혜택</a></li>
+              <li><a href="#">회원 후기</a></li>
+              <li><a href="#">공지사항</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>고객지원</h3>
+            <ul>
+              <li><a href="#">A/S</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">1:1 문의</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__right">
+        2022 SSHINY. Portfolio is Power<br />
+        All rights reserved.
+      </div>
+      
+    </footer>
+    <!-- //footerType -->
+    
+    <div class="top__button"><span>top</span></div>
+    <!-- //위로가기버튼 -->
+    <!-- script영역 -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+          delay: 2000,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable : true,
+        },
+      });
+
+      document.querySelector(".swiper-button-stop").addEventListener("click", ()=>{
+        swiper.autoplay.stop();
+        document.querySelector(".swiper-button-stop").style.display = "none";
+        document.querySelector(".swiper-button-play").style.display = "flex";
+      });
+      document.querySelector(".swiper-button-play").addEventListener("click", ()=>{
+        swiper.autoplay.start();
+        document.querySelector(".swiper-button-play").style.display = "none";
+        document.querySelector(".swiper-button-stop").style.display = "flex";
+
+      });
+
+    </script>
+    <script>
+      // 헤더메뉴 페럴렉스 + 클릭 이동
+      window.addEventListener("scroll", () => {
+          let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+          document.querySelectorAll("main > section").forEach((element, index) => {
+              if (scrollTop >= element.offsetTop - window.innerHeight / 6) {
+                  document.querySelectorAll(".header__menu li a").forEach((li) => {
+                      li.classList.remove("active");
+                  });
+                  document.querySelector(`.header__menu li:nth-child(${index + 1}) a`).classList.add("active");
+              }
+          });
+      });
+
+      // 스크롤 이동
+      document.querySelectorAll(".header__menu li a").forEach((li) => {
+          li.addEventListener("click", (e) => {
+              e.preventDefault();
+              document.querySelector(li.getAttribute("href")).scrollIntoView({
+                  behavior: "smooth",
+              });
+          });
+      });
+      document.querySelectorAll(".header__menu2 li a").forEach((li) => {
+          li.addEventListener("click", (e) => {
+              e.preventDefault();
+              document.querySelector(li.getAttribute("href")).scrollIntoView({
+                  behavior: "smooth",
+              });
+          });
+      });
+
+      //  헤더영역 반응형시 표시
+      let windowWidth = window.innerWidth;
+      let headerBtn = document.querySelector(".header__inner__side .header__tab");
+      
+      headerBtn.addEventListener("click", () => {
+        let className = document.querySelector(".header__inner__side div").getAttribute('class');
+        if(className == "header__tab"){
+          document.querySelector(".header__box").style.left="-500px";
+          headerBtn.classList.add("hide")
+        }else{
+          headerBtn.classList.remove("hide")
+          document.querySelector(".header__box").style.left="1px";
+        }
+      });
+
+      // 반응형메뉴패럴랙스 (위와 비슷)
+      window.addEventListener("scroll", () => {
+          let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+          document.querySelectorAll("main > section").forEach((element, index) => {
+              if (scrollTop >= element.offsetTop - window.innerHeight / 6) {
+                  document.querySelectorAll(".header__menu2 li a").forEach((li) => {
+                      li.classList.remove("active");
+                  });
+                  document.querySelector(`.header__menu2 li:nth-child(${index + 1}) a`).classList.add("active");
+              }
+          });
+      });
+      
+      
+      // 최하단 top버튼
+      window.addEventListener("scroll", () => {
+          let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+          console.log(scrollTop)
+          console.log(document.body.scrollHeight)
+          console.log(window.innerHeight)
+          console.log(document.body.scrollHeight - (window.innerHeight + 500))
+          if (scrollTop >= document.body.scrollHeight - (window.innerHeight + 600)) {
+            document.querySelector(".top__button").classList.add("show");
+          } else {
+            document.querySelector(".top__button").classList.remove("show");
+          }
+      });
+
+      // top버튼누르면 맨위로
+      document.querySelector(".top__button").addEventListener("click", () => {
+          window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+      });
+
+
+    </script>
+  </body>
+</html>

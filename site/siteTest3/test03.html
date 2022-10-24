@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 50px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+
+        /* 메인 */
+        #main {
+            display: flex;
+            width: 1000px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .left {
+            width: 30%;
+            /* background: #fff; */
+        }
+
+        .left .l__logo {
+            margin-top: 10px;
+        }
+
+        .left .l__logo>a {
+            font-size: 1.2rem;
+            position: relative;
+            margin-left: 45px;
+            font-weight: bold;
+        }
+
+        .left .l__logo>a::before {
+            content: '';
+            position: absolute;
+            left: -45px;
+            top: -5px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: url(img/logoicon.jpg) no-repeat;
+            background-size: contain;
+        }
+
+        .left .l__menu {
+            margin-top: 50px;
+            box-sizing: border-box;
+        }
+
+        .left .l__menu a {
+            font-size: 1.2rem;
+            padding: 10px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .right {
+            width: 70%;
+            box-sizing: border-box;
+            padding: 0 10px;
+        }
+
+        /* slide */
+        #slide {
+            width: 100%;
+        }
+        .img__box {
+            overflow: hidden;
+        }
+
+        .img__wrap {
+            height: 350px;
+        }
+
+        .img1 {
+            background: url(img/slide01.jpg) no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+
+        .img2 {
+            background: url(img/slide02.jpg) no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+
+        .img3 {
+            background: url(img/slide03.jpg) no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+
+
+        /* it */
+        #imgText {
+            width: 100%;
+            height: 300px;
+            /* background: #c7f7f7; */
+            margin-top: 50px;
+        }
+
+        #imgText .it__header {
+            text-align: center;
+            width: 100%;
+            font-size: 1.5rem;
+            box-sizing: border-box;
+        }
+        #imgText .it__header span{
+            color: #ccc;
+        }
+        #imgText .it__header span.active{
+            color: #000;
+            font-size: 1.6rem;
+        }
+        
+        #imgText .it__header p {
+            display: inline;
+            vertical-align: top;
+            padding: 4px 20px 0px 20px;
+            position: relative;
+        }
+        #imgText .it__header p::before {
+            content: '';
+            position: absolute;
+            top: 9px;
+            left: 40%;
+            width: 2px;
+            height: 1.5rem;
+            background: #000;
+            
+        }
+
+        #imgText .it__desc {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+        }
+
+        .it__desc div {
+            width: 24%;
+        }
+
+        .it__desc div a:first-child {
+            display: block;
+            width: 120px;
+            height: 120px;
+
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+
+        .it__desc div:nth-child(1) a:first-child {
+            background: url(img/icon01.jpg) no-repeat;
+            background-size: contain;
+        }
+
+        .it__desc div:nth-child(2) a:first-child {
+            background: url(img/icon02.jpg) no-repeat;
+            background-size: contain;
+        }
+
+        .it__desc div:nth-child(3) a:first-child {
+            background: url(img/icon03.jpg) no-repeat;
+            background-size: contain;
+        }
+
+        .it__desc div:nth-child(4) a:first-child {
+            background: url(img/icon04.jpg) no-repeat;
+            background-size: contain;
+        }
+
+        .it__desc div:nth-child(5) a:first-child {
+            background: url(img/icon05.jpg) no-repeat;
+            background-size: contain;
+        }
+
+        .it__desc div a:last-child {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            margin: 0 auto;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        /* card */
+        #card {
+            margin-top: 50px;
+            background: #f5f5f5;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .card__wrap {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card__wrap div {
+            width: 32%;
+            box-sizing: border-box;
+            padding: 10px;
+            background: white;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .card__wrap div h2 {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .card__wrap>div::before {
+            content: '';
+            width: 35px;
+            height: 35px;
+            background: url(img/plus.jpg) no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .card__wrap div:nth-child(1) .card__icon {
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: url(img/icon06_bt.jpg) no-repeat;
+            background-size: contain;
+            border-radius: 50%;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+        .card__wrap div:nth-child(2) .card__icon {
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: url(img/icon07_bt.jpg) no-repeat;
+            background-size: contain;
+            border-radius: 50%;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+        .card__wrap div:nth-child(3) .card__icon {
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: url(img/icon08_bt.jpg) no-repeat;
+            background-size: contain;
+            border-radius: 50%;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+        .card__wrap .card__desc {
+            width: 100%;
+        }
+
+        .card__wrap .card__desc li {
+            position: relative;
+            margin: 5px 0 5px 5%;
+        }
+
+        .card__wrap .card__desc li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: #ccc;
+            border-radius: 50%;
+            position: absolute;
+            left: -10px;
+            top: 50%;
+        }
+
+        .card__wrap .card__desc li a {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+
+        }
+        .layer {
+            display: none;
+        }
+        .layer.active {
+            display: block;
+            width: 50vh;
+            height: 50vh;
+            background-color:antiquewhite;
+            position:fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+
+        /* 푸터 */
+        #footer {
+            width: 1000px;
+            margin: 0 auto;
+            background: #edf2f8;
+            height: 100px;
+            margin-top: 30px;
+            box-sizing: border-box;
+            padding: 10px;
+            display: flex;
+        }
+
+        .footer__logo {
+            width: 10%;
+            text-align: center;
+        }
+
+        .footer__logo a {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: url(img/logoicon__footer.jpg) no-repeat;
+            background-size: contain;
+            display: block;
+            position: relative;
+        }
+
+        .footer__logo a::before {
+            content: '정부 24';
+            position: absolute;
+            left: 0;
+            bottom: -25px;
+            width: 100%;
+            height: 35px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .footer__desc {
+            width: 60%;
+            padding: 10px;
+        }
+
+        .footer__link {
+            width: 30%;
+            padding: 15px;
+            text-align: right;
+        }
+
+        .footer__link {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .footer__link div {
+            width: 80px;
+            height: 50px;
+            background: #fff;
+        }
+
+        .footer__link div:nth-child(1) a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: url(img/link.jpg) no-repeat;
+            background-position: -160px 0;
+            background-size: 300% 100%;
+        }
+
+        .footer__link div:nth-child(2) a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: url(img/link.jpg) no-repeat;
+            background-position: -83px 0;
+            background-size: 300% 100%;
+        }
+
+        .footer__link div:nth-child(3) a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: url(img/link.jpg) no-repeat;
+            background-size: 300% 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main id="main">
+        <div class="left">
+            <div class="l__logo">
+                <a href="#">정부 24</a>
+            </div>
+            <div class="l__menu">
+                <ul>
+                    <li><a href="#">서비스</a></li>
+                    <li><a href="#">정책정보</a></li>
+                    <li><a href="#">기관정보</a></li>
+                    <li><a href="#">고객센터</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <section id="slide">
+                <h2 class="blind">슬라이드영역</h2>
+                <div class="img__box">
+                    <div class="img__wrap">
+                        <div class="img1"><span class="blind">슬라이드이미지1</span></div>
+                        <div class="img2"><span class="blind">슬라이드이미지2</span></div>
+                        <div class="img3"><span class="blind">슬라이드이미지3</span></div>
+                    </div>
+                </div>
+            </section>
+            <!-- 슬라이드 -->
+            <section id="imgText">
+                <h2 class="blind">이미미지텍스트영역</h2>
+                <div class="it__header">
+                    <span class="active">자주 찾는 서비스</span>
+                    <p></p>
+                    <span>키워드 서비스</span>
+                </div>
+                <div class="it__desc">
+                    <div>
+                        <a href="#"><span class="blind">주민등록표등본</span></a>
+                        <a href="#">주민등록표등본<br>(초본)교부</a>
+                    </div>
+                    <div>
+                        <a href="#"><span class="blind">주민등록표등본</span></a>
+                        <a href="#">주민등록표등본<br>(초본)교부</a>
+                    </div>
+                    <div>
+                        <a href="#"><span class="blind">주민등록표등본</span></a>
+                        <a href="#">주민등록표등본<br>(초본)교부</a>
+                    </div>
+                    <div>
+                        <a href="#"><span class="blind">주민등록표등본</span></a>
+                        <a href="#">주민등록표등본<br>(초본)교부</a>
+                    </div>
+                    <div>
+                        <a href="#"><span class="blind">주민등록표등본</span></a>
+                        <a href="#">주민등록표등본<br>(초본)교부</a>
+                    </div>
+                </div>
+            </section>
+            <!-- 이텍 -->
+            <section id="card">
+                <h2 class="blind">카드영역</h2>
+                <div class="card__wrap">
+                    <div>
+                        <h2>공지사항</h2>
+                        <a href="#" class="card__icon"></a>
+                        <div class="card__desc">
+                            <ul>
+                                <li><a href="#">[어디서나 대학민원] 호서대학교 팩스가어쩌고저저고</a></li>
+                                <li><a href="#">[어디서나 대학민원] 호서대학교 팩스가어쩌고저저고</a></li>
+                                <li><a href="#">[어디서나 대학민원] 호서대학교 팩스가어쩌고저저고</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>공지사항</h2>
+                        <a href="#" class="card__icon"></a>
+                        <div class="card__desc">
+                            <ul>
+                                <li><a href="#">[어디서나 대학민원] 호서대학교 팩스가어쩌고저저고</a></li>
+                                <li><a href="#">[어디서나 대학민원] 호서대학교 팩스가어쩌고저저고</a></li>
+                                <li><a href="#">[어디서나 대학민원] 호서대학교 팩스가어쩌고저저고</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>공지사항</h2>
+                        <a href="#" class="card__icon"></a>
+                        <div class="card__desc">
+                            <ul>
+                                <li><a href="#">[어디서나 대학민원] 호서대학교 팩스가어쩌고저저고</a></li>
+                                <li><a href="#">[어디서나 대학민원] 호서대학교 팩스가어쩌고저저고</a></li>
+                                <li><a href="#">[어디서나 대학민원] 호서대학교 팩스가어쩌고저저고</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 카드 -->
+
+            <div class="layer">
+                레이어팝업
+                <div class="exit">&lt;누르면 닫힘&gt;</div>
+            </div>
+            <!-- 레이어팝업 -->
+
+        </div>
+    </main>
+    <!-- 메인 -->
+
+    <footer id="footer">
+        <div class="footer__logo">
+            <a href="#"></a>
+        </div>
+        <div class="footer__desc">
+            <p>
+                03171 서울특별시 세종대로 209 (세종로) 행정안전부
+                <br>정부24 콜센터 | 1588-2188 정부민원안내콜센터 국번없이 110
+                <br>Copyright Ministry abcvwifwjeofjwfowefjwoejf
+            </p>
+        </div>
+        <div class="footer__link">
+            <div>
+                <a href="#"><span class="blind">링크</span></a>
+            </div>
+            <div>
+                <a href="#"><span class="blind">링크</span></a>
+            </div>
+            <div>
+                <a href="#"><span class="blind">링크</span></a>
+            </div>
+        </div>
+    </footer>
+    <!-- 푸터 -->
+
+    <script>
+        const sliderWrap = document.querySelector(".img__wrap");
+        const slider = document.querySelectorAll(".img__wrap div"); 
+
+        let currrentInedex = 0; 
+        let sliderCount = slider.length; 
+        let sliderHieght = sliderWrap.offsetHeight;
+        let sliderClone = sliderWrap.firstElementChild.cloneNode(true); 
+        sliderWrap.appendChild(sliderClone); 
+
+        function sliderEffect() {
+            currrentInedex++;
+            sliderWrap.style.transition = "all 0.6s";
+            sliderWrap.style.transform =
+                "translateY(-" + sliderHieght * currrentInedex + "px)";
+
+            if (currrentInedex == sliderCount) {
+                setTimeout(() => {
+                    sliderWrap.style.transition = "0s"; 
+                    sliderWrap.style.transform = "translateY(0px)";
+                }, 700);
+
+                currrentInedex = 0;
+            }
+        }
+        setInterval(sliderEffect, 2000);
+
+
+        const Tabbtn = document.querySelectorAll(".it__header span");
+        const Tabbox = document.querySelectorAll(".it__header");
+
+        Tabbtn.forEach(btn => {
+            btn.addEventListener("click",()=>{
+                btn.classList.toggle("active");
+                // btn.classList.add("active");
+            })
+        })
+
+        const layBtn = document.querySelectorAll(".card__wrap div");
+        const layer = document.querySelector(".layer");
+
+        layBtn.forEach(btn => {
+            btn.addEventListener("click", () => {
+                layer.classList.add("active")
+            })
+        })
+        document.querySelector(".exit").addEventListener("click", ()=>{
+            layer.classList.remove("active")
+        })
+
+    </script>
+</body>
+
+</html>

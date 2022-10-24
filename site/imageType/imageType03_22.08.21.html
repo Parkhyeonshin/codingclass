@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 유형03</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/nixgon/NixgonFonts.css');
+
+        .gowun {
+            font-family: 'NixgonFonts';
+            font-weight: 300;
+        }
+        /* 리셋 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        img {
+            width: 100%;
+            vertical-align: top;
+
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            color: #02004B;
+        }
+        .ir {
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            text-indent: -9999px;           
+        }
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+        .container-fluid {
+            width: 100%;
+            padding: 0 100px;
+            box-sizing: border-box;
+        }
+        .section {
+            padding: 120px 0;
+        }
+        .section > h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section > p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* imageType03 */
+        .image__inner {
+            display: grid;
+            grid-template-areas: 
+                "box1 box2 box3"
+                "box1 box4 box5"
+            ;
+            grid-template-columns: 50% 25% 25%;
+            grid-gap: 20px;
+
+        }
+        .image{
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        .image__inner .image{}
+        .image__inner .image:nth-child(1){
+            grid-area: box1;
+            background: url(img/image_type03_01.jpg) ;
+            background-size: cover;
+        }
+        .image__inner .image:nth-child(2){
+            grid-area: box2;
+        }
+        .image__inner .image:nth-child(3){
+            grid-area: box3;
+        }
+        .image__inner .image:nth-child(4){
+            grid-area: box4;
+
+        }
+        .image__inner .image:nth-child(5){
+            grid-area: box5;
+
+        }
+    
+        .image__desc{
+            position: absolute;
+            left: 0;
+            bottom: -100%;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.3);
+            box-sizing: border-box;
+            transition: all 0.4s ease;
+            padding: 16px;
+        }
+        .image__desc:first-child{
+            height: 85px;
+        }
+
+        .image:hover .image__desc{
+            bottom: 0;
+        }
+        .image__desc a:first-child{
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #fff;
+            background: url(img/image_bg03_icon2.svg) no-repeat;
+            position:absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+        .image__desc a:nth-child(2){
+            width: 124px;
+            height: 45px;
+            border-radius: 50px;
+            background: #fff;
+            background: url(img/image_bg03_icon3.svg) no-repeat;
+            position:absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+        .image__desc h3 {
+            font-size: 20px;
+        }
+        .image__desc p {
+            font-size: 16px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #02004B;
+        }
+        .image__desc:first-child p{
+            text-align: center;
+            /* width: 100px; */
+            height: 45px;
+            line-height: 45px;
+            position:absolute;
+            bottom: 20px;
+            right: 50px;
+        }
+        .image__sns{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        .image__sns a {
+            width: 36px;
+            height: 36px;
+            background: #fff;
+            border-radius: 50%;
+            display: block;
+            margin-bottom: 5px;
+            background: url(img/image_bg03_icon.svg) no-repeat;
+        }
+        .image__sns a:nth-child(1){}
+        .image__sns a:nth-child(2){
+            background-position: -50px ;
+        }
+        .image__sns a:nth-child(3){
+            background-position: -100px ;
+        }
+        .image__sns a:nth-child(4){
+            background-position: -150px ;
+        }
+        .image__sns a:nth-child(5){
+            background-position: -200px ;
+        }
+        .image:hover .image__sns {
+            /* right: 10px; */
+            opacity: 1;
+        }
+    </style> 
+</head>
+<body>
+    <section id="imageType03" class="image__wrap gowun section gray">
+        <h2>산토리니 투어</h2>
+        <p>
+            파란 지붕과 하얀 건물로 유명한 바로 그곳.<br>
+            그리스 남부의 작은 섬 산토리니로 다함께 떠나볼까요💨
+        </p>
+        <div class="image__inner container-fluid">
+            <article class="image">
+                <!-- <figure class="image__box">
+                    <img src="img/image_type03_01.jpg" alt="이미지">
+                </figure> -->
+                <div class="image__desc">
+                    <a href="http://www.melon.com" target="blank" class="link"><span class="ir">자세히보기</span></a>
+                    <a href="http://www.melon.com" target="blank" class="link"><span class="ir">자세히보기</span></a>
+                    <p>1.5M</p>
+                </div>
+                <div class="image__sns">
+                    <a href="http://www.melon.com" target="blank" class="link"><span class="ir">자세히보기</span></a>
+                    <a href="http://www.tistory.com" target="blank" class="link"><span class="ir">페이지이동</span></a>
+                    <a href="http://www.tistory.com" target="blank" class="link"><span class="ir">페이지이동</span></a>
+                    <a href="http://www.tistory.com" target="blank" class="link"><span class="ir">페이지이동</span></a>
+                    <a href="http://www.tistory.com" target="blank" class="link"><span class="ir">페이지이동</span></a>
+                </div>
+            </article>
+            <article class="image">
+                <figure class="image__box">
+                    <img src="img/image_type03_02.jpg" alt="이미지">
+                </figure>
+                <div class="image__desc">
+                    <h3>Greece_Santorini</h3>
+                    <p>파란 지붕과 하얀 건물이 지중해의  바다와 어우러져 동화의 한장면처럼 아름답게...</p>
+                </div>
+                <div class="image__sns">
+                    <a href="http://www.melon.com" target="blank" class="link"><span class="ir">자세히보기</span></a>
+                    <a href="http://www.tistory.com" target="blank" class="link"><span class="ir">페이지이동</span></a>
+                </div>
+            </article>
+            <article class="image">
+                <figure class="image__box">
+                    <img src="img/image_type03_03.jpg" alt="이미지">
+                </figure>
+                <div class="image__desc">
+                    <h3>Greece_Santorini</h3>
+                    <p>파란 지붕과 하얀 건물이 지중해의  바다와 어우러져 동화의 한장면처럼 아름답게...</p>
+                </div>
+                <div class="image__sns">
+                    <a href="http://www.melon.com" target="blank" class="link"><span class="ir">자세히보기</span></a>
+                    <a href="http://www.tistory.com" target="blank" class="link"><span class="ir">페이지이동</span></a>
+                </div>
+            </article>
+            <article class="image">
+                <figure class="image__box">
+                    <img src="img/image_type03_04.jpg" alt="이미지">
+                </figure>
+                <div class="image__desc">
+                    <h3>Greece_Santorini</h3>
+                    <p>파란 지붕과 하얀 건물이 지중해의  바다와 어우러져 동화의 한장면처럼 아름답게...</p>
+                </div>
+                <div class="image__sns">
+                    <a href="http://www.melon.com" target="blank" class="link"><span class="ir">자세히보기</span></a>
+                    <a href="http://www.tistory.com" target="blank" class="link"><span class="ir">페이지이동</span></a>
+                </div>
+            </article>
+            <article class="image">
+                <figure class="image__box">
+                    <img src="img/image_type03_05.jpg" alt="이미지">
+                </figure>
+                <div class="image__desc">
+                    <h3>Greece_Santorini</h3>
+                    <p>파란 지붕과 하얀 건물이 지중해의  바다와 어우러져 동화의 한장면처럼 아름답게...</p>
+                </div>
+                <div class="image__sns">
+                    <a href="http://www.melon.com" target="blank" class="link"><span class="ir">자세히보기</span></a>
+                    <a href="http://www.tistory.com" target="blank" class="link"><span class="ir">페이지이동</span></a>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+</html>

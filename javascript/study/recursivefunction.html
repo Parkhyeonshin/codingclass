@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 재귀함수 </title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="effect">
+                <li><a href="../effect/searchEffect.html">검색 효과</a></li>
+                <li><a href="../effect/quizEffect.html">퀴즈 효과</a></li>
+                <li><a href="../effect/dataEffect.html">데이터 효과</a></li>
+                <li><a href="../effect/mouseEffect.html">마우스 효과</a></li>
+                <li><a href="../effect/sliderEffect.html">슬라이드 효과</a></li>
+                <li><a href="../effect/parallaxEffect.html">패랠랙스 효과</a></li>
+                <li><a href="../effect/gameEffect.html">게임 효과</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">데이터 타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+                <li><a href="join.html">배열 메서드</a></li>
+                <li><a href="../effect/study/quiz01.html">퀴즈 만들기</a></li>
+                <li><a href="velog.html">내장함수</a></li>
+                <li><a href="slice.html">문자열 변경 메서드</a></li>
+                <li><a href="indexof.html">문자열 검색 메서드</a></li>
+                <li><a href="RegEXP.html">정규식 표현</a></li>
+                <li><a href="text.html">문자열 결합/템플릿 문자열</a></li>
+                <li><a href="trim.html">소/대문자/공백</a></li>
+                <li><a href="split.html">split()</a></li>
+                <li><a href="repeat.html">replace()/replaceAll()</a></li>
+                <li><a href="concat.html">concat()</a></li>
+                <li><a href="repeat.html">repeat()</a></li>
+                <li><a href="padStart.html">padStart()/padEnd()</a></li>
+                <li><a href="includes.html">includes()</a></li>
+                <li><a href="search.html">search()</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">재귀함수</h2>
+            <p class="t_desc2">
+                오늘은 자기자신을 반복 호출하는 함수! <i>재귀함수</i>에 대해서 알아봅시다.
+                이 재귀함수는 잘 사용하기만 한다면 코드가 매우 간단해진답니다.
+            </p>
+            <hr>
+            <h3 class="t_tit2">■ 넌 뭐니?</h3>
+            <p class="t_desc">
+                영어로 Recursive Call이라고 하는데요. 말 그대로 <i>반복</i>해서 호출한다는 뜻입니다. 
+                여기서 반복대상은 <i>나 자신</i>입니다.
+                <br>얘는 <i>내 함수명령문 안에서 내 함수를 호출</i>하는 형태입니다.
+            </p>
+            <h3 class="t_tit2">■ 문법 (내용 꼭 필독!)</h3>
+            <div class="t_code">
+<pre><code class="language-js">func recursivecall() {
+        recursivecall()
+    }
+</code></pre>
+            </div>
+            <p class="t_desc">
+                문법상 위 방식이 맞긴 하지만 이렇게 작성하고 함수를 실행하면, 아무런 제약없이 계속
+                자기자신을 호출하므로 컴퓨터는 과부하에 걸리게 되고 그렇게...(말잇못)
+            </p>
+            <h3 class="t_tit3">☞ 과부화 해결법 예시</h3>
+            <div class="t_code" >
+<pre><code class="language-js" style="margin-bottom: 0;">function func(num){
+    if( num&lt;=1 ){
+        document.write("함수가 실행되었습니다." + num);
+    } else {
+        document.write("함수가 실행되었습니다." + num);
+        func(num - 1);
+    }
+}
+func(10);
+</code></pre>
+            </div>
+            <div>
+                <details>
+                    <summary style="margin-bottom: 5px">결과보기</summary>
+                    함수가 실행되었습니다.10함수가 실행되었습니다.9함수가 실행되었습니다.8함수가 실행되었습니다.7함수가 실행되었습니다.6함수가 실행되었습니다.5함수가 실행되었습니다.4함수가 실행되었습니다.3함수가 실행되었습니다.2함수가 실행되었습니다.1
+                </details>
+            </div>
+            <div class="t_code">
+<pre><code class="language-js" style="margin-bottom: 0;">function animation(){
+    document.write("함수가 실행되었습니다.");
+
+    requestAnimationFrame(animation);
+}
+animation();
+</code></pre>
+            </div>
+            <div>
+                <details>
+                    <summary style="margin-bottom: 5px">결과보기</summary>
+                    함수가 실행되었습니다.(1초마다 60번씩 실행)
+                </details>
+            </div>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

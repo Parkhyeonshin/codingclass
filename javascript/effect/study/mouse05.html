@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 마우스05</title>
+
+        <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+
+        <style>
+            #main .document .btnflex {
+                display: flex;
+            } 
+        </style>
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="../../../javascript/index.html">Javascript_Mouse04</a></h1>
+            <nav class="header_nav">
+                <ul class="study">
+                    <li><a href="mouse01.html">마우스 이펙트1</a></li>
+                    <li><a href="mouse02.html">마우스 이펙트2</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">마우스 효과 05</h2>
+                <div class="t_desc2">
+                    마우스 효과 다섯번째 시간입니다. "mouse__cursor"에 반전효과를 부여하고 마우스 위치에 따라 
+                    이미지가 약간씩 기우는 효과를 만들어 보겠습니다.
+                </div>
+                <hr />
+
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0">
+                    <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/mouseEffect05.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link btnflex">
+                    <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/mouseEffect05.html" target="_blank"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/mouseEffect05.html" target="_blank">원본 사이트</a>
+                </div>
+                <hr />
+                <h3 class="t_tit2">■ n줄 요약</h3>
+                <div class="t_desc">
+                    ▶ 마우스커서에 "mix-blend-mode : difference"를 주어 마우스포인터(원)이 겹치는 부분에 반전효과를 줄 수 있습니다.
+                    <br>이미지에는 "transform-style : preserve-3d"를 주어서 3D효과를 줍니다.
+                </div>
+                <h3 class="t_tit2">JS 소스</h3>
+                <div class="t_code">
+<pre><code class="language-js">const mouseMove = (e) => {
+    // 마우스 좌표값
+    let mousePageX = e.pageX;
+    let mousePageY = e.pageY;
+
+    // 마우스 좌표 기준점을 가운데로 변경
+    let centerPageX = window.innerWidth / 2 - mousePageX;
+    let centerPageY = window.innerHeight / 2 - mousePageY;
+
+    // 최소값은 -100, 최대값은 100으로 설정
+    let maxPageX = Math.max(-200, Math.min(200, centerPageX));
+    let maxPageY = Math.max(-200, Math.min(200, centerPageY));
+
+    // 각도 줄이는 설정
+    let anglePageX = maxPageX * 0.1;
+    let anglePageY = maxPageY * 0.05;
+
+    // 부드럽게 설정
+    let softPageX = 0, softPageY = 0;
+    softPageX += (anglePageX - softPageX) * 0.4;
+    softPageY += (anglePageY - softPageY) * 0.4;
+
+    // 이미지 움직이기
+    const imgMove = document.querySelector(".mouse__img");
+    imgMove.style.transform = "perspective(600px) rotateX("+softPageY+"deg) rotateY("+ -softPageX+"deg)";
+
+    // 커서
+    gsap.to(".mouse__cursor", {duration: .3, left: mousePageX - 50, top: mousePageY - 50})
+
+    // 출력
+    document.querySelector(".mousePageX").textContent = mousePageX;
+    document.querySelector(".mousePageY").textContent = mousePageY;
+    document.querySelector(".centerPageX").textContent = centerPageX;
+    document.querySelector(".centerPageY").textContent = centerPageY;
+    document.querySelector(".maxPageX").textContent = maxPageX;
+    document.querySelector(".maxPageY").textContent = maxPageY;
+    document.querySelector(".anglePageX").textContent = Math.round(anglePageX);
+    document.querySelector(".anglePageY").textContent = Math.round(anglePageY);
+  };
+
+  window.addEventListener("mousemove", mouseMove);
+</code></pre>
+                </div>
+                <p class="t_tit2">■ 핵심 찍먹하기🪓</p>
+
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ GSAP</h2>
+                <p class="t_desc">
+                    CDN으로 항상 스크립트가져오셔야해요! <br>
+                    gsap.to ()에는 2가지 필수값이 필요합니다. 바로 <i>대상과 속성</i>입니다.
+                    그렇다면 우리 소스에서는 어떻게 작동하는걸까요?
+                    <br> 사용된 속성은 다음과 같습니다.
+                </p>
+                <p class="t_box">
+                    - duration : 애니메이션의 지속시간을 설정합니다. '.3'은 '0.3s'의 의미와 동일합니다.
+                    <br>- left: CSS에 left와 top값을 부여했었는데요. 이 값을 pageX,Y(문서 상단 경계 기준으로 좌표값 추출)만큼 이동시킵니다. 
+                    
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ 기울기 설정하기</h2>
+                <p class="t_box">
+                    // 최소값은 -100, 최대값은 100으로 설정
+                    <br>let maxPageX = Math.max(-200, Math.min(200, centerPageX));
+                    <br>let maxPageY = Math.max(-200, Math.min(200, centerPageY));
+                    <br>
+                    <br>// 각도 줄이는 설정
+                    <br>let anglePageX = maxPageX * 0.1;
+                    <br>let anglePageY = maxPageY * 0.05;
+                </p>
+                <p class="t_desc">
+                    Math.max를 통해서 기울어질 값의 최대값과 최소값을 지정해줍니다. 직접 테스트해보니 숫자가 
+                    클 수록 각도가 많아져서 한바퀴도 돌아가고 난리가 나더라구요 ^_^!
+                    이런 컨트롤부분은 직접 입력해보시면서 이해하시는게 더 잘될것같네요. 
+                    <br><i>기울어질 최대, 최소값을 Math를 이용</i>해서 지정한 뒤, <i>정교한 컨트롤은 소숫점을</i> 곱해주면서 수정해줍시다!
+                    <br>이후 "mouse__img"를 style을 이용해서 수정합시다. 
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ perspective</h2>
+                <p class="t_desc">
+                    이 속성은 3D효과에서만 적용되는 속성입니다. 3D 공간에서 요소와 관측점과의 거리를 지정하는 속성입니다.
+                    한마디로 더 쉽게 표현하자면? <i>원근감</i>을 지정하는 속성입니다.
+                    <br>속성 값이 작을 수록 가까워 보이고, 클수록 멀게 보입니다. 
+                    <br> 백문이 불여일견! 이 속성은 직접 값을 수정해보시는게 이해하기 편한 속성입니다. 
+                    뭘 하고 계시죠? 빨리 직접 해보세요!
+                </p>
+                
+
+                <hr style="margin-bottom : 10px">
+                <p class="p_desc" style="font-size: 14px; text-align: center;">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

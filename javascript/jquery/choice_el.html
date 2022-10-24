@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 : 속성선택자</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../index.html">jQuery</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="jquery.html">기본</a></li>
+                <li><a href="choice_basic.html">기본 선택자</a></li>
+                <li><a href="choice_el.html">속성 선택자</a></li>
+                <li><a href="choice_filter.html">필터 선택자</a></li>
+                <li><a href="choice_search.html">탐색 선택자</a></li>
+                <li><a href="classMethod.html">클래스 관련 메서드</a></li>
+                <li><a href="elMethod.html">속성 관련 메서드</a></li>
+                <li><a href="styleMethod.html">스타일 관련 메서드</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">속성 선택자 </h2>
+            <p class="t_desc2">
+                제이쿼리의 선택자는 CSS의 선택자와 의미가 같은 게 많습니다. 
+                오늘은 두번째 시간입니다.<i>속성 선택자</i>를 알아볼까요.
+            </p>
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/74">1. 기본 선택자 보러가기</a>
+            <br> <a style="color : #ccc;">2. 속성 선택자</a>
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/76">3. 필터 선택자 보러가기</a>
+            <br> <a style="color : #666;" href="https://sshin4882.tistory.com/77">4. 탐색 선택자 보러가기</a>
+            <hr>
+            <h3 class="t_tit2">■ 선택자의 기본 형식</h3>
+            <p class="t_desc">
+                $("선택자")
+                <br>$("#gnb")
+            </p>
+            <h3 class="t_tit2">■ 속성 선택자</h3>
+            <table class="t_table">
+                <colgroup>
+                    <col width="20%">
+                    <col width="30%">
+                    <col width="50%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>선택자 종류</th>
+                        <th colspan="2">설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">요소[속성]</td>
+                        <td class="ce">$("span[class]")</td>
+                        <td>span 요소 중 class속성을 가지고 있는 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소[속성='값']</td>
+                        <td class="ce">$("span[class='abc']")</td>
+                        <td>span 요소 중 class가 'abc'인 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소[속성!='값']</td>
+                        <td class="ce">$("span[class!='abc']")</td>
+                        <td>span 요소 중 class가 'abc'가 아닌 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소[속성~='값']</td>
+                        <td class="ce">$("span[class~='abc']")</td>
+                        <td>span 요소 중 class가 'abc'를 포함하는 요소를 선택합니다.'abc' 앞뒤로 연결된 문자가 없어야 합니다. 'bg abc'는 선택되나 'bg_abc'는 선택되지 않습니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소[속성*='값']</td>
+                        <td class="ce">$("span[class*='abc']")</td>
+                        <td>span요소 중 class가 'abc'를 포함하는 요소를 모두 선택합니다. 'bg abc', 'bg_abc' 모두 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소[속성|='값']</td>
+                        <td class="ce">$("span[class|='abc']")</td>
+                        <td>span요소 중 class가 'abc'나 'abc-'로 시작하는 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소[속성^='값']</td>
+                        <td class="ce">$("span[class^='abc']")</td>
+                        <td>span요소 중 class가 'abc'로 시작하는 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소[속성$='값']</td>
+                        <td class="ce">$("span[class$='abc']")</td>
+                        <td>span요소 중 class가 'abc'로 끝나는 요소를 선택합니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="t_tit2">■ 예시</h2>
+            <p class="t_desc">
+                코드펜을 이용해서 작업했습니다. CDN방식입니다만, 코드펜으로는 CDN활용법을 확인하긴 힘드니깐 CDN쓰는법만 보여드릴게요.
+            </p>
+            <p class="t_box">
+                &lt;script src="jquery-3.6.1.min.js"&gt;&lt;/script&gt;
+            </p>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/zYWgEOe?default-tab=html%2Cresult&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/zYWgEOe">
+                    제이쿼리 속성선택자 공부</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            <br>
+            
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

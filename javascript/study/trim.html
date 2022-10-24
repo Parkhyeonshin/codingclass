@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : trim </title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="effect">
+                <li><a href="../effect/searchEffect.html">검색 효과</a></li>
+                <li><a href="../effect/quizEffect.html">퀴즈 효과</a></li>
+                <li><a href="../effect/dataEffect.html">데이터 효과</a></li>
+                <li><a href="../effect/mouseEffect.html">마우스 효과</a></li>
+                <li><a href="../effect/sliderEffect.html">슬라이드 효과</a></li>
+                <li><a href="../effect/parallaxEffect.html">패랠랙스 효과</a></li>
+                <li><a href="../effect/gameEffect.html">게임 효과</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">데이터 타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+                <li><a href="join.html">배열 메서드</a></li>
+                <li><a href="../effect/study/quiz01.html">퀴즈 만들기</a></li>
+                <li><a href="velog.html">내장함수</a></li>
+                <li><a href="slice.html">문자열 변경 메서드</a></li>
+                <li><a href="indexof.html">문자열 검색 메서드</a></li>
+                <li><a href="RegEXP.html">정규식 표현</a></li>
+                <li><a href="text.html">문자열 결합/템플릿 문자열</a></li>
+                <li><a href="trim.html">소/대문자/공백</a></li>
+                <li><a href="split.html">split()</a></li>
+                <li><a href="repeat.html">replace()/replaceAll()</a></li>
+                <li><a href="concat.html">concat()</a></li>
+                <li><a href="repeat.html">repeat()</a></li>
+                <li><a href="padStart.html">padStart()/padEnd()</a></li>
+                <li><a href="includes.html">includes()</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">공백제거 메서드 와 대/소문자 메서드</h2>
+            <p class="t_desc2">
+                자바스크립트에서는 문자열의 공백을 제거해주는 메서드도 있습니다. 
+                tirm(), trimStart(), trimEnd() 이렇게 세가지로 구성되어 있습니다.
+                <br> 또, 대/소문자를 변환해주는 메서드도 있는데요. 이 메서드들은 toUpperCase(), toLowerCase()가 있습니다. 같이 알아봅시다
+            </p>
+            <hr>
+            <h2 class="t_tit">공백제거 메서드</h2>
+            <h3 class="t_tit2">trim()</h3>
+            <p class="t_desc2">
+                이 메서드는 앞과 뒤의 공백을 제거한 후 문자열의 복사본을 반환합니다.
+                예제와 결과를 통해 바로 알아보시죠
+            </p>
+            
+            <h3 class="t_tit3">특징</h3>
+            <p class="t_desc">
+                ▶ 문자열 내부의 공백은 제거하지 않습니다
+
+            </p>
+            <h3 class="t_tit3">예시</h3>
+            <div class="t_code">
+<pre><code class="language-js">const str2 = '    javascript    ';
+const currentStr2 = str2.trimStart(); 
+
+consolo.log(currentStr2)
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div>
+                        javascript (앞부분에 공백이 존재합니다)
+                    </div>
+                </details>
+            </div>
+            <h3 class="t_tit2">trimStart()</h3>
+            <p class="t_desc2">
+                이 메서드는 앞부분의 공백을 제거한 후 문자열의 복사본을 반환합니다.
+            </p>
+            
+            <h3 class="t_tit3">예시</h3>
+            <div class="t_code">
+<pre><code class="language-js">const str2 = '    javascript    ';
+const currentStr2 = str2.trimStart(); 
+
+consolo.log(currentStr2)
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div>
+                        javascript  (뒷부분의 공백이존재합니다)
+                    </div>
+                </details>
+            </div>
+            <h3 class="t_tit2">trimEnd()</h3>
+            <p class="t_desc2">
+                이 메서드는 뒷부분의 공백을 제거한 후 문자열의 복사본을 반환합니다.
+            </p>
+            
+            <h3 class="t_tit3">예시</h3>
+            <div class="t_code">
+<pre><code class="language-js">const str3 = '    javascript    ';
+const currentStr3 = str3.trimEnd(); 
+
+consolo.log(currentStr3)
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div>
+                        javascript (앞부분에 공백이 존재합니다)
+                    </div>
+                </details>
+            </div>
+
+            <hr>
+            <h3 class="t_tit">소/대문자 메서드</h3>
+            <h3 class="t_tit2">toUpperCase()</h3>
+            <p class="t_desc2">
+                이 메서드는 문자열을 <i>대문자로 변경</i>해주는 메서드입니다. 변경된 문자열은 문자열로 반환이 됩니다.
+            </p>
+            <h3 class="t_tit3">예시</h3>
+            <div class="t_code">
+<pre><code class="language-js">const str1 = 'javascript';
+const currentStr1 = str1.toUpperCase(); 
+
+console.log(currentStr1);
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div>
+                        JAVASCRIPT
+                    </div>
+                </details>
+            </div>
+            <h3 class="t_tit2">toLowerCase()</h3>
+            <p class="t_desc2">
+                이 메서드는 문자열을 <i>소문자로 변경</i>해주는 메서드입니다. 변경된 문자열은 문자열로 반환이 됩니다.
+            </p>
+            <h3 class="t_tit3">예시</h3>
+            <div class="t_code">
+<pre><code class="language-js">const str2 = 'JAVASCRIPT';
+const currentStr2 = str2.toLowerCase(); 
+
+console.log(currentStr2);
+</code></pre>
+            </div>
+            <div class="result">
+                <details>   
+                    <summary>결과보기</summary>
+                    <div>
+                        javascript
+                    </div>
+                </details>
+            </div>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

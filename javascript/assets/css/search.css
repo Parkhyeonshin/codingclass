@@ -1,0 +1,244 @@
+:root {
+    --htmlColor : #223547;
+    --cssColor : #1f3b34;
+    --javascriptColor : #12162d;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "NexonLv1Gothic";
+    color: #223547;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+a {
+    color: var(--htmlColor);
+    text-decoration: none ;    
+    }
+li{
+    list-style: none;
+}
+
+/* header */
+#header nav {
+    margin: 10px;
+}
+#header nav ul li {
+    display: inline;
+    position: relative;
+}
+#header nav ul li a {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #223547;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    font-family: "NexonLv1Gothic";
+}
+#header nav ul li.active a {
+    background-color: #223547;
+    color: #fff;
+}
+#header nav li .sub {
+    position: absolute;
+    left: 0;
+    top: 35px;
+    width: 400px;
+}
+#header nav li .sub li a {
+    width: auto;
+    background-color: transparent;
+    color: var(--htmlColor);
+    border: 0;
+    text-align: left;
+    line-height: 1.2;
+}
+#header nav li .sub li.active a {
+    text-decoration: underline;
+}
+/* main */
+#main {
+    margin: 50px 10px;
+}
+.search__wrap{
+    max-width: 1400px;
+    border: 3px solid #223547;
+    border-radius: 20px;
+    background-color: #f1f3f6;
+    padding: 30px;
+    text-align: center;
+    margin: 0 auto;
+}
+.search__wrap > span {
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.search__wrap > h1 {
+    font-family: "tmon";
+    color: var(--htmlColor);
+    font-size: 6vw;
+    margin-bottom: 20px;
+    white-space: nowrap;
+}
+
+.search__box {
+    margin-bottom: 20px;
+}
+.search__box label {
+    position:absolute;
+    clip:rect(0 0 0 0);
+    width:1px;
+    height:1px;
+    margin:-1px;
+    overflow:hidden;
+}
+.search__box input {
+    border: 2px solid #223547;
+    padding: 15px 40px;
+    width: 70%;
+    border-radius: 50px;
+    font-size: 20px;
+}
+.search__list li {
+    text-align: left;
+    line-height: 1.7;
+}
+.search__list li.hide {
+    display: none;
+}
+.search__list li.show {
+    display: block;
+}
+.search__list span {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid var(--htmlColor);
+    border-radius: 50px;
+    margin: 5px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.search__list span:hover {
+    background-color: var(--htmlColor);
+    color: #fff;
+}
+.search__list li em {
+    float: right;
+    font-style: normal;
+}
+
+.search__list .line {
+    margin-top: 50px;
+}
+
+.search__list .line li {
+    background: #e3eaf56e;
+    color: var(--htmlColor);
+    padding: 10px 30px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.search__list .line li:hover {
+    background: var(--htmlColor);
+    color: snow;
+}
+.search__click {
+    margin-bottom: 30px;
+}
+
+.search__click li {
+    display: inline;
+}
+
+.search__click li a {
+    display: inline-block;
+    border: 1px solid var(--htmlColor);
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 10px 0;
+}
+
+.search__click li a:hover {
+    background-color: var(--htmlColor);
+    color: #fff;
+}
+.search__desc {
+    border: 2px solid var(--htmlColor);
+    padding: 20px 40px 20px 75px;
+    margin-bottom: 50px;
+    border-radius: 50px;
+    display: inline-block;
+    color: #fff;
+    background-color: var(--htmlColor);
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='11' cy='11' r='8' stroke='%23FFFFFF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16.5 16.958L21.5 21.958' stroke='%23FFFFFF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 20px 15px;
+    background-size: 50px 30px;
+}
+.search__info {
+    text-align: right;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed var(--htmlColor);
+}
+.search__info .type {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* 퀴즈이펙트03 키워드 버튼 */
+.search__info .keyword {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.search__info .keyword span {
+    border: 2px solid var(--htmlColor);
+    border-radius: 50px;
+    padding: 10px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+.search__info .keyword span:hover {
+    background-color: var(--htmlColor);
+    color: #ffff;
+    cursor: pointer;
+}
+/* //퀴즈이펙트03 키워드 버튼 */
+@media (max-width : 600px) {
+    .search__wrap {
+        padding: 20px;
+    }
+    .search__wrap > span{
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .search__wrap > h1{
+        font-size: 40px;
+    }
+    .search__box input {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
+}
+
+/* footer */
+#footer {
+    text-align: center;
+}
+#footer a{
+    font-family: "NexonLv1Gothic";
+    color: var(--htmlColor);
+    padding-bottom: 50px;
+}
+#footer a:hover{
+    text-decoration: underline;
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 검색06</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+    <style>
+        #main .document .btnflex{
+    	    display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">Javascript_Search</a></h1>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">검색 효과</h2>
+            <div class="t_desc2">
+                검색 효과 여섯번째 시간입니다. 다양한 방법으로 정렬해 봅시다 .
+            </div>
+            <hr>
+            
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/searchEffect06.html" frameborder="0"></iframe>
+            </div>
+            
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/searchEffect06.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/searchEffect06.html" target="_blank">원본 사이트</a>
+            </div>
+            <hr>
+           
+            
+            <h3 class="t_tit2">JS 소스</h3>
+            <div class="t_code">
+<pre><code class="language-js">// 내용소스는 아이프레임 참조해주세요.
+// 데이터 출력하기
+const updateList = () => {
+    let listCSS = "";
+
+    cssProperty.forEach((data, index)=>{
+        listCSS += `&lt;li&gt;${data.num}. ${data.name} : ${data.desc} &lt;/li&gt;`;
+    });
+
+    cssList.innerHTML = listCSS;
+}
+updateList();
+
+// 반대로 정렬
+function sortReverse(){
+    cssProperty.reverse();
+    updateList();
+}
+// 오름차순 정렬
+function sortAscending(){
+    cssProperty.sort((a,b)=&gt;{
+        return a.num - b.num;
+    });
+    updateList();
+}
+// 내림차순 정렬
+function sortDescending(){
+    cssProperty.sort((a,b)=&gt;{
+        return b.num - a.num;
+    });
+    updateList();
+}
+// 알파벳순[a-z] 정렬
+function sortAlphabet(){
+    cssProperty.sort((a,b)=&gt;{
+        return a.name.localeCompare(b.name);
+    });
+    updateList();
+}
+// 알파벳순[z-a] 정렬
+function sortAlphabetZ(){
+    cssProperty.sort((a,b)=&gt;{
+        return b.name.localeCompare(a.name);
+    });
+    updateList();
+}
+
+let cssProp = [];
+const updateList2 = ()=&gt;{
+    //for of문
+    // for(let list of cssProperty){
+    //     cssProp.push(`&lt;li&gt;${list.num}. [${list.category}] &lt;strong&gt;${list.name}&lt;/strong&gt; : ${list.desc}&lt;/li&gt;`);
+    // }
+    
+    //map()문
+    cssProperty.map((data)=&gt;{
+        cssProp.push(`&lt;li&gt;${data.num}. ${data.name} : ${data.desc} &lt;/li&gt;`);
+    });
+
+    cssList.innerHTML = cssProp.join('');
+}
+updateList2();
+//피셔 에이츠 알고리즘(랜덤정렬)
+function shuffle(data){
+    for( let i=data.length-1; i&gt;=0; i-- ){
+        const randomIndex = Math.floor(Math.random()*(i+1));
+        // console.log(randomIndex);
+        [data[i], data[randomIndex]] = [data[randomIndex], data[i]];
+        cssList.innerHTML += data[i];
+    }
+};
+
+
+// 반대로 정렬 클릭
+document.querySelector(".btn1").addEventListener("click",()=&gt;{
+    sortReverse();
+});
+// 오름차순 정렬 클릭
+document.querySelector(".btn2").addEventListener("click",()=&gt;{
+    sortAscending();
+});
+// 내림차순 정렬 클릭
+document.querySelector(".btn3").addEventListener("click",()=&gt;{
+    sortDescending();
+});
+// 알파벳순[a-z] 정렬 클릭
+document.querySelector(".btn4").addEventListener("click",()=&gt;{
+    sortAlphabet();
+});
+// 알파벳순[z-a] 정렬 클릭
+document.querySelector(".btn5").addEventListener("click",()=&gt;{
+    sortAlphabetZ();
+});
+// 랜덤정렬 클릭
+document.querySelector(".btn6").addEventListener("click", (e)=&gt;{
+    e.preventDefault();
+    cssList.innerHTML= "";
+    shuffle(cssProp);
+});
+</code></pre>
+            </div>
+            <p class="t_tit2">■ 핵심 찍먹하기🪓</p>
+
+            <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ sort()</h2>
+            <p class="t_desc">
+                sort()메서드는 배열의 요소를 오름차순, 내림차순 으로 정렬할 때 유용한 메서드입니다.
+                기본은 오름차순이고 정확하게는 <i>문자열의 유니코드 코드 포인트를 따릅니다.</i>
+                알파벳의 경우는 유니코드상 대문자 이후 소문자가 오기에 소문자가 더 큽니다.
+            </p>
+
+            <hr style="margin-bottom : 10px">
+            <p class="p_desc" style="font-size: 14px; text-align: center;">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

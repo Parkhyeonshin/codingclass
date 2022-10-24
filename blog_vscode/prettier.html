@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vscode_prettier 설정법</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+  </head>
+  <style>
+    img {
+      width: 100%;
+    }
+  </style>
+  <body>
+    <header id="header"></header>
+    <!-- //header -->
+    <main id="main">
+      <!--main start-->
+      <div class="document">
+        <h2 class="t_tit">[VSCode] Prettier 설정 / 적용 오류 해결법</h2>
+        <p class="t_desc2">
+          VSCode Extension 중에 코드를 <i>자동으로 정렬</i>해 주는 <i>Prettier</i>를 아시나요? Prettier는 코드를 자동으로 정렬해 줄 뿐만 아니라
+          사용자의 옵션에 따라 커스텀을 해서 사용할 수 있습니다. 설치방법과 간단한 오류 해결법에 대해 알아보겠습니다.
+        </p>
+        <img src="img/vscode_ prettier01.jpg" alt="1" />
+        <hr />
+        <h2 class="t_tit2">■ 설치하기</h2>
+        <p class="t_desc">1. VSCode Extenstion탭에서 'Prettier'검색 후 설치해줍니다.</p>
+        <img src="img/vscode_ prettier02.jpg" alt="2" />
+        <p class="t_desc">2. 환경설정(Preference) - 'Default Formatter' 검색한 뒤 설정을 <i>'prettier'로 변경</i>해줍니다.<br />또 Format On Save도 체크해줍시다</p>
+        <img src="img/vscode_ prettier03.jpg" alt="3" />
+
+        <img src="img/vscode_ prettier_111111.jpg" alt="결과" />
+        <p class="t_desc">별다른 오류가 없다면 재실행 후 작업 이후 <i>Ctrl + S</i>를 통해 저장하면 Prettier가 알아서 이쁘게 정렬해 줍니다.</p>
+        <h2 class="t_tit2">■ 작동이 안되는 경우🤦‍♀️</h2>
+        <p class="t_desc">
+          검색창에 'json'을 검색한 뒤 <i>Edit in setting.json</i>파일로 들어가 <i>editor.formatOnSave의 값이 true</i>인지 확인해보세요.
+        </p>
+        <img src="img/vscode_ prettier04.jpg" alt="4" />
+        <h2 class="t_tit2">■ 설정 가능한 커스텀 옵션</h2>
+        <pre class="t_box">
+  "arrowParens": "avoid", // 화살표 함수 괄호 사용 방식
+  "bracketSpacing": false, // 객체 리터럴에서 괄호에 공백 삽입 여부 
+  "endOfLine": "auto", // EoF 방식, OS별로 처리 방식이 다름 
+  "htmlWhitespaceSensitivity": "css", // HTML 공백 감도 설정
+  "jsxBracketSameLine": false, // JSX의 마지막 `>`를 다음 줄로 내릴지 여부 
+  "jsxSingleQuote": false, // JSX에 singe 쿼테이션 사용 여부
+  "printWidth": 80, //  줄 바꿈 할 폭 길이
+  "proseWrap": "preserve", // markdown 텍스트의 줄바꿈 방식 (v1.8.2)
+  "quoteProps": "as-needed" // 객체 속성에 쿼테이션 적용 방식
+  "semi": true, // 세미콜론 사용 여부
+  "singleQuote": true, // single 쿼테이션 사용 여부
+  "tabWidth": 2, // 탭 너비 
+  "trailingComma": "all", // 여러 줄을 사용할 때, 후행 콤마 사용 방식
+  "useTabs": false, // 탭 사용 여부
+  "vueIndentScriptAndStyle": true, // Vue 파일의 script와 style 태그의 들여쓰기 여부 (v1.19.0)
+  "parser": '', // 사용할 parser를 지정, 자동으로 지정됨
+  "filepath": '', // parser를 유추할 수 있는 파일을 지정
+  "rangeStart": 0, // 포맷팅을 부분 적용할 파일의 시작 라인 지정
+  "rangeEnd": Infinity, // 포맷팅 부분 적용할 파일의 끝 라인 지정,
+  "requirePragma": false, // 파일 상단에 미리 정의된 주석을 작성하고 Pragma로 포맷팅 사용 여부 지정 (v1.8.0)
+  "insertPragma": false, // 미리 정의된 @format marker의 사용 여부 (v1.8.0)
+        </pre>
+        <br />
+        <img src="img/vscode_ prettier05.jpg" alt="5" />
+        <p class="t_desc">※ 환경설정에서 'prettier'를 검색해서 간편하게 설정할 수도 있습니다. 저는 Width기능과 Tab간격 기능말고는 사용하고 있진 않습니다만 여러분은 한번 써보시고 결정해보세요!</p>
+      </div>
+    </main>
+    <!-- //main end -->
+    <footer id="footer">
+      <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 패럴랙스02</title>
+
+        <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+
+        <style>
+            #main .document .btnflex {
+                display: flex;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="../../../javascript/index.html">Javascript_Parallax02</a></h1>
+            <nav class="header_nav">
+                <ul class="study">
+                    <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                    <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                    <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                    <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                    <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                    <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                    <li><a href="search01.html">검색 이펙트1</a></li>
+                    <li><a href="search02.html">검색 이펙트2</a></li>
+                    <li><a href="animation.html">애니메이션 만들기</a></li>
+                    <li><a href="slider01.html">슬라이드 이펙트1</a></li>
+                    <li><a href="slider02.html">슬라이드 이펙트2</a></li>
+                    <li><a href="slider03.html">슬라이드 이펙트3</a></li>
+                    <li><a href="parallax01.html">패럴랙스 이펙트1</a></li>
+                    <li><a href="parallax02.html">패럴랙스 이펙트2</a></li>
+                    <li><a href="parallax03.html">패럴랙스 이펙트3</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">패럴랙스 효과 02</h2>
+                <div class="t_desc2">
+                    패럴랙스 스크롤링은 사용자가 마우스를 스크롤할 때, 원거리에 있는 배경 이미지는 느리게
+                    움직이게 하고, 근거리에 있는 사물 이미지는 빠르게 움직이도록 함으로써 입체감을 느낄 수 있게 만든 디자인 기법입니다.
+                    오늘은 저번시간에 이어서 사이드바 메뉴로 구성하는 방식에 대해 알아보겠습니다.
+                </div>
+                <hr />
+
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0">
+                    <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/parallaxEffect02.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link btnflex">
+                    <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/parallaxEffect02.html" target="_blank"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/parallaxEffect02.html" target="_blank">원본 사이트</a>
+                </div>
+                <hr />
+                <div class="t_desc">
+                    ▶ 저번시간과 원리는 별반 다를게 없습니다. 'parallax__info span'에 현재 scrollTop값을 입력되게 해주고, 
+                    <i>'scrollTop >= 각 섹션 offsetTop'</i> 일때 해당되는 섹션의 메뉴버튼에 active클래스를 붙여줍니다.
+                    <br>또, 메뉴버튼에 해당되는 a링크에 <i>preventDefault</i>를 부여해서 a태그 <i>고유기능은 막고</i> scrollIntoView를 주어서 다른 스크롤이동 효과를 부여해줍니다.
+                </div>
+                <h3 class="t_tit2">JS 소스</h3>
+                <div class="t_code">
+                    <pre><code class="language-js">document.querySelectorAll("#parallax__dot a").forEach((el) => {
+    el.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // window.scroll(0, 1000);
+        // window.scroll({ left: 0, top: 2000 });
+        // window.scroll({ left: 0, top: 2000, behavior: "smooth" });
+
+        // window.scrollTo(0, 1000);            //To --> 절대위치
+        // window.scrollTo({ left: 0, top: 2000 });
+        // window.scrollTo({ left: 0, top: 2000, behavior: "smooth" });
+
+        // window.scrollBy(0, 1000); //by --> 현재위치 기준
+        // window.scrollBy({ left: 0, top: 2000 });
+        // window.scrollBy({ left: 0, top: 2000, behavior: "smooth" });
+
+        document.querySelector(el.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+    });
+});
+
+window.addEventListener("scroll", () => {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    document.querySelector("#parallax__info span").innerText = Math.floor(scrollTop);
+
+    document.querySelectorAll(".content__item").forEach((e, i) => {
+        if (scrollTop >= e.offsetTop - window.innerHeight / 2) {
+            document.querySelectorAll("#parallax__dot li").forEach((li) => {
+                li.classList.remove("active");
+            });
+            document.querySelector("#parallax__dot li:nth-child(" + (i + 1) + ")").classList.add("active");
+        }
+    });
+});
+</code></pre>
+                </div>
+                <p class="t_tit2">■ 핵심 파헤치기🪓</p>
+
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ preventDefault</h2>
+                <p class="t_desc">
+                    기본(default) 막다(prevent).
+                    <br>원래 a태그나 submit태그는 누르게 되면 href를 통해 이동하거나 창이 새로고침되어 실행되는 기능을 가지고있습니다.
+                    이 메서드는 이러한 <i>태그의 기본 이벤트(동작)을 막는 기능</i>을 합니다. 
+                    <br>이 속성은 <i>이벤트 메서드</i> 입니다. 밑에 간단한 예시를 만들어 봤으니 눌러보시고 파악해보세요.
+                    <br><br> <a href="http://www.google.com" target="_blank">메서드 미적용_ 눌러보세요 (구글로 새창이동)</a>
+                    <br> <a href="http://www.google.com" target="_blank" class="t_ablock" >메서드 적용_ 눌러보세요</a>
+                </p>
+                <p class="t_box">
+                    &lt;a href="http://www.google.com" target="_blank"&gt;메서드 미적용&lt;/a&gt;
+                    <br>&lt;a href="http://www.google.com" target="_blank" class="t_ablock"&gt;메서드 적용&lt;/a&gt;
+                    <br>
+                    <br>//스크립트
+                    <br>const ablock = document.querySelector(".t_ablock");
+                    <br>ablock.addEventListener("click", el => {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    el.preventDefault();
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    alert("알람문구")
+                    <br>});
+                </p>
+                <script>
+                    const ablock = document.querySelector(".t_ablock");
+                    ablock.addEventListener("click", el => {
+                        el.preventDefault();
+                        alert(`
+                        막 Δ~~~Δ
+                        혀 ξ ･ェ･ ξ
+                        있 ξ　~　ξ
+                        지 ξ　　 ξ
+                        롱 ξ　　 “~～~～O
+                        ~  ξ　　　　　　 ξ
+                        ~  ξ ξ ξ~～~ξ ξ　
+                        ~  ξ_ξ_ξ　ξ_ξ_ξ`)
+                    });
+                </script>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ getAttribute</h2>
+                <p class="t_desc">선택한 요소의 <i>특정 속성값</i>을 가져옵니다.</p>
+                <p class="t_box">
+                    문법 : element.getAttribute( 'attributename' )
+                </p>
+                <p class="t_desc">
+                    여기서는 a링크의 href값을 가져오는게 되겠군요. 메뉴1의 href를 예시로 들자면 #section1을 가져오겠네요
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ documentElement.scrollTop</h2>
+                <p class="t_box">
+                    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop; 
+                </p>
+                <p class="t_desc">
+                    스크롤바의 현재 위치를 가져오는 방법인데요. 모든 문법이 현재위치를 가져올 수 있습니다. 다만 IE브라우저의 경우 window.scrollY의 프로퍼티가 존재하지 않습니다.
+                    이 경우 <i>document.documentElement.scrollTop;</i>를 사용합니다. 그래서 호환을 위해서 위와 같이 문법을 사용한 것입니다. 저렇게 사용하면
+                    IE 및 대부분 브라우저에서 현재 스크롤위치를 반환하게 됩니다.
+                </p>
+
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ scrollIntoView</h2>
+                <p class="t_desc">
+                    이 메서드는 화면의 <i>특정 위치로 이동</i>시켜주는 함수입니다. <i>요소 기반이므로 특정 요소를 기준으로 스크롤을 이동</i>시킵니다. 여기서는 a링크의 href를 요소로 지정해주었으므로
+                    지정한 href요소로 이동을 시켜주겠네요. 그리고 3개의 문법(아무것도 사용하지 않고 그냥 사용 / 불린을 사용 / 옵션값 사용)중 옵션값을 사용하는 문법을 이용해줍니다.
+                    behavior는 전환방식을 설정해줄 수 있는데 여기서는 'smooth'를 사용하여 부드럽게 이동하는 설정을 해줍니다.
+                </p>
+                <p class="t_box">
+                    - true : 요소의 상단 기준으로 스크롤 이동
+                    <br>- false : 요소의 하단 기준으로 스크롤 이동
+                    <br>- behavior : 전환 방식(애니메이션) 정의함 : auto || smooth
+                    <br>- block : 수직 정렬 : strat || center || end || nearest
+                    <br>- inline : 수평 정렬 : strat || center || end || nearest
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ Math.floor()</h2>
+                <p class="t_desc">
+                    <i>소수점 이하를 버림하는 메서드</i>입니다. 참고로 음수(-)는 편하게 생각하면 소숫점앞자리 숫자에서 -1을 하세요.(이해못하는 문과는 외웁니다...) 
+                    
+                    <br><br> - 내 멋대로 원리 이해하기 (믿거나 말거나)
+                    <br> 5.5라는 숫자에서 소숫점이하를 버림하면 5가 반환이됩니다. 여기까지는 이해가 쉬운데요. 소숫점이하를 버리게되면 반환되는 값는 원래 값보다 작아지잖아요? 
+                    그래서 음수의 경우도 반환되는 숫잔 원래 숫자보다 작아지게 되는거죠. 그래서 -3.4라는 숫자가 버림을 받게 되면 -3이아니라 -3.4보다 작은 -4가 반환되는 겁니다.
+                </p>
+                
+                
+
+                <h2 class="t_tit2">■ 코드 내멋대로 풀어헤치기👕</h2>
+                <p class="t_desc">점점 어려워지고 있기도하고 해서, 오늘도 역시 제가 이해한대로 그냥 풀어볼까합니다. 언제든 틀린점이 있다면 지적은 감사합니다.😙</p>
+                <pre class="t_desc2">document.querySelectorAll("#parallax__dot a").forEach((el) => {
+    el.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(el.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+    });
+});</pre>
+                <p class="t_desc" style="margin-bottom: 0;">
+                    ☞ 사이드바 메뉴 클릭시 이동하는 스크립트입니다.
+                    <br>1. 사이드바 메뉴(#parallax__dot a)는 여러개이므로 다중선택자로 여러개를 선택한 뒤 el로 뽑아냅니다.
+                    <br><br>
+                    2. 이후 버튼을 <i>클릭</i>했을 때 preventDefault로 <i>a태그 고유기능을 막아</i>줍니다.
+                    <br><br>
+                    3. document.querySelector(el.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+                    <div style="margin-top: 0; margin-left:20px; margin-bottom: 20px;">
+                        <details>   
+                            <summary>Click</summary>
+                            <img style="height: 170px;" src="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/study/blogimg/parallax02_blog01.jpg?raw=true" alt="상세설명이미지">
+                        </details>
+                    </div>
+                </p>
+
+<pre class="t_desc2">window.addEventListener("scroll", () => {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    document.querySelector("#parallax__info span").innerText = Math.floor(scrollTop);
+
+    document.querySelectorAll(".content__item").forEach((e, i) => {
+        if (scrollTop >= e.offsetTop - window.innerHeight / 2) {
+            document.querySelectorAll("#parallax__dot li").forEach((li) => {
+                li.classList.remove("active");
+            });
+            document.querySelector("#parallax__dot li:nth-child(" + (i + 1) + ")").classList.add("active");
+        }
+    });
+});</pre>
+                <p class="t_desc">
+                    ☞ 패럴렉스에 관련된 스크립트입니다.
+                    <br>1. 변수 scrollTop에 현재 스크롤 위치값을 저장시킵니다.
+                    <br><br>
+                    2. 현재 스크롤 위치값을 소숫점이하를 버림하여 '#parallax__info span'에 입력합니다.
+                    <br><br>
+                    3. 조건 : 현재 스크롤 위치값이 요소의 y축값에서 브라우저의 높이값/2를 뺀 값보다 크거나 같은 경우 실행문을 실행합니다.
+                    <br>&nbsp;&nbsp;&nbsp;[브라우저의 높이값 1/2를 빼는 이유?]
+                    <div style=" margin-top: 0; margin-left:20px;">
+                        <details>   
+                            <summary>Click</summary>
+                            <img src="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/study/blogimg/parallax02_blog02.jpg?raw=true" alt="상세설명이미지">
+                            <p class="t_desc">
+                                ※ 꼭 브라우저 높이값 1/2를 빼야하는 건 아닙니다. 300, 500 등 수치를 입력하여도 무관합니다. 다만, 이러한 고정값은 반응형에서 불리하게 작용할 수 있습니다.<br> 저는 개인의 방식과 취향을 존중합니다.
+                            </p>
+                        </details>
+                    </div>
+                </p>
+                <p class="t_desc">
+                    <br>4. 조건에 해당하면 사이드바 메뉴(#parallax__dot li)들의 .active를 제거하고 해당 섹션에만 .active를 붙여 활성화효과를 부여합니다.
+                    <br>&nbsp;&nbsp;· nth-child에 index값을 그냥 적용하지 않고 +1을 한 이유?<br>&nbsp;&nbsp;&nbsp; 첫번째 요소는 0으로 반환되는 이유때문에 +1을 해서 <i>순서를 맞춰주기 위함</i>입니다.
+                </p>
+                <h2 class="t_tit3">- 끝.이.에.요 -</h2>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 미디어쿼리</title>
+
+    <link rel="stylesheet" href="../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../javascript/assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
+        <h1><a href="../index.html">CSS</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="basic.html">기초</a></li>
+                <li><a href="#.html">주제</a></li>
+                <li><a href="index.html">알파벳</a></li>
+                <li><a href="bector.html">벡터/비트맵 방식</a></li>
+                <li><a href="grammar.html">기본 문법</a></li>
+                <li class="active"><a href="media.html">미디어 쿼리</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+                <li><a href="scss.html">SCSS</a></li>
+                <li><a href="ir.html">이미지스프라이트/IR/백그라운드 표현</a></li>
+                <li><a href="unit.html">단위</a></li>
+                <li><a href="color.html">색상 표현법</a></li>
+                <li><a href="hide.html">요소 숨기기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">  <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">미디어 쿼리</h2>
+            <p class="t_desc2">
+                해상도에 따라 CSS를 분기시키는 <i>반응형 웹에서는 없어서는 절.대 안되는 기법</i>입니다.
+                태블릿,모바일기기 마다 가로폭이 다른데 크롬브라우저의 경우 <i>개발자도구(F12)</i>를 열고
+                Toggle device Toolbar를 눌러 기기마다 해상도를 확인할 수 있고 기기 모델도 추가 가능합니다.
+                다음 트로이(http://troy.labs.daum.net/)에서는 실제 작동 화면을 확인할 수 있습니다.
+                <br><br>미디어 쿼리는 아래와 같은 상황에 사용할 수 있습니다.
+                <br>▷ CSS @media와 @import .@규칙을 사용해 특정 조건에 따라 스타일을 적용할 때
+                <br>▷ HTML요소에 media 특성을 사용해 특정 매체만 가리키게 할때
+                <br>▷ Window.matchMedia()와 MediaQueryList.addListener() (en-US) JavaScript 메서드를 사용해 미디어 상태를 판별하고 관측 (en-US)할 때.
+            </p>
+            <hr>
+            <h3 class="t_tit2">01_ &lt;link ~ media=""&gt;</h3>
+            <p class="t_box">
+                &lt;link rel="stylesheet" type="text/css" media="all and (min=width:1000px)" href=style_pc.css"&gt;
+            </p> 
+            <p class="t_desc">
+                &lt;link&gt;요소에 사용해서 특성이 조건에 맞을때  CSS파일을 불러오는 방법입니다.
+                최소 가로폭이 1000px 즉, 1000px보다 넓은 상태일때에  style_pc.css를 연결한다는 뜻입니다.
+            </p>
+            <h3 class="t_tit2">02_ @media</h3>
+            <p class="t_desc2">
+                스타일 시트내에 @media 를 사용해서 조건이 성립하는 경우 {}안의 스타일이 적용됩니다.
+                첫 로딩시 성능 저하가 안되도록 CSS 파일 내부에서 조건에 따라 분기시키는 것이 일반적인 형태입니다.
+                
+                <br><br>@media all and (min-width: 1000px){
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp; 모든기기에서 해상도 최소 1000px인 경우 적용할 속성입력
+                }
+            </p>
+            <h4 class="t_tit3">|2-1| 미디어 유형</h4>
+            <p class="t_desc">
+                미디어 유형은 장치의 범주를 나타냅니다. not이나 only논리연산자를 사용할 때가 아니면 <i>선택사항이고 all은 기본값</i>입니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>Media Type</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">all</td>
+                        <td>모든 미디어 장치에 사용. 기본값</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">print</td>
+                        <td>프린터에 사용</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">speech</td>
+                        <td>스크린리더기가 페이지 읽는데 사용</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">screen</td>
+                        <td>PC,태블릿,스마트폰 등에 사용</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4 class="t_tit3">|2-2| 미디어 특성</h4>
+            <p class="t_desc">
+                미디어 특성은 사용자 에이전트, 출력장치, 환경 등의 특징을 나타냅니다. 마찬가지로 선택 사항이며 <i>표현식은 괄호()</i>로 감싸주어야 합니다.
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>미디어 특성</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">color</td>
+                        <td>출력장치의 색상 채널별 비트수, 흑백은 0</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">hover</td>
+                        <td>사용자가 요소 위에 마우스오버할 수 있는지?</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">any-pointer</td>
+                        <td>사용 가능한 입력 방식 중 하나가 포인팅 장치인지? 얼마나 정확한지?</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">aspect-ratio</td>
+                        <td>가로세로비</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">color-gamut</td>
+                        <td>사용자 에이전트와 출력 장치가 지원하는 색상의 대략적 범위</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">color-index</td>
+                        <td>출력 장치의 색상 검색 테이블 항목 수, 미존재시 0</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">grid</td>
+                        <td>장치가 그리드와 비트맵 스크린 중 어느것을 사용하는지</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">height</td>
+                        <td>뷰포트의 높이</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">inverted-colors</td>
+                        <td>색상을 반전중인지 여부</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">orientation</td>
+                        <td>뷰포트의 방향</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">pointer</td>
+                        <td>주 입력 방식이 포인팅 장치인지? 얼마나 정확한지?</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">scripting</td>
+                        <td>자바스크립트 등 스크립트 사용 가능 여부 탐지</td>
+                    </tr>
+                    <tr>
+                        <td class="ce"><i>width</i></td>
+                        <td>스크롤바를 포함한 뷰포트 너비</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="t_desc">간단한 예시를 들어보겠습니다</p>
+            <h4 class="t_tit3">예시1)</h4>
+            <p class="t_box">
+                @media only screen and (min-width: 768px) {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp; body {color:red}
+                <br>}
+                <br> // 화면이 768px보다 커지면 글자색을 빨간색으로 지정합니다.
+            </p>
+            <h4 class="t_tit3">예시2)</h4>
+            <p class="t_box">
+                @media only screen and (orientation: protrait) {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp; body {backgorund:blue}
+                <br>}
+                <br> // 모바일 기기를 세워 가로보다 긴 세로방향이 되면 배경색을 파란색으로 지정합니다.
+                <br> //protrait : 가로&lt;세로  //landescape : 가로&gt;세로
+            </p>
+            <h3 class="t_tit2">03_ 미디어 쿼리를 흉내내는 script</h3>
+            <p class="t_desc">
+                소제목 그대로 스크립트를 활용해서 미디어쿼리를 흉내낼 수 있습니다.
+            </p>
+            <p class="t_box">
+                function initLayou() {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;var widthWin = $<i>(window).width();</i>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;<i>if (widthWin &lt; 1000 $('body').addClass('mob').removeClass('pc');</i>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;else $('body').removeClass('mob').addClass('pc');
+                    <br>}
+                    <br>//창의 가로크기를 재고 1000px보다 좁으면 body에mob클래스르 붙이고 pc클래스는 제거하고,
+                    1000px이상이면  body에 pc클래스를 붙이고, mob클래스는 제거합니다.
+                    <br><br>
+                    $(window).resize(function(){
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;initLayout();
+                        <br>});
+                    <br>//미리 만들어둔 스크립트를 창크기가 바뀔때마다 실행합니다.
+            </p>
+            <hr>
+            <h3 class="t_tit2">활용</h3> 
+            <p class="t_desc2">
+                오늘 배운 미디어 쿼리를 이용해서 아래 레이아웃구조를 모바일, 태블릿에서도 볼 수 있는 반응형웹으로 구현해보겠습니다.
+                전혀 어렵지 않으니 잘 따라와 주세요. 미디어 특성은 min-width를 사용해서 작업하였습니다. <i>min-width를 사용했으므로 기본 css속성은 
+                모바일 버전으로 구성되겠네요.</i>
+            </p>
+            <img src="../assets/tistory/CSS_media_blog01.jpg" alt="이미지">    
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/jOzemje?default-tab=html%2Cresult&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/jOzemje">
+                    CSS_media_ex</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            <p class="t_desc">
+                <a href="https://parkhyeonshin.github.io/Coding/css/media_ex.html" target="_blank">☞원본 사이트를 보시려면 요기☜</a>
+            </p>
+        </div>
+    </main>    <!-- //main end -->
+    <footer id="footer" >
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

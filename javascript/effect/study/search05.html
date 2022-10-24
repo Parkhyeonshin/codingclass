@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 검색05</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+    <style>
+        #main .document .btnflex{
+    	    display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">Javascript_Search</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                <li><a href="search01.html">검색 이펙트1</a></li>
+                <li><a href="search02.html">검색 이펙트2</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">검색 효과</h2>
+            <div class="t_desc2">
+                검색 효과 다섯번째 시간입니다. 중요도 순으로 보는 방법을 만들어 보겠습니다.
+            </div>
+            <hr>
+            
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/searchEffect05.html" frameborder="0"></iframe>
+            </div>
+            
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/searchEffect05.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/searchEffect05.html" target="_blank">원본 사이트</a>
+            </div>
+            <hr>
+           
+            
+            <h3 class="t_tit2">JS 소스</h3>
+            <div class="t_code">
+<pre><code class="language-js">const cssProperty = [
+    { name: "accent-color", desc: " 일부 요소가 생성하는 사용자 인터페이스 컨트롤의 강조색을 지정합니다."},
+    { name: "align-content", desc: " 콘텐츠 사이와 콘텐츠 주위 빈 공간을 교차축(flex박스) 또는 블록축(grid)을 따라 배치할지 속성할 수 있습니다."},
+...이하 생략
+];
+
+// 출력하기
+const searchInfo = document.querySelector('span.num');
+const searchList = document.querySelector('.search__list ul');
+const searchGrade = document.querySelectorAll('.search__click ul li a');
+const starData = [
+    '🤍🤍🤍🤍🤍',
+    '💙🤍🤍🤍🤍',
+    '💙💙🤍🤍🤍',
+    '💙💙💙🤍🤍',
+    '💙💙💙💙🤍',
+    '💙💙💙💙💙',
+];
+
+function updateList(list) {
+    let listCSS = "";
+
+    for(const data of list) {
+        // listCSS += `<li>${data.name} : ${data.desc} <em>${starData[data.star]}</em></li>`;
+        listCSS += `<li>${data.name} : ${data.desc} <em>${searchGrade[data.star].innerText}</em></li>`;
+    }
+    searchList.innerHTML = listCSS;
+    searchInfo.innerHTML = list.length;
+}
+
+updateList(cssProperty);
+
+// 클릭하기
+const searchClick = document.querySelectorAll('.search__click ul li');
+const searchClick2 = document.querySelectorAll('.search__click ul')[1].querySelectorAll('li');
+
+searchClick.forEach((el, idx) => {
+    el.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = idx || el.dataset.star;
+        const filterList = cssProperty.filter((data) => {
+            return data.star == target;
+        });
+        updateList(filterList);
+    });
+});
+
+searchClick2.forEach((el, idx) => {
+    el.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = idx + 1;
+        const filterList = cssProperty.filter((data) => {
+            return data.star >= target;
+        });
+        updateList(filterList);
+    });
+});
+</code></pre>
+            </div>
+            <p class="t_tit2">■ 핵심 찍먹하기🪓</p>
+
+            <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ filter()</h2>
+            <p class="t_desc">
+                filter()메서드는 주어진 함수의 조건에 맞는 요소를 모아 새로운 배열로 반환하는 메서드입니다.
+            </p>
+            <p class="t_box">
+                const numbers = [1, 2, 3, 4, 5];
+                <br>const result = numbers.filter(number => number > 3);
+                <br>
+                console.log(numbers);
+                <br>// [1, 2, 3, 4, 5];
+                <br>
+                <br>console.log(result);
+                <br>// [4, 5]
+                <br><br>출처: https://7942yongdae.tistory.com/49 [프로그래머 YD:티스토리]
+            </p>
+
+            <p class="t_tit2">■ 소스 분석하기🙄</p>
+            <p class="t_desc">
+                &lt; 출력하기 
+                <br> updateList실행문에 cssProperty를 매개변수로 받아 실행시킵니다.
+                <br> for of 문과 ``(백틱)을 이용해서 ' 이름 : 설명 &nbsp; 별점'순으로 텍스트형식으로 입력합니다.
+
+                <br><br>&lt; 클릭하기
+                <br> serachClick은 별점을 가져오고 2는 두번째 ul의 'n개이상' 리스트를 가져옵니다.
+                <br> 정확한 별점개수일치하는 버튼은 간단합니다. 버튼을 클릭시 해당 버튼의 index값을 가져옵니다.
+                <br> 그리고 이 가져온값을 <i>filter()</i>메서드를 이용해서 프로퍼티배열 중 'star 데이터'가 누른 별점갯수li의 index값과 일치하는 것들만
+                배열로 반환합니다.
+                <br>그리고 이 값들을 다시 updateList()함수에 매개변수로 전달하여 'searchList'(내용란)을 덮어씌우므로 
+                결과창이 바뀌게 됩니다.
+                <br> 마찬가지로 n개이상버튼은 클릭시 해당 index에 +1을 시킵니다. (1개이상은 index로 따지면 0이니깐요)
+                <br> 그리고 마찬가지로 filter()메서드로 조건에 맞는 값들만 배열식으로 뽑아냅니다. 단, 여기서 조건은 '~이상'이므로 
+                'target'의 이상값들을 전부 뽑아냅니다. 
+                <br> 이후 이 값들을 다시 updateList()의 매개변수로 보냅니다. 
+
+            </p>
+
+            <hr style="margin-bottom : 10px">
+            <p class="p_desc" style="font-size: 14px; text-align: center;">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

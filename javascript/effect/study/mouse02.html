@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 마우스02</title>
+
+        <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+
+        <style>
+            #main .document .btnflex {
+                display: flex;
+            } 
+        </style>
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="../../../javascript/index.html">Javascript_Mouse02</a></h1>
+            <nav class="header_nav">
+                <ul class="study">
+                    <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                    <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                    <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                    <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                    <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                    <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                    <li><a href="search01.html">검색 이펙트1</a></li>
+                    <li><a href="search02.html">검색 이펙트2</a></li>
+                    <li><a href="animation.html">애니메이션 만들기</a></li>
+                    <li><a href="slider01.html">슬라이드 이펙트1</a></li>
+                    <li><a href="slider02.html">슬라이드 이펙트2</a></li>
+                    <li><a href="slider03.html">슬라이드 이펙트3</a></li>
+                    <li><a href="slider04.html">슬라이드 이펙트4</a></li>
+                    <li><a href="parallax01.html">패럴랙스 이펙트1</a></li>
+                    <li><a href="parallax02.html">패럴랙스 이펙트2</a></li>
+                    <li><a href="parallax03.html">패럴랙스 이펙트3</a></li>
+                    <li><a href="parallax04.html">패럴랙스 이펙트4</a></li>
+                    <li><a href="mouse01.html">마우스 이펙트1</a></li>
+                    <li><a href="mouse02.html">마우스 이펙트2</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">마우스 효과 02</h2>
+                <div class="t_desc2">
+                    저번 마우스효과01에서는 마우스를 따라다니는 원을 만들어봤는데요.
+                    이번에는 이 원이 좀더 부드럽고 천천히(?) 따라오게 만들어 보겠습니다.
+                    <br>
+                    GSAP를 이용해서 이 효과를 구현해 보겠습니다.
+                </div>
+                <hr />
+
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0">
+                    <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/mouseEffect02.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link btnflex">
+                    <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/mouseEffect02.html" target="_blank"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/mouseEffect02.html" target="_blank">원본 사이트</a>
+                </div>
+                <hr />
+                <div class="t_desc">
+                </div>
+                <h3 class="t_tit2">JS 소스</h3>
+                <div class="t_code">
+                    <pre><code class="language-js">&lt;script src="../assets/js/gsap.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    const cursor = document.querySelector(".mouse__cursor");
+    const cursor2 = document.querySelector(".mouse__cursor2");
+    const span = document.querySelectorAll(".mouse__wrap span");
+
+    window.addEventListener("mousemove", e =&gt; {
+        // 커서 좌표값 할당
+        // cursor.style.left = e.pageX -5 + "px";
+        // cursor.style.top = e.pageY -5 + "px";
+        // cursor2.style.left = e.pageX -15 + "px";
+        // cursor2.style.top = e.pageY -15 + "px";
+
+        // GSAP
+        gsap.to(cursor, {duration: 0.3, left: e.pageX -5, top: e.pageY -5});
+        gsap.to(cursor2, {duration: 0.8, left: e.pageX -15, top: e.pageY -15});
+
+        // hoverEffect
+        // mouseenter / mouseover / 이벤트 버블링
+        span.forEach(span =&gt; { 
+            span.addEventListener("mouseenter", () =&gt; {
+                cursor.classList.add("active");
+                cursor2.classList.add("active");
+            });
+            span.addEventListener("mouseleave", () =&gt; {
+                cursor.classList.remove("active");
+                cursor2.classList.remove("active");
+            });
+        });
+
+        // 화살표함수는 최신문법이라 옛날엔 이렇게 기본문법사용했는데 기본문법에선 this가 사용가능해서 많이쓰였으나 화살표에선 this를 못씀 ★
+        // span.forEach(function(){
+        // 	this.addEventListener("mouseenter", function(){});
+        // })
+        document.querySelector(".modal__btn").addEventListener("mouseenter",()=&gt;{
+            cursor.classList.add("active__btn");
+            cursor2.classList.add("active__btn");
+        });
+        document.querySelector(".modal__btn").addEventListener("mouseleave",()=&gt;{
+            cursor.classList.remove("active__btn");
+            cursor2.classList.remove("active__btn");
+        });
+        const activeMenu = document.querySelectorAll("#header ul li a");
+        activeMenu.forEach(e=&gt;{
+            e.addEventListener("mouseenter", () =&gt; {
+                cursor.classList.add("active__menu");
+                cursor2.classList.add("active__menu");
+            })
+            e.addEventListener("mouseleave", () =&gt; {
+                cursor.classList.remove("active__menu");
+                cursor2.classList.remove("active__menu");
+            })
+        })
+
+    });
+
+&lt;/script&gt;
+</code></pre>
+                </div>
+                <p class="t_tit2">■ 핵심 찍먹하기🪓</p>
+
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ GSAP</h2>
+                <p class="t_desc">
+                    CDN으로 항상 스크립트가져오셔야해요! <br>
+                    gsap.to ()에는 2가지 필수값이 필요합니다. 바로 <i>대상과 속성</i>입니다.
+                    그렇다면 우리 소스에서는 어떻게 작동하는걸까요?
+                    우선 대상과 속성값이므로 
+                    <br> "cursor"에 "{duration: 0.3, left: e.pageX -5, top: e.pageY -5});"속성을 부여하겠네요!
+                    <br> 사용된 속성은 다음과 같습니다.
+                </p>
+                <p class="t_box">
+                    - duration : 애니메이션의 지속시간을 설정합니다. 0.3s로 지정했는데 이 지속시간이 계속 누적되어 진행되므로 마치 마우스가
+                    천천히 따라오는듯한 효과를 내는 것입니다.
+                    - left: e.pageX, top : e.pageY : 이제는 다들 아시겠지만 CSS에 left와 top값을 부여했었는데요. 이 값을 pageX,Y(문서 상단 경계 기준으로 좌표값 추출)만큼 이동시킵니다. 
+                </p>
+                <p class="t_desc">
+                    여담으로... 제가 사실 01번 유형을 만들 때 이미 이렇게 뒤따라오는 느낌으로 변형해보고 싶어서 
+                    CSS에 transition을 부여했었는데요. 
+                    이 방식은 되게 버벅이고...음... 암튼 굉장히 별로였거든요. GSAP는 왜이렇게 깔끔한걸까요? 아무리봐도 저 속성값은
+                    transition하고 별반 다를게 없어보이는데 말이죠!!
+                    <br>이유를 아시는 분의 제보를 기다리겠습니다
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ 버블링에 대해 이해하고 있기</h2>
+                <p class="t_desc">
+                    소스를 보시면 mouseenter를 사용했는데요. 왜 <i>mouseover를 두고 mouseenter를 사용한걸까요?</i>
+                    위 핵심 소제목을 보시면 아시겠지만 버블링에 대해서 이해를 하고 계셔야 왜 mouseenter를 사용했는지 
+                    이해하실 수 있어요!
+                </p>
+                <p class="t_box">
+                    버블링이란?
+                    <br> 한 요소에 이벤트가 발생하면 이 요소에 해당되는 이벤트가 발생된 후 부모 요소의 이벤트도 작동합니다. 가장 최상위 부모요소까지 도달할때까지 반복되며, 
+                    이로 인해 요소 각각에 할당된 이벤트가 동작하는 것을 뜻합니다. 
+                    <br>부모요소와 자식요소에 둘다 클릭 이벤트가 있다고 가정합시다. 부모요소만 클릭한다면 부모요소에 해당되는 이벤트만 발생하지만,
+                    자식요소를 클릭한다면? <i>자식요소클릭이벤트 발생 후 부모요소의 이벤트까지 발생</i>하는것을 뜻합니다.
+                </p>
+                <p class="t_desc">
+                    자, 그래서 버블링에 대해서 이해했는데요. 
+                    mouseover / mouseout의 경우에는 이벤트를 지정한 요소 + 자식 요소까지 이벤트의 적용 범위가 포함됩니다.
+                    <br>반면, mouseenter / mouseleave는 지정한 요소에만 적용됩니다. 자식은 포함하지 않습니다.
+                </p>
+                
+                <hr style="margin-bottom : 10px">
+                <p class="p_desc" style="font-size: 14px; text-align: center;">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

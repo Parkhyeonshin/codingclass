@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 유형02</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+        .gmark {
+            font-family: 'GmarketSans';
+            font-weight: 500;
+        }
+        /* 리셋 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        img {
+            width: 100%;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+
+        }
+        .section {
+            padding: 120px 0;
+        }
+        .section > h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section > p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* imageType02 */
+        .image__inner{
+            display: flex;
+            justify-content: space-between;
+        }
+        .image {
+            width: 32%;
+            height: 520px;
+        }
+        .image.img1{
+            background: url(img/image_type02_01.jpg) no-repeat center;
+        }
+        .image.img2{
+            background: url(img/image_type02_02.jpg) no-repeat center;
+        }
+        .image.img3{
+            background: url(img/image_type02_03.jpg) no-repeat center;
+        }
+        .image .box{
+            width: 100%;
+            height: 100px;
+            margin-top: 420px;
+            text-align: center;
+            color: #fff;
+            padding: 24px auto;
+            position: relative;
+        }
+        .image .box h3 {
+            line-height: 68px;
+        }
+        .image .box a{
+            color: #fff;
+            position:absolute;
+            bottom: 24px;
+            left: 0;
+            right: 0;
+
+        }
+        .image.img1 .box{
+            background-color: #1E130F;
+        }
+        .image.img2 .box{
+            background-color: #4B3937;
+        }
+        .image.img3 .box{
+            background-color: #2C363C;
+        }
+
+    </style>
+</head>
+<body>
+    <section id="imageType02" class="image__wrap gmark section gray">
+        <h2>드라이브 여행 🚗</h2>
+        <p>
+            날씨도  좋은데 근교라도 좋으니깐 드라이브를 가보는게 어떨까요...(☞ﾟヮﾟ)☞
+        </p>
+        <div class="image__inner container">
+            <article class="image img1">
+                <div class="box">
+                    <h3 class="desc">떠나요</h3>
+                    <a href="#" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+            <article class="image img2">
+                <div class="box">
+                    <h3>떠나요</h3>
+                    <a href="#" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+            <article class="image img3">
+                <div class="box">
+                    <h3>떠나요</h3>
+                    <a href="#" title="자세히 보기">자세히 보기</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+</html>

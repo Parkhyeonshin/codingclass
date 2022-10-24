@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>시험2</title>
+
+        <style>
+            /* fonts */
+            @import url("https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css");
+
+            .nexon {
+                font-family: "NexonLv1Gothic";
+                font-weight: 400;
+            }
+
+            /* 리셋 */
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            a {
+                text-decoration: none;
+                color: #000;
+            }
+            img {
+                width: 100%;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-weight: normal;
+            }
+            em,
+            i,
+            address {
+                font-style: normal;
+            }
+            h2,
+            li > a {
+                font-size: 17px;
+                font-weight: 700;
+            }
+            p {
+                font-style: 17px;
+                color: #999;
+                font-weight: 300;
+            }
+            li {
+                list-style: none;
+                font-style: 17px;
+                color: #999;
+                font-weight: 300;
+            }
+
+            /* common */
+            body {
+                min-width: 1000px;
+            }
+
+            /* main */
+            #main {
+                box-sizing: border-box;
+                width: 1000px;
+                padding: 0 20px;
+                margin: 10px auto 50px auto;
+            }
+            /* header */
+            #headerType {
+                width: 1000px;
+                padding-top: 120px;
+                padding-left: 20px;
+                padding-right: 20px;
+                /* padding: 120px 20px 0 20px; */
+                margin: 0 auto;
+                box-sizing: border-box;
+            }
+            .header__inner {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                box-sizing: border-box;
+            }
+            .header__logo {
+                width: 20%;
+                align-items: left;
+            }
+            .header__logo img {
+                width: 50%;
+            }
+            .header__menu {
+                width: 80%;
+                text-align: right;
+            }
+            .header__menu li {
+                display: inline;
+            }
+            .header__menu li a {
+                padding: 0 15px;
+                transition: background-color 0.3s;
+            }
+            .header__menu li a:hover {
+                background-color: #f1f1f1;
+                border-radius: 5px;
+                padding: 10px 15px;
+            }
+
+            /* 슬라이드 */
+            .slider__wrap {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                /* background-color: #000; */
+            }
+            .slider__img {
+                /* 이미지 보이는 영역 */
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+            }
+            .slider__inner {
+                /* 이미지를 감싸고 있는 부모 : 움직이는 부분 */
+                display: flex;
+                flex-wrap: wrap;
+                width: 5000px;
+                position: relative;
+            }
+            .slider {
+                /* 개별적인 이미지 */
+                position: relative;
+                width: 960px;
+            }
+            /* 이텍 */
+            .imgText__inner {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+                margin-bottom: 40px;
+                width: 100%;
+                position: relative;
+            }
+            .Tab {
+                width: 49%;
+                /* height: 300px; */
+                background-color: #f5f5f5;
+                box-sizing: border-box;
+                padding: 20px;
+                position: relative;
+            }
+            .Tab .tab1 {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+            .Tab .tab2 {
+                color: #999;
+                margin-bottom: 30px;
+            }
+            .Tab .more {
+                position: relative;
+                margin-left: 25px;
+            }
+            .Tab .more a {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .Tab:nth-child(1) .more a::before {
+                content: "";
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                top: -5px;
+                left: -30px;
+                background: url(img/moreicon.png) no-repeat;
+                background-size: contain;
+            }
+            .Tab:nth-child(2) .more a::before {
+                content: "";
+                width: 25px;
+                height: 25px;
+                position: absolute;
+                top: -2.5px;
+                left: -28px;
+                background: url(img/moreicon2.png) no-repeat;
+                background-size: contain;
+            }
+            .Tab:nth-child(2) .more p {
+                display: inline;
+                font-size: 14px;
+                color: #999;
+            }
+            .Tab img {
+                width: 20%;
+                position: absolute;
+                top: 15px;
+                right: 30px;
+            }
+            .Tab:first-child img {
+                width: 20%;
+                position: absolute;
+                top: 25px;
+                right: 30px;
+            }
+            .ir {
+                display: block;
+                overflow: hidden;
+                font-size: 0;
+                line-height: 0;
+                text-indent: -9999px;
+            }
+            .btn:hover {
+                cursor: pointer;
+            }
+            /* 카드 */
+            .titH {
+                display: inline-block;
+                margin-bottom: 30px;
+                font-size: 30px;
+                transition: all 0.5s;
+            }
+            .titH:hover {
+                cursor: pointer;
+            }
+            .titH.noshow {
+                font-size: 26px;
+                color: #ccc;
+            }
+            .card__inner {
+                display: flex;
+                justify-content: space-between;
+                display: none;
+                transition: all 1s;
+            }
+            .card__inner.active {
+                display: flex;
+            }
+            .card {
+                width: 32%;
+                position: relative;
+            }
+            .card__header div {
+                position: absolute;
+                top: 15px;
+                left: 10px;
+                background-color: #000;
+                padding: 10px;
+            }
+            .card__header div p {
+                color: white;
+            }
+            .card__body {
+                position: relative;
+            }
+            .card__body .desc {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                margin-top: 15px;
+                margin-bottom: 10px;
+            }
+            .card__body p {
+                color: black;
+                font-weight: bold;
+                /* display: inline; */
+                font-size: 1.1rem;
+                position: relative;
+            }
+            .card__body p::before {
+                content: "/3인분";
+                color: #ccc;
+                position: absolute;
+                bottom: 0;
+                left: 83px;
+                font-size: 16px;
+                font-weight: normal;
+            }
+            .card__body .shopicon::before {
+                content: "";
+                background: url(img/shopicon.png);
+                background-size: contain;
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                top: 0;
+                right: 5px;
+            }
+            /* modal */
+            .modal {
+                width: 100%;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.2);
+                position: fixed;
+                left: 0;
+                top: 0;
+                overflow-x: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: scale(0);
+            }
+            .modal.show {
+                transform: scale(1);
+            }
+            .modal.show.hide {
+                transform: scale(0);
+            }
+            .modal__window {
+                width: 50%;
+                height: 30vh;
+                background-color: #fff;
+                border-radius: 30px;
+                box-sizing: border-box;
+                padding: 20px;
+            }
+            .modal__close {
+                width: 50px;
+                height: 50px;
+                background-color: red;
+                border-radius: 19px;
+                line-height: 50px;
+                text-align: center;
+                color: white;
+            }
+            .modal__close:hover {
+                cursor: pointer;
+            }
+            /* footer */
+            footer {
+                width: 100%;
+                background-color: #202020;
+            }
+            footer p {
+                color: #999;
+                font-size: 14px;
+                line-height: 2;
+            }
+            .footer__wrap {
+                width: 1000px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                box-sizing: border-box;
+                padding: 20px;
+            }
+            .footer__logo {
+                width: 40%;
+            }
+            .footer__logo img {
+                width: 50%;
+            }
+
+            .footer__desc {
+                width: 57%;
+            }
+            .footer__desc .footer__menu {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .footer__menu li {
+                display: inline;
+            }
+            .footer__menu li a {
+                padding: 0 15px;
+                color: white;
+            }
+            .footer__menu li:first-child a {
+                padding-left: 0;
+            }
+            .footer__menu li a:hover {
+                background-color: #f1f1f16c;
+                border-radius: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <header id="headerType" class="header__wrap nexon">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <img src="img/logo.jpg" alt="로고" />
+                </div>
+                <nav class="header__menu">
+                    <ul>
+                        <li><a href="#">COOKIT소개</a></li>
+                        <li><a href="#">COOKIT메뉴</a></li>
+                        <li><a href="#">리뷰</a></li>
+                        <li><a href="#">이벤트</a></li>
+                        <li><a href="#">MY쿡킷</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!-- 헤더영역 끝-->
+        <main id="main">
+            <section id="sliderType01">
+                <div class="slider__wrap">
+                    <div class="slider__img">
+                        <div class="slider__inner">
+                            <div class="slider">
+                                <img src="img/slide1.jpg" alt="이미지1" />
+                            </div>
+                            <div class="slider">
+                                <img src="img/slide2.jpg" alt="이미지2" />
+                            </div>
+                            <div class="slider">
+                                <img src="img/slide3.jpg" alt="이미지3" />
+                            </div>
+                            <div class="slider">
+                                <img src="img/slide4.jpg" alt="이미지4" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 슬라이드 끝 -->
+
+            <section id="imgTextType" class="imgText__wrap nexon section gray">
+                <div class="imgText__inner container">
+                    <div class="Tab">
+                        <h2 class="tab1">우리집도 COOKIT 배송이 되나요?</h2>
+                        <p class="tab2">배송이 가능한지 알려드려요</p>
+                        <div class="more"><a href="#">배송지 검색</a></div>
+                        <div class="Tab__icon"><span class="ir">아이콘</span></div>
+                        <img class="btn" src="img/icon1.png" alt="아이콘이미지1" />
+                    </div>
+                    <div class="Tab">
+                        <h2 class="tab1">7월 30일(화)에 받을 수 있어요</h2>
+                        <p class="tab2">오전7시까지 주문하시면 다음날 배송됩니다.</p>
+                        <div class="more">
+                            <a href="#">68:28:32</a>
+                            <p>남은 시간</p>
+                        </div>
+                        <div class="Tab__icon"><span class="ir">아이콘</span></div>
+                        <img class="btn" src="img/icon2.png" alt="아이콘이미지2" />
+                    </div>
+                </div>
+            </section>
+            <!-- 이미지 텍스트영역 -->
+
+            <section id="cardType" class="card__wrap nexon section">
+                <h2 class="titH">실시간 베스트 |</h2>
+                <h2 class="titH noshow">생생한 리뷰</h2>
+
+                <div class="card__inner active">
+                    <article class="card">
+                        <figure class="card__header">
+                            <div>
+                                <p>BEST<br />01</p>
+                            </div>
+                            <img src="img/card1.jpg" alt="카드1" />
+                        </figure>
+                        <div class="card__body">
+                            <h2 class="desc">평양식 어복쟁반</h2>
+                            <p>33,800원</p>
+                            <a href="#" class="ir shopicon">쇼핑카트</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <figure class="card__header">
+                            <div>
+                                <p>BEST<br />02</p>
+                            </div>
+                            <img src="img/card2.jpg" alt="카드2" />
+                        </figure>
+                        <div class="card__body">
+                            <h2 class="desc">새우주꾸미삼겹살</h2>
+                            <p>29,800원</p>
+                            <a href="#" class="ir shopicon">쇼핑카트</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <figure class="card__header">
+                            <div>
+                                <p>BEST<br />03</p>
+                            </div>
+                            <img src="img/card3.jpg" alt="카드3" />
+                        </figure>
+                        <div class="card__body">
+                            <h2 class="desc">방풍나물 아귀찜</h2>
+                            <p>32,800원</p>
+                            <a href="#" class="ir shopicon">쇼핑카트</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="card__inner">
+                    <article class="card">
+                        <figure class="card__header">
+                            <div>
+                                <p>BEST<br />04</p>
+                            </div>
+                            <img src="img/card2.jpg" alt="카드1" />
+                        </figure>
+                        <div class="card__body">
+                            <h2 class="desc">쟁반</h2>
+                            <p>33,800원</p>
+                            <a href="#" class="ir shopicon">쇼핑카트</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <figure class="card__header">
+                            <div>
+                                <p>BEST<br />11</p>
+                            </div>
+                            <img src="img/card3.jpg" alt="카드2" />
+                        </figure>
+                        <div class="card__body">
+                            <h2 class="desc">삼겹살</h2>
+                            <p>29,800원</p>
+                            <a href="#" class="ir shopicon">쇼핑카트</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <figure class="card__header">
+                            <div>
+                                <p>BEST<br />15</p>
+                            </div>
+                            <img src="img/card1.jpg" alt="카드3" />
+                        </figure>
+                        <div class="card__body">
+                            <h2 class="desc">아귀</h2>
+                            <p>32,800원</p>
+                            <a href="#" class="ir shopicon">쇼핑카트</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="modal">
+                    <div class="modal__window">
+                        <div class="modal__close">X</div>
+                    </div>
+                </div>
+            </section>
+            <!-- 카드 영역 -->
+        </main>
+        <!-- 메인끝 -->
+
+        <footer>
+            <div class="footer__wrap">
+                <div class="footer__logo">
+                    <img src="img/footerlogo.jpg" alt="푸터로고" />
+                </div>
+                <div class="footer__desc">
+                    <nav class="footer__menu">
+                        <ul>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">법적고지</a></li>
+                            <li><a href="#">사용자정보 확인</a></li>
+                        </ul>
+                    </nav>
+                    <div class="footer__text">
+                        <p>
+                            씨제이제일제당(주) | 대표자:신현재
+                            <br />주소: 서울 중구 동호로 330 CJ제일제당 센터 (우) 04560 | 사업자등록번호 : 104-86-09535 <br />통신판매업신고 중구
+                            제07767호 | 개인정보보호책임자:류화정
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- 푸터 끝 -->
+
+        <!-- 스크립트 부분 -->
+        <script>
+            const sliderWrap = document.querySelector(".slider__wrap");
+            const sliderImg = document.querySelector(".slider__img"); //보여지는 영역
+            const sliderInner = document.querySelector(".slider__inner"); //움직이는 영역
+            const slider = document.querySelectorAll(".slider"); //개별 이미지
+
+            let currrentInedex = 0; //현재 이미지
+            let sliderCount = slider.length; //이미지 갯수
+            let sliderWidth = sliderImg.offsetWidth; //이미지 넓이값 구하기
+            let sliderClone = sliderInner.firstElementChild.cloneNode(true); //첫번째 이미지를 복사
+            sliderInner.appendChild(sliderClone); //첫번째 이미지를 마지막에 넣음
+
+            function sliderEffect() {
+                currrentInedex++;
+                sliderInner.style.transition = "all 0.6s";
+                sliderInner.style.transform = "translateX(-" + sliderWidth * currrentInedex + "px)";
+
+                if (currrentInedex == sliderCount) {
+                    setTimeout(() => {
+                        sliderInner.style.transition = "0s"; //애니메이션 안줌
+                        sliderInner.style.transform = "translateX(0px)"; //0px로 초기화
+                    }, 700);
+
+                    currrentInedex = 0;
+                }
+            }
+            setInterval(sliderEffect, 2000);
+        </script>
+        <script>
+            // 모달
+            const modalBtn = document.querySelectorAll(".btn");
+            const modalClose = document.querySelector(".modal__close");
+            const modalCont = document.querySelector(".modal");
+
+            modalBtn[1].addEventListener("click", () => {
+                modalCont.classList.add("show");
+                modalCont.classList.remove("hide");
+                modalClose.classList.remove("hide");
+                modalClose.classList.add("show");
+            });
+            modalBtn[0].addEventListener("click", () => {
+                modalCont.classList.add("show");
+                modalCont.classList.remove("hide");
+                modalClose.classList.remove("hide");
+                modalClose.classList.add("show");
+            });
+            modalClose.addEventListener("click", () => {
+                modalCont.classList.add("hide");
+                modalClose.classList.add("hide");
+                modalBtn.classList.remove("show");
+            });
+
+            // 탭 메뉴
+            const tabBtn = document.querySelectorAll("#cardType .titH");
+            const tabCont = document.querySelectorAll("#cardType .card__inner");
+
+            console.log(tabCont[1]);
+            tabBtn[0].addEventListener("click", () => {
+                tabCont[0].style.display = "flex";
+                tabCont[1].style.display = "none";
+                tabBtn[0].classList.remove("noshow");
+                tabBtn[1].classList.add("noshow");
+            });
+            tabBtn[1].addEventListener("click", () => {
+                tabCont[1].style.display = "flex";
+                tabCont[0].style.display = "none";
+                tabBtn[1].classList.remove("noshow");
+                tabBtn[0].classList.add("noshow");
+            });
+
+            // tabBtn.forEach((element, index) => {
+            //     element.addEventListener("click", (event) => {
+            //         event.preventDefault();
+
+            //         tabBtn.forEach((el) => {
+            //             el.classList.remove("active");
+            //         });
+            //         element.classList.add("active");
+
+            //         tabCont.forEach((div) => {
+            //             div.style.display = "none";
+            //         });
+            //         tabCont[index].style.display = "block";
+            //     });
+            // });
+        </script>
+    </body>
+</html>

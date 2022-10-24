@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 마우스이벤트 </title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="effect">
+                <li><a href="../effect/searchEffect.html">검색 효과</a></li>
+                <li><a href="../effect/quizEffect.html">퀴즈 효과</a></li>
+                <li><a href="../effect/dataEffect.html">데이터 효과</a></li>
+                <li><a href="../effect/mouseEffect.html">마우스 효과</a></li>
+                <li><a href="../effect/sliderEffect.html">슬라이드 효과</a></li>
+                <li><a href="../effect/parallaxEffect.html">패랠랙스 효과</a></li>
+                <li><a href="../effect/gameEffect.html">게임 효과</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">데이터 타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+                <li><a href="join.html">배열 메서드</a></li>
+                <li><a href="../effect/study/quiz01.html">퀴즈 만들기</a></li>
+                <li><a href="velog.html">내장함수</a></li>
+                <li><a href="slice.html">문자열 변경 메서드</a></li>
+                <li><a href="indexof.html">문자열 검색 메서드</a></li>
+                <li><a href="RegEXP.html">정규식 표현</a></li>
+                <li><a href="text.html">문자열 결합/템플릿 문자열</a></li>
+                <li><a href="trim.html">소/대문자/공백</a></li>
+                <li><a href="split.html">split()</a></li>
+                <li><a href="repeat.html">replace()/replaceAll()</a></li>
+                <li><a href="concat.html">concat()</a></li>
+                <li><a href="repeat.html">repeat()</a></li>
+                <li><a href="padStart.html">padStart()/padEnd()</a></li>
+                <li><a href="includes.html">includes()</a></li>
+                <li><a href="search.html">search()</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">mouseenter와 mouseover</h2>
+            <p class="t_desc2">
+                자바스크립트의 마우스이벤트에는 여러 종류가 있습니다. 그 중에서도 'mouseenter'와 'mouseover'는 같은 듯하면서 살짝
+                다른데요. 오늘은 이 둘의 차이점에 대해 알아보는 시간을 가져보겠습니다.
+            </p>
+            <hr>
+            <h3 class="t_tit2">■ mouseenter</h3>
+            <p class="t_desc">
+                마우스 커서가 요소로 들어갈 때와 나갈때 발생합니다.
+            </p>
+            <h3 class="t_tit2">■ mouseover</h3>
+            <p class="t_desc">
+                마우스 커서가 요소로 들어갈 때와 나갈때 발생합니다. 버블링이 적용됩니다.
+            </p>
+            <h2 class="t_tit2">■ 둘의 차이점?</h2>
+            <p class="t_desc">
+                mouseover 이벤트는 내부 div태그 안에 들어가도 이벤트를 또 발생시킵니다.
+                <br>반면, mouseenter는 문서 객체의 안에 있는지 외부에 있는지만 따지기 때문에 이벤트가 <i>한 번만</i> 발생합니다.
+            </p>
+            <hr>
+            <h2 class="t_tit3">🤷‍♂️ 버블링이 뭔가요?</h2>
+            <p class="t_desc2">
+                한 요소에 이벤트가 발생하면, 이 요소에 할당된 핸들러가 동작하고, 이어서 부모 요소의 핸들러가 동작합니다.
+                가장 최상단에 도달할때까지 이 과정이 반복되며 그로 인해 요소 각각에 할당된 핸들러가 동작하는 것을 뜻합니다.
+            </p>
+            <p class="t_desc">
+                예를 들어 부모 요소와 자식 요소 둘 다 click이벤트를 생성한 후 자식 요소를 click해서 이벤트를 호출한다고 하면 <i>클릭하지도 않은 부모 요소의 click이벤트까지
+                발생</i>하게 됩니다. 이게 바로 버블링이라고 표현할 수 있겠습니다.
+            </p>
+            <p class="t_desc">
+                아래 코드펜을 보시면 부모 요소인 outer에만 마우스 메서드를 주었는데요. mouseover는 outer의 자식요소인 inner에 마우스를 오버해도 출력이 되는 반면 
+                enter는 지정해준 요소에만 마우스오버시 출력되는 모습을 확인할 수 있습니다.
+            </p>
+            <div class="t_iframe">
+                <iframe src="https://codepen.io/parkhyeonshin/embed/gOzbQOw?default-tab=html%2Cresult&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/parkhyeonshin/pen/gOzbQOw">
+                    마우스오버 자바스크립트</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

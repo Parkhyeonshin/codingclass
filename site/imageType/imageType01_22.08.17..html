@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 타입01</title>
+
+    
+    <style>
+        /* 폰트 */
+        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'NexonLv1Gothic';
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+        img {
+            width: 100%;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        section {
+            padding: 120px 0px;
+        }
+        section h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 50px;
+            line-height: 1;
+        }
+        section > p {
+            text-align: center;
+            margin-bottom: 70px;
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+        }
+        /* container */
+        .container{
+            margin: 0 auto;
+            width: 1160px;
+            height: 500px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        /* card */
+        .container .card{
+            width: 570px;
+            height: 370px;
+            background-color: #333;
+            color: #fff;
+        }
+        .container .card:nth-child(1){
+            background-image: url(../imageType/img/image_type01_01.jpg) ;
+        }
+        .container .card:nth-child(2){
+            background-image: url(../imageType/img/image_type01_02.jpg) ;
+        }
+        .text {
+            padding: 30px;
+        }
+        .card .text h2{
+            font-size: 32px;
+            margin-top: 167px;
+        }
+        .card .text p{
+            font-size: 16px;
+            margin: 10px 0;
+            color: #fff;
+            line-height: 1.5;
+        }
+        .card:nth-child(1) .text a{
+            background-color: #49442C;
+            width: 120px;
+            height: 38px;
+            display: inline-block;
+            text-align: center;
+            line-height: 38px;
+        }
+        .card:nth-child(2) .text a{
+            background-color: #737263;
+            width: 120px;
+            height: 38px;
+            display: inline-block;
+            text-align: center;
+            line-height: 38px;
+        }
+        </style>
+</head>
+<body>
+    <section id="imageType01" class="wrap nexon section">
+        <h1>도베르만이 세상을 구한다🐺🐾</h1>
+        <p>아파트에서 도베르만 키우고 싶다... 아파트에도 마당이 있었으면 좋겠네요.... 마당 설치 해주실분?</p>
+        <div class="container">
+            <article class="card">
+                <div class="text">
+                    <h2>도베르만이 세상을 구한다</h2>
+                    <p>늠름한 도베르만을 보세요. 이 도베르만은 안덥나봐요. 이렇게 더운날에 얘는 안더울까요? 좋겠다 나도 바다 가고 싶다...</p>
+                    <a href="#">자세히 보기</a>
+                </div>
+            </article>
+            <article class="card">
+                <div class="text">
+                    <h2>도베르만이 세상을 구한다</h2>
+                    <p>늠름한 도베르만을 보세요. 이 도베르만은 안덥나봐요. 이렇게 더운날에 얘는 안더울까요? 좋겠다 나도 바다 가고 싶다...</p>
+                    <a href="#">자세히 보기</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+</html>

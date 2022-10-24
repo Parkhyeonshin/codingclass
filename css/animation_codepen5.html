@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSS : 코드펜으로 따라만들기5</title>
+
+	<link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+	<link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+	<style>
+		#main .document .btnflex {
+			display: flex;
+		}
+	</style>
+</head>
+
+<body>
+	<style>
+		/* .t_box .disn{
+            display: block;
+        } */
+		.t_box .disn:hover {
+			display: none;
+		}
+
+		.t_box .vis:hover {
+			visibility: hidden
+		}
+
+		.t_box .wh {
+			height: 50px;
+		}
+
+		.t_box .wh:hover {
+			width: 0;
+			height: 0;
+			overflow: hidden;
+		}
+
+		.t_box .op:hover {
+			animation: opacity 1.5s ease forwards;
+		}
+
+		.t_box .scale:hover {
+			animation: scale 1.5s ease forwards;
+		}
+
+		@keyframes opacity {
+			0% {
+				opacity: 1;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@keyframes scale {
+			0% {
+				transform: scale(1);
+			}
+
+			100% {
+				transform: scale(0);
+			}
+		}
+	</style>
+	<header id="header">
+		<!-- 시멘트태그(heaer, main, footer 등)-->
+		<h1><a href="../../../javascript/index.html">CSS _ 큐브</a></h1>
+		<nav class="header_nav">
+			<ul>
+				<li><a href="basic.html">기초</a></li>
+				<li><a href="#.html">주제</a></li>
+				<li><a href="index.html">알파벳</a></li>
+				<li><a href="bector.html">벡터/비트맵 방식</a></li>
+				<li><a href="grammar.html">기본 문법</a></li>
+				<li><a href="media.html">미디어 쿼리</a></li>
+				<li><a href="animation.html">애니메이션 만들기</a></li>
+				<li><a href="scss.html">SCSS</a></li>
+				<li><a href="ir.html">이미지스프라이트/IR/백그라운드 표현</a></li>
+				<li><a href="unit.html">단위</a></li>
+				<li><a href="color.html">색상 표현법</a></li>
+				<li class="active"><a href="hide.html">요소 숨기기</a></li>
+			</ul>
+		</nav>
+	</header>
+	<!-- //header -->
+	<main id="main">
+		<!--main start-->
+		<div class="document">
+			<h2 class="t_tit">움직이는 큐브</h2>
+			<div class="t_desc2">
+				박스모양이 움직이게 만들겠습니다.
+			</div>
+			<hr>
+			<h2 class="t_tit2">■ 새로운 것들</h2>
+			<p class="t_desc2">
+				transform-origin
+			</p>
+			<p class="t_desc">
+				이 속성은 transform의 변형 <i>기준점을 지정</i>하는 속성입니다.
+				속성 값은 길이 단위 값과 키워드로 지정할 수 있습니다.
+				x,y,z축 방향으로 촟 3개까지 입력 가능합니다. 
+			</p>
+			<img src="../../Coding/assets/tistory/블로그 내용/ani_box.jpg" alt="이미지">
+
+			<h3 class="t_tit2">■ HTML</h3>
+			<div class="t_code">
+				<pre><code class="language-html">&lt;div class="cube"&gt;
+  &lt;div&gt;메가박스&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+			</div>
+			<h3 class="t_tit2">■ CSS</h3>
+			<div class="t_code">
+				<pre><code class="language-css">body { 
+  background-color : #c9c9c9;
+  height: 100vh;
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cube{
+  position: relative;
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transform: rotateX(-20deg) rotateY(-140deg) translatez(0);
+  animation: rotate 8000ms linear infinite;
+  
+}
+
+.cube div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  opacity: 0.75;
+  color: white;
+}
+
+.cube div:nth-child(1) {
+  background-color: #ffcc80;
+  transform-origin: center top;
+  transform: rotateX(90deg) translatey(-100px);
+  animation: top 4000ms ease-in-out 8000ms infinite;
+}
+.cube div:nth-child(2) {
+  background-color: #ffb74d;
+  transform-origin: center bottom;
+  transform: rotateX(-90deg) translatey(100px);
+  animation: bottom 4000ms ease-in-out 8000ms infinite;
+}
+.cube div:nth-child(3) {
+  background-color: #ffa726;
+  transform-origin: left center;
+  transform: rotatey(-90deg) translatex(-100px);
+  animation: left 4000ms ease-in-out 8000ms infinite;
+}
+.cube div:nth-child(4) {
+  background-color: #ff9800;
+  transform-origin: right center;
+  transform: rotatey(-90deg) translatex(00px);
+  animation: right 4000ms ease-in-out 8000ms infinite;
+}
+.cube div:nth-child(5) {
+  background-color: #fb8c00;
+  transform-origin: center center;
+  transform: rotateX(0deg);
+  animation: front 4000ms ease-in-out 8000ms infinite;
+}
+.cube div:nth-child(6) {
+  background-color: #ffb74d;
+  transform-origin: center center;
+  transform: rotatey(180deg) translatez(100px);
+  animation: back 4000ms ease-in-out 8000ms infinite;
+}
+
+
+@keyframes rotate {
+  0% {transform: rotatex(0) rotatey(0) rotatez(0) translatez(0)}
+  0% {transform: rotatex(360deg) rotatey(360deg) rotatez(360deg) translatez(0)}  
+}
+
+@keyframes top {
+  0% {transform: rotatex(90deg) translatey(-100px) translatez(0)}
+  50% {transform: rotatex(90deg) translatey(-100px) translatez(100px)}
+  100% {transform: rotatex(90deg) translatey(-100px) translatez(0)}
+}
+
+@keyframes bottom {
+  0% { transform: rotatex(-90deg) translatey(100px) translatez(0) }
+  50% { transform: rotatex(-90deg) translatey(100px) translatez(100px) }
+  100% { transform: rotatex(-90deg) translatey(100px) translatez(0) }
+}
+
+@keyframes left {
+  0% {transform: rotatey(-90deg) translatex(-100px) scaley(1)}
+  50% {transform: rotatey(-90deg) translatex(-100px) scaley(3)}
+  100% {transform: rotatey(-90deg) translatex(-100px) scaley(1)}
+}
+@keyframes right{
+  0% {transform: rotatey(90deg) translatex(100px) scaley(1)}
+  50% {transform: rotatey(90deg) translatex(100px) scaley(3)}
+  100% {transform: rotatey(90deg) translatex(100px) scaley(1)}
+}
+@keyframes front {
+  0% {transform: rotatex(0deg) scaley(1)}
+  50% {transform: rotatex(0deg) scaley(3)}
+  100% {transform: rotatex(0deg) scaley(1)}
+}
+@keyframes back {
+  0% {transform: rotatey(180deg) translatez(100px) scaley(1)}
+  50% {transform: rotatey(180deg) translatez(100px) scaley(3)}
+  100% {transform: rotatey(180deg) translatez(100px) scaley(1)}
+}
+
+
+</code></pre>
+			</div>
+			<h2 class="t_tit2">■ 결과</h2>
+			<div class="t_iframe">
+				<iframe src="https://codepen.io/parkhyeonshin/embed/bGMrKVO?default-tab=result&theme-id=light"
+					frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+					See the Pen <a href="https://codepen.io/parkhyeonshin/pen/bGMrKVO">
+						애니메이션 발표3</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+					on <a href="https://codepen.io">CodePen</a>.
+				</iframe>
+			</div>
+		</div>
+	</main> <!-- //main end -->
+	<footer id="footer">
+		<a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+	</footer>
+	<!-- //footer -->
+	<script src="../../../javascript/assets/js/highlight.min.js"></script>
+	<script>
+		hljs.highlightAll();
+	</script>
+</body>
+
+</html>

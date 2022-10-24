@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 페럴렉스05</title>
+
+        <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+
+        <style>
+            #main .document .btnflex {
+                display: flex;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="../../../javascript/index.html">Javascript_Parallax05</a></h1>
+            <nav class="header_nav">
+                <ul class="study">
+                    <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                    <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                    <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                    <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                    <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                    <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                    <li><a href="search01.html">검색 이펙트1</a></li>
+                    <li><a href="search02.html">검색 이펙트2</a></li>
+                    <li><a href="animation.html">애니메이션 만들기</a></li>
+                    <li><a href="slider01.html">슬라이드 이펙트1</a></li>
+                    <li><a href="slider02.html">슬라이드 이펙트2</a></li>
+                    <li><a href="slider03.html">슬라이드 이펙트3</a></li>
+                    <li><a href="slider04.html">슬라이드 이펙트4</a></li>
+                    <li><a href="parallax01.html">패럴랙스 이펙트1</a></li>
+                    <li><a href="parallax02.html">패럴랙스 이펙트2</a></li>
+                    <li><a href="parallax03.html">패럴랙스 이펙트3</a></li>
+                    <li><a href="parallax04.html">패럴랙스 이펙트4</a></li>
+                    <li><a href="mouse01.html">마우스 이펙트1</a></li>
+                    <li><a href="mouse02.html">마우스 이펙트2</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">페럴렉스 효과 05</h2>
+                <div class="t_desc2">
+                    이번에는 이질감이 느껴지는 효과를 구현해보겠습니다. 이 효과를 뭐라고 설명해야할지 모르겠네요?＼（〇_ｏ）／
+                    그냥 <i>이질감 효과</i>라고 합시다
+                </div>
+                <hr />
+
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0">
+                    <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/parallaxEffect05.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link btnflex">
+                    <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/parallaxEffect05.html" target="_blank"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/parallaxEffect05.html" target="_blank">원본 사이트</a>
+                </div>
+                <hr />
+                <div class="t_desc">
+                </div>
+                <h3 class="t_tit2">JS 소스</h3>
+                <div class="t_code">
+<pre><code class="language-js">function scroll(){
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop);
+
+    document.querySelectorAll(".content__item").forEach(item => {
+        const target1 = item.querySelector(".content__item__img");
+        const target2 = item.querySelector(".content__item__desc");
+        const target3 = item.querySelector(".content__item__num");
+
+        let offset1 = (scrollTop - item.offsetTop) * 0.1 ;
+        let offset2 = (scrollTop - item.offsetTop) * 0.2 ;
+        let offset3 = (scrollTop - item.offsetTop) * 0.15 ;
+
+        // target1.style.transform = `translateY(${offset}px)`;
+        // target2.style.transform = `translateX(${offset2}px)`;
+
+        gsap.to(target1, {duration: .3, y: offset1, ease: "power4.out"})
+        gsap.to(target2, {duration: .3, y: offset2})
+        gsap.to(target3, {duration: .3, y: offset3, ease: "expo.out"})
+
+    });
+    requestAnimationFrame(scroll);
+}
+scroll();
+</code></pre>
+                </div>
+                <h2 class="t_tit2">■ 핵심 찍먹하기🪓</h2>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ addEventListener("scroll")을 대체하자! (재귀함수 쓰기)</h2>
+                <p class="t_desc">
+                   'window.addEventListener("scroll", scrollProgrss)'를 사용해도 상관은 없지만 좋은 방법이 아닙니다.
+                   <br>이유는 저희는 모르겠지만 스크롤이 될때마다 컴퓨터가 계속해서 반응해야 하므로 살려달라고 외치고 있을거에요.
+                   <br>그래서 우리는 <i>재귀함수를 이용</i>할 것입니다. 재귀함수란 간략하게 설명하자면 함수가 자기 자신을 실행시키는 겁니다. 
+                   그럼 문제가 발생하겠죠? 뭘까요? 무한궤도에 빠집니다. 기껏 자기자신을 실행시켰는데 실행 다하고 나니깐 또 자기자신을 실행시키라고 하니깐요. 근데? 이걸 무한반복해야 하니 얼마나 힘들까요.
+                   <br> 그래서 <i>  requestAnimationFrame</i>를 사용해서 1초에 60번만 실행시키도록 해줍니다. 이걸로 컴퓨터도 숨통이 트이겠군요💨
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ 스크롤이 밑으로 내려갈때 그림도 따라서 밑으로 이동하게 만들기</h2>
+                <p class="t_desc2">
+                    데이트를 끝내고 여러분은 혼자만 지하철을 탔습니다. 근데 전철이 출발했어용. 그 때 밖에 정지해 있는 여자친구를 볼까요?
+                    이 여자친구는 멈춰있으니 길어봐야 3초 보지 않을까요? 내일도 여러분은 데이트를 하고 또 혼자만 지하철을 탔습니다. 근데 여자친구가 오늘은 
+                    지하철 가는 방향하고 같이 뛰네요? 그러면 정지해있던 3초보다는 좀 더 오래 볼 수 있겠죠?
+                    <br>이걸 왜 얘기했냐고요? 제가 이렇게라도 생각해서 이해를 조금이나마 했거든요^_^
+                    <br>스크롤은 지하철이 되고, 각 섹션은 여자친구로 생각해야겠네요. 여자친구가 참 많군요.
+                </p>
+                <p class="t_desc">
+                    자 그럼 방향은 대충 잡았구요! 이걸 어떻게 이번 사이트에 녹여야 할지 고민해볼게요.
+
+                    <br>우선, 옮기고자 하는 영역을 밑으로 내린다? <i>transform</i>을 사용해야 겠구요.
+                    <br>각각의 'content__item'의 offsetTop위치(영역 가장윗부분)에 scrollTop이 도달했을때의 값을
+                    0으로 만들어준다면 모든 섹션에서 작동할 수 있게 할 수 있습니다. 
+                    <br>그리고 조금씩 스크롤을 내리면 자동적으로 scrollTop값은 증가하므로 <i>스크롤값과 offsetTop값의 차이가 발생</i>합니다. 여기서 작은 <i>오차들을 방지하고자 0.1을 곱해주게</i> 됩니다.
+                </p>
+                <p class="t_box">
+                    예를 들어 <i>2번 섹션의 오프셋값이 576px</i>이라고 가정하고 <i>3번섹션의 오프셋값은 1500px</i>이라고 가정해 보겠습니다.
+                    <br>그럼 scrollTop이 576px일땐 0이 되고,
+                    <br>scrollTop이 776px이 되면 차이가 200px, 여기에 0.1을 곱하므로 최종적으로는 <i>20이 반환</i>됩니다. 
+                    이 반환된 20을 translateY에 대입하여 20px만큼 밑으로 내려가게 효과를 주는 것이죠.
+                    <br>이러한 방식을 scrollTop값이 3번섹션인 1500px에 도달할때까지 
+                    반복하다가 3번섹션인 <i>1500px이되면</i> 1500px-1500px이 되어 다시 <i>0부터 시작</i>됩니다.
+                    <br>그럼 <i>다시 0부터</i> 차잇값을 translateY에 <i>대입</i>하게 되겠네요.
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ GSAP 활용하기</h2>
+                <p class="t_desc">
+                    transform효과를 사용해도 좋지만 GSAP를 활용해서 <i>CSS보다 더 부드러운 효과</i>를 내봅시다!
+                    <br>잊지 말고 CDN 써주세요
+                </p>
+                <div class="t_code">
+<pre><code class="language-js">&lt;script src="../assets/js/gsap.js"&gt;&lt;/script&gt;
+</code></pre>
+                </div>
+
+                <h2 class="t_tit2">■ 그림 설명은 못 참지🎨</h2>
+                <img width="100%" src="blogimg/parallax05_blog01.jpg" alt="그림설명">
+                <hr style="margin-bottom : 10px">
+                <p class="p_desc" style="font-size: 14px; text-align: center;">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+
+                
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

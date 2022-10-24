@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 패럴랙스03</title>
+
+        <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+        <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+
+        <style>
+            #main .document .btnflex {
+                display: flex;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="../../../javascript/index.html">Javascript_Parallax03</a></h1>
+            <nav class="header_nav">
+                <ul class="study">
+                    <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                    <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                    <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                    <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                    <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                    <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                    <li><a href="search01.html">검색 이펙트1</a></li>
+                    <li><a href="search02.html">검색 이펙트2</a></li>
+                    <li><a href="animation.html">애니메이션 만들기</a></li>
+                    <li><a href="slider01.html">슬라이드 이펙트1</a></li>
+                    <li><a href="slider02.html">슬라이드 이펙트2</a></li>
+                    <li><a href="slider03.html">슬라이드 이펙트3</a></li>
+                    <li><a href="parallax01.html">패럴랙스 이펙트1</a></li>
+                    <li><a href="parallax02.html">패럴랙스 이펙트2</a></li>
+                    <li><a href="parallax03.html">패럴랙스 이펙트3</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">패럴랙스 효과 03</h2>
+                <div class="t_desc2">
+                    패럴랙스 스크롤링은 사용자가 마우스를 스크롤할 때, 원거리에 있는 배경 이미지는 느리게
+                    움직이게 하고, 근거리에 있는 사물 이미지는 빠르게 움직이도록 함으로써 입체감을 느낄 수 있게 만든 디자인 기법입니다.
+                    오늘은 스크롤을 내리면 상단 메뉴바가 사라지고, 스크롤을 올리면 다시 나타나는 구성으로 진행해볼 예정이구요. 
+                    추가로 페이지의 맨마지막에 도달하면 위로가기 버튼이 나타나게 스크립트를 짜줄겁니다. 생각만큼 어렵지 않으니 같이 공부해봐요!
+                </div>
+                <hr />
+
+                <div class="t_iframe" style="min-height: 1000px; padding-top: 0">
+                    <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/parallaxEffect03.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link btnflex">
+                    <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/parallaxEffect03.html" target="_blank"
+                        >원본 소스 보기</a
+                    >
+                    <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/parallaxEffect03.html" target="_blank">원본 사이트</a>
+                </div>
+                <hr />
+                <div class="t_desc">
+                    ▶ 메뉴바를 스크롤의 변화에 따라 바로이전의 스크롤 위치값을 마지막 스크롤값에 대입시켜 현재 스크롤위치값과 비교하도록 스크립트를 만들어 줍니다.
+                    스크롤이 위로 <i>올라간다</i>는 것은 <i>현재</i> 스크롤 위치값이 <i>이전 스크롤위치값보다 작다</i>는 의미가 되겠고, 스크롤이 <i>내려감</i>은 <i>현재</i> 스크롤 위치값이 <i>이전 스크롤위치값보다는 커진다</i>는 의미겠죠?
+                    <br>이 원리를 이용해서 이번 메뉴바를 만들어보도록 하겠습니다.
+                </div>
+                <h3 class="t_tit2">JS 소스</h3>
+                <div class="t_code">
+                    <pre><code class="language-js">window.addEventListener("scroll", () => {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    // if (scrollTop > 0) {
+    //     document.querySelector("#parallax__nav").classList.add("show");
+    // } else {
+    //     document.querySelector("#parallax__nav").classList.remove("show");
+    // }
+
+    document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop);
+});
+
+console.log(document.querySelector("body").offsetHeight);
+console.log(document.querySelector("html").offsetHeight);
+console.log(window.innerHeight);
+window.addEventListener("scroll", () => {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    // scrollTop > ( 문서 전체높이 - 브라우저 높이 )
+    if (scrollTop >= document.body.scrollHeight - (window.innerHeight - 10)) {
+        document.querySelector("#parallax__top").classList.add("show");
+    } else {
+        document.querySelector("#parallax__top").classList.remove("show");
+    }
+});
+
+// top버튼누르면 맨위로
+document.querySelector("#parallax__top").addEventListener("click", () => {
+    window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+});
+
+let nowScroll = true; //--> 실행되게 (false일경우 작동안되게, 이런걸 트리거변수라고함)
+let lastScroll = 0;
+
+function scrollProgress() {
+    nowScroll = true;
+
+    setInterval(() => {
+        if (nowScroll) {
+            nowScroll = false;
+            hasScroll();
+        }
+    }, 300);
+}
+
+function hasScroll() {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop &lt; lastScroll) {
+        document.querySelector("#parallax__nav").classList.add("show");
+    } else {
+        document.querySelector("#parallax__nav").classList.remove("show");
+    }
+    lastScroll = scrollTop;
+}
+
+window.addEventListener("scroll", scrollProgress);
+
+const scroll = document.querySelector("#parallax__info .scroll span");
+window.addEventListener("scroll", () => {
+    // let scrollTop = window.pageYOffset;
+    // let scrollTop = window.scrollY;
+    // let scrollTop = document.documentElement.scrollTop;
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    // for문
+    // for (let i = 1; i &lt;= 9; i++) {
+    //     if (scrollTop + 1 >= document.getElementById(`section${i}`).offsetTop) {
+    //         document.querySelectorAll('#parallax__nav li').forEach((li) => {
+    //             li.classList.remove('active');
+    //         });
+    //         document.querySelector(`#parallax__nav li:nth-child(${i})`).classList.add('active');
+    //     }
+    // }
+
+    // forEach문
+    // Array.from(Array(9).keys(), x => x+1).forEach((el,index) => {
+    //     if (scrollTop + 1 >= document.getElementById(`section${index + 1}`).offsetTop) {
+    //         document.querySelectorAll('#parallax__nav li').forEach((li) => {
+    //             li.classList.remove('active');
+    //         });
+    //         document.querySelector(`#parallax__nav li:nth-child(${index + 1})`).classList.add('active');
+    //     }
+    // });
+
+    // forEach문 02
+    document.querySelectorAll(".content__item").forEach((element, index) => {
+        if (scrollTop >= element.offsetTop - window.innerHeight / 2) {
+            document.querySelectorAll("#parallax__nav li").forEach((li) => {
+                li.classList.remove("active");
+            });
+            document.querySelector(`#parallax__nav li:nth-child(${index + 1})`).classList.add("active");
+        }
+    });
+
+    document.querySelector(".scroll span").innerText = Math.round(scrollTop);
+});
+
+// 스크롤 이동
+document.querySelectorAll("#parallax__nav li a").forEach((li) => {
+    li.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(li.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+        });
+    });
+});
+</code></pre>
+                </div>
+                <p class="t_tit2">■ 핵심 파헤치기🪓</p>
+
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ preventDefault</h2>
+                <p class="t_desc">
+                    기본(default) 막다(prevent).
+                    <br>원래 a태그나 submit태그는 누르게 되면 href를 통해 이동하거나 창이 새로고침되어 실행되는 기능을 가지고있습니다.
+                    이 메서드는 이러한 <i>태그의 기본 이벤트(동작)을 막는 기능</i>을 합니다. 
+                    <br>이 속성은 <i>이벤트 메서드</i> 입니다. 밑에 간단한 예시를 만들어 봤으니 눌러보시고 파악해보세요.
+                    <br><br> <a href="http://www.google.com" target="_blank">메서드 미적용_ 눌러보세요 (구글로 새창이동)</a>
+                    <br> <a href="http://www.google.com" target="_blank" class="t_ablock" >메서드 적용_ 눌러보세요</a>
+                </p>
+                <p class="t_box">
+                    &lt;a href="http://www.google.com" target="_blank"&gt;메서드 미적용&lt;/a&gt;
+                    <br>&lt;a href="http://www.google.com" target="_blank" class="t_ablock"&gt;메서드 적용&lt;/a&gt;
+                    <br>
+                    <br>//스크립트
+                    <br>const ablock = document.querySelector(".t_ablock");
+                    <br>ablock.addEventListener("click", el => {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    el.preventDefault();
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;    alert("알람문구")
+                    <br>});
+                </p>
+                <script>
+                    const ablock = document.querySelector(".t_ablock");
+                    ablock.addEventListener("click", el => {
+                        el.preventDefault();
+                        alert(`
+                        막 Δ~~~Δ
+                        혀 ξ ･ェ･ ξ
+                        있 ξ　~　ξ
+                        지 ξ　　 ξ
+                        롱 ξ　　 “~～~～O
+                        ~  ξ　　　　　　 ξ
+                        ~  ξ ξ ξ~～~ξ ξ　
+                        ~  ξ_ξ_ξ　ξ_ξ_ξ`)
+                    });
+                </script>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ documentElement.scrollTop</h2>
+                <p class="t_box">
+                    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop; 
+                </p>
+                <p class="t_desc">
+                    스크롤바의 현재 위치를 가져오는 방법인데요. 모든 문법이 현재위치를 가져올 수 있습니다. 다만 IE브라우저의 경우 window.scrollY의 프로퍼티가 존재하지 않습니다.
+                    이 경우 <i>document.documentElement.scrollTop;</i>를 사용합니다. 그래서 호환을 위해서 위와 같이 문법을 사용한 것입니다. 저렇게 사용하면
+                    IE 및 대부분 브라우저에서 현재 스크롤위치를 반환하게 됩니다.
+                </p>
+
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ scrollIntoView</h2>
+                <p class="t_desc">
+                    이 메서드는 화면의 <i>특정 위치로 이동</i>시켜주는 함수입니다. <i>요소 기반이므로 특정 요소를 기준으로 스크롤을 이동</i>시킵니다. 여기서는 a링크의 href를 요소로 지정해주었으므로
+                    지정한 href요소로 이동을 시켜주겠네요. 그리고 3개의 문법(아무것도 사용하지 않고 그냥 사용 / 불린을 사용 / 옵션값 사용)중 옵션값을 사용하는 문법을 이용해줍니다.
+                    behavior는 전환방식을 설정해줄 수 있는데 여기서는 'smooth'를 사용하여 부드럽게 이동하는 설정을 해줍니다.
+                </p>
+                <p class="t_box">
+                    - true : 요소의 상단 기준으로 스크롤 이동
+                    <br>- false : 요소의 하단 기준으로 스크롤 이동
+                    <br>- behavior : 전환 방식(애니메이션) 정의함 : auto || smooth
+                    <br>- block : 수직 정렬 : strat || center || end || nearest
+                    <br>- inline : 수평 정렬 : strat || center || end || nearest
+                </p>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ Math.ceil()</h2>
+                <p class="t_box">
+                    Math.ceil(x)
+                </p>
+                <p class="t_desc">
+                    입력받은 숫자보다 크거나 같은 정수 중 가장 작은 정수를 리턴합니다.
+                    <br>라고 적혀있는데 문과는 뭔소린지 못알아듣겠네요. 쉽게말하면 입력받은 <i>숫자를 올림</i>한 정수를 리턴합니다.
+                    <br> ceil(1.2) : 2
+                    <br> ceil(3.5) : 4
+                    <br> ceil(-1.7) : -1
+                </p>
+                
+                
+
+                <h2 class="t_tit2">■ 코드 내멋대로 풀어헤치기👕</h2>
+                <p class="t_desc">보시다보면 아시겠지만 1번과 2번에 쓰인 스크립트의 크게 벗어나지 않습니다. 그래서 이번 내용은 토글방식으로 진행하는 함수실행문만 완벽하게 이해한다면 어렵지 않을듯 합니다!
+                    언제든 틀린점이 있다면 지적은 감사합니다.😙</p>
+                <pre class="t_desc2">window.addEventListener("scroll", () => {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+    document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop);
+});
+                </pre>
+                <p class="t_desc" style="margin-bottom: 0;">
+                    ☞ 스크롤 위치 값을 입력해줍니다.
+                    <br>계속해서 반복되는 내용입니다. #parallax__info span에 현재스크롤위치값을 올림하여 입력합니다.
+                </p>
+
+<pre class="t_desc2">window.addEventListener("scroll", () => {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    // scrollTop > ( 문서 전체높이 - 브라우저 높이 )
+    if (scrollTop >= document.body.scrollHeight - (window.innerHeight - 10)) {
+        document.querySelector("#parallax__top").classList.add("show");
+    } else {
+        document.querySelector("#parallax__top").classList.remove("show");
+    }
+});</pre>
+                <p class="t_desc">
+                    ☞ 최하단에 도달했을 때 TOP버튼을 표시합니다.
+                    <br>1. 'document.body.scrollHeight'는 문서 전체 높이를 구할 수 있습니다. 그래서 주석에 쓰여있듯 문서의 전체높이 - 브라우저 높이(약간의 오차가 있을 수 있어 -10정도를 더합니다)를 해주면 최하단부근에서 작동을 하게 됩니다.
+                    <br><br>
+                    굳이 각각 콘솔로그로 확인해보면 제 화면 기준으로는 이렇게 나옵니다.
+                    <br>console.log(scrollTop) //3310
+                    <br>console.log(document.body.scrollHeight) //4064
+                    <br>console.log(window.innerHeight) //923
+                    <br>console.log(document.body.scrollHeight - (window.innerHeight - 10)) //3151
+                    <br><br>
+                    2. 버튼을 눌렀을때 작동되는 스크립트에 대한 설명은 이미 많이 설명드려서 PASS~
+                </p>
+                <pre class="t_desc2">
+let nowScroll = true; //--> 실행되게 (false일경우 작동안되게, 이런걸 트리거변수라고함)
+let lastScroll = 0;
+
+function scrollProgress() {
+    nowScroll = true;
+
+    setInterval(() => {
+        if (nowScroll) {
+            nowScroll = false;
+            hasScroll();
+        }
+    }, 300);
+}
+
+function hasScroll() {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop &lt; lastScroll) {
+        document.querySelector("#parallax__nav").classList.add("show");
+    } else {
+        document.querySelector("#parallax__nav").classList.remove("show");
+    }
+    lastScroll = scrollTop;
+}
+
+window.addEventListener("scroll", scrollProgress);
+                </pre>
+                <p class="t_desc">
+                    1. nowScroll에 아예 true를 집어넣어 토글방식을 만들기 위한 준비를 해줍니다.
+                    <br><br>
+                    2. setInterval를 이용해서 0.3초마다 hasScroll()함수가 실행됩니다. 굳이 이렇게 번거롭게 하는 이유는 뭘까요? 답은 간단합니다. 이렇게 시간차로라도 하지않으면 과부화가 와서 컴퓨터가 말은 안하지만 울부짖고 있을걸요 ?
+                    <br><br>
+                    3. 앞서 간략하게 설명 드렸듯 현재스크롤이 이전 스크롤값보다 작아지면 스크롤을 위로 올리는 행위라고 말씀드렸습니다. 그래서 'scrollTop &lt; lastScroll'의 조건에 부합하면 메뉴바에 .show를 붙여 출력시키게 됩니다.
+                    <br><br>
+                    4. 사실 지금 설명드리는 부분이 순서상으론 첫번째 과정이지만 저는 스크립트를 위에서부터 아래로 차례대로 설명드린다고 했으니까 여기서 설명드립니닷!
+                    <i>스크롤할때마다 1번과정</i>(0.3초 토글방식)이 실행 되는 거겠죠?
+                </p>
+                <p class="t_desc">
+                    <br>👋이후 밑 부분 스크립트는 1, 2번 과정에서도 수없이 설명드렸던 부분이라 PASS~
+                </p>
+                <p class="t_desc" style="color : rgb(150, 150, 150);">
+                    (혹시라도 페럴렉스를 처음봐서 모르시겠다하는 분은 페럴렉스 효과 1번, 2번글 보시면 됩니다.)
+                </p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

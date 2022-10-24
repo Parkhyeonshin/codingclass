@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 유형02</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+        .gmarket {
+            font-family: "GmarketSans";
+            font-weight: 400;
+        }
+
+        /* 리셋 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        img {
+            width: 100%;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .section {
+            padding: 120px 0;
+        }
+        .section > h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section > p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* cardType */
+        .card__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+        .card {
+            width: 275px;
+            margin-bottom: 50px;
+        }
+        .card__body { 
+            margin-top: 20px;
+        }
+        .like {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .card__body .tit{
+            font-size: 24px;
+        }
+        .card__body .desc{
+            font-size: 18px;
+            line-height: 1.4;
+            color: #666;
+            font-weight: 300;
+        }
+        .card__body .btn{}
+    </style>
+</head>
+    
+<body>
+    <section id="cardType" class="card__wrap gmarket section">
+        <h2>스타벅스 탐방</h2>
+        <p>
+        바쁘다 바빠!현대 사회! 야속하다 야속해! 자본주의 사회!!를 살아가는 우리
+        <br>전세계인이 사랑하는 스타벅스로 여행을 떠나요.룰루랄라랄🎶
+        </p>
+        <div class="card__inner container">
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg02_01.jpg" alt="커피 이미지">
+                </figure>
+                <div class="card__body">
+                    <div class="like">
+                    <h3 class="tit">좋아요!</h3>
+                        <a class="btn" href="/">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#480202"/>
+                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="desc">
+                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
+                    </p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg02_02.jpg" alt="커피 이미지">
+                </figure>
+                <div class="card__body">
+                    <div class="like">
+                    <h3 class="tit">좋아요!</h3>
+                        <a class="btn" href="/">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#480202"/>
+                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="desc">
+                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
+                    </p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg02_03.jpg" alt="커피 이미지">
+                </figure>
+                <div class="card__body">
+                    <div class="like">
+                    <h3 class="tit">좋아요!</h3>
+                        <a class="btn" href="/">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#480202"/>
+                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="desc">
+                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
+                    </p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg02_04.jpg" alt="커피 이미지">
+                </figure>
+                <div class="card__body">
+                    <div class="like">
+                    <h3 class="tit">좋아요!</h3>
+                        <a class="btn" href="/">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#480202"/>
+                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="desc">
+                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
+                    </p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg02_05.jpg" alt="커피 이미지">
+                </figure>
+                <div class="card__body">
+                    <div class="like">
+                    <h3 class="tit">좋아요!</h3>
+                        <a class="btn" href="/">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#480202"/>
+                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="desc">
+                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
+                    </p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg02_06.jpg" alt="커피 이미지">
+                </figure>
+                <div class="card__body">
+                    <div class="like">
+                    <h3 class="tit">좋아요!</h3>
+                        <a class="btn" href="/">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#480202"/>
+                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="desc">
+                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
+                    </p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg02_07.jpg" alt="커피 이미지">
+                </figure>
+                <div class="card__body">
+                    <div class="like">
+                    <h3 class="tit">좋아요!</h3>
+                        <a class="btn" href="/">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#480202"/>
+                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="desc">
+                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
+                    </p>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg02_08.jpg" alt="커피 이미지">
+                </figure>
+                <div class="card__body">
+                    <div class="like">
+                    <h3 class="tit">좋아요!</h3>
+                        <a class="btn" href="/">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="5" fill="#480202"/>
+                                <path d="M5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13V11ZM19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L13.3431 4.92893C12.9526 4.53841 12.3195 4.53841 11.9289 4.92893C11.5384 5.31946 11.5384 5.95262 11.9289 6.34315L17.5858 12L11.9289 17.6569C11.5384 18.0474 11.5384 18.6805 11.9289 19.0711C12.3195 19.4616 12.9526 19.4616 13.3431 19.0711L19.7071 12.7071ZM5 13H19V11H5V13Z" fill="white"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="desc">
+                        바쁘다 바빠! 야속하다 야속해! 현대사회를 살아가는 우리들은 매일매일이 피곤하고 지치고 졸리고 자고싶...
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+</html>

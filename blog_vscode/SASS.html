@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vscode_scss 설정법</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css" />
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css" />
+  </head>
+  <style>
+    img {
+      width: 100%;
+    }
+  </style>
+  <body>
+    <header id="header"></header>
+    <!-- //header -->
+    <main id="main">
+      <!--main start-->
+		<div class="document">
+        <h2 class="t_tit">[VSCode] SASS Compile하기</h2>
+        <p class="t_desc2">
+          SCSS를 사용하면 편하게 CSS를 사용할 수 있다고 했습니다. 오늘은 VSCode에서 SCSS를 사용하는 법에 대해 알아볼까요
+        </p>
+		<h3 class="t_tit2">1. 설치가 필요한 Extension</h3>
+		<p class="t_desc">▶ SASS</p>
+		<img src="https://github.com/Parkhyeonshin/Coding/blob/main/assets/tistory/%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EB%82%B4%EC%9A%A9/Vscode_SASS_01.jpg?raw=true" alt="">
+		<p class="t_desc">▶ Live Sass Compiler</p>
+		<img src="https://github.com/Parkhyeonshin/Coding/blob/main/assets/tistory/%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EB%82%B4%EC%9A%A9/Vscode_SASS_02.jpg?raw=true" alt="">
+		<p class="t_desc">▶ Live Server</p>
+		<img src="https://github.com/Parkhyeonshin/Coding/blob/main/assets/tistory/%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EB%82%B4%EC%9A%A9/Vscode_SASS_03.jpg?raw=true" alt="">
+
+        <h2 class="t_tit">설정하기</h2>
+		<p class="t_desc">
+			Settings 에서 formats 검색 &gt; Live Sass Compiler &gt; Edit in settings.json 열기
+		</p>
+		<div class="t_code">
+<pre><code class="langauge-js">"liveSassCompile.settings.formats":[
+	// This is Default.
+	{
+		"format": "expanded",
+		"extensionName": ".css",
+		"savePath": null
+	},
+	// You can add more
+	{
+		"format": "compressed",
+		"extensionName": ".min.css",
+		"savePath": "/dist/css"
+	},
+	// More Complex
+	{
+		"format": "compressed",
+		"extensionName": ".min.css",
+		"savePath": "~/../css/"			//컴파일된 css 파일이 저장될 경로
+	}
+]
+</code></pre>
+		</div>
+		<p class="t_desc">
+			1. format 
+			<br>&nbsp;&nbsp; expanded, compact, compressed, nested가 있습니다. expanded가 default입니다.
+			<br>2. extensionName
+			<br>&nbsp;&nbsp; .css가 default입니다.
+			<br>3. savePath
+			<br>&nbsp;&nbsp; null이 default입니다. 현재 폴더위치에 css파일을 컴파일링 합니다.
+			다른 폴더로의 컴파일링을 원할 경우 '~/../css'같이 경로를 적어줍니다. 
+		</p>
+		<p class="t_desc">
+			'liveSassCompile.settings.includeItems'는 상위폴더가 항상 scss일때만 컴파일을 하라는 뜻이고,
+			<br>'savePath'는 지금 scss가 들어있는 폴더 상위 폴더의 scss 폴더에 저장하라는 뜻입니다.
+		</p>
+
+        <h2 class="t_tit">사용 방법</h2>
+		<p class="t_desc">
+			.scss파일을 열고 하단의 'Watch SASS'를 누릅니다.
+			(<i>누르지 않으면 적용 안됩니다!!</i>)
+			<br>Watching으로 바뀌면서 저장할때마다 scss파일이 컴파일링 됩니다.
+		</p>
+		<img src="https://github.com/Parkhyeonshin/Coding/blob/main/assets/tistory/%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EB%82%B4%EC%9A%A9/Vscode_SASS_05.jpg?raw=true" alt="">
+		<img src="https://github.com/Parkhyeonshin/Coding/blob/main/assets/tistory/%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EB%82%B4%EC%9A%A9/Vscode_SASS_06.jpg?raw=true" alt="">
+		</div>
+    </main>
+    <!-- //main end -->
+    <footer id="footer">
+      <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>

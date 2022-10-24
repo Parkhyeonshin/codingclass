@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* fonts  */
+        @import url('https://webfontworld.github.io/NanumSquare/NanumSquare.css');
+
+        /* 리셋 */
+        *{
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+            text-align: center;
+            font-family: 'NanumSquare';
+            font-weight: 400;
+
+        }
+        
+        /* common */
+        body{
+            background-color: #E1E1E1;
+        }
+        #wrap {
+            width: 1160px;
+            min-width: 1160px;
+            margin: 20px auto;
+            background-color: #f5f5f5;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        a:hover {
+            text-decoration: underline;
+            background-color: rgb(172, 71, 71);
+        }
+        li {
+            list-style: none;
+            display: inline-block;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        .small_t{
+            width: 67px;
+            height: 20px;
+            background-color: #666666;
+            color: #fff;
+            line-height: 20px;
+        }
+        .big_t{
+            width: 75px;
+            height: 20px;
+            background-color: #000;
+            color: #fff;
+            line-height: 20px;
+        }
+        /* header */
+        header{
+            height: 150px;
+            background-color: #729E3B;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        header .h1 {
+            width: 110px;
+            height: 110px;
+            background-color: #96B76D;
+            margin: 20px;
+        }
+        header .small_t{
+            display: inline-block;
+            margin: 10px 0 16px 0;
+        }
+        header .h1 a{
+            display: block;
+        }
+        header .header_right{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            width: 900px;
+            height: 110px;
+            
+        }
+        header .header_right span{
+            width: 900px;
+            height: 55px;
+            margin: 0 auto;
+        }
+        header .header_right span .big_t{
+            margin: 10px auto 0 auto;
+        }
+        header .header_right nav {
+            width: 900px;
+            height: 55px;
+            line-height: 55px;
+            background-color: #96B76D;
+            padding-left: 80px;
+            position: relative;
+        }
+        header .header_right nav .small_t{
+            position: absolute;
+            left: 15px;
+            top: 0;
+        }
+        header .header_right nav ul li{
+            width: 15%;
+            justify-content: space-between;
+        }
+        /* container */
+        #container{
+            margin-top: 20px;
+            height: 400px;
+            background-color: #729E3B;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #container section{
+            width: 400px;
+            height: 360px;
+            background-color: #96B76D;
+            position: relative;
+            margin: 20px;
+        }
+        #container section:nth-child(2){
+            margin-left: 0;
+        }
+        #container section .small_t {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+        }
+        #container section h2 {
+            line-height: 360px;
+        }
+        #container .container_right {
+            margin: 20px 20px 20px 0;
+        }
+        #container .container_right article{
+            width: 280px;
+            height: 170px;
+            background-color: #96B76D;
+            margin-bottom: 20px;
+            line-height: 170px;
+            position: relative;
+        }
+        #container .container_right article .small_t{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #container .container_right aside{
+            width: 280px;
+            height: 170px;
+            background-color: #96B76D;
+            margin-bottom: 20px;
+            line-height: 170px;
+            position: relative;
+        }
+        #container .container_right aside .small_t{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        /* footer */
+        footer{
+            height: 80px;
+            padding: 10px;
+            background-color: #729E3B;
+            position: relative;
+            margin-top: 20px;
+        }
+        footer div{
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        footer .big_t{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        footer address{
+            width: 463px;
+            padding-left: 87px;
+            height: 35px;
+            line-height: 35px;
+            background-color: #96B76D;
+            margin-left: 140px;
+            font-size: 12px;
+            text-align: left;
+        }
+        footer .small_t{
+            position: absolute;
+            top: 0px;
+            left: 140px;
+        }
+        footer .footer_p{
+            margin-top: 10px;
+            width: 463px;
+            padding-left: 87px;
+            height: 35px;
+            line-height: 35px;
+            background-color: #96B76D;
+            margin-left: 140px;
+            font-size: 12px;
+            text-align: left;
+        }
+        footer .small_t2{
+            width: 67px;
+            height: 20px;
+            background-color: #666666;
+            color: #fff;
+            line-height: 20px;
+            position: absolute;
+            top: 10px;
+            left: 140px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div class="h1">
+                <p class="small_t">h1</p>
+                <a href="#">반응형 웹</a>
+            </div>
+            <div class="header_right">
+                <span>
+                    <p class="big_t">header</p>
+                </span>
+                <nav>
+                    <p class="small_t">nav</p>
+                    <ul>
+                        <li><a href="#">MENU01</a></li>
+                        <li><a href="#">MENU02</a></li>
+                        <li><a href="#">MENU03</a></li>
+                        <li><a href="#">MENU04</a></li>
+                        <li><a href="#">MENU05</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div id="container">
+            <section>
+                <p class="small_t">section</p>
+                <h2>콘텐츠 그룹01</h2>
+            </section>
+            <section>
+                <p class="small_t">section</p>
+                <h2>콘텐츠 그룹02</h2>
+            </section>
+            <div class="container_right">
+                <article>
+                    <p class="small_t">section</p>
+                    <h2>주요기사</h2>
+                </article>
+                <aside>
+                    <p class="small_t">section</p>
+                    광고
+                </aside>
+            </div>
+        </div>
+        <footer>
+            <p class="big_t">footer</p>
+            <div>
+                <p class="small_t">address</p>
+                <address>경기도 떡잎마을 코-딩동댕유치원 코딩하는두목님  032)123-2424    co-ding@email.com</address>
+            </div>
+            <div>
+                <p class="small_t2">p</p>
+                <p class="footer_p">COPYRIGHT @ ALL  rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

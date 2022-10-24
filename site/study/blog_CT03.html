@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 유형03</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../javascript/assets/css/dracula.css">
+    
+    <style>
+        .document #main .btnflex{
+    	    display: flex;
+        }
+    </style>
+</head>
+    
+<body>
+    <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
+        <h1><a href="../index.html">사이트 만들기</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="#.html">카드 유형 03</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <div class="document">
+        <div id="main">
+            <h2 class="t_tit">사이트 만들기 _ 카드 유형03</h2>
+            <p class="t_desc2">
+                사이트 만들기 세번째 시간입니다. 오늘은 카드유형 중 세번째 유형입니다. 
+                <br> 기존 텍스트 형태 밑에 프로필아이콘과 간단한 텍스트들이 추가 되었네요! 웹 표준을 준수해서 사이트를 만들어 봅시다.
+            </p>
+
+            <hr>
+
+            <h3></h3>
+            <div class="t_iframe">
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fd1alnzzZPOOZzULTEK3Bv7%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D188%253A322" allowfullscreen></iframe>
+            </div>
+
+            <hr>
+            <figure class="card__header">
+                <img src="../cardType/img/card_type03_blog1.jpg" alt="레이아웃 이미지">
+            </figure>
+            <div class="t_desc">
+                시멘틱 태그를 사용한 이후엔 h태그가 필수적으로 와야 하는데요. 그래서 html소스의 &lt;section&gt;이후에 h태그를 사용했습니다. 하지만 저희는 이 h태그를 보여주면 안되겠죠?
+                그래서 이번엔 이 h태그에 class="blind"를 부여해서 <i>blind</i>라는 css속성을 사용해보겠습니다.
+                <br>그리고, footer부분의 배치가 애매하죠? 저도 어려워요...😥 오른쪽부터 배치될 수 있게 하기 위해 새로운 justify-content 속성인 flex-end를 사용해봐요.
+                <i>justify-content: flex-end;를 사용하면 flex컨테이너의 뒤쪽부터 정렬</i>이 됩니다.
+            </div>
+            <h3 class="t_tit2">CSS속성 : blind</h3>
+            <p class="t_desc2">
+                이름 그대로 시각적으로 보이지 않게 하기 위한 css속성을 부여했습니다. 속성 값은 아래를 참고하세요!
+            </p>
+            <p class="t_box">
+                .blind {
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;position:absolute;
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;clip:rect(0 0 0 0);                 
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;width:1px;
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;height:1px;
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;margin:-1px;
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;overflow:hidden;
+                <br>}
+                <br><br>// 포토샵의 클리핑 마스크처럼 요소의 특정 부분만 나오도록 설정하는 속성입니다. 위치값 네군데가 0이므로 표현이 되지 않겠네요.마찬가지로 width, height을 1로부여하고
+                margin을 -1로 부여해서 overflow:hidden으로 넘치는 부분은 표현하지 않게하여 결과적으로는 <i>보여지지 않게 됩니다.</i>
+            </p>
+            <figure class="card__header">
+                <img src="../cardType/img/card_type03_blog2.jpg" alt="레이아웃2 이미지">
+            </figure>
+            <h3 class="t_tit2">CSS 속성</h3>
+            <div class="t_code">
+<pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/score/SCoreDream.css');
+
+.score {
+    font-family: 'SCoreDream';
+    font-weight: 300;
+
+}
+
+/* 리셋 */
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+img {
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+/* common */
+
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+.section {
+    padding: 120px 0;
+}
+.section > h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.section > p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #666;
+    text-align: center;
+    margin-bottom: 70px;
+}
+/* blind : 접근성을 위해 필요함. 눈에 안보이게 하기위함 */
+.blind {
+    position:absolute;
+    clip:rect(0 0 0 0);                 
+    width:1px;
+    height:1px;
+    margin:-1px;
+    overflow:hidden;
+}
+
+/* cardType03 */
+body{
+    background-color: #2254c3;
+}
+.card__inner {
+    display: flex;
+}
+.card__inner .card{
+    padding: 26px;
+    width: 33.333%;
+    background-color: #fff;
+    
+}
+.card__inner .card:nth-child(1){
+    border-right: 1px solid #eee;
+}
+.card__inner .card:nth-child(2){
+    border-right: 1px solid #eee;
+}
+.card {}
+.card__header {
+    position: relative
+}
+.card__header img {
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+.card__header figcaption {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 14px;
+    color: #7b7b7b;
+}
+.card__contents h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.card__contents p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-bottom: 30px;
+}
+
+.card__footer {
+    display: flex;
+    justify-content: flex-end;
+}
+.card__footer h4 {
+    text-align: right;
+    color: #dd2a2a;
+}
+.card__footer em {
+    display: block;
+    color: #666;
+    font-style: normal;
+}
+.card__footer span {
+    width: 40px;
+    height: 40px;
+    background: #000;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    margin-left: 10px;
+    margin-top: -3px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+}
+</code></pre>
+            </div>
+            <h3 class="t_tit2">HTML 속성</h3>
+            <div class="t_code">
+<pre><code class="language-html">&lt;section id="cardType03" class="card_wrap score section"&gt;
+    &lt;h2 class="blind"&gt;건축의 세계&lt;/h2&gt;
+    &lt;div class="card__inner container"&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card_bg03_01.jpg" alt="Architects"&gt;
+                &lt;figcaption&gt;Dog&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__contents"&gt;
+                &lt;h3&gt;
+                    조심하세요&lt;br&gt;
+                    너무너무너무너무너무너무너무귀여워요!!
+                &lt;/h3&gt;
+                &lt;p&gt;
+                    우수에 찬 눈빛을 보세요. 살인미수급 눈빛아닌가요....강아지들을 보다가 심장이 멎을 수도 있으니 주의해서 봐주세요!너무너무 귀여워요🖤 얘가 제일 귀엽다
+                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;Lisa &lt;em&gt;24분 전&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card_bg03_icon01.png" alt="리사"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card_bg03_02.jpg" alt="Dog"&gt;
+                &lt;figcaption&gt;Dog&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__contents"&gt;
+                &lt;h3&gt;
+                    조심하세요&lt;br&gt;
+                    너무너무너무너무너무너무너무귀여워요!!
+                &lt;/h3&gt;
+                &lt;p&gt;
+                    우수에 찬 눈빛을 보세요. 살인미수급 눈빛아닌가요....강아지들을 보다가 심장이 멎을 수도 있으니 주의해서 봐주세요!너무너무 귀여워요🖤 얘가 제일 귀엽다
+                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;Lisa &lt;em&gt;24분 전&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card_bg03_icon02.png" alt="리사"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card_bg03_03.jpg" alt="Dog"&gt;
+                &lt;figcaption&gt;Dog&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__contents"&gt;
+                &lt;h3&gt;
+                    조심하세요&lt;br&gt;
+                    너무너무너무너무너무너무너무귀여워요!!
+                &lt;/h3&gt;
+                &lt;p&gt;
+                    우수에 찬 눈빛을 보세요. 살인미수급 눈빛아닌가요....강아지들을 보다가 심장이 멎을 수도 있으니 주의해서 봐주세요!너무너무 귀여워요🖤 얘가 제일 귀엽다
+                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;Lisa &lt;em&gt;24분 전&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card_bg03_icon03.png" alt="리사"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+            </div>
+            <h3 class="t_tit2">결과보기</h3>
+            <div class="t_iframe">
+                <iframe src="https://parkhyeonshin.github.io/Coding/site/cardType/cardType03.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/site/cardType/cardType03.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/site/cardType/cardType03.html" target="_blank">원본 사이트</a>
+            </div>
+        </div>
+    </div>
+    </section>
+        <script src="../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+</body>
+</html>

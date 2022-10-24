@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드 유형01</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../javascript/assets/css/dracula.css">
+
+    <style>
+        .document #main .btnflex{
+        	display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">   <!-- 시멘트태그(heaer, main, footer 등)--> 
+        <h1><a href="../index.html">사이트 만들기</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="#.html">슬라이드 유형 01</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <div class="document">
+        <div id="main">
+            <h2 class="t_tit">사이트 만들기 _ 슬라이드 유형01</h2>
+            <p class="t_desc2">
+                슬라이드 유형에 대해 알아보겠습니다. 사실 사이트만들기는 여태까지 했던 내용들이 계속해서 나오는 부분이라 이렇다할 내용이 없네요...?
+                그래도 같이 보시죠
+            </p>
+
+            <hr>
+
+            <h3></h3>
+            <div class="t_iframe">
+                <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fd1alnzzZPOOZzULTEK3Bv7%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D2097%253A922" allowfullscreen></iframe>
+            </div>
+
+            <hr>
+            <figure class="card__header">
+            </figure>
+            <h3 class="t_tit2">■ 그림으로 미리보기🎨</h3>
+            <img src="../slideType/img/SLIDER-TYPE01_bg.jpg" alt="이미지1">
+            <h3 class="t_tit2">■ 핵심내용✍</h3>
+            <p class="t_desc2">
+                .ir {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;display: block;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;font-size: 0;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;line-height: 0;
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;text-indent: -9999px;
+                <br>}
+            </p>
+            <p class="t_desc">
+                웹 표준 준수를 위해 .dot a 에 ir 효과를 부여합니다. 이외도 .slider__arrow a 에도 똑같이 부여합니다.
+            </p>
+            <h3 class="t_tit2">CSS 속성</h3>
+            <div class="t_code">
+<pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+.nexon {
+    font-family: "NexonLv1Gothic";
+    font-weight: 400;
+}
+
+/* 리셋 */
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+img {
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+li{
+    list-style: none;
+}
+/* common */
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+.section {
+    padding: 120px 0;
+}
+.section > h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.section > p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #666;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.slider__inner {
+    margin-top: 70px;
+}
+.slider {
+    position: relative;
+}
+.slider__img {
+    background: url(../slideType/img/SLIDER-TYPE01.jpg) no-repeat center / cover;
+}
+.slider__img .desc {
+    width: 1160px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+.slider__img .desc span {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 1px 14px 0 14px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.slider__img .desc h3 {
+    font-size: 110px;
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-left: -8px;
+}
+.slider__img .desc p {
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.35;
+    margin-bottom: 130px;
+}
+.slider__img .desc .btn a {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 11px 50px;
+    display: inline-block;
+}
+.slider__img .desc .btn a.black {
+    background: #000;
+    color: #fff;
+}
+.slider__arrow a {
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 56px;
+    transform: translateY(-50%);
+    background-image: url(../slideType/img/slider_icon.svg);
+}
+.slider__arrow a.left {
+    left: 20px;
+}
+.slider__arrow a.right {
+    right: 20px;
+    background-position: -50px 0;
+}
+.slider__dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 25px;
+}
+.slider__dot a {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url(../slideType/img/slider_icon.svg);
+    background-position: -20px -70px;
+}
+.slider__dot a.active {
+    background-position: 0px -70px;
+}
+.slider__dot a.play {
+    background-position: -40px -70px;
+}
+.slider__dot a.stop {
+    background-position: -60px -70px;
+}
+
+/* 블라인드 효과 */
+.blind{
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+/* 이미지 대체효과(ir효과) */
+.ir {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+</code></pre>
+            </div>
+            <h3 class="t_tit2">HTML 속성</h3>
+            <div class="t_code">
+<pre><code class="language-html">&lt;section id="sliderType" class="slider__wrap"&gt;
+    &lt;h2 class="blind"&gt;슬라이드영역&lt;/h2&gt;
+    &lt;div class="slider__inner"&gt;
+      &lt;div class="slider"&gt;
+        &lt;div class="slider__img"&gt;
+          &lt;div class="desc"&gt;
+            &lt;span&gt;버스커버스커&lt;/span&gt;
+            &lt;h3&gt;여수 밤바다&lt;/h3&gt;
+            &lt;p&gt;
+              여수 밤바다 이 조명에 담긴 아름다운 얘기가 있어&lt;br /&gt;
+              네게 들려주고파 전활 걸어 뭐하고 있냐고
+            &lt;/p&gt;
+            &lt;div class="btn"&gt;
+              &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+              &lt;a href="#" class="black"&gt;사이트 보기&lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="slider__arrow"&gt;
+          &lt;a href="#" class="left"&gt;&lt;span class="ir"&gt;이전 이미지&lt;/span&gt;&lt;/a&gt;
+          &lt;a href="#" class="right"&gt;&lt;span class="ir"&gt;다음 이미지&lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="slider__dot"&gt;
+          &lt;a href="#" class="dot active"&gt;&lt;span class="ir"&gt;1&lt;/span&gt;&lt;/a&gt;
+          &lt;a href="#" class="dot"&gt;&lt;span class="ir"&gt;2&lt;/span&gt;&lt;/a&gt;
+          &lt;a href="#" class="dot"&gt;&lt;span class="ir"&gt;3&lt;/span&gt;&lt;/a&gt;
+          &lt;a href="#" class="play"&gt;&lt;span class="ir"&gt;플레이&lt;/span&gt;&lt;/a&gt;
+          &lt;a href="#" class="stop"&gt;&lt;span class="ir"&gt;정지&lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+  &lt;!--//sliderType--&gt;
+</code></pre>
+            </div>
+            <h3 class="t_tit2">결과보기</h3>
+            <div class="t_iframe">
+                <iframe src="https://parkhyeonshin.github.io/Coding/site/slideType/slideType01.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/site/slideType/slideType01.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/site/slideType/slideType01.html" target="_blank">원본 사이트</a>
+            </div>
+        </div>
+    </div>
+        <script src="../../javascript/assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+</body>
+</html>

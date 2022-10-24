@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 배치</title>
+
+    <link rel="stylesheet" href="../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../javascript/assets/css/dracula.css">
+    <style>
+        .document .t_iframe {
+            position: relative;
+            padding-top: 56%;
+            width: 100%;
+            height: 0;
+        }
+
+        .document .t_iframe iframe {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .image-wrapper {
+            position: relative;
+            width: 80%;
+            height: 0;
+            padding-bottom: 60%;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+        .image-wrapper .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">레이아웃(Layout) 배치</h2>
+            <p class="t_desc2">
+                레이아웃 배치 네번째 시간입니다.<br>
+                주요 콘텐츠들을 가운데로 배치하고 화면이 늘어나도 뒷요소들을 계속해서 표현해주는 구조입니다.<br>
+                <i>요즘 실제 웹들은 이러한 구조를 가장 많이 사용하고 있습니다.</i><br><br>
+            </p>
+            <div class="t_iframe">
+            <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fc9BGcY5k0Hg8INetHu54vZ%2F%25EB%25A0%2588%25EC%259D%25B4%25EC%2595%2584%25EC%259B%2583%3Fnode-id%3D39%253A85" allowfullscreen></iframe>
+            </div>
+            <hr>
+
+            <h3 class="t_tit2">container라는 부모요소를 활용한 레이아웃</h3>
+                <p class="t_desc2">
+                이번 구조는 따로 레이아웃에 관련된 속성값을 부여할 필요가 없는 구조입니다.<br>
+                가운데 주요 콘텐츠 요소들을 container로 묶어 설정합니다.<br>
+                <i>container의 높이값은</i> 직접 입력해도 되지만, <i>height: inherit를 이용</i>해
+                부모요소의 높이값을 그대로 상속받도록 합니다.<br>
+                </p>
+                <!-- <div class="image-wrapper">
+                <img class="image" src="../assets/tistory/layout02/02-float.png">
+                </div> -->
+                <div class="t_code">
+<pre><code class="language-css">*{
+    margin: 0;
+    padding: 0;
+}
+#header{
+    height: 100px;
+    background-color: #E0F2F1;        
+}
+#nav{
+    height: 300px;
+    background-color: #80CBC4;
+}
+#section{
+    height: 580px;
+    background-color: #26A69A;
+}
+#footer{
+    height: 100px;
+    background-color: #00897B;
+}
+
+.container {
+    width: 1200px;
+    height: inherit;   
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0.3);
+}
+
+@media (max-width: 1220px){
+    .container {
+        width: 96%;
+    }
+}
+@media (max-width: 768px){
+    .container {
+        width: 100%;
+    }
+}
+</code></pre>
+                </div>
+                <h4 class="t_tit3">결과</h4>
+                <div class="t_iframe">
+                    <iframe src="https://codepen.io/parkhyeonshin/embed/OJvjYpm?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                        See the Pen <a href="https://codepen.io/parkhyeonshin/pen/OJvjYpm">
+                        레이아웃04_flex</a> by Parkhyeonshin (<a href="https://codepen.io/parkhyeonshin">@parkhyeonshin</a>)
+                        on <a href="https://codepen.io">CodePen</a>.
+                    </iframe>
+                </div>
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 검색01</title>
+
+    <link rel="stylesheet" href="../../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../../javascript/assets/css/dracula.css">
+
+    <style>
+        #main .document .btnflex{
+    	    display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <!-- 시멘트태그(heaer, main, footer 등)-->
+        <h1><a href="../../../javascript/index.html">Javascript_Search</a></h1>
+        <nav class="header_nav">
+            <ul class="study">
+                <li><a href="quiz01.html">퀴즈 만들기1</a></li>
+                <li><a href="quiz02.html">퀴즈 만들기2</a></li>
+                <li><a href="quiz03.html">퀴즈 만들기3</a></li>
+                <li><a href="quiz04.html">퀴즈 만들기4</a></li>
+                <li><a href="quiz05.html">퀴즈 만들기5</a></li>
+                <li><a href="quiz06.html">퀴즈 만들기6</a></li>
+                <li><a href="search01.html">검색 이펙트1</a></li>
+                <li><a href="search02.html">검색 이펙트2</a></li>
+                <li><a href="animation.html">애니메이션 만들기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <!--main start-->
+        <div class="document">
+            <h2 class="t_tit">검색 효과</h2>
+            <div class="t_desc2">
+                이번시간에는 키워드검색을 할 수 있는 사이트를 만들어 보겠습니다.
+
+            </div>
+            <hr>
+            
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/searchEffect01.html" frameborder="0"></iframe>
+            </div>
+            
+            <div class="t_link btnflex">
+                <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/searchEffect01.html" target="_blank">원본 소스 보기</a>
+                <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/searchEffect01.html" target="_blank">원본 사이트</a>
+            </div>
+            <hr>
+            <div class="t_desc"> 
+                ▶ 이 사이트에 사용된 indexOf()의 특징에 대해 간단하게만 알아보고 가겠습니다.
+                indexOf()는 문자열에서 특정 문자의 위치를 찾고 인덱스값을 반환하는 메서드입니다.
+            </div>
+            <p class="t_box">
+                const str ="javascript";
+                <br>const currentStr = str.indexOf("javascript"); //0
+            </p>
+            <p class="t_desc">
+                위의 예시처럼 'javascript'라는 문자열을 찾는 경우 변수에서 시작점이 0번째부터 시작되므로 출력값은 0이 반환되는 것입니다.
+            </p>
+            <h3 class="t_tit2">JS 소스 분석하기</h3>
+            <div class="t_code">
+<pre><code class="language-js">const searchBox = document.querySelector(".search__box input");   //input 박스(검색영역)
+const searchList = document.querySelectorAll(".search__list ul li");    //목록 리스트
+
+searchBox.addEventListener("keyup", () => {
+    const searchWord = searchBox.value;         //사용자 입력 키워드
+    
+    searchList.forEach(el => {
+        const cssName = el.dataset.name;
+        
+        if(cssName.indexOf(searchWord)){
+            el.classList.add("hide");
+        } else{
+            el.classList.remove("hide");       //indexOf()값이 0이되는 값만 hide를 지워줌. (="abbr".indexOf("abbr");)
+        }
+    });
+});
+</code></pre>
+            </div>
+            <div class="t_desc">
+                html에서 각각의  li태그에 'data-name="all"'같은 데이터네임을 지어줬는데요. 이걸 활용해볼거에요.
+                <br>활용에 앞서서 <i>if문의 조건이 0일 경우는 false값</i>이 출력된다는 것 한번 다들 기억하고 계시죠?
+                <br>위의 if문이 "all"인 경우를 예로 들자면,
+            </div>
+            <p class="t_box">
+                "all".indexOf("all")은 0으로 반환이 되므로 else의 
+                실행문이 실행되게 됩니다. 고로, 정확히 일치해서 0이 반환된 all을 제외한 나머지 요소들은 class="hide"가 붙고
+                제외된 all은 hide가 사라지므로 저희의 눈에는 검색한 "all"만 보이게 되는것입니다.
+                <br>indexOf와 if문만 이해하니깐 생각보다 쉽죠 ?
+            </p>
+        
+            
+        </div>
+    </main> <!-- //main end -->
+    <footer id="footer">
+        <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

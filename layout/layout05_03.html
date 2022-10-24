@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout5_3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 100%;
+        }
+
+        #header {
+            width: 100%;
+            height: 100px;
+            background-color: #EEEBE9;
+        }
+
+        #nav {
+            width: 100%;
+            height: 100px;
+            background-color: #B9AAA5;
+        }
+
+        #main {
+            width: 100%;
+            height: 780px;
+            background-color: #886F65;
+        }
+
+        #footer {
+            width: 100%;
+            height: 100px;
+            background-color: #4E342E;
+        }
+
+        .container {
+            width: 1200px;
+            height: inherit;
+            background-color: rgb(0, 0, 0, 0.2);
+            margin: 0 auto;
+        }
+        .contents {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .contents .cont1 {
+            width: 100%;
+            height: 100px;
+            background-color: #74574A;
+        }
+
+        .contents .cont2 {
+            width: 100%;
+            height: 200px;
+            background-color: #684D43;
+        }
+
+        .contents .cont3 {
+            width: 50%;
+            height: 480px;
+            background-color: #594139;
+        }
+
+        .contents .cont4 {
+            width: 50%;
+            height: 480px;
+            background-color: #4A352F;
+        }
+
+        @media (max-width: 1200px) {
+        }
+        @media (max-width: 768px) {
+        }
+        @media (max-width: 480px) {
+        }
+    </style>
+</head>
+<!-- flex 는 시멘틱태그사용! 바로 하위자식요소에만 적용됨. -->
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="container">         <!--얘는 그룹화위해서 쓴것뿐 큰의미없기 때문에 div 유지-->
+
+            </div>
+        </header>
+        <nav id="nav">
+            <div class="container">
+
+            </div>
+        </nav>
+        <main id="main">
+            <section class="contents container">
+                <article class="cont1"></article>
+                <article class="cont2"></article>
+                <article class="cont3"></article>
+                <article class="cont4"></article>
+            </section>
+        </main>
+        <footer id="footer">
+            <div class="container">
+
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

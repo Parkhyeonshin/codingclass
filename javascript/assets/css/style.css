@@ -1,0 +1,471 @@
+/* 웹폰트 import 방식 _ 스타일시트 제일위에 위치해야함*/
+@import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+@import url('https://webfontworld.github.io/crown/CrownMychew.css');
+@import url('https://webfontworld.github.io/NexonMaplestory/NexonMaplestory.css');
+
+/* 리셋 */
+/* 여백 초기화 */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'NexonMaplestory';
+    font-size: 16px;
+    line-height: 1.6;
+    /* color: white; */
+}
+
+/* 링크 초기화 */
+a {
+    text-decoration: none ;    
+    color:#222 ;
+    }
+/* 목록(list) 초기화 */
+li {
+    list-style: none;
+}    
+/* 제목 초기화 */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+/* 모든 페이지 레이아웃 */
+body{
+    padding: 40px;
+    background: linear-gradient(to right, #fdfbfb 0%, #ebedee 50%);
+}
+#header {
+    border-bottom: 1px dashed #dcdcdc;
+    padding-bottom: 40px;
+}
+#main {
+    padding: 40px 0;
+    border-bottom: 1px dashed #dcdcdc;
+}
+#footer {
+    padding: 40px 0;
+    text-align: center;
+}
+#footer a:hover{
+    text-decoration: underline;
+}
+/* container */
+.container{
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* 헤더 영역 */
+#header {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+#header h1 a {
+    font-size: 80px;
+    font-weight: 700;
+    color:#fdfbfb;
+    text-shadow: -2px 2px 10px #961414;
+    font-family: 'CrownMychew';
+}
+
+.header_nav ul li {
+    display: inline;
+}
+.header_nav ul li.active a{
+    background-color: rgba(253, 238, 238, 1);
+    color:#fdfbfb;
+    /* color: #871717; */
+    text-shadow: 0px 0px 10px #961414;
+    /* text-shadow: 0px 2px 3px #961414; */
+    font-family: 'CrownMychew';
+    box-shadow: -2px 2px 8px #bb4a4a;
+    /* border: 2px solid #961414; */
+    font-size: 1.15rem;
+    animation: ascale 0.6s forwards;
+    border: 3px solid #96141400;
+
+}
+.header_nav ul li.active a:hover{
+    background-color: rgba(253, 238, 238, 1);
+    border: 3px solid #96141440;
+}
+@keyframes ascale{
+    0%{transform: scale(1);}
+    100%{transform: scale(1.05);}
+}
+.header_nav ul li a {
+    border: 3px solid #96141428;
+    padding: 8px 25px;
+    display: inline-block;
+    margin-bottom: 7px;
+    font-family: 'CrownMychew';
+    border-radius: 10px;
+    color: rgb(191, 127, 127);
+}
+.header_nav ul li a:hover {
+    background-color: rgba(253, 238, 238, 0.45);
+    text-shadow: 0px 0px 10px #961414;
+    /* animation: ascale 0.6s forwards; */
+    transition: all 0.3s;
+    color:#fdfbfb;
+}
+.header_nav .study {
+    margin-top: 10px;
+}
+.header_nav .study li {}
+.header_nav .study li a {
+    border-radius: 50px;
+    padding: 6px 30px;
+    background-color: #000;
+    color: #fff;
+}
+.header_nav .effect{
+    margin-top: 10px;
+}
+.header_nav .effect li a {
+    border-radius: 40px;
+}
+/* 메인 샘플 */
+.main_sample {
+    margin-top: 40px;
+    border-top: 1px dashed #dcdcdc;
+    padding-top: 40px;
+}
+.main_sample h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.main_sample p {
+    margin-bottom: 10px;
+    color: #666;
+}
+.main_sample .result {
+    margin-bottom: 80px;
+    margin-top: 10px;
+    background: rgba(6, 10, 77, 0.438);
+    padding: 10px;
+    border-radius: 10px;
+}
+/* intro_menu */
+.intro_menu {
+    width: 50vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 166, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 4vw;
+    border-radius: 5vw;
+}
+.intro_menu li{
+    color: rgb(74, 2, 122);
+}
+.intro_menu li a{
+    color: rgb(36, 135, 148);
+    border-radius: 30%;
+    background-color: rgb(191, 135, 191);
+    margin-left: 1vh;
+}
+.intro_menu li a:hover{
+    border-radius: 10%;
+    background-color: rgb(37, 202, 205);
+}
+
+@media (max-width: 600px){
+    .intro_menu {
+        width: 90%;
+        padding: 14px;
+    }
+    .intro_menu li {
+        font-size: 16px;
+    }
+    .intro_menu li a{
+        font-size: 16px;
+    }
+}
+
+/* sample */
+.sample{
+    margin-bottom: 80px;
+}
+.sample .table {
+    margin-bottom: 10px;
+}
+.sample .table table{
+    width: 100%;
+    border: 1px solid #e6e6e6;
+    text-align: center;
+}
+.sample .table table tr {}
+.sample .table table tr th {
+    font-weight: normal;
+    background-color: #f5f5f5;
+    padding: 3px;
+}
+.sample .table table tr td {
+    border: 1px solid #e6e6e6;
+    padding: 6px;
+}
+.sample .table table tr td[class*="_P"] {
+    opacity: 0;
+} 
+.sample .table table tr td[class*="_P"]:hover {
+    opacity: 1;
+    color: #000;
+    background-color: #f5f5f5;
+    cursor:help;
+}
+.sample .table.left tr td{
+    text-align: left;
+}
+.sample .table.left .ce{
+    text-align: center;
+}
+.sample .box {
+    background: #f5f5f5;    
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #666;
+}
+.sample .view{
+    border: 1px solid #e6e6e6;
+    padding: 30px 20px 20px 20px;
+}
+.sample .blue{
+    background: #a2cbfa;
+    padding: 10px 20px;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 0;
+    color: whitesmoke;
+    text-shadow: 1px 1px 5px #121f2a;
+    border: 1px solid #e6e6e6;
+}
+
+.sample .sbox {
+    width: 400px;
+    height: 200px;
+    background-color: #a2cbfa;
+    border: 1px solid #4390e1;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    text-align: center;
+    color: beige;
+}
+.sample .sbox::after{
+    content: '';
+    width: 480px;
+    height: 280px;
+    border: 1px dashed #4390e1;
+    position: absolute;
+    left: -21px;
+    top: -21px;
+}
+.sample .sbox::before{
+    content: '';
+    width: 398px;
+    height: 198px;
+    border: 1px dashed #4390e1;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+.sample .sResult{
+    text-align: center;
+    padding-top: 10px;
+}
+.sample .button {
+    border: 1px solid #e6e6e6;
+    border-top: 0;
+    padding: 20px;
+    border-radius: 0 0 5px 5px;
+}
+.sample .button a {
+    border: 1px solid #4390e1;
+    color: black;
+    border-radius: 40px;
+    padding: 10px 20px;
+    display: inline-block;
+    margin: 5px;
+}
+.sample .button a:hover{
+    background-color: #88baf4;
+    color: white;
+    text-shadow: 1px -1px 5px #000;
+}
+/* 모바일화면 제어 용 미디어 쿼리 */
+/* @media (max-width: 800px){
+    body{
+        padding: 20px;
+    }
+} */
+@media (max-width: 800px){
+    .sample .table {
+        overflow-x: scroll;
+    }
+    .sample .table table {
+        width: 780px;
+    }
+    .sample .table table tr td[class*="_P"] {
+        color: #000;
+    }
+}
+
+/* 티스토리용 문서 */
+.document {
+    word-break: keep-all;
+}
+.document i {
+    font-style: normal;
+    position: relative;
+}
+.document hr {
+    border: 0;
+    border-top: 1px dashed #dcdcdc;
+    margin-top: 44px;
+}
+.document i::before {
+    content: '';
+    background-color: #f8e25333;
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 20px;
+}
+.document .t_tit {
+    font-size: 30px;
+    line-height: 1.6;
+    margin-bottom: 5px;
+    font-weight: 400;
+
+}
+.document .t_tit2 {
+    font-size: 22px;
+    line-height: 1.6;
+    margin-bottom: 5px;
+    margin-top: 50px;
+    font-weight: 400;
+
+}
+.document .t_tit3 {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 5px;
+    margin-top: 5px; 
+    font-weight: 400;
+
+}
+.document .t_desc {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px !important;
+}
+.document .t_desc2 {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px !important;
+    padding: 15px 20px !important;
+    border-left: 5px solid #FFDD00;
+    background-color: #f9f9f9;
+}
+.document .t_box {
+    padding: 20px !important;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    color: #666;
+    border-radius: 5px;
+}
+.document .t_table {
+    border: 1px solid #dcdcdc;
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+.document .t_table tr th {
+    background-color: #f9f9f9;
+}
+.document .t_table tr th,
+.document .t_table tr td {
+    border: 1px solid #dcdcdc;
+    font-weight: normal;
+    padding: 8px 10px;
+    color: #666;
+    }
+.document .t_table .ce{
+    text-align: center;
+}
+
+/* 220804 iframe 빼옴(from html_style.css) */
+.document .t_iframe {
+    position: relative;
+    padding-top: 56%;
+    width: 100%;
+    height: 0;
+}
+.document .t_iframe iframe{
+    border : 1px solid rgba(0,0,0,0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.document .t_link a {
+    display: block;
+    width: 200px;
+    background: #f5f5f5;
+    margin: 40px auto;
+    text-align: center;
+    border-radius: 15px;
+    padding: 10px;
+    transition: all 0.3s;
+}
+.document .t_link a:hover {
+    background: #d6d6d6;
+}
+
+/* 220830 티스토리 a링크 오버효과 */
+.document a:hover{
+    transition: all 0.6s;
+    text-shadow: 1px 1px 10px #ffe056;
+}
+
+/* 220914 summary 블로그용 */
+summary:hover{
+    cursor: pointer;
+}
+.t_summary {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #eed974;
+    margin-bottom: 3px;
+}
+.t_summary:hover {
+    cursor: pointer;
+    background-color: #3a745f;
+    color: #eed974;
+}
+details[open] .t_summary{
+    background-color: #1f3b34;
+    color: #eed974;
+}
+details[open] .t_summary:hover{
+    background-color: #1f3b34;
+    color: #f0e6b5;
+}
+    

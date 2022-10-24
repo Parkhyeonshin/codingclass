@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오답노트</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/androidstudio.css">
+
+</head>
+
+<body>
+
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">오답 노트 📝</h2>
+            <p class="t_desc2">
+                인간미 넘치는 오답인듯 합니다.
+            </p>
+            <hr>
+            
+            <div class="t_code">
+<pre><code  class="language-js">const arr = [1,1,3,3,0,1,1];
+function solution(arr){
+    Areturn arr.filter((item,dix)) => item !== arr[idx + 1]);
+}
+
+console.log(solution(arr))
+</code></pre>
+            </div>
+            <p class="t_box">
+                중복제거 문제입니다.
+                <br> 1 = arr[1] : 제외
+                <br> 1 = arr[2] : 조건 부합
+                <br> 3 = arr[3] : 제외
+                <br> 3 = arr[4] : 조건 부합
+                <br>...
+                <br>결국에 중복된 값들은 제외하고 남는값 <i>1,3,0</i>
+            </p>
+        </div>
+    </main>
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+</body>
+
+</html>
