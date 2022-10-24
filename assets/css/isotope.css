@@ -36,6 +36,8 @@
       -ms-transition-property:     -ms-transform, opacity;
        -o-transition-property:      -o-transform, opacity;
           transition-property:         transform, opacity;
+          border-radius: 15px;
+          overflow: hidden;
 }
 
 /**** disabling Isotope CSS3 transitions ****/
@@ -71,7 +73,6 @@
   height: 350px;
   margin-bottom: 1%;
   float: left;
-
   border-bottom: 3px solid #a5d5fa;
   background-color: #fff;
 }
