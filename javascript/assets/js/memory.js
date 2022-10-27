@@ -1,3 +1,10 @@
+// 버튼 클릭
+const Btn = document.querySelector(".icon3");
+
+Btn.addEventListener("click", () => {
+    document.querySelector(".memory__wrap").style.display = "block";
+});
+
 // 01 HTML/CSS 디자인 구성
 
 // 02
