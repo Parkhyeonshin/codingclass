@@ -18,7 +18,7 @@ let soundSuccess = new Audio(sound[2]);
 function flipCard(e) {
     let clickedCard = e.target;
 
-    if (clickedCard !== cardOne) {
+    if (clickedCard !== cardOne && !disableDeck) {
         clickedCard.classList.add("flip");
         if (!cardOne) {
             return (cardOne = clickedCard);
@@ -41,11 +41,13 @@ function matchCards(img1, img2) {
         // alert("이미지가 일치합니다.⎛⎝.⎛° ͜ʖ°⎞.⎠⎞");
 
         if (matchedCard == 8) {
+            soundSuccess.play();
             alert("GameOver");
         }
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
         cardOne = cardTwo = "";
+        soundMatch.play();
         disableDeck = false;
     } else {
         // alert("이미지가 일치하지 않습니다.");
@@ -56,14 +58,40 @@ function matchCards(img1, img2) {
         }, 500);
 
         setTimeout(() => {
-            cardOne.classList.remove("shakeX");
-            cardTwo.classList.remove("shakeX");
+            cardOne.classList.remove("shakeX", "flip");
+            cardTwo.classList.remove("shakeX", "flip");
             cardOne = cardTwo = "";
             disableDeck = false;
             soundUnMatch.play();
-        }, 1600);
+        }, 1000);
     }
 }
+
+// 카드 섞기
+function shuffledCard() {
+    cardOne = cardTwo = "";
+    disableDeck = false;
+    matchedCard = 0;
+
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
+    let result = arr.sort(() => (Math.random() > 0.5 ? 1 : -1));
+
+    memoryCard.forEach((card, index) => {
+        card.classList.remove("flip");
+
+        setTimeout(() => {
+            card.classList.add("flip");
+        }, 200 * index);
+
+        setTimeout(() => {
+            card.classList.remove("flip");
+        }, 4000);
+
+        let imgTag = card.querySelector(".back img");
+        imgTag.src = `../assets/img/memory0${arr[index]}.png`;
+    });
+}
+shuffledCard();
 
 // 카드 클릭
 memoryCard.forEach((card) => {
