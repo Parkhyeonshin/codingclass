@@ -153,40 +153,25 @@
             <!--main start-->
             <div class="document">
                 <h2 class="t_tit">게임 효과01</h2>
-                <div class="t_desc2">
-                    게임 효과입니다. 여러가지 다 있습니다.
-                </div>
+                <div class="t_desc2">게임 효과입니다. 여러가지 다 있습니다.</div>
                 <hr />
 
                 <div class="t_iframe" style="min-height: 1000px; padding-top: 0">
-                    <iframe
-                        src="https://parkhyeonshin.github.io/Coding/javascript/effect/gameEffect01__hs.html"
-                        frameborder="0"
-                    ></iframe>
+                    <iframe src="https://parkhyeonshin.github.io/Coding/javascript/effect/gameEffect01__hs.html" frameborder="0"></iframe>
                 </div>
 
                 <div class="t_link btnflex">
-                    <a
-                        href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/gameEffect01__hs.html"
-                        target="_blank"
+                    <a href="https://github.com/Parkhyeonshin/Coding/blob/main/javascript/effect/gameEffect01__hs.html" target="_blank"
                         >원본 소스 보기</a
                     >
-                    <a
-                        href="https://parkhyeonshin.github.io/Coding/javascript/effect/gameEffect01__hs.html"
-                        target="_blank"
-                        >원본 사이트</a
-                    >
+                    <a href="https://parkhyeonshin.github.io/Coding/javascript/effect/gameEffect01__hs.html" target="_blank">원본 사이트</a>
                 </div>
                 <hr />
-                <div class="t_desc">
-                    ▶ 리빌효과를 줄 부분(이미지, 텍스트)에  reveal이라는 클래스를 부여하고 관련된 CSS속성을 주어서 리빌효과를 표현해줍니다. 이 때 텍스트는
-                    span태그로 감싸줍니다.
-                    <br>'좌 → 우, 상 → 하, 우 → 좌' 등 <i>진행방향은 left나 top등</i>의 위치관련 속성값을 이용해서 조정해줍니다.
-                </div>
-                
+                <div class="t_desc"></div>
+
                 <h3 class="t_tit2">JS 소스</h3>
                 <div class="t_code">
-<pre><code class="language-js">// reveal 클래스 자식에 글씨만 있다면? 가상으로 span 태그를 만들어서 넣어주세요~
+                    <pre><code class="language-js">// reveal 클래스 자식에 글씨만 있다면? 가상으로 span 태그를 만들어서 넣어주세요~
     const contDesc = document.querySelectorAll(".content__item .reveal");
 
     contDesc.forEach(e=>{
@@ -229,22 +214,21 @@
 </code></pre>
                 </div>
                 <h2 class="t_tit2">■ 핵심 찍먹하기🪓</h2>
-                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc;">✔ addEventListener("scroll")을 대체하자! (재귀함수 쓰기)</h2>
+                <h2 class="t_tit3" style="border-bottom: 1px solid #ccc">✔ addEventListener("scroll")을 대체하자! (재귀함수 쓰기)</h2>
                 <p class="t_desc">
-                    <br />자기 자신을 계속해서 실행하는 재귀함수를 이용할 건데요. 이걸 그냥 사용하게되면 문제가
-                    발생합니다. 뭘까요? 무한궤도에 빠집니다. 기껏 자기자신을 실행시켰는데 실행 다하고 나니깐 또
-                    자기자신을 실행시키라고 하니깐요. 근데? 이걸 무한반복해야 하니 얼마나 힘들까요. <br />
-                    그래서 <i> requestAnimationFrame</i>를 사용해서 1초에 60번만 실행시키도록 해줍니다. 이걸로 컴퓨터도
-                    숨통이 트이겠군요💨
+                    <br />자기 자신을 계속해서 실행하는 재귀함수를 이용할 건데요. 이걸 그냥 사용하게되면 문제가 발생합니다. 뭘까요? 무한궤도에
+                    빠집니다. 기껏 자기자신을 실행시켰는데 실행 다하고 나니깐 또 자기자신을 실행시키라고 하니깐요. 근데? 이걸 무한반복해야 하니 얼마나
+                    힘들까요. <br />
+                    그래서 <i> requestAnimationFrame</i>를 사용해서 1초에 60번만 실행시키도록 해줍니다. 이걸로 컴퓨터도 숨통이 트이겠군요💨
                 </p>
                 <h2 class="t_tit3" style="border-bottom: 1px solid #ccc">✔ 섹션보다 클 때 리빌오프셋 값 가져오기</h2>
                 <p class="t_desc">
                     섹션구역이 리빌(이미지에만 줌)구역보다 더 크기때문에 두개의 오프셋을 가져옵니다.
-                    <br>'el.offsetTop + el.parentElement.offsetTop;'
+                    <br />'el.offsetTop + el.parentElement.offsetTop;'
                 </p>
-                <hr>
-                <br>
-                <p class="p_desc" style="font-size: 14px; text-align: center;">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+                <hr />
+                <br />
+                <p class="p_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
             </div>
         </main>
         <!-- //main end -->
