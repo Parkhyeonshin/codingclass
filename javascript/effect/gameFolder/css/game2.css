@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&family=Yellowtail&display=swap");
+@font-face {
+    font-family: 'PFStardust';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/PFStardust.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 :root {
     --navy: #0c0c4a;
     --dark-navy: #060726;
@@ -7,13 +13,34 @@
 }
 * {
     margin: 0;
-    font-family: "Russo One", sans-serif;
+    /* font-family: "Russo One", sans-serif; */
     padding: 0;
+    font-family: 'PFStardust';
 }
 body{
     background: #000;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    cursor: none;
+}
+/* 마우스아이콘 */
+.mouse__cursor img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    /* background: url(../img/cursor.png) no-repeat; 
+    background-size: cover; */
+    user-select: none;
+    pointer-events: none;
+    z-index: 1000000;
+    /* border-radius: 50%; */
 }
 
+
+/* 메인배경 */
 #mainStart__wrap {
     width: 100vw;
 
@@ -25,12 +52,15 @@ body{
     filter: saturate(130%) contrast(125%);
     box-sizing: border-box;
     transform: scale(0.5);
-    transition: transform 2s ease-in;
+    transition: transform 1s ease-in;
+    position: absolute;
+    top: 0;left: 0;
+    z-index: 3000;
 }
 #mainStart {
     overflow: hidden;
     box-sizing: border-box;
-    width: 100vw;
+    width: 100%;
     height: 100%;
     background: var(--navy);
     display: grid;
@@ -154,6 +184,10 @@ body{
     }
 }
 
+
+
+
+
 /* header */
 #header {
     display: flex;
@@ -163,12 +197,15 @@ body{
     width: 100%;
     background-color: #011937;
     padding: 0 15px;
+    /* line-height: 1; */
     z-index: 3000;
-    top: 0;
+    top: -50vh;
     left: 0;
+    transition: top 2s;
+    box-sizing: border-box;
 }
 #header h1 {
-    font-size: 25px;
+    font-size: 25px;  
     padding: 4px 0px 7px 0px;
     color: transparent;
     font-family: "Russo One", sans-serif;
@@ -178,8 +215,103 @@ body{
     -webkit-background-clip: text;
     filter: drop-shadow(5px 5px 1px black) drop-shadow(1px 1px 1px magenta);
 }
+#header .agent{
+    color: white;
+    font-size: 14px;
+}
 
-#header .time {
+
+
+/* main */
+#main {
+    display: none;
+}
+.icon {
+    opacity: 0;
+    width:fit-content;
+}
+.icon img {
+    width: 65px;
+    display: block;
+    margin: 0 auto;
+}
+.icon span {
+    display: inline-block;
+    color: white;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 3px;
+    padding: 3px 7px 4px 7px;
+    max-width: 85px;
+    white-space: inherit;
+    line-height: 1.2;
+    vertical-align: top;
+}
+.icon1 {
+    position: absolute;
+    left: 100px;
+    top: 450px;
+}
+.icon2 {
+    position: absolute;
+    left: 250px;
+    top: 450px;
+}
+
+.icon3 {
+    position: absolute;
+    left: 400px;
+    top: 450px;
+}
+
+.icon4 {
+    position: absolute;
+    left: 100px;
+    top: 300px;
+}
+
+.icon5 {
+    position: absolute;
+    left: 250px;
+    top: 300px;
+}
+
+.icon6 {
+    position: absolute;
+    left: 400px;
+    top: 300px;
+}
+.icon:hover {
+    filter: brightness(120%);
+    transform: scale(1.1);
+    transition: all 0.5s ease;
+}
+.icon:hover span {
+    background: #000;
+}
+.icon:not(:hover) {
+    transition: filter 0.5s ease;
+}
+
+/* footer */
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: -50vh;
+    width: 100%;
+    background-color: #011937;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    color: #fff;
+    z-index: 3000;
+    transition: bottom 2s;
+    box-sizing: border-box;
+    line-height: 1;
+}
+#footer .time {
     font-size: 16px;
     color: #fff;
 }
