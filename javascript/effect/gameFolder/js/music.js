@@ -334,9 +334,7 @@ musicAudio.addEventListener("ended", ()=> {
     playlistMusic()     //리스트갱신
 })
 
-let volumeCount = 0;
-// 음소거 시키기
-soundOnOff.addEventListener("click",()=>{ 
+function muteOrsound(){
     const myAudio = document.getElementById("main-audio");
     if(soundOnOff.classList.contains("mute")){
         soundOnOff.setAttribute("title", "음소거 해제");
@@ -346,13 +344,16 @@ soundOnOff.addEventListener("click",()=>{
     } else {
         soundOnOff.setAttribute("title", "음소거");
         soundOnOff.setAttribute("class", "mute");
-        soundCotrol(1);
+        soundCotrol(0.1);
         myAudio.volume = 0.1;
     }   
-})
+}
+
+// 음소거 시키기
+soundOnOff.addEventListener("click",muteOrsound)
 // 볼륨 컨트롤 바
 function soundCotrol(control){
-    document.querySelector('#control-volume').value = control;
+    document.querySelector('#control-volume').value = control * 10;
 }
 
 document.querySelector('#control-volume').addEventListener('input',e=>{
@@ -365,18 +366,14 @@ document.querySelector('#control-volume').addEventListener('input',e=>{
 });
 
 soundUp.addEventListener("click",()=>{
-    if(volumeCount < 10){
-        volumeCount++;
-    }else{
-        return;
-    }
-    soundCotrol(volumeCount);
+    let soundUpCurrent = document.querySelector('#control-volume').value ;
+    if(soundUpCurrent==0){muteOrsound();};
+    soundUpCurrent++;
+    if(soundUpCurrent >= 11) return;
+    document.querySelector('#control-volume').value = soundUpCurrent;
     const myAudio = document.getElementById("main-audio");
-    myAudio.volume = (volumeCount * 0.1).toFixed(1);
-    // let soundUpCurrent = document.querySelector('#control-volume').value ;
-    // soundUpCurrent++;
-    // if(soundUpCurrent >= 11) return;
-    // document.querySelector('#control-volume').value = soundUpCurrent;
+    myAudio.volume = (soundUpCurrent * 0.1).toFixed(1);
+    soundCotrol(soundUpCurrent/10);
 
     // const soundUpCurrent = document.querySelector('#control-volume').value * 0.1 + 0.1;
     // const soundUpCurrent2 = soundUpCurrent.toFixed(1);
@@ -387,20 +384,15 @@ soundUp.addEventListener("click",()=>{
     // document.querySelector('#control-volume').value = soundUpCurrent2 * 10;
 })
 soundDown.addEventListener("click",()=>{
-    if(volumeCount > 0){
-        volumeCount--;
-    }else{
-        return;
-    }
-    soundCotrol(volumeCount);
+    let soundDownCurrent = document.querySelector('#control-volume').value ;
+    soundDownCurrent--;
+    if(soundDownCurrent==0){muteOrsound();soundDownCurrent = -1;};
+    if(soundDownCurrent <= -1) return;
+    document.querySelector('#control-volume').value = soundDownCurrent;
     const myAudio = document.getElementById("main-audio");
-    myAudio.volume = (volumeCount * 0.1).toFixed(1);
-    // let soundDownCurrent = document.querySelector('#control-volume').value ;
-    // soundDownCurrent--;
-    // if(soundDownCurrent <= -1) return;
-    // document.querySelector('#control-volume').value = soundDownCurrent;
-    // console.log((soundDownCurrent * 0.1).toFixed(1))
-    // console.log(soundDownCurrent)
+    myAudio.volume = (soundDownCurrent * 0.1).toFixed(1);
+    console.log((soundDownCurrent * 0.1).toFixed(1))
+    console.log(soundDownCurrent)
 })
 
 

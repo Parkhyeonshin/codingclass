@@ -59,8 +59,18 @@
     /* z-index: 1;   */
     /* display: flex; */
     align-items: center;
-
 }
+.music__header .volumeBox .volumeUp{
+    margin-left: 3px;
+}
+.music__header .volumeBox .volumeDown{
+    margin-right: 1px;
+}
+.music__header .volumeBox .volumeUp:hover,
+.music__header .volumeBox .volumeDown:hover{
+    transform: scale(1.6);
+}
+
 .music__header .mute {
     width: 25px;
     height: 25px;
@@ -75,7 +85,10 @@
     background-repeat: no-repeat;
     transform: scale(0.7);
 }
-
+.music__header .mute:hover,
+.music__header .sound:hover{
+    transform: scale(1);
+}
 .music__contents {
     /* background: #c4c4c4; */
     width: 100%;
@@ -273,7 +286,7 @@
     background-position: -528px 0px;
 }
 /* input박스 스타일 */
-/* 
+
 .volume__bar[type=range] {
     appearance: none;
     overflow: hidden;
@@ -288,16 +301,16 @@
 }
 .volume__bar[type=range]::-webkit-slider-thumb {
     appearance: none;
-    width: 16px;
-    height: 16px;
+    width: 11px;
+    height: 11px;
     background: #011937;
     box-shadow: -100vw 0 0 100vw #011937;
-    border: 1px solid rgb(252, 29, 29);
+    border: 1px solid #dedede;
     border-radius: 50%;
     cursor: none;
-} */
+}
 
-.volume__bar[type=range] {
+/* .volume__bar[type=range] {
     -webkit-appearance: none; 
     width: 100%; 
     height: 6px;
@@ -319,7 +332,7 @@
     border: 1px solid dodgerblue;
     border-radius:50%;
     cursor: pointer;
-}
+} */
 
 
 /* 뮤직 리스트 */
