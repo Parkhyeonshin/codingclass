@@ -10,7 +10,7 @@
         <link href="https://webfontworld.github.io/tmon/Tmon.css" rel="stylesheet" />
         <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet" />
         <!-- <link rel="stylesheet" href="../assets/css/bg.css" /> -->
-        <link rel="stylesheet" href="../assets/css/game2.css" />
+        <link rel="stylesheet" href="./css/game2.css" />
 
         <style>
             @import url("https://fonts.googleapis.com/css2?family=Russo+One&family=Yellowtail&display=swap");
@@ -35,6 +35,9 @@
     </head>
 
     <body>
+        <div class="mouse__cursor">
+            <img src="../assets/img/cursor8.png" alt="커서">
+        </div>
         <div id="mainStart__wrap">
             <div id="mainStart">
                 <div id="top">
@@ -44,14 +47,57 @@
                     <div id="ground"></div>
                 </div>
                 <div id="text">
-                    <h1>bang bang bang</h1>
-                    <h2 class="">click anywhere</h2>
+                    <h1 class="mainStart__header1">WELLCOME !!</h1>
+                    <h1 class="mainStart__header2">SSHINY world</h1>
+                    <h2 id="mainStart__btn">click here</h2>
                 </div>
             </div>
         </div>
         <!-- 메인 이미지 -->
 
+        <header id="header">
+            <h1>SSHINY WORLD</h1>
+            <div class="time"></div>
+        </header>
+        <!-- // header -->
+        <main></main>
+        <footer></footer>
+
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <script src="./js/mainStart.js"></script>
+        <script>
+            const firstPage = document.querySelector("#mainStart__btn");
+            const firstPageGroud = document.querySelector("#groud");
+            firstPage.addEventListener("click", ()=>{
+                document.querySelector("#mainStart__wrap").style.transform = "scale(1)";
+
+                setTimeout(() => {
+                    document.getElementById("ground").style.animationDuration = "180s";
+                    document.getElementById("sky").style.animationDuration = "60s";
+                    document.querySelector("#mainStart").style.borderColor = "rgba(0,0,0,0)";
+                    document.querySelector(".mainStart__header1").style.opacity = "0";
+                    firstPage.style.transition = "all 1s";
+                    firstPage.style.opacity = "0";
+                    mentstart();
+                }, 3000);
+            })
+
+            function mentstart(){
+                setTimeout(() => {
+                    document.querySelector(".mainStart__header1").style.display = "none";
+                    document.querySelector(".mainStart__header2").style.display = "block";
+                }, 1000);
+                setTimeout(()=>{
+                    document.querySelector(".mainStart__header2").style.opacity = "1";
+                }, 2000)
+                setTimeout(()=>{
+                    document.querySelector(".mainStart__header2").style.opacity = "0";
+                }, 4000)
+            }
+        </script>
+
+
+
     </body>
 </html>
