@@ -1,0 +1,40 @@
+#source {
+    width: 50vw;
+    height: 80vh;
+    box-sizing: border-box;
+    background: #011937e7;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid #011937;
+    box-shadow: 0px 0px 5px #dfdfdf;
+    padding: 5px;
+    margin-left: 10vw;
+    transform: translateY(10vh);
+    display: none;
+}
+#source .source__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #011937ab;
+    color: white;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    line-height: 1;
+    margin-bottom: 3px;
+}
+#source .source__header .source__close:hover{
+    font-weight: bold;
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#source .source__iframe{
+    width: 97%;
+    height: 93.2%;
+    margin: 0 auto;
+    display: block;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+}

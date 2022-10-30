@@ -8,21 +8,27 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
 .memory__wrap {
-    /* display: none; */
-    position: fixed;
+    /* position: fixed;
     left: 0px;
     top: 45px;
     background: rgba(0, 0, 0, 0.9);
     box-sizing: border-box;
     padding: 20px;
-    /* border-radius: 20px; */
     width: 100%;
     height: calc(100vh - 85px);
     display: flex;
+    display: none;
     align-items: center;
     justify-content: space-evenly;
-
-
+    opacity: 0;
+    transition: opacity 1s ease-in; */
+    /* display: flex; */
+    display: none;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in;
 }
 .memory__box {
     width: 63%;

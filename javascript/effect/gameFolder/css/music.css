@@ -10,14 +10,14 @@
     /* background: #011937; */
     position: absolute;
     right: 0;
-    bottom: -120px;
+    bottom: 50px;
     /* padding: 10px; */
     padding-top: 0;
     /* z-index: 1; */
     background: rgba(0,0,0,0.2);
     border: 3px solid #011937;
     border-radius: 20px;
-    box-shadow: 1px 1px 10px #000;
+    box-shadow: 0px 0px 5px #dfdfdf;
     overflow: hidden;
 }
 .music__inner__img {
@@ -88,6 +88,14 @@
 .music__header .mute:hover,
 .music__header .sound:hover{
     transform: scale(1);
+}
+
+.music__header .music__close:hover{
+    color: #011937;
+    font-weight: bold;
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 .music__contents {
     /* background: #c4c4c4; */

@@ -89,12 +89,12 @@ function shuffledCard() {
         setTimeout(() => {
             card.classList.remove("flip");
         }, 4000);
-
+ 
         let imgTag = card.querySelector(".back img");
         imgTag.src = `./img/memory0${arr[index]}.png`;
     });
 }
-shuffledCard();
+// shuffledCard();
 
 // 카드 클릭
 memoryCard.forEach((card) => {
@@ -106,8 +106,17 @@ const Btn = document.querySelector(".icon3");
 
 Btn.addEventListener("click", () => {
     document.querySelector("#game__box").style.display = "block";
+    memoryWrap.style.display = "flex";
+    setTimeout(()=>{
+        memoryWrap.style.opacity = "1";
+    }, 500)
+    setTimeout(()=>{
+        shuffledCard()
+    }, 1700)
 });
 // 버튼 클릭 닫기
 document.querySelector(".memory__close").addEventListener("click",()=>{
     document.querySelector("#game__box").style.display = "none";
+    memoryWrap.style.display = "none";
+    memoryWrap.style.opacity = "0";
 })
