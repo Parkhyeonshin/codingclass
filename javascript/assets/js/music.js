@@ -1,7 +1,7 @@
 const allMusic = [
     {
-        name: "Music Track 01",
-        artist: "Various artist",
+        name: "Lean On",
+        artist: "Major Lazer(Feat. Mo & DJ Snake)",
         img: "music_view01",
         audio: "music_audio01"
     },

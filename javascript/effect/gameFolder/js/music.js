@@ -1,55 +1,55 @@
 const allMusic = [
     {
-        name: "Music Track 01",
-        artist: "Various artist",
+        name: "Lean On",
+        artist: "Major Lazer (Feat. Mo & DJ Snake)",
         img: "music2_view01",
         audio: "music_audio01"
     },
     {
-        name: "Music Track 02",
-        artist: "Various artist",
+        name: "Stay",
+        artist: "Zedd & Alessia Cara",
         img: "music2_view02",
         audio: "music_audio02"
     },
     {
-        name: "Music Track 03",
-        artist: "Various artist",
+        name: "Safe And Sound",
+        artist: "Different Heaven",
         img: "music2_view03",
         audio: "music_audio03"
     },
     {
-        name: "Music Track 04",
-        artist: "Various artist",
+        name: "Living Out Loud (YALL Remix)",
+        artist: "Brooke Candy, Sia",
         img: "music2_view04",
         audio: "music_audio04"
     },
     {
-        name: "Music Track 05",
-        artist: "Various artist",
+        name: "Sweet Talker",
+        artist: "Years & Years",
         img: "music2_view05",
         audio: "music_audio05"
     },
     {
-        name: "Music Track 06",
-        artist: "Various artist",
+        name: "Chances",
+        artist: "Mesto",
         img: "music2_view06",
         audio: "music_audio06"
     },
     {
-        name: "Music Track 07",
-        artist: "Various artist",
+        name: "So Good (Alex Adair Official Remix)",
+        artist: "Louisa Johnson",
         img: "music2_view07",
         audio: "music_audio07"
     },
     {
-        name: "Music Track 08",
-        artist: "Various artist",
+        name: "WTF (Feat. Amber Van Day)",
+        artist: "HUGEL",
         img: "music2_view08",
         audio: "music_audio08"
     },
     {
-        name: "Music Track 09",
-        artist: "Various artist",
+        name: "Make Me Move (feat. Karra)",
+        artist: "Culture Code",
         img: "music2_view09",
         audio: "music_audio09"
     },
@@ -198,8 +198,8 @@ musicAudio.addEventListener("timeupdate", e => {
         let progressWidth = musicProgress.clientWidth;  // 진행바 전체 길이구하기
         let clickedOffsetX = e.offsetX;                 // 처음 시작값(부모기준(진행바))부터 클릭한지점까지의 x값 구하기
         let songDuration = musicAudio.duration;         // 오디오 전체 길이
-        let currentWidht = document.querySelector(".current").clientWidth;
-        console.log(currentWidht)
+        let currentWidth = document.querySelector(".current").clientWidth;
+        console.log(currentWidth)
     
         musicAudio.currentTime = ((clickedOffsetX / progressWidth) * songDuration);   // 백분위로 나눈 숫자에 전체길이 곱함 이로인해 현재 재생값으로 바꿈
     })
@@ -344,7 +344,7 @@ function muteOrsound(){
     } else {
         soundOnOff.setAttribute("title", "음소거");
         soundOnOff.setAttribute("class", "mute");
-        soundCotrol(0.1);
+        soundCotrol(0.3);
         myAudio.volume = 0.1;
     }   
 }
@@ -405,10 +405,22 @@ window.addEventListener("load", () => {
 
 // 플레이어 닫기
 musicClose.addEventListener("click", ()=>{
+    pauseMusic();
+    musicIndex = 1;
+    loadMusic(1);
+    playlistMusic();
+    musicProgressBar.style.width = `0%`;
     musicWrap.style.display = "none";
+
 })
 
 // $('input[type=range]').on('input', function(){
 //     let val = $(this).val() * 10;
 //     $(this).css('background', 'linear-gradient(to right, dodgerblue 0%, dodgerblue '+ val +'%, #d5d4d3 ' + val + '%, #d5d4d3 100%)');
 //   });
+
+// 뮤직아이콘 클릭 열기
+document.querySelector(".icon4").addEventListener("click",()=>{
+
+    musicWrap.style.display="block";
+})
