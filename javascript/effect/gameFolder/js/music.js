@@ -76,7 +76,7 @@ const musicListBtn = musicWrap.querySelector("#control-list");
 const musicList = musicWrap.querySelector(".music__list");
 const musicListUl = musicWrap.querySelector(".music__list ul");
 
-let musicIndex = 1;
+let musicIndex = 8;
 // 음악 재생
 function loadMusic(num) {
     musicName.innerText = allMusic[num - 1].name;
@@ -359,10 +359,18 @@ function soundCotrol(control){
 document.querySelector('#control-volume').addEventListener('input',e=>{
     let volume = (e.target.value) * 0.1;
     let volume2 = volume.toFixed(1);
-
     const myAudio = document.getElementById("main-audio");
     myAudio.volume = volume2;
     soundCotrol(volume2);
+    if(volume2==0){
+        if(soundOnOff.classList.contains("mute")){
+            soundOnOff.setAttribute("title", "음소거 해제");
+            soundOnOff.setAttribute("class", "sound");
+        }
+    }else{
+        soundOnOff.setAttribute("title", "음소거");
+        soundOnOff.setAttribute("class", "mute");
+    }
 });
 
 soundUp.addEventListener("click",()=>{

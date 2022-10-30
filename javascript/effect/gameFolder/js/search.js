@@ -383,21 +383,22 @@ const cssProperty = [
     { num: 382, name: "z-index", desc: " 엘리먼트의 겹쳐지는 순서를 지정한다." }
 ];
 
-const serachTime = document.querySelector(".time span");
-const serachList = document.querySelector(".search__list");
-const searchAnswers = document.querySelector(".search__answers");
-const searchMissAnswers = document.querySelector(".search__missAnswers");
-const searchStart = document.querySelector(".search__box .start");
-const searchInput = document.querySelector("#search");
-const searchAudio = document.querySelector("#audio");
-const searchNum = document.querySelector(".search__info .num");     //전체 개수
-const searchmusicStop = document.querySelector(".search__audio .stop");
-const searchResult = document.querySelector(".search__result .result");
-const searchResultWrap = document.querySelector(".search__result");
-const searchRestart = document.querySelector(".search__result .restart");
+const searchWrap = document.querySelector("#searchGame");
+const serachTime = searchWrap.querySelector(".search__time span");
+const serachList = searchWrap.querySelector(".search__list");
+const searchAnswers = searchWrap.querySelector(".search__answers");
+const searchMissAnswers = searchWrap.querySelector(".search__missAnswers");
+const searchStart = searchWrap.querySelector(".search__start");
+const searchInput = searchWrap.querySelector("#search");
+const searchAudio = searchWrap.querySelector("#audio");
+const searchNum = searchWrap.querySelector(".num");     //전체 개수
+const searchmusicStop = searchWrap.querySelector(".search__audio .stop");
+const searchResult = searchWrap.querySelector(".result");
+const searchResultWrap = searchWrap.querySelector(".search__result");
+const searchRestart = searchWrap.querySelector(".restart");
 
 
-let timeReamining = 120,        // 남은 시간
+let timeReamining = 20,        // 남은 시간
     score = 0,                  // 점수
     answers = {};               // 새로운 정답
 
@@ -490,7 +491,7 @@ function missAnswers() {
 function reduceTime() {
     timeReamining--;
     if (timeReamining < 11) {
-        document.querySelector(".time").style.background = "red";
+        document.querySelector(".search__time").style.background = "red";
     }
     if (timeReamining == 0) {
         endQuiz();
@@ -526,7 +527,7 @@ function endQuiz() {
 
     // 시작버튼 재활성화
     searchStart.style.display = "block";
-    document.querySelector(".time").style.background = "#223547";
+    document.querySelector(".search__time").style.background = "#223547";
     timeReamining = 120;
 
     clearInterval(Timer);
@@ -572,4 +573,19 @@ const searchmusicPlay = document.querySelector(".search__audio .play").addEventL
     searchmusicStop.style.display = "block";
     document.querySelector(".search__audio .play").style.display = "none";
 
+})
+
+// 서치 여닫기
+document.querySelector(".icon2").addEventListener("click",()=>{
+    document.querySelector("#game__box").style.display = "block";
+    searchWrap.style.display = "flex";
+    setTimeout(()=>{
+        searchWrap.style.opacity = "1";
+    }, 500)
+})
+
+document.querySelector(".search__close").addEventListener("click",()=>{
+    document.querySelector("#game__box").style.display = "none";
+    searchWrap.style.display ="none";
+    searchWrap.style.opacity ="0";
 })

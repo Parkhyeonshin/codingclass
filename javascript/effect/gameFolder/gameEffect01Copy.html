@@ -45,7 +45,7 @@
                 padding: 20px;
                 width: 100%;
                 height: calc(100vh - 85px);
-                display: block;
+                /* display: flex; */
             }
         </style>
     </head>
@@ -270,89 +270,101 @@
                     </div>
                 </div>
                 <div id="searchGame">
-                    <div class="search__wrap">
+                    <div class="search__box">
+                        <div class="search__inner">
+                            <h1>CSS 속성 검색하기</h1>
+                            <div class="search__inputbox">
+                                <label for="search">검색하기</label>
+                                <input type="text" id="search" placeholder="CSS 속성을 입력하세요" />
+                            </div>
+                            <div class="search__missAnswers"></div>
+                            <div class="search__list"></div>
+                            <div class="result"></div>
+                        </div>
+                    </div>
+                    <div class="search__desc">
+                        <div class="search__header">
+                            <div class="search__audio">
+                                <span>○</span>
+                                <span class="play">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M15 6.3706C15 4.65827 12.9884 3.73774 11.6926 4.85712L8.36317 7.73321C7.99989 8.04704 7.53583 8.21972 7.05576 8.21973L5.49998 8.21974C4.11928 8.21975 3 9.33903 3 10.7197V14.0127C3 15.3934 4.11929 16.5127 5.5 16.5127H7.0558C7.53587 16.5127 7.99993 16.6854 8.36322 16.9992L11.6926 19.8753C12.9884 20.9947 15 20.0741 15 18.3618V12.3662V6.3706Z"
+                                            fill="#223547"
+                                            stroke="#223547"
+                                            stroke-width="1.5"
+                                        />
+                                        <path
+                                            d="M18 15.3667C18.6279 14.531 19 13.4923 19 12.3667C19 11.2411 18.6279 10.2024 18 9.3667"
+                                            stroke="#223547"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                        />
+                                        <path
+                                            d="M20 18.3667C21.2558 16.6954 22 14.6179 22 12.3667C22 10.1155 21.2558 8.03802 20 6.3667"
+                                            stroke="#223547"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                        />
+                                    </svg>
+                                </span>
+                                <span class="stop">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14 6.3706C14 4.65827 11.9884 3.73774 10.6926 4.85712L7.36317 7.73321C6.99989 8.04704 6.53583 8.21972 6.05576 8.21973L4.49998 8.21974C3.11928 8.21975 2 9.33903 2 10.7197V14.0127C2 15.3934 3.11929 16.5127 4.5 16.5127H6.0558C6.53587 16.5127 6.99993 16.6854 7.36322 16.9992L10.6926 19.8753C11.9884 20.9947 14 20.0741 14 18.3618V12.3662V6.3706Z"
+                                            fill="#223547"
+                                            stroke="#223547"
+                                            stroke-width="1.5"
+                                        />
+                                        <path
+                                            d="M18 14.1215L22.2427 9.87891"
+                                            stroke="#223547"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                        <path
+                                            d="M18 9.87894L22.2427 14.1216"
+                                            stroke="#223547"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                </span>
+                                <audio id="audio" src="https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/search_audio.mp3" loop="loop"></audio>
+                            </div>
+                            <h3>Search Game</h3>
+                            <div class="search__close">X</div>
+                        </div>
+                        <div class="search__info">
+                            <p>
+                                CSS속성 찾기 게임입니다.
+                                <br> 제한시간내에 많은 속성을 입력해주세요.
+                                <br> <em>Enjoy !!</em>
+                            </p>
+                        </div>
                         <div class="search__result">
-                            <div class="svg__wrap">
-                                <div class="result"></div>
-                                <button class="restart">다시 도전하기</button>
+                            <div class="search__answers">
+                                <span>marign</span>
+                                <span>marign2</span>
+                                <span>marign3</span>
+
+                            </div>
+                            <div class="search__count">
+                                <div class="search__info center">
+                                    <div>전체 속성 갯수 : <span class="num">***</span></div>
+                                    <div>현재 맞춘 갯수 : <span class="answerNum">0</span></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="search__audio">
-                            <span class="play">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M15 6.3706C15 4.65827 12.9884 3.73774 11.6926 4.85712L8.36317 7.73321C7.99989 8.04704 7.53583 8.21972 7.05576 8.21973L5.49998 8.21974C4.11928 8.21975 3 9.33903 3 10.7197V14.0127C3 15.3934 4.11929 16.5127 5.5 16.5127H7.0558C7.53587 16.5127 7.99993 16.6854 8.36322 16.9992L11.6926 19.8753C12.9884 20.9947 15 20.0741 15 18.3618V12.3662V6.3706Z"
-                                        fill="#223547"
-                                        stroke="#223547"
-                                        stroke-width="1.5"
-                                    />
-                                    <path
-                                        d="M18 15.3667C18.6279 14.531 19 13.4923 19 12.3667C19 11.2411 18.6279 10.2024 18 9.3667"
-                                        stroke="#223547"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                    />
-                                    <path
-                                        d="M20 18.3667C21.2558 16.6954 22 14.6179 22 12.3667C22 10.1155 21.2558 8.03802 20 6.3667"
-                                        stroke="#223547"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                    />
-                                </svg>
-                            </span>
-                            <span class="stop">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M14 6.3706C14 4.65827 11.9884 3.73774 10.6926 4.85712L7.36317 7.73321C6.99989 8.04704 6.53583 8.21972 6.05576 8.21973L4.49998 8.21974C3.11928 8.21975 2 9.33903 2 10.7197V14.0127C2 15.3934 3.11929 16.5127 4.5 16.5127H6.0558C6.53587 16.5127 6.99993 16.6854 7.36322 16.9992L10.6926 19.8753C11.9884 20.9947 14 20.0741 14 18.3618V12.3662V6.3706Z"
-                                        fill="#223547"
-                                        stroke="#223547"
-                                        stroke-width="1.5"
-                                    />
-                                    <path
-                                        d="M18 14.1215L22.2427 9.87891"
-                                        stroke="#223547"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                    <path
-                                        d="M18 9.87894L22.2427 14.1216"
-                                        stroke="#223547"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-                            </span>
-                            <audio id="audio" src="./audio/search_audio.mp3" loop="loop"></audio>
+                        <div class="search__btn__box">
+                            <div class="search__time">
+                                <span>2:00</span>
+                            </div>
+                            <div class="search__start">START</div>
+                            <button class="restart">다시 도전하기</button>
                         </div>
-                        <span>CSS 속성 검색 이벤트</span>
-                        <h1><a href="./searchEffect.html">2분 동안 CSS 속성 검색하기</a></h1>
-                        <p class="desc">
-                            2분 동안 CSS 속성을 많이 검색하면 점수가 올라갑니다.
-                            <br />힌트보기는 한번 사용할 수 있습니다.
-                        </p>
-
-                        <div class="time">
-                            <span>2:00</span>
-                        </div>
-
-                        <div class="search__box">
-                            <label for="search">검색하기</label>
-                            <input type="text" id="search" placeholder="CSS 속성을 입력하세요" />
-                            <div class="start">START</div>
-                        </div>
-
-                        <div class="search__info center">
-                            <div>전체 속성 갯수 : <span class="num">***</span></div>
-                            <div>현재 맞춘 갯수 : <span class="answerNum">0</span></div>
-                        </div>
-
-                        <div class="search__answers"></div>
-
-                        <div class="search__missAnswers"></div>
-
-                        <div class="search__list"></div>
                     </div>
                 </div>
             </div>
@@ -401,7 +413,7 @@
                         <div class="music__control">
                             <div class="progress">
                                 <div class="bar">
-                                    <audio id="main-audio" src="../assets/audio/music_audio01.mp3"></audio>
+                                    <audio id="main-audio" src="#"></audio>
                                 </div>
                                 <div class="timer">
                                     <span class="current">0:00</span>
@@ -467,29 +479,29 @@
                     firstPage.style.transition = "all 1s";
                     firstPage.style.opacity = "0";
                     mentstart();
-                }, 1);
+                }, 1100);
             })
 
             function mentstart(){
                 setTimeout(() => {
                     document.querySelector(".mainStart__header1").style.display = "none";
                     document.querySelector(".mainStart__header2").style.display = "block";
-                }, 1);
+                }, 1000);
                 setTimeout(()=>{
                     document.querySelector(".mainStart__header2").style.opacity = "1";
-                }, 1)
+                }, 1500)
                 setTimeout(()=>{
                     document.querySelector(".mainStart__header2").style.opacity = "0";
-                }, 1)
+                }, 3000)
                 setTimeout(()=>{
                     document.querySelector("#header").style.top="0";
                     document.querySelector("#footer").style.bottom="0";
                     document.querySelector("#text").style.display = "none";
-                }, 1)
+                }, 4000)
                 setTimeout(()=>{
                     document.querySelector("#main").style.display = "block"
 
-                }, 1)
+                }, 6000)
                 setTimeout(()=>{
                     document.querySelectorAll(".icon").forEach((e,i) => {
                         setTimeout(() => {
@@ -497,7 +509,10 @@
                             e.style.transition="opacity 1s, transform 0.5s, filter 0.5s";
                         }, 50 * i);
                     })
-                }, 1)
+                }, 6500)
+                setTimeout(()=>{
+                    document.querySelector(".music__inner").style.bottom = "50px"
+                }, 8000)
             }
 
             // 마우스 커서 변경
