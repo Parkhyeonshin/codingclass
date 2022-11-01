@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 핸드폰 번호 가리기</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    프로그래머스 모바일은 개인정보 보호를 위해 고지서를 보낼 때 고객들의 전화번호의 일부를 가립니다. 전화번호가 문자열 phone_number로
+                    주어졌을 때, 전화번호의 뒷 4자리를 제외한 나머지 숫자를 전부 *으로 가린 문자열을 리턴하는 함수, solution을 완성해주세요.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">✔ phone_number는 길이 4 이상, 20이하인 문자열입니다.</p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>phone_number</th>
+                            <th>return</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>"01033334444"</td>
+                            <td>"*******4444"</td>
+                        </tr>
+                        <tr>
+                            <td>"027778888"</td>
+                            <td>"*****8888"</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <h3 class="t_tit2">■ 입출력 예</h3>
+                <p class="t_desc">
+                    1. 12의 약수는 1, 2, 3, 4, 6, 12입니다. 이를 모두 더하면 28입니다.
+                    <br />
+                    2. 5의 약수는 1, 5입니다. 이를 모두 더하면 6입니다.
+                </p> -->
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc">
+                    받아온 번호를 ['0','1','0']의 형식으로 바꿔줍니다 (from으로)
+                    <br />반복문으로 전체길이에 -4를해서 마지막부터 네번째자리까지의 값은 변경시켜서 다시 대입시키고 나머진 그대로 살립니다.
+                    <br />join()으로 다시 하나의 문자열로 합쳐줍니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(phone_number) {
+    let numberArr = Array.from(phone_number);
+    for(i=0; i&lt;numberArr.length; i++){
+        if(i &lt; numberArr.length - 4){ numberArr[i] = "*"}
+    }
+    number = numberArr.join('')
+    return number
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc">더 간단하네여... 저랑 방식은 똑같은데... 전 왜 열심히 나누고 합치고 헛짓거리를 했을까요 ^_^?</p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(phone_number) {
+    let number = "";
+    for(i=0; i&lphone_number.length; i++){
+        if(i &l phone_number.length - 4){
+            phone_number[i] = "*"
+            number +=phone_number[i] = "*"
+        }else{
+            number +=phone_number[i]
+        }
+    }
+    
+return number
+        
+}
+</code></pre>
+                </div>
+                <br /><br />
+                <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">from()</h3>
+                <p class="t_desc">
+                    Array.from() 메서드는 유사 배열 객체(array-like object)나 반복 가능한 객체(iterable object)를 얕게 복사해 새로운Array 객체를
+                    만듭니다.
+                    <br />
+                    뭔가 이해될듯 안될듯 그런 느낌?
+                </p>
+                <p class="t_box">
+                    console.log(Array.from('foo'));
+                    <br />// expected output: Array ["f", "o", "o"]
+                    <br />
+                    <br />console.log(Array.from([1, 2, 3], x => x + x)); <br />// expected output: Array [2, 4, 6]
+                </p>
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
