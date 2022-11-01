@@ -113,35 +113,35 @@
 .music__control .control .repeat {
     width: 48px;
     height: 48px;
-    background: url('../img/music_icon.svg');
+    background: url('../../effect/gameFolder/img/music_icon.svg');
     background-position: -384px 0px;
 }
 
 .music__control .control .repeat_one {
     width: 48px;
     height: 48px;
-    background: url('../img/music_icon.svg');
+    background: url('../../effect/gameFolder/img/music_icon.svg');
     background-position: -336px 0px;
 }
 
 .music__control .control .shuffle {
     width: 48px;
     height: 48px;
-    background: url('../img/music_icon.svg');
+    background: url('../../effect/gameFolder/img/music_icon.svg');
     background-position: -240px 0px;
 }
 
 .music__control .control .prev {
     width: 48px;
     height: 48px;
-    background: url('../img/music_icon.svg');
+    background: url('../../effect/gameFolder/img/music_icon.svg');
     background-position: -96px 0px;
 }
 
 .music__control .control .next {
     width: 48px;
     height: 48px;
-    background: url('../img/music_icon.svg');
+    background: url('../../effect/gameFolder/img/music_icon.svg');
     background-position: -144px 0px;
 }
 
@@ -149,39 +149,39 @@
     width: 48px;
     height: 48px;
     display: block;
-    background: url('../img/music_icon.svg');
+    background: url('../../effect/gameFolder/img/music_icon.svg');
     background-position: 0px 0px;
 }
 
 .music__control .control .stop {
     width: 48px;
     height: 48px;
-    background: url('../img/music_icon.svg');
+    background: url('../../effect/gameFolder/img/music_icon.svg');
     background-position: -48px 0px;
 }
 
 .music__control .control .list {
     width: 48px;
     height: 48px;
-    background: url('../img/music_icon.svg');
+    background: url('../../effect/gameFolder/img/music_icon.svg');
     background-position: -192px 0px;
 }
 .music__control .control .list.close {
     width: 48px;
     height: 48px;
-    background: url('../img/music_icon.svg');
+    background: url('../../effect/gameFolder/img/music_icon.svg');
     background-position: -432px 0px;
 }
 .music__control .control .mute {
     width: 48px;
     height: 48px;
-    background: url('../img/music_icon.svg');
+    background: url('../../effect/gameFolder/img/music_icon.svg');
     background-position: -576px 0px;
 }
 .music__control .control .sound {
     width: 48px;
     height: 48px;
-    background: url('../img/music_icon.svg');
+    background: url('../../effect/gameFolder/img/music_icon.svg');
     background-position: -624px 0px;
 }
 .music__control .control .volumeBox {
@@ -199,13 +199,13 @@
 .music__control .control .volumeBox .volumeDown {
     width: 48px;
     height: 48px;
-    background: url('../img/music_icon.svg');
+    background: url('../../effect/gameFolder/img/music_icon.svg');
     background-position: -480px 0px;
 }
 .music__control .control .volumeBox .volumeUp {
     width: 48px;
     height: 48px;
-    background: url('../img/music_icon.svg');
+    background: url('../../effect/gameFolder/img/music_icon.svg');
     background-position: -528px 0px;
 }
 /* input박스 스타일 */
@@ -298,7 +298,7 @@
     display: inline-block;
     width: 24px;
     height: 24px;
-    background: url(../img/music_icon.svg);
+    background: url(../../effect/gameFolder/img/music_icon.svg);
     margin-right: 5px;
     background-size: cover;
     background-position: -96px 0;

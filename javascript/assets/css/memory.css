@@ -8,6 +8,7 @@
     padding: 20px;
     border-radius: 20px;
     width: 600px;
+    display: none;
 }
 .memory__box {
     width: 100%;
