@@ -74,14 +74,14 @@ body{
     display: inline;
 }
 .header_nav ul li.active a{
+    /* text-shadow: 0px 2px 3px #961414; */
+    /* color: #871717; */
+    /* border: 2px solid #961414; */
     background-color: rgba(253, 238, 238, 1);
     color:#fdfbfb;
-    /* color: #871717; */
     text-shadow: 0px 0px 10px #961414;
-    /* text-shadow: 0px 2px 3px #961414; */
     font-family: 'CrownMychew';
     box-shadow: -2px 2px 8px #bb4a4a;
-    /* border: 2px solid #961414; */
     font-size: 1.15rem;
     animation: ascale 0.6s forwards;
     border: 3px solid #96141400;
