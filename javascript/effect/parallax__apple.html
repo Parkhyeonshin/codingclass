@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <link href="https://webfontworld.github.io/uto123RF/Uto123RF.css" rel="stylesheet" />
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Uto123RF";
+            }
+            .fixed {
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .scrollTop {
+                position: fixed;
+                left: 10px;
+                top: 10px;
+                width: 40px;
+                height: 40px;
+                background: rgba(0, 0, 0, 0.3);
+                text-align: center;
+                line-height: 40px;
+                z-index: 10000;
+                color: white;
+            }
+            /* layout */
+            #contents {
+            }
+            #section1 {
+                height: 10000px;
+            }
+            #section2 {
+            }
+            #section3 {
+            }
+            #section4 {
+            }
+            #section5 {
+            }
+            #section6 {
+            }
+            /* sec1 */
+            .sec1__text1 {
+                font-size: 8vw;
+                white-space: nowrap;
+            }
+            .sec1__text2 {
+                font-size: 8vw;
+                white-space: nowrap;
+            }
+            .sec1__text3 {
+                width: 100%;
+                height: 100vh;
+                /* background: rgba(34, 34, 34, 0.5); */
+                /* background: url(https://images.unsplash.com/photo-1585951237318-e7c78c368687?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80); */
+                background: url(https://files.slack.com/files-pri/T03NVVCPXSB-F0495UY6WSY/apple_img02.jpg);
+                background-size: cover;
+                background-position: center center;
+                /* filter: grayscale(1); */
+            }
+
+            .sec1__text4 {
+                width: 45vw;
+                height: 45vw;
+                border-radius: 50%;
+                background: #000;
+                color: snow;
+                text-align: center;
+                line-height: 45vw;
+                font-size: 8vw;
+            }
+            .sec1__text5 {
+                opacity: 0;
+                font-size: 5vw;
+                color: snow;
+                top: 30%;
+                left: 35%;
+            }
+            .sec1__text5 > div {
+                display: inline-block;
+            }
+            .sec1__text6 {
+                font-size: 9vw;
+                color: snow;
+                text-shadow: 0px 0px 20px #ebedee;
+                /* transform: translate(-50%, -50%) scaleX(10.5); */
+                transform: translate(-50%, -50%);
+                width: 100%;
+                /* opacity: 0; */
+            }
+            .sec1__text6__under {
+                /* width: 40%; */
+                height: 10px;
+                border-radius: 3px;
+                background: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+                box-shadow: inset 1px -1px 3px #eee;
+            }
+            /* .sec1__text6__under::before {
+                content: "";
+                position: absolute;
+                top: 12px;
+                width: 50%;
+                height: 5px;
+                left: 10%;
+                background: #000;
+                z-index: -1;
+            } */
+        </style>
+    </head>
+    <body>
+        <div class="scrollTop"></div>
+
+        <main id="contetns">
+            <section id="section1">
+                <div class="sec1">
+                    <div class="sec1__text1 fixed" data-0="top: 50%; opacity:1" data-500="top:30%; opacity:0">Hello!</div>
+                    <div
+                        class="sec1__text2 fixed"
+                        data-500="opacity:0; top: 70%; transform:translate(-50%, -50%) scale(1)"
+                        data-1000="opacity:1; top:50%; transform:translate(-50%, -50%) scale(1)"
+                        data-1500="opacity:1; top:50%; transform:translate(-50%, -50%) scale(0)"
+                    >
+                        Nice to meet you
+                    </div>
+                    <div
+                        class="sec1__text3 fixed"
+                        data-1300="width: 0%; height: 0vh; transform: translate(-50%, -50%)skewY(50deg) rotate(-60deg)"
+                        data-2300="width: 100%; height: 100vh; transform: translate(-50%, -50%) skew(0deg) rotate(0deg) "
+                    ></div>
+                </div>
+                <div
+                    class="sec1__text4 fixed"
+                    data-2000="transform:translate(-50%, -50%) scale(0) rotate(1080deg); opacity:1"
+                    data-2700="transform:translate(-50%, -50%) scale(0.8) rotate(0deg); opacity:1"
+                    data-3000="transform:translate(-50%, -50%) scale(0.8) rotate(0deg); opacity:1"
+                    data-3500="transform:translate(-50%, -50%) scale(1) rotate(0deg); opacity:0"
+                >
+                    Hey🙋‍♂️
+                </div>
+                <div class="sec1__text5 fixed" data-3500="opacity:1;">
+                    <div data-3600="transform:translateX(20vw) scaleX(10); opacity:0" data-3700="transform:translateX(0) scaleX(1); opacity:1">L</div>
+                    <div data-3700="transform:translateX(20vw) scaleX(10); opacity:0" data-3800="transform:translateX(0) scaleX(1); opacity:1">e</div>
+                    <div data-3800="transform:translateX(20vw) scaleX(10); opacity:0" data-3900="transform:translateX(0) scaleX(1); opacity:1">t</div>
+                    <div data-3900="transform:translateX(20vw) scaleX(10); opacity:0" data-4000="transform:translateX(0) scaleX(1); opacity:1">
+                        &nbsp;
+                    </div>
+                    <div data-4000="transform:translateX(20vw) scaleX(10); opacity:0" data-4100="transform:translateX(0) scaleX(1); opacity:1">M</div>
+                    <div data-4100="transform:translateX(20vw) scaleX(10); opacity:0" data-4200="transform:translateX(0) scaleX(1); opacity:1">e</div>
+                    <div data-4200="transform:translateX(20vw) scaleX(10); opacity:0" data-4300="transform:translateX(0) scaleX(1); opacity:1">
+                        &nbsp;
+                    </div>
+                    <div data-4300="transform:translateX(20vw) scaleX(10); opacity:0" data-4400="transform:translateX(0) scaleX(1); opacity:1">I</div>
+                    <div data-4400="transform:translateX(20vw) scaleX(10); opacity:0" data-4500="transform:translateX(0) scaleX(1); opacity:1">n</div>
+                    <div data-4500="transform:translateX(20vw) scaleX(10); opacity:0" data-4600="transform:translateX(0) scaleX(1); opacity:1">t</div>
+                    <div data-4600="transform:translateX(20vw) scaleX(10); opacity:0" data-4700="transform:translateX(0) scaleX(1); opacity:1">r</div>
+                    <div data-4700="transform:translateX(20vw) scaleX(10); opacity:0" data-4800="transform:translateX(0) scaleX(1); opacity:1">o</div>
+                    <div data-4800="transform:translateX(20vw) scaleX(10); opacity:0" data-4900="transform:translateX(0) scaleX(1); opacity:1">d</div>
+                    <div data-4900="transform:translateX(20vw) scaleX(10); opacity:0" data-5000="transform:translateX(0) scaleX(1); opacity:1">u</div>
+                    <div data-5000="transform:translateX(10vw) scaleX(10); opacity:0" data-5100="transform:translateX(0) scaleX(1); opacity:1">c</div>
+                    <div data-5100="transform:translateX(5vw) scaleX(10); opacity:0" data-5200="transform:translateX(0) scaleX(1); opacity:1">e</div>
+                </div>
+                <div
+                    class="sec1__text6 fixed"
+                    data-5200=" transform:translate(120%, 10%)skewX(0deg); "
+                    data-7000="transform:translate(-20%, 10%)skewX(0deg);"
+                    data-8000="transform:translate(-20%, 10%)skewX(0deg);"
+                    data-8500="transform:translate(-20%, 10%)skewX(-20deg);"
+                    data-9500="transform:translate(-250%, 10%) skewX(-50deg);"
+                >
+                    Are You Ready?
+                    <div
+                        class="sec1__text6__under"
+                        data-5200="width:0%; transform:translateX(130%);"
+                        data-5600="width:100%; transform:translateX(-20%);"
+                        data-7000="width:80%; transform:translateX(00%);"
+                        data-8000="width:40%; transform:translateX(00%);"
+                        data-9000="width:100%; transform:translateX(-130%);"
+                    ></div>
+                </div>
+                <div class="sec1__text7 fixed">Let's Start👊</div>
+            </section>
+            <!-- //section1 -->
+            <section id="section2"></section>
+            <!-- //section2 -->
+            <section id="section3"></section>
+            <!-- //section3 -->
+            <section id="section4"></section>
+            <!-- //section4 -->
+            <section id="section5"></section>
+            <!-- //section5 -->
+            <section id="section6"></section>
+            <!-- //section6 -->
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/skrollr@0.6.26/dist/skrollr.min.js"></script>
+        <script>
+            const s = skrollr.init();
+
+            function scroll() {
+                let scrollTop = window.screenY || document.documentElement.scrollTop;
+                document.querySelector(".scrollTop").innerText = Math.ceil(scrollTop);
+
+                requestAnimationFrame(scroll);
+            }
+            scroll();
+        </script>
+    </body>
+</html>

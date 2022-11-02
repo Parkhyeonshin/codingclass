@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : x만큼 간격이 있는 n개의 숫자</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    함수 solution은 정수 x와 자연수 n을 입력 받아, x부터 시작해 x씩 증가하는 숫자를 n개 지니는 리스트를 리턴해야 합니다. 다음 제한
+                    조건을 보고, 조건을 만족하는 함수, solution을 완성해주세요.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">✔ x는 -10000000 이상, 10000000 이하인 정수입니다. <br />✔ n은 1000 이하인 자연수입니다.</p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>x</th>
+                            <th>n</th>
+                            <th>answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>[2,4,6,8,10]</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>3</td>
+                            <td>[4,8,12]</td>
+                        </tr>
+                        <tr>
+                            <td>-4</td>
+                            <td>2</td>
+                            <td>[-4,-8]</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <h3 class="t_tit2">■ 입출력 예</h3>
+                <p class="t_desc">
+                    1. 12의 약수는 1, 2, 3, 4, 6, 12입니다. 이를 모두 더하면 28입니다.
+                    <br />
+                    2. 5의 약수는 1, 5입니다. 이를 모두 더하면 6입니다.
+                </p> -->
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc">
+                    반복문을 통해서 배열의 갯수만큼 반복해줍니다.
+                    <br />
+                    근데 반복되는 부분은 +된 값이기때문에 초기값은 그냥 처음부터 변수에 넣어주고 시작합니다. <br />
+                    +된 값은 push로 배열의 끝에 밀어넣어줍니다. 별거없네요
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(x, n) {
+    var answer = [];
+    var xorigin = x
+    answer.push(x)
+    for(i=0; i &lt;n-1; i++){
+        x = x+xorigin;
+        answer.push(x)   ;
+    }
+    return answer;
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc">
+                    'for문을 열심히 썼는데 내 코드가 비참해지는 순간이다' 라는 댓글이 참 와닿네요 ^^ <br />그리고 구글링해서 공부해봤는데 뭔소린지
+                    모르겠습니다... 나빼고 다잘해;
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(x, n) {
+    return Array(n).fill(x).map((v, i) => (i + 1) * v)
+}
+</code></pre>
+                </div>
+                <br /><br />
+                <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">Array.prototype.fill()</h3>
+                <p class="t_desc">
+                    fill() 메서드는 배열의 시작 인덱스부터 끝 인덱스의 이전까지 정적인 값 하나로 채웁니다.
+                    <br />
+                    예제를 보면 이해는 되는데 이걸 왜 저렇게 쓴건데? 뭔데이게?
+                </p>
+                <p class="t_box">
+                    const array1 = [1, 2, 3, 4];
+                    <br />
+                    <br />// fill with 0 from position 2 until position 4 <br />console.log(array1.fill(0, 2, 4)); <br />// expected output: [1, 2, 0,
+                    0]
+                    <br />
+                    <br />// fill with 5 from position 1 <br />console.log(array1.fill(5, 1)); <br />// expected output: [1, 5, 5, 5]
+                    <br />
+                    <br />console.log(array1.fill(6)); <br />// expected output: [6, 6, 6, 6]
+                </p>
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
