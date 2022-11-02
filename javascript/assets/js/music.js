@@ -79,9 +79,9 @@ let musicIndex = 1;
 function loadMusic(num) {
     musicName.innerText = allMusic[num - 1].name;
     musicArtist.innerText = allMusic[num - 1].artist;
-    musicView.src = `../assets/img/${allMusic[num - 1].img}.png`;
+    musicView.src = `../effect/gameFolder/img/${allMusic[num - 1].img}.png`;
     musicView.alt = allMusic[num - 1].name;
-    musicAudio.src = `../assets/audio/${allMusic[num - 1].audio}.mp3`;
+    musicAudio.src = `../effect/gameFolder/audio/${allMusic[num - 1].audio}.mp3`;
 }
 
 // 재생 버튼
@@ -242,7 +242,7 @@ for(let i=0; i<allMusic.length; i++){
     <li data-index="${i+1}">
         <strong>${allMusic[i].name}</strong>
         <em>${allMusic[i].artist}</em>
-        <audio class="${allMusic[i].audio}" src="../assets/audio/${allMusic[i].audio}.mp3"></audio>
+        <audio class="${allMusic[i].audio}" src="../effect/gameFolder/audio/${allMusic[i].audio}.mp3"></audio>
         <span class="audio-duration" id="${allMusic[i].audio}">재생시간</span>
     </li>
     `;

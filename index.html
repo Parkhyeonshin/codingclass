@@ -96,6 +96,138 @@
                 margin-top: 40px;
             }
     
+            /* 커스텀_ 좌우뒤집기효과 */
+            .color-shape {
+                background-color: rgba(0,0,0,0) !important ;
+                height: 310px;
+                border: none;
+
+            }
+            .isotope .isotope-item {
+                overflow: auto;
+            }
+            .image-wrap{
+                perspective: 1000px;
+            }
+            
+            .image-wrap .front {
+                transition: transform 1s;
+                backface-visibility: hidden;
+                transform-style : preserve-3d;
+                transform: rotateY(0deg);
+                background-color: snow;
+                height: 310px;
+                box-sizing: border-box;
+                box-shadow: inset 0px 0px 10px #9ac0ca;
+            }
+            .image-wrap:hover .front {
+                transform: rotateY(180deg);
+            }
+             .image-wrap .threeDdesc {
+                 position: absolute;
+                 left: 50%;
+                 top: 50%;
+                 transform: translate(-50%, -59%) translatez(100px);
+                 backface-visibility: hidden;
+                 width: 90%;
+                 height: 90%;
+            }
+            .image-wrap .threeDdesc h5 {
+                /* text-shadow: 0px 0px 10px #9ac0ca; */
+                color: #9ac0ca;
+            }
+            .image-wrap .img-text .threeDdesc img {
+                padding-top: 50px;
+            }
+            .image-wrap .back {
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: -1;
+                transition: transform 1s;
+                transform-style : preserve-3d;
+                transform: rotateY(-180deg);
+                height: 310px;
+                box-sizing: border-box;
+                border-radius: 20px;
+                background: #fff ;
+                box-shadow: inset 0px 0px 10px #9ac0ca;
+                border: 3px dashed #9ac0ca;
+                /* background: #9ac0ca ;
+                border: 3px dashed snow; */
+            }
+            .image-wrap:hover .back {
+                transform: rotateY(0deg);
+            }
+            .image-wrap:not(:hover) .back,
+            .image-wrap:not(:hover) .front{
+                transition: transform 1s;
+            }
+            .image-wrap .back .backthreeDdesc{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%) translatez(100px);
+                backface-visibility: hidden;
+                width: 100%;
+                height: 100%;
+            }
+            .image-wrap .back .backthreeDdesc span{
+                position:relative;
+                text-align: center;
+                display: block;
+                margin: 0 auto;
+                padding-top: 0;
+                background: none;
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: fit-content;
+                font-weight: 700;
+                color: #666;
+                text-shadow: 0px 0px 15px #9ac0ca;
+            }
+            .image-wrap .back .backthreeDdesc .overlay-text-thumb2-donut{
+                display: none;
+            }
+            .image-wrap .hover-wrap .overlay-img-donut {
+                background: snow;
+                color: #000;
+            }
+
+            .image-wrap .hover-wrap .overlay-text-thumb-donut.bts {
+                /* background: #fff; */
+            }
+
+            .image-wrap .backthreeDdesc > span,
+            .image-wrap .backthreeDdesc > a {
+                display: block;
+                width: 100%;
+            }
+
+            #contents_tit p a{
+                color: #9ac0ca;
+            }
+            #header {
+                margin-top: 57px;
+                box-sizing: border-box;
+                box-shadow: inset 0px 0px 35px #eee;
+            }
+            #header img{
+                padding-top: 50px;
+                width: 450px;
+            }
+            #header h1 {
+                margin-top: 0;
+                vertical-align: top;
+                line-height: 0.4;
+                text-shadow: 0px -2px 20px #eee;
+                margin-bottom: 50px;
+            }
+            #header ul {
+                margin-bottom: 30px;
+            }
         </style>
     </head>
 
@@ -130,7 +262,7 @@
                 <div class="row">
                     <div class="span12" style="text-align: center">
                         <div class="header_tit">
-                            <a href="#c"><img src="assets/img/main.svg" alt="main" /></a>
+                            <a href="#c"><img src="assets/img/main.png" alt="main" /></a>
                             <h1>Professional web publishers</h1>
                         </div>
                         <div class="header_icon">
@@ -197,17 +329,21 @@
                         <section class="color-shape class">
                             <a href="class/index.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">CLASS</span>
-                                        <a herf="class/index.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/class" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">CLASS</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">CLASS</span>
+                                            <a herf="class/index.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/class" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">CLASS</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon01.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>CLASS</h5>
-                                        <p>클래스</p>
-                                        <span>CLASS</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon01.svg" alt="portfolio" />
+                                            <h5>CLASS</h5>
+                                            <p>클래스</p>
+                                            <span>CLASS</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -218,17 +354,21 @@
                         <section class="color-shape script">
                             <a href="javascript/index.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">JAVASCRIPT</span>
-                                        <a href="javascript/index.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/javascript" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">JAVASCRIPT</span>
+                                            <a href="javascript/index.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/javascript" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon02.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>JAVASCRIPT</h5>
-                                        <p>자바스크립트</p>
-                                        <span>JAVASCRIPT</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon02.svg" alt="portfolio" />
+                                            <h5>JAVASCRIPT</h5>
+                                            <p>자바스크립트</p>
+                                            <span>JAVASCRIPT</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -239,17 +379,21 @@
                         <section class="color-shape refer">
                             <a href="html/alphabet.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">HTML</span>
-                                        <a href="html/alphabet.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/html" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">HTML</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">HTML</span>
+                                            <a href="html/alphabet.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/html" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">HTML</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon03.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>HTML</h5>
-                                        <p>HTML</p>
-                                        <span>HTML</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon03.svg" alt="portfolio" />
+                                            <h5>HTML</h5>
+                                            <p>HTML</p>
+                                            <span>HTML</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -260,17 +404,21 @@
                         <section class="color-shape refer">
                             <a href="css/index.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">CSS</span>
-                                        <a href="css/index.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/css" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">CSS</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">CSS</span>
+                                            <a href="css/index.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/css" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">CSS</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon04.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>CSS</h5>
-                                        <p>CSS</p>
-                                        <span>CSS</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon04.svg" alt="portfolio" />
+                                            <h5>CSS</h5>
+                                            <p>CSS</p>
+                                            <span>CSS</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -282,17 +430,21 @@
                         <section class="color-shape site">
                             <a href="site/site1/index.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">SITE</span>
-                                        <a href="site/site1/index.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/site/site1" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">SITE</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">SITE</span>
+                                            <a href="site/site1/index.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/site/site1" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">SITE</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon05.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>SITE</h5>
-                                        <p>사이트 제작하기 1</p>
-                                        <span>SITE</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon05.svg" alt="portfolio" />
+                                            <h5>SITE</h5>
+                                            <p>사이트 제작하기 1</p>
+                                            <span>SITE</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -302,17 +454,21 @@
                         <section class="color-shape site">
                             <a href="site/site2/index.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">SITE</span>
-                                        <a href="site/site2/index.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/site/site2" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">SITE</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">SITE</span>
+                                            <a href="site/site2/index.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/site/site2" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">SITE</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon05.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>SITE</h5>
-                                        <p>사이트 제작하기 2</p>
-                                        <span>SITE</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon05.svg" alt="portfolio" />
+                                            <h5>SITE</h5>
+                                            <p>사이트 제작하기 2</p>
+                                            <span>SITE</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -322,17 +478,21 @@
                         <section class="color-shape site">
                             <a href="site/site3/index.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">SITE</span>
-                                        <a href="#" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="#" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">PHP</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">SITE</span>
+                                            <a href="#" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="#" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">PHP</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon05.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>SITE</h5>
-                                        <p>사이트 제작하기 3</p>
-                                        <span>PHP</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon05.svg" alt="portfolio" />
+                                            <h5>SITE</h5>
+                                            <p>사이트 제작하기 3</p>
+                                            <span>PHP</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -343,17 +503,21 @@
                         <section class="color-shape script">
                             <a href="javascript/effect/searchEffect01.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">JAVASCRIPT</span>
-                                        <a href="javascript/effect/searchEffect01.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/javascript/effect" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">JAVASCRIPT</span>
+                                            <a href="javascript/effect/searchEffect01.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/javascript/effect" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon06.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>SEARCH</h5>
-                                        <p>검색 효과</p>
-                                        <span>JAVASCRIPT</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon06.svg" alt="portfolio" />
+                                            <h5>SEARCH</h5>
+                                            <p>검색 효과</p>
+                                            <span>JAVASCRIPT</span>
+                                        </div>
                                     </div>
                             </a>
                         </section>
@@ -362,17 +526,21 @@
                         <section class="color-shape script">
                             <a href="javascript/effect/quizEffect01.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">JAVASCRIPT</span>
-                                        <a href="javascript/effect/quizEffect01.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/javascript/effect" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">JAVASCRIPT</span>
+                                            <a href="javascript/effect/quizEffect01.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/javascript/effect" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon07.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>QUIZ</h5>
-                                        <p>퀴즈 효과</p>
-                                        <span>JAVASCRIPT</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon07.svg" alt="portfolio" />
+                                            <h5>QUIZ</h5>
+                                            <p>퀴즈 효과</p>
+                                            <span>JAVASCRIPT</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -383,17 +551,21 @@
                         <section class="color-shape script">
                             <a href="javascript/effect/mouseEffect01.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">JAVASCRIPT</span>
-                                        <a href="javascript/effect/mouseEffect01.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/javascript/effect" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">JAVASCRIPT</span>
+                                            <a href="javascript/effect/mouseEffect01.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/javascript/effect" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon08.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>MOUSE</h5>
-                                        <p>마우스 효과</p>
-                                        <span>JAVASCRIPT</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon08.svg" alt="portfolio" />
+                                            <h5>MOUSE</h5>
+                                            <p>마우스 효과</p>
+                                            <span>JAVASCRIPT</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -403,17 +575,21 @@
                         <section class="color-shape script">
                             <a href="javascript/effect/sliderEffect01.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">JAVASCRIPT</span>
-                                        <a href="javascript/effect/sliderEffect01.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/javascript/effect" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">JAVASCRIPT</span>
+                                            <a href="javascript/effect/sliderEffect01.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/javascript/effect" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon09.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>SLIDER</h5>
-                                        <p>슬라이드 효과</p>
-                                        <span>JAVASCRIPT</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon09.svg" alt="portfolio" />
+                                            <h5>SLIDER</h5>
+                                            <p>슬라이드 효과</p>
+                                            <span>JAVASCRIPT</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -423,17 +599,21 @@
                         <section class="color-shape script">
                             <a href="javascript/effect/parallaxEffect01.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">JAVASCRIPT</span>
-                                        <a href="javascript/effect/parallaxEffect01.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/javascript/effect" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">JAVASCRIPT</span>
+                                            <a href="javascript/effect/parallaxEffect01.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/javascript/effect" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon10.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>PARALLAX</h5>
-                                        <p>페럴렉스 효과</p>
-                                        <span>JAVASCRIPT</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon10.svg" alt="portfolio" />
+                                            <h5>PARALLAX</h5>
+                                            <p>페럴렉스 효과</p>
+                                            <span>JAVASCRIPT</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -443,17 +623,21 @@
                         <section class="color-shape script">
                             <a href="javascript/effect/gameFolder/gameEffect01Copy.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">JAVASCRIPT</span>
-                                        <a href="javascript/effect/gameFolder/gameEffect01Copy.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/blob/main/javascript/effect/gameFolder/gameEffect01Copy.html" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">JAVASCRIPT</span>
+                                            <a href="javascript/effect/gameFolder/gameEffect01Copy.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/blob/main/javascript/effect/gameFolder/gameEffect01Copy.html" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon11.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>GAME</h5>
-                                        <p>게임 효과</p>
-                                        <span>JAVASCRIPT</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon11.svg" alt="portfolio" />
+                                            <h5>GAME</h5>
+                                            <p>게임 효과</p>
+                                            <span>JAVASCRIPT</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -462,17 +646,21 @@
                         <section class="color-shape animation">
                             <a href="animation/svg.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">SVG</span>
-                                        <a href="animation/svg.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/animation" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">SVG</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">SVG</span>
+                                            <a href="animation/svg.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/animation" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">SVG</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon12.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>SVG</h5>
-                                        <p>ANIMATION</p>
-                                        <span>SVG</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon12.svg" alt="portfolio" />
+                                            <h5>SVG</h5>
+                                            <p>ANIMATION</p>
+                                            <span>SVG</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -481,17 +669,21 @@
                         <section class="color-shape animation">
                             <a href="animation/css.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">CSS</span>
-                                        <a href="animation/css.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/animation" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">CSS</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">CSS</span>
+                                            <a href="animation/css.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/animation" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">CSS</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon12.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>CSS</h5>
-                                        <p>ANIMATION</p>
-                                        <span>CSS</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon12.svg" alt="portfolio" />
+                                            <h5>CSS</h5>
+                                            <p>ANIMATION</p>
+                                            <span>CSS</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -500,17 +692,21 @@
                         <section class="color-shape animation">
                             <a href="sql/index.html" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">SQL</span>
-                                        <a href="sql/index.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/sql" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">SQL</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">SQL</span>
+                                            <a href="sql/index.html" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/sql" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">SQL</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon12.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>SQL</h5>
-                                        <p>SQL</p>
-                                        <span>SQL</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon12.svg" alt="portfolio" />
+                                            <h5>SQL</h5>
+                                            <p>SQL</p>
+                                            <span>SQL</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -520,17 +716,21 @@
                         <section class="color-shape animation">
                             <a href="https://sshin-react01.netlify.app" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">REACT</span>
-                                        <a href="https://sshin-react01.netlify.app" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/reactclass" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">REACT</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">REACT</span>
+                                            <a href="https://sshin-react01.netlify.app" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/reactclass" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">REACT</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon13.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>REACT</h5>
-                                        <p>REACT</p>
-                                        <span>REACT</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon13.svg" alt="portfolio" />
+                                            <h5>REACT</h5>
+                                            <p>REACT</p>
+                                            <span>REACT</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -539,17 +739,21 @@
                         <section class="color-shape animation">
                             <a href="https://vueclass10.web.app/" target="_blank">
                                 <div class="image-wrap">
-                                    <div class="hover-wrap">
-                                        <span class="overlay-img-donut">VUE</span>
-                                        <a href="https://vueclass10.web.app/" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
-                                        <a href="https://github.com/Parkhyeonshin/vueclass" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
-                                        <span class="overlay-text-thumb2-donut">VUE</span>
+                                    <div class="hover-wrap back">
+                                        <div class="backthreeDdesc">
+                                            <span class="overlay-img-donut">VUE</span>
+                                            <a href="https://vueclass10.web.app/" class="overlay-text-thumb-donut bts" target="_blank">바로보기</a>
+                                            <a href="https://github.com/Parkhyeonshin/vueclass" class="overlay-text-thumb1-donut bts" target="_blank">소스보기</a>
+                                            <span class="overlay-text-thumb2-donut">VUE</span>
+                                        </div>
                                     </div>
-                                    <img src="assets/img/index__icon13.svg" alt="portfolio" />
-                                    <div class="img-text donutImg">
-                                        <h5>VUE</h5>
-                                        <p>VUE</p>
-                                        <span>VUE</span>
+                                    <div class="img-text donutImg front">
+                                        <div class="threeDdesc">
+                                            <img src="assets/img/index__icon13.svg" alt="portfolio" />
+                                            <h5>VUE</h5>
+                                            <p>VUE</p>
+                                            <span>VUE</span>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -571,7 +775,7 @@
                 <div class="row">
                     <div class="span12">
                         <h5>
-                            <a href="http://webstoryboy.co.kr" target="_blank">Webstoryboy</a>
+                            <a href="http://sshin4882.dothome.co.kr" target="_blank">SSHINY</a>
                             <span id="clock"></span>
                             <span id="infor"></span>
                         </h5>
