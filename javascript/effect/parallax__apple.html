@@ -37,7 +37,7 @@
             #contents {
             }
             #section1 {
-                height: 10000px;
+                height: 18000px;
             }
             #section2 {
             }
@@ -66,7 +66,6 @@
                 /* background: url(https://files.slack.com/files-pri/T03NVVCPXSB-F0495UY6WSY/apple_img02.jpg); */
                 background-size: cover;
                 background-position: center center;
-                /* filter: grayscale(1); */
             }
 
             .sec1__text4 {
@@ -88,6 +87,7 @@
             }
             .sec1__text5 > div {
                 display: inline-block;
+                transform: translateX(0vw) translateY(-3vw) scaleX(10) scaleY(0) rotate(0deg);
             }
             .sec1__text6 {
                 font-size: 9vw;
@@ -105,16 +105,23 @@
                 background: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
                 box-shadow: inset 1px -1px 3px #eee;
             }
-            /* .sec1__text6__under::before {
-                content: "";
-                position: absolute;
-                top: 12px;
-                width: 50%;
-                height: 5px;
-                left: 10%;
-                background: #000;
-                z-index: -1;
-            } */
+            .sec1__text7 {
+                color: snow;
+                transform: translate(-50%, -50%);
+                text-shadow: 0px 0px 20px #ebedee;
+                font-size: 5vw;
+                top: 30%;
+                left: 17%;
+                /* opacity: 0; */
+            }
+            .sec1__text8 {
+                font-size: 15vw;
+                color: snow;
+                text-shadow: 0px 0px 20px #ebedee;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                top: 58%;
+            }
         </style>
     </head>
     <body>
@@ -134,8 +141,8 @@
                     </div>
                     <div
                         class="sec1__text3 fixed"
-                        data-1300="width: 0%; height: 0vh; transform: translate(-50%, -50%)skewY(50deg) rotate(-60deg)"
-                        data-2300="width: 100%; height: 100vh; transform: translate(-50%, -50%) skew(0deg) rotate(0deg) "
+                        data-1300="width: 30%; height: 30vh; transform: translate(-50%, -50%); opacity:0; rotate(0deg)"
+                        data-2300="width: 100%; height: 100vh; transform: translate(-50%, -50%); opacity:1; rotate(0deg) "
                     ></div>
                 </div>
                 <div
@@ -151,23 +158,110 @@
                     <div data-3600="transform:translateX(20vw) scaleX(10); opacity:0" data-3700="transform:translateX(0) scaleX(1); opacity:1">L</div>
                     <div data-3700="transform:translateX(20vw) scaleX(10); opacity:0" data-3800="transform:translateX(0) scaleX(1); opacity:1">e</div>
                     <div data-3800="transform:translateX(20vw) scaleX(10); opacity:0" data-3900="transform:translateX(0) scaleX(1); opacity:1">t</div>
-                    <div data-3900="transform:translateX(20vw) scaleX(10); opacity:0" data-4000="transform:translateX(0) scaleX(1); opacity:1">
+                    <div
+                        data-3900="transform:translateX(20vw)translateY(0vw) scaleX(10) rotate(0deg); opacity:0"
+                        data-4000="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9470="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9500="transform:translateX(15vw) translateY(-13vw) scaleX(10) rotate(180deg); opacity:0"
+                    >
                         &nbsp;
                     </div>
-                    <div data-4000="transform:translateX(20vw) scaleX(10); opacity:0" data-4100="transform:translateX(0) scaleX(1); opacity:1">M</div>
-                    <div data-4100="transform:translateX(20vw) scaleX(10); opacity:0" data-4200="transform:translateX(0) scaleX(1); opacity:1">e</div>
-                    <div data-4200="transform:translateX(20vw) scaleX(10); opacity:0" data-4300="transform:translateX(0) scaleX(1); opacity:1">
+                    <div
+                        data-4000="transform:translateX(20vw)translateY(0vw) scaleX(10) rotate(0deg); opacity:0"
+                        data-4100="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9470="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9500="transform:translateX(15vw) translateY(-13vw) scaleX(10) rotate(180deg); opacity:0"
+                    >
+                        M
+                    </div>
+                    <div
+                        data-4100="transform:translateX(20vw)translateY(0vw) scaleX(10) rotate(0deg); opacity:0"
+                        data-4200="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9450="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9490="transform:translateX(15vw) translateY(-13vw) scaleX(10) rotate(180deg); opacity:0"
+                    >
+                        e
+                    </div>
+                    <div
+                        data-4200="transform:translateX(20vw)translateY(0vw) scaleX(10) rotate(0deg); opacity:0"
+                        data-4300="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9425="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9470="transform:translateX(15vw) translateY(-13vw) scaleX(10) rotate(180deg); opacity:0"
+                    >
                         &nbsp;
                     </div>
-                    <div data-4300="transform:translateX(20vw) scaleX(10); opacity:0" data-4400="transform:translateX(0) scaleX(1); opacity:1">I</div>
-                    <div data-4400="transform:translateX(20vw) scaleX(10); opacity:0" data-4500="transform:translateX(0) scaleX(1); opacity:1">n</div>
-                    <div data-4500="transform:translateX(20vw) scaleX(10); opacity:0" data-4600="transform:translateX(0) scaleX(1); opacity:1">t</div>
-                    <div data-4600="transform:translateX(20vw) scaleX(10); opacity:0" data-4700="transform:translateX(0) scaleX(1); opacity:1">r</div>
-                    <div data-4700="transform:translateX(20vw) scaleX(10); opacity:0" data-4800="transform:translateX(0) scaleX(1); opacity:1">o</div>
-                    <div data-4800="transform:translateX(20vw) scaleX(10); opacity:0" data-4900="transform:translateX(0) scaleX(1); opacity:1">d</div>
-                    <div data-4900="transform:translateX(20vw) scaleX(10); opacity:0" data-5000="transform:translateX(0) scaleX(1); opacity:1">u</div>
-                    <div data-5000="transform:translateX(10vw) scaleX(10); opacity:0" data-5100="transform:translateX(0) scaleX(1); opacity:1">c</div>
-                    <div data-5100="transform:translateX(5vw) scaleX(10); opacity:0" data-5200="transform:translateX(0) scaleX(1); opacity:1">e</div>
+                    <div
+                        data-4300="transform:translateX(20vw)translateY(0vw) scaleX(10) rotate(0deg); opacity:0"
+                        data-4400="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9425="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9460="transform:translateX(15vw) translateY(-13vw) scaleX(10) rotate(180deg); opacity:0"
+                    >
+                        I
+                    </div>
+                    <div
+                        data-4400="transform:translateX(20vw)translateY(0vw) scaleX(10) rotate(0deg); opacity:0"
+                        data-4500="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9400="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9440="transform:translateX(15vw) translateY(-13vw) scaleX(10) rotate(180deg); opacity:0"
+                    >
+                        n
+                    </div>
+                    <div
+                        data-4500="transform:translateX(20vw)translateY(0vw) scaleX(10) rotate(0deg); opacity:0"
+                        data-4600="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9390="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9420="transform:translateX(15vw) translateY(-13vw) scaleX(10) rotate(180deg); opacity:0"
+                    >
+                        t
+                    </div>
+                    <div
+                        data-4600="transform:translateX(20vw)translateY(0vw) scaleX(10) rotate(0deg); opacity:0"
+                        data-4700="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9376="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9390="transform:translateX(15vw) translateY(-13vw) scaleX(10) rotate(80deg); opacity:0"
+                    >
+                        r
+                    </div>
+                    <div
+                        data-4700="transform:translateX(20vw)translateY(0vw) scaleX(10) rotate(0deg); opacity:0"
+                        data-4800="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9350="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9370="transform:translateX(15vw) translateY(-13vw) scaleX(10) rotate(110deg); opacity:0"
+                    >
+                        o
+                    </div>
+                    <div
+                        data-4800="transform:translateX(20vw)translateY(0vw) scaleX(10) rotate(0deg); opacity:0"
+                        data-4900="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9340="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9370="transform:translateX(15vw) translateY(-13vw) scaleX(10) rotate(120deg); opacity:0"
+                    >
+                        d
+                    </div>
+                    <div
+                        data-4900="transform:translateX(20vw)translateY(0vw) scaleX(10) rotate(0deg); opacity:0"
+                        data-5000="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9310="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9330="transform:translateX(15vw) translateY(-13vw) scaleX(10) rotate(180deg); opacity:0"
+                    >
+                        u
+                    </div>
+                    <div
+                        data-5000="transform:translateX(10vw)translateY(0vw) scaleX(10) rotate(0deg); opacity:0"
+                        data-5100="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9300="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9350="transform:translateX(15vw) translateY(-13vw) scaleX(10) rotate(180deg); opacity:0"
+                    >
+                        c
+                    </div>
+                    <div
+                        data-5100="transform:translateX(5vw)translateY(0vw) scaleX(10) rotate(0deg); opacity:0"
+                        data-5200="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9250="transform:translateX(0vw) translateY(0vw) scaleX(1) rotate(0deg); opacity:1"
+                        data-9350="transform:translateX(15vw) translateY(-13vw) scaleX(10) rotate(180deg); opacity:0"
+                    >
+                        e
+                    </div>
                 </div>
                 <div
                     class="sec1__text6 fixed"
@@ -187,10 +281,19 @@
                         data-9000="width:100%; transform:translateX(-130%);"
                     ></div>
                 </div>
-                <div class="sec1__text7 fixed">Let's Start👊</div>
+                <div class="sec1__text7 fixed" data-9100="left: 110vw;" data-9500="left:17%;">s</div>
+                <div class="sec1__text8 fixed" data-9600="left: 170%; opacity:0;" data-10000="left: 60%; opacity:1;">Start</div>
+                <div class="sec1__box1 fixed"></div>
+                <div class="sec1__box2 fixed"></div>
+                <div class="sec1__box3 fixed"></div>
+                <div class="sec1__box4 fixed"></div>
+                <div class="sec1__box5 fixed"></div>
+                <div class="sec1__box6 fixed"></div>
             </section>
             <!-- //section1 -->
-            <section id="section2"></section>
+            <section id="section2">
+                <!-- <div class="sec1__text8 fixed">Let's Start👊</div> -->
+            </section>
             <!-- //section2 -->
             <section id="section3"></section>
             <!-- //section3 -->
