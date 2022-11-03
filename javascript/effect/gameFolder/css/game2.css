@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&family=Yellowtail&display=swap");
 @font-face {
-    font-family: "PFStardust";
-    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/PFStardust.woff") format("woff");
+    font-family: 'PFStardust';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/PFStardust.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -15,9 +15,9 @@
     margin: 0;
     /* font-family: "Russo One", sans-serif; */
     padding: 0;
-    font-family: "PFStardust";
+    font-family: 'PFStardust';
 }
-body {
+body{
     background: #000;
     overflow: hidden;
     position: relative;
@@ -39,6 +39,7 @@ body {
     /* border-radius: 50%; */
 }
 
+
 /* 메인배경 */
 #mainStart__wrap {
     width: 100vw;
@@ -53,8 +54,7 @@ body {
     transform: scale(0.5);
     transition: transform 1s ease-in;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0;left: 0;
     z-index: 3000;
 }
 #mainStart {
@@ -121,7 +121,6 @@ body {
     flex-direction: column;
     place-items: center;
     justify-content: center;
-    cursor: none;
 }
 #text h1 {
     color: transparent;
@@ -136,17 +135,15 @@ body {
     filter: drop-shadow(5px 5px 1px black) drop-shadow(1px 1px 1px magenta);
     animation: bg-shift 0.5s ease-in-out infinite alternate;
 }
-#text h1.mainStart__header1 {
+#text h1.mainStart__header1{
     opacity: 1;
     display: block;
-    transition: opacity 1s;
-    cursor: none;
+    transition: opacity 1s ;
 }
 #text h1.mainStart__header2 {
     opacity: 0;
     display: none;
-    transition: opacity 3s;
-    cursor: none;
+    transition: opacity 3s ;
 }
 
 #mainStart__btn {
@@ -157,7 +154,9 @@ body {
     transform: translatey(-10px) rotatez(-5deg);
     text-shadow: 0 0 3px magenta, 0 0 7px magenta, 0 0 15px black, 0 0 15px black;
     animation: hover 1s ease-in-out infinite;
-    cursor: none;
+}
+#mainStart__btn:hover{
+    cursor: pointer;
 }
 @keyframes move {
     to {
@@ -185,6 +184,10 @@ body {
     }
 }
 
+
+
+
+
 /* header */
 #header {
     display: flex;
@@ -202,7 +205,7 @@ body {
     box-sizing: border-box;
 }
 #header h1 {
-    font-size: 25px;
+    font-size: 25px;  
     padding: 4px 0px 7px 0px;
     color: transparent;
     font-family: "Russo One", sans-serif;
@@ -212,10 +215,12 @@ body {
     -webkit-background-clip: text;
     filter: drop-shadow(5px 5px 1px black) drop-shadow(1px 1px 1px magenta);
 }
-#header .agent {
+#header .agent{
     color: white;
     font-size: 14px;
 }
+
+
 
 /* main */
 #main {
@@ -223,7 +228,7 @@ body {
 }
 .icon {
     opacity: 0;
-    width: fit-content;
+    width:fit-content;
 }
 .icon img {
     width: 65px;

@@ -28,11 +28,14 @@ let soundSuccess = new Audio(sound[2]);
 // 카드 뒤집기
 function flipCard(e) {
     let clickedCard = e.target;
+    console.log(clickedCard)
+    console.log(cardOne)
     if (clickedCard !== cardOne && !disableDeck) {
         clickedCard.classList.add("flip");
         if (!cardOne) {
             return (cardOne = clickedCard);
         }
+        console.log("뒤집기성공")
         cardTwo = clickedCard;
         disableDeck = true;
 
@@ -40,6 +43,8 @@ function flipCard(e) {
         let cardTwoImg = cardTwo.querySelector(".back img").src;
 
         matchCards(cardOneImg, cardTwoImg);
+    }else{
+        console.log("뒤집기실행문오류")
     }
 }
 
@@ -51,15 +56,17 @@ function matchCards(img1, img2) {
         // alert("이미지가 일치합니다.⎛⎝.⎛° ͜ʖ°⎞.⎠⎞");
         memoryCountNum--;
         memoryCountNum--;
-        cardOne.removeEventListener("click", flipCard);
-        cardTwo.removeEventListener("click", flipCard);
         if (memoryCountNum == 0) {
             soundSuccess.play();
             cardOne = cardTwo = "";
             memoryCount.innerText = `x ${memoryCountNum}`;
             soundMatch.play();
+            disableDeck = false;
+
             memoryEndQuiz();
         }
+        cardOne.removeEventListener("click", flipCard);
+        cardTwo.removeEventListener("click", flipCard);
         cardOne = cardTwo = "";
         soundMatch.play();
         memoryCount.innerText = `x ${memoryCountNum}`;
@@ -68,6 +75,7 @@ function matchCards(img1, img2) {
         // alert("이미지가 일치하지 않습니다.");
 
         setTimeout(() => {
+            
             cardOne.classList.add("shakeX");
             cardTwo.classList.add("shakeX");
         }, 500);
@@ -106,16 +114,21 @@ function shuffledCard() {
         let imgTag = card.querySelector(".back img");
         imgTag.src = `./img/memory0${arr[index]}.png`;
     });
+    console.log(cardOne)
 }
 // shuffledCard();
 
 // 카드 클릭
-memoryCard.forEach((card) => {
-    card.addEventListener("click", flipCard);
-    card.addEventListener("click", () => {
-        console.log("11");
+function CardClick(){
+    memoryCard.forEach((card) => {
+        card.addEventListener("click", flipCard);
     });
-});
+}
+// 카드 클릭시 플립카드로 넘기기 함수
+// function clickCard(){
+//     flipCard();
+// }
+
 
 // 버튼 클릭
 const Btn = document.querySelector(".icon3");
@@ -132,6 +145,26 @@ document.querySelector(".memory__close").addEventListener("click", () => {
     document.querySelector("#game__box").style.display = "none";
     memoryWrap.style.display = "none";
     memoryWrap.style.opacity = "0";
+
+    clearInterval(memoryTimer);
+    memoryTimeReaming = 90;
+    memoryCountNum = 16;
+    matchedCard = 0;
+    cardOne = cardTwo = "";
+    memoryCount.innerText = `x ${memoryCountNum}`;
+    memoryTime.innerText = memoryDisplayTime();
+    memoryBtn.style.pointerEvents = "auto";
+    memoryWindow.style.display = "block";
+    memoryCardWindow.style.display = "none";
+    memoryCard.forEach(e=>{
+        e.removeEventListener("click", flipCard)
+    })
+    shuffledCard();
+    CardClick();
+    memoryBtn.innerText = "START";
+    memoryCard.forEach((e) => {
+        e.style.pointerEvents = "none";
+    });
 });
 
 // 시간설정하기 함수
@@ -172,6 +205,10 @@ memoryBtn.addEventListener("click", (e) => {
     memoryBtn.style.pointerEvents = "none";
     memoryWindow.style.display = "none";
     memoryCardWindow.style.display = "block";
+    memoryCard.forEach(e=>{
+        e.removeEventListener("click", flipCard)
+    })
+    CardClick();
     setTimeout(() => {
         memoryTimer = setInterval(memoryReduceTime, 1000);
     }, 4000);
@@ -182,6 +219,7 @@ memoryBtn.addEventListener("click", (e) => {
 function memoryEndQuiz() {
     clearInterval(memoryTimer);
     matchedCard = 0;
+    cardOne = cardTwo = "";
 
     // clearTimeout(memoryTimer);
     // memoryTimeReaming = 120;
