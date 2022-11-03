@@ -22,6 +22,7 @@
     padding: 10px 15px;
     line-height: 1;
     margin-bottom: 3px;
+    position: relative;
 }
 #source .source__header .source__close:hover{
     font-weight: bold;
@@ -37,4 +38,49 @@
     display: block;
     border-bottom-left-radius: 13px;
     border-bottom-right-radius: 13px;
+}
+
+#source .source__warning{
+    position: absolute;
+    border-radius: 10px;
+    font-size: 25px;
+    width: 60%;
+    top: 880%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #000;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+#source .source__warning > a{
+    color: snow;
+    text-decoration: none;
+    line-height: 1.4;
+}
+#source .source__warning > a:hover::after{
+    content: '엄-청 오래기다리시면 뜨긴 뜨던데...👀';
+    padding: 2px;
+    bottom: 0;
+    left: 0%;
+    position: absolute;
+    background: #000;
+    color: rgb(133, 133, 133);
+    transform: translate(22%, -16px);
+}
+#source .source__warning .source__close2 {
+    padding: 12px 15px;
+    position: absolute;
+    top: -25px;
+    border: 1px solid rgb(175, 175, 175);
+    right: -20px;
+    background: #222;
+    border-radius: 50%;
+    color: rgb(175, 175, 175);
+    display: block;
+}
+#source .source__warning .source__close2:hover{
+    color: snow;
+    border: 1px solid snow;
+    cursor: pointer;
 }

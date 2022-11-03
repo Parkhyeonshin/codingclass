@@ -245,6 +245,21 @@
     text-shadow: 0px 0px 2px rgb(235, 148, 49);
     color: #000;
 }
+.memory__desc .memory__header > .memory__audio {
+    display: flex;
+    align-items: center;
+}
+.memory__desc .memory__header > .memory__audio .play {
+    margin-left: 5px;
+    display: none;
+    transform: translateY(3px);
+}
+.memory__desc .memory__header > .memory__audio .stop {
+    margin-left: 5px;
+    display: none;
+    transform: translateY(3px);
+}
+
 .memory__desc .memory__header h3 {
     font-family: "Creepster", cursive !important;
     font-size: 40px;

@@ -11,6 +11,10 @@ const memoryWindow = memoryWrap.querySelector(".memory__window");
 const memoryMain = memoryWrap.querySelector(".memory__windowMain");
 const memoryRanking = memoryWrap.querySelector(".memory__windowRanking");
 const memoryCount = memoryWrap.querySelector(".memory__count__num");
+const memoryAudio = memoryWrap.querySelector("#memoryaudio");
+const memorymusicStop = memoryWrap.querySelector(".memory__audio .stop");
+
+
 
 let memoryTimer = 0;
 let memoryTimeReaming = 00;
@@ -69,6 +73,7 @@ function matchCards(img1, img2) {
         cardTwo.removeEventListener("click", flipCard);
         cardOne = cardTwo = "";
         soundMatch.play();
+        soundMatch.volume=1;
         memoryCount.innerText = `x ${memoryCountNum}`;
         disableDeck = false;
     } else {
@@ -112,7 +117,7 @@ function shuffledCard() {
         }, 4000);
 
         let imgTag = card.querySelector(".back img");
-        imgTag.src = `./img/memory0${arr[index]}.png`;
+        imgTag.src = `https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/img/memory0${arr[index]}.png`;
     });
     console.log(cardOne)
 }
@@ -165,6 +170,9 @@ document.querySelector(".memory__close").addEventListener("click", () => {
     memoryCard.forEach((e) => {
         e.style.pointerEvents = "none";
     });
+    memoryAudio.pause();
+    memoryAudio.currentTime = 0;
+    memorymusicStop.style.display = "none";
 });
 
 // 시간설정하기 함수
@@ -213,6 +221,9 @@ memoryBtn.addEventListener("click", (e) => {
         memoryTimer = setInterval(memoryReduceTime, 1000);
     }, 4000);
     shuffledCard();
+    memorymusicStop.style.display = "block";
+    memoryAudio.play();
+    memoryAudio.volume = 0.5;
 });
 
 // 게임끝나면
@@ -229,3 +240,18 @@ function memoryEndQuiz() {
     });
     memoryBtn.style.pointerEvents = "auto";
 }
+
+memorymusicStop.addEventListener("click", () => {
+    memoryAudio.pause();
+    memoryAudio.currentTime = 0;
+    memorymusicStop.style.display = "none";
+    document.querySelector(".memory__audio .play").classList.add("show");
+    document.querySelector(".memory__audio .play").style.display = "block";
+})
+const memorymusicPlay = document.querySelector(".memory__audio .play").addEventListener("click", () => {
+    memoryAudio.play();
+    memoryAudio.volume = 0.5;
+    memorymusicStop.style.display = "block";
+    document.querySelector(".memory__audio .play").style.display = "none";
+
+})

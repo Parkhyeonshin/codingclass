@@ -389,22 +389,23 @@ const serachList = searchWrap.querySelector(".search__list");
 const searchAnswers = searchWrap.querySelector(".search__answers");
 const searchMissAnswers = searchWrap.querySelector(".search__missAnswers");
 const searchStart = searchWrap.querySelector(".search__start");
+const searchReStart = searchWrap.querySelector(".restart");
 const searchInput = searchWrap.querySelector("#search");
 const searchAudio = searchWrap.querySelector("#audio");
-const searchNum = searchWrap.querySelector(".num");     //전체 개수
+const searchNum = searchWrap.querySelector(".search__num");     //전체 개수
 const searchmusicStop = searchWrap.querySelector(".search__audio .stop");
 const searchResult = searchWrap.querySelector(".result");
 const searchResultWrap = searchWrap.querySelector(".search__result");
 const searchRestart = searchWrap.querySelector(".restart");
 
 
-let timeReamining = 20,        // 남은 시간
+let timeReamining = 5,        // 남은 시간
     score = 0,                  // 점수
     answers = {};               // 새로운 정답
 
 let answerCount = 0;
 let Timer = 0;
-
+let allPropertyCount = cssProperty.length;
 
 function updateList() {
     cssProperty.forEach(data => {
@@ -454,6 +455,8 @@ function checkInput() {
         // 정답 표시
         searchAnswers.style.display = "block";
         searchAnswers.innerHTML += `<span>${input}</span>`;
+        allPropertyCount--;
+        searchNum.innerHTML = allPropertyCount;  
 
         answerCount++;
         document.querySelector(".answerNum").innerText = answerCount;
@@ -491,7 +494,9 @@ function missAnswers() {
 function reduceTime() {
     timeReamining--;
     if (timeReamining < 11) {
-        document.querySelector(".search__time").style.background = "red";
+        document.querySelector(".search__time").style.color = "rgb(201, 48, 48)";
+    }else if( timeReamining >= 11){
+        document.querySelector(".search__time").style.color = "snow";
     }
     if (timeReamining == 0) {
         endQuiz();
@@ -522,15 +527,15 @@ function endQuiz() {
     missAnswers();
 
     searchAudio.pause();
+    searchAudio.currentTime = 0;
     searchmusicStop.style.display = "none";
     document.querySelector(".search__audio .play").style.display = "none";
 
-    // 시작버튼 재활성화
-    searchStart.style.display = "block";
-    document.querySelector(".search__time").style.background = "#223547";
+    // 다시시작하기
+    searchReStart.style.display ="block";
+    clearInterval(Timer);
     timeReamining = 120;
 
-    clearInterval(Timer);
 
     // 메세지 출력
     searchResultWrap.classList.add("show");
@@ -543,13 +548,18 @@ function endQuiz() {
 function restart(){
     searchResultWrap.classList.remove("show");
     searchStart.style.display = "block";
+    searchReStart.style.display ="none";
     serachList.style.display = "none";
     searchAnswers.style.display = "none";
     searchAnswers.innerHTML = ``;
     searchMissAnswers.style.display = "none";
     searchMissAnswers.innerHTML = ``;
+    searchResult.style.display = "none";
     answerCount = 0;
     document.querySelector(".answerNum").innerText = answerCount;
+    searchAudio.currentTime = 0;
+    allPropertyCount = cssProperty.length;
+    searchNum.innerHTML = allPropertyCount;  
     startQuiz();
 }
 
@@ -588,4 +598,7 @@ document.querySelector(".search__close").addEventListener("click",()=>{
     document.querySelector("#game__box").style.display = "none";
     searchWrap.style.display ="none";
     searchWrap.style.opacity ="0";
+    searchAudio.pause();
+    searchAudio.currentTime = 0;
+    searchmusicStop.style.display = "none";
 })
