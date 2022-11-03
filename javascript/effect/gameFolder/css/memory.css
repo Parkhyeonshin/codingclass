@@ -1,12 +1,13 @@
 /* latin */
 @font-face {
-    font-family: 'Creepster';
+    font-family: "Creepster";
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/creepster/v13/AlZy_zVUqJz4yMrniH4Rcn35.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
+    src: url(https://fonts.gstatic.com/s/creepster/v13/AlZy_zVUqJz4yMrniH4Rcn35.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
+}
 .memory__wrap {
     /* position: fixed;
     left: 0px;
@@ -33,9 +34,9 @@
 .memory__box {
     width: 63%;
     height: calc(100vh - 120px);
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    border: 2px solid rgba(231, 196, 151, 0.5);  
+    border: 2px solid rgba(231, 196, 151, 0.5);
     animation: flicker_halloween 3.5s infinite alternate;
 }
 
@@ -50,16 +51,57 @@
     overflow: hidden;
 }
 .memory__inner::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 0;left: 0;bottom: 0;right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     background: url(../img/memory_bg.jpg);
     opacity: 0.9;
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: -1;
 }
+.memory__window {
+    width: 100%;
+    height: 100%;
+    /* background: #000; */
+}
+.memory__windowMain {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    /* background: #000; */
+}
+.memory__windowMain .memory__windowImg {
+    background: url(https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/img/memory09.png);
+    width: 100%;
+    height: 100%;
+    animation: halloweenScale 3s infinite;
+    background-position: center 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+@keyframes halloweenScale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .memory__card {
+    display: none;
     padding: 50px;
+    max-width: 885px;
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 .memory__card .cards {
     display: flex;
@@ -78,6 +120,7 @@
     transform-style: preserve-3d;
     perspective: 500px;
     box-sizing: border-box;
+    pointer-events: none;
 }
 
 .memory__card .cards li img {
@@ -138,9 +181,7 @@
     54%,
     56%,
     100% {
-        box-shadow: 0 0 10px rgba(243, 117, 33, 0.5),
-        0 0 20px rgba(236, 147, 13, 0.5),
-        0 0 30px rgba(219, 45, 14, 0.5);
+        box-shadow: 0 0 10px rgba(243, 117, 33, 0.5), 0 0 20px rgba(236, 147, 13, 0.5), 0 0 30px rgba(219, 45, 14, 0.5);
     }
 }
 
@@ -183,12 +224,12 @@
     height: calc(100vh - 120px);
     border-radius: 20px;
     animation: flicker_halloween 3.5s infinite alternate;
-    border: 2px solid rgba(231, 196, 151, 0.5);  
+    border: 2px solid rgba(231, 196, 151, 0.5);
     background: rgba(255, 255, 255, 0.5);
     overflow: hidden;
     box-sizing: border-box;
 }
-.memory__desc .memory__header{
+.memory__desc .memory__header {
     background: #000;
     color: white;
     display: flex;
@@ -204,14 +245,14 @@
     text-shadow: 0px 0px 2px rgb(235, 148, 49);
     color: #000;
 }
-.memory__desc .memory__header h3{
+.memory__desc .memory__header h3 {
     font-family: "Creepster", cursive !important;
     font-size: 40px;
     color: #000;
     text-shadow: 0px 0px 7px rgb(235, 148, 49);
 }
 
-.memory__desc .memory__header .memory__close{
+.memory__desc .memory__header .memory__close {
     cursor: pointer;
     border: 1px solid rgb(141, 92, 0);
     border-radius: 50%;
@@ -221,7 +262,7 @@
     color: orange;
     transform: scale(1.2);
     border-color: rgb(141, 92, 0);
-    transition: all 0.3s ;
+    transition: all 0.3s;
 }
 .memory__desc .memory__info {
     background: #111;
@@ -229,12 +270,12 @@
     box-sizing: border-box;
     box-shadow: inset 0px 0px 15px rgba(109, 55, 11, 0.384);
 }
-.memory__desc .memory__info p{
+.memory__desc .memory__info p {
     text-align: center;
     padding: 40px 20px;
     color: #f5f5f5;
 }
-.memory__desc .memory__info p em{
+.memory__desc .memory__info p em {
     font-family: "Creepster", cursive !important;
     color: #000;
     text-shadow: 0px 0px 3px rgb(235, 148, 49);
@@ -242,7 +283,7 @@
     font-size: 30px;
     line-height: 2;
 }
-.memory__desc .memory__result{
+.memory__desc .memory__result {
     display: flex;
     flex-wrap: wrap;
     background: #111;
@@ -253,7 +294,7 @@
     padding: 20px;
     justify-content: space-evenly;
 }
-.memory__desc .memory__result .memory__timer{
+.memory__desc .memory__result .memory__timer {
     font-family: "Creepster", cursive !important;
     width: 50%;
     color: #000;
@@ -262,7 +303,7 @@
     font-size: 100px;
     line-height: 1;
     box-sizing: border-box;
-    height:fit-content;
+    height: fit-content;
 }
 .memory__desc .memory__result .memory__count {
     width: 40%;
@@ -271,10 +312,10 @@
     justify-content: flex-end;
     align-items: flex-end;
 }
-.memory__desc .memory__count img{
-   width: 90px;
+.memory__desc .memory__count img {
+    width: 90px;
 }
-.memory__desc .memory__count p{
+.memory__desc .memory__count p {
     font-family: "Creepster", cursive !important;
     color: #0f0708;
     text-shadow: 0px 0px 5px orange;
@@ -282,7 +323,7 @@
     line-height: 1;
 }
 
-.memory__desc .memory__btn__box{
+.memory__desc .memory__btn__box {
     background: #111;
     border-bottom: 2px solid rgba(100, 61, 16, 0.527);
     box-shadow: inset 0px 0px 15px rgba(109, 55, 11, 0.384);
@@ -291,7 +332,7 @@
     display: flex;
     align-items: center;
 }
-.memory__desc .memory__btn{
+.memory__desc .memory__btn {
     margin: 0 auto;
     /* background: rgba(109, 55, 11, 0.384); */
     box-shadow: inset 0px 0px 0px 2px rgb(83, 59, 13);
@@ -304,11 +345,11 @@
 }
 .memory__desc .memory__btn:hover {
     cursor: pointer;
-    box-shadow: inset 0px 0px 25px rgb(235, 148, 49) ;
+    box-shadow: inset 0px 0px 25px rgb(235, 148, 49);
     text-shadow: 0px 0px 12px rgb(235, 148, 49);
     border: none;
-    transition: all .3s ease-in;
+    transition: all 0.3s ease-in;
 }
-.memory__desc .memory__btn:not(:hover){
-    transition: all .3s ease-out;
+.memory__desc .memory__btn:not(:hover) {
+    transition: all 0.3s ease-out;
 }
