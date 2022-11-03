@@ -37,9 +37,10 @@
             #contents {
             }
             #section1 {
-                height: 18000px;
+                height: 15000px;
             }
             #section2 {
+                height: 15000px;
             }
             #section3 {
             }
@@ -121,6 +122,51 @@
                 transform: translate(-50%, -50%);
                 width: 100%;
                 top: 58%;
+            }
+            .sec1__box1 {
+                width: 100vw;
+                height: 20vh;
+                background: rgba(0, 0, 0, 1);
+                top: 0;
+                left: 0%;
+                transform: translate(-25%, 0);
+                opacity: 1;
+            }
+            .sec1__box2 {
+                width: 100vw;
+                height: 20vh;
+                background: rgba(0, 0, 0, 1);
+                top: 20vh;
+                left: 0%;
+                transform: translate(25%, 0);
+                opacity: 1;
+            }
+            .sec1__box3 {
+                width: 100vw;
+                height: 20vh;
+                background: rgba(0, 0, 0, 1);
+                top: 40vh;
+                left: 0%;
+                transform: translate(0);
+                opacity: 1;
+            }
+            .sec1__box4 {
+                width: 100vw;
+                height: 20vh;
+                background: rgba(0, 0, 0, 1);
+                top: 60vh;
+                left: 0%;
+                transform: translate(0);
+                opacity: 1;
+            }
+            .sec1__box5 {
+                width: 100vw;
+                height: 20vh;
+                background: rgba(0, 0, 0, 1);
+                top: 80vh;
+                left: 0%;
+                transform: translate(0);
+                opacity: 1;
             }
         </style>
     </head>
@@ -283,16 +329,68 @@
                 </div>
                 <div class="sec1__text7 fixed" data-9100="left: 110vw;" data-9500="left:17%;">s</div>
                 <div class="sec1__text8 fixed" data-9600="left: 170%; opacity:0;" data-10000="left: 60%; opacity:1;">Start</div>
-                <div class="sec1__box1 fixed"></div>
-                <div class="sec1__box2 fixed"></div>
-                <div class="sec1__box3 fixed"></div>
-                <div class="sec1__box4 fixed"></div>
-                <div class="sec1__box5 fixed"></div>
-                <div class="sec1__box6 fixed"></div>
+                <div
+                    class="sec1__box1 fixed"
+                    data-11000="left:150%; transform:translate(-25%,-0%)"
+                    data-11500="left:0%; transform:translate(0%,-0%)"
+                    data-12500="left:0%; transform:translate(0%,-0%)"
+                ></div>
+                <div
+                    class="sec1__box2 fixed"
+                    data-11000="left:-150%; transform:translate(25%,-0%)"
+                    data-11500="left:0%; transform:translate(0%,-0%)"
+                    data-12500="left:0%; transform:translate(0%,-0%)"
+                ></div>
+                <div
+                    class="sec1__box3 fixed"
+                    data-11000="left:150%; transform:translate(-25%,-0%)"
+                    data-11500="left:0%; transform:translate(0%,-0%)"
+                    data-12500="left:0%; transform:translate(0%,-0%)"
+                ></div>
+                <div
+                    class="sec1__box4 fixed"
+                    data-11000="left:-150%; transform:translate(25%,-0%)"
+                    data-11500="left:0%; transform:translate(0%,-0%)"
+                    data-12500="left:0%; transform:translate(0%,-0%)"
+                ></div>
+                <div
+                    class="sec1__box5 fixed"
+                    data-11000="left:150%; transform:translate(-25%,-0%)"
+                    data-11500="left:0%; transform:translate(0%,-0%)"
+                    data-12500="left:0%; transform:translate(0%,-0%)"
+                ></div>
             </section>
             <!-- //section1 -->
             <section id="section2">
-                <!-- <div class="sec1__text8 fixed">Let's Start👊</div> -->
+                <div
+                    class="sec1__box1 fixed"
+                    data-12500="left:0%; transform:translate(0%,-0%)"
+                    data-13000="left: -150%; transform:translate(25%, 0%)"
+                ></div>
+                <div
+                    class="sec1__box2 fixed"
+                    data-12500="left:0%; transform:translate(0%,-0%)"
+                    data-13000="left: 150%; transform:translate(-25%, 0%)"
+                ></div>
+                <div
+                    class="sec1__box3 fixed"
+                    data-12500="left:0%; transform:translate(0%,-0%)"
+                    data-13000="left: -150%; transform:translate(25%, 0%)"
+                ></div>
+                <div
+                    class="sec1__box4 fixed"
+                    data-12500="left:0%; transform:translate(0%,-0%)"
+                    data-13000="left: 150%; transform:translate(-25%, 0%)"
+                ></div>
+                <div
+                    class="sec1__box5 fixed"
+                    data-12500="left:0%; transform:translate(0%,-0%)"
+                    data-13000="left: -150%; transform:translate(25%, 0%)"
+                ></div>
+                <div class="fixed">
+                    안녕하세요. 박현신입니다. 저는 꿈을 거의 매일 꾸고 기억도 잘 하는데요. 이쁘고, 때론 무섭기도 한 제 꿈속세상을 표현하고자 하는
+                    낭만이 아직도 있습니다.
+                </div>
             </section>
             <!-- //section2 -->
             <section id="section3"></section>
@@ -312,6 +410,15 @@
             function scroll() {
                 let scrollTop = window.screenY || document.documentElement.scrollTop;
                 document.querySelector(".scrollTop").innerText = Math.ceil(scrollTop);
+
+                if (scrollTop < 12503) {
+                    document.querySelector("#section1").style.display = "block";
+                    document.querySelector("#section2").style.display = "none";
+                }
+                if (scrollTop >= 12503) {
+                    document.querySelector("#section1").style.display = "none";
+                    document.querySelector("#section2").style.display = "block";
+                }
 
                 requestAnimationFrame(scroll);
             }

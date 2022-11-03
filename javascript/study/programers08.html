@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 나머지가 1이 되는 수 찾기</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    자연수 n이 매개변수로 주어집니다. n을 x로 나눈 나머지가 1이 되도록 하는 가장 작은 자연수 x를 return 하도록 solution 함수를
+                    완성해주세요. 답이 항상 존재함은 증명될 수 있습니다.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">
+                    ✔ 3 ≤ n ≤ 1,000,000
+                    <!-- <br />✔ n은 1000 이하인 자연수입니다. -->
+                </p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <!-- <th>x</th> -->
+                            <th>n</th>
+                            <th>answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <td>2</td> -->
+                            <td>10</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <!-- <td>4</td> -->
+                            <td>12</td>
+                            <td>11</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <p class="t_desc">
+                    1. 10을 3으로 나눈 나머지가 1이고, 3보다 작은 자연수 중에서 문제의 조건을 만족하는 수가 없으므로, 3을 return 해야 합니다.
+                    <br />
+                    2. 12를 11로 나눈 나머지가 1이고, 11보다 작은 자연수 중에서 문제의 조건을 만족하는 수가 없으므로, 11을 return 해야 합니다.
+                </p>
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc">
+                    최소수기 때문에 n에 그냥 x2를 해줘서 리미트값을 정해주고 나누는 수를 감소시킵니다.
+                    <br />
+                    조건문을 걸어서 나머지가 1인 수들을 배열안에 넣고, 최소값을 찾는 min을 이용해서 나머지가 1인 수들 중 최소값을 반환합니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(n) {
+    let arr = [];
+    for(i=n*2; i>=1; i--){
+        if(n%i == 1){
+            arr.push(i)
+        }
+    }
+    const x = Math.min.apply(null,arr)
+    return x
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc">while을 썼는데.... 음... 네 이해는 되는데 말로 설명이 안되네요...죄송</p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(n, x = 1) {    
+    while (x++) {
+        if (n % x === 1) {
+            return x;
+        }
+    }    
+}
+</code></pre>
+                </div>
+                <br /><br />
+                <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">Math.min.apply(null,arr)</h3>
+                <p class="t_desc">
+                    math.min()은 괄호안에 숫자들을 입력해주어하는데여. 우리는 배열안에서 뽑을 거기 때문에 이 메서드쓰면 안되고 배열안에서 뽑는건
+                    저렇게 aplly()를 써준다고하네요.
+                </p>
+                <!-- <p class="t_box">
+                    const array1 = [1, 2, 3, 4];
+                    <br />
+                    <br />// fill with 0 from position 2 until position 4 <br />console.log(array1.fill(0, 2, 4)); <br />// expected output: [1, 2, 0,
+                    0]
+                    <br />
+                    <br />// fill with 5 from position 1 <br />console.log(array1.fill(5, 1)); <br />// expected output: [1, 5, 5, 5]
+                    <br />
+                    <br />console.log(array1.fill(6)); <br />// expected output: [6, 6, 6, 6]
+                </p> -->
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
