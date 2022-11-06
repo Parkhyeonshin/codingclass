@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 짝수와 홀수</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    정수 num이 짝수일 경우 "Even"을 반환하고 홀수인 경우 "Odd"를 반환하는 함수, solution을 완성해주세요.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">
+                    ✔ num은 int 범위의 정수입니다.
+                    <br />✔ 0은 짝수입니다.
+                </p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <!-- <th>x</th> -->
+                            <th>num</th>
+                            <th>return</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <td>2</td> -->
+                            <td>3</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <!-- <td>4</td> -->
+                            <td>"Odd"</td>
+                            <td>"Even"</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <h3 class="t_tit2">■ 입출력 예</h3>
+                <p class="t_desc">
+                    1. 10을 3으로 나눈 나머지가 1이고, 3보다 작은 자연수 중에서 문제의 조건을 만족하는 수가 없으므로, 3을 return 해야 합니다.
+                    <br />
+                    2. 12를 11로 나눈 나머지가 1이고, 11보다 작은 자연수 중에서 문제의 조건을 만족하는 수가 없으므로, 11을 return 해야 합니다.
+                </p> -->
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc">
+                    짝수는 나눠서 0이나오니깐 %2로 구하고 0은 짝수취급이래서 조건문에 넣어줬고..
+                    <br> 홀수는 else 에 넣었음... 설명할게 있나?
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(num) {
+    var answer = '';
+    if(num%2 == 0 || num == 0){
+        answer = "Even";
+    }else{
+        answer = "Odd";
+    }
+    return answer;
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc">
+                    삼항연산자를 써도 되겠네요.  자주 써먹는 버릇을 들여야 할듯?
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function evenOrOdd(num) {
+    return num % 2 ? "Odd" : "Even";
+}
+</code></pre>
+                </div>
+                <br /><br />
+                <!-- <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">Math.min.apply(null,arr)</h3>
+                <p class="t_desc">
+                    math.min()은 괄호안에 숫자들을 입력해주어하는데여. 우리는 배열안에서 뽑을 거기 때문에 이 메서드쓰면 안되고 배열안에서 뽑는건
+                    저렇게 aplly()를 써준다고하네요.
+                </p> -->
+                <!-- <p class="t_box">
+                    const array1 = [1, 2, 3, 4];
+                    <br />
+                    <br />// fill with 0 from position 2 until position 4 <br />console.log(array1.fill(0, 2, 4)); <br />// expected output: [1, 2, 0,
+                    0]
+                    <br />
+                    <br />// fill with 5 from position 1 <br />console.log(array1.fill(5, 1)); <br />// expected output: [1, 5, 5, 5]
+                    <br />
+                    <br />console.log(array1.fill(6)); <br />// expected output: [6, 6, 6, 6]
+                </p> -->
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

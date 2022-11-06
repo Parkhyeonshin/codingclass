@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 두 정수 사이의 합</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    두 정수 a, b가 주어졌을 때 a와 b 사이에 속한 모든 정수의 합을 리턴하는 함수, solution을 완성하세요.
+예를 들어 a = 3, b = 5인 경우, 3 + 4 + 5 = 12이므로 12를 리턴합니다.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">
+                    ✔ a와 b가 같은 경우는 둘 중 아무 수나 리턴하세요.
+                    ✔ a와 b는 -10,000,000 이상 10,000,000 이하인 정수입니다.
+                    ✔ a와 b의 대소관계는 정해져있지 않습니다.
+                    <!-- <br />✔ n은 1000 이하인 자연수입니다. -->
+                </p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <!-- <th>x</th> -->
+                            <th>a</th>
+                            <th>b</th>
+                            <th>return</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <td>2</td> -->
+                            <td>3</td>
+                            <td>5</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <!-- <td>4</td> -->
+                            <td>3</td>
+                            <td>3</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <!-- <td>4</td> -->
+                            <td>5</td>
+                            <td>3</td>
+                            <td>12</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <h3 class="t_tit2">■ 입출력 예</h3>
+                <p class="t_desc">
+                    1. 10을 3으로 나눈 나머지가 1이고, 3보다 작은 자연수 중에서 문제의 조건을 만족하는 수가 없으므로, 3을 return 해야 합니다.
+                    <br />
+                    2. 12를 11로 나눈 나머지가 1이고, 11보다 작은 자연수 중에서 문제의 조건을 만족하는 수가 없으므로, 11을 return 해야 합니다.
+                </p> -->
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc">
+                    음...그냥 반복문쓰면 되지않을까요? 근데 a가 더 큰경우도 있으니 
+                    if문으로 서로 반대되는 케이스를 걸고 a와 b의 위치만 바꿨습니다.
+                    <br>내가 푸는것보다 고수들은 얼마나 더 쉽게 풀지가 더 궁금해지는데욥
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(a, b) {
+    var answer = 0;
+    if(a&lt;b){
+            for(i = a; i &lt;= b; i++){
+            answer += i;
+        }
+    }else{
+        for(i = b; i &lt;= a; i++){
+            answer += i;
+        }
+    }
+    
+        
+    return answer;
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc">
+                    문과라서 문송합니다. 수식은 이해해도 숫자를 왜저렇게
+                    쓰면 저렇게 되는건지 모르겠네요 ^^^^^^^
+                    math.abs가 절댓값 반환하는거를 누가 몰라서 못쓰냐고....이게 뭐야
+                    <br> (+ 댓글에 설명이 있느데 '양끝의합*양끝의합'이라네요)
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function adder(a, b){
+    var result = 0
+    //함수를 완성하세요
+
+
+    return (a+b)*(Math.abs(b-a)+1)/2;
+}
+</code></pre>
+                </div>
+                <br /><br />
+                <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">Math.abs()</h3>
+                <p class="t_desc">
+                    Math.abs()함수는 숫자의 절대값을 반환합니다 .
+                </p>
+                <!-- <p class="t_box">
+                    const array1 = [1, 2, 3, 4];
+                    <br />
+                    <br />// fill with 0 from position 2 until position 4 <br />console.log(array1.fill(0, 2, 4)); <br />// expected output: [1, 2, 0,
+                    0]
+                    <br />
+                    <br />// fill with 5 from position 1 <br />console.log(array1.fill(5, 1)); <br />// expected output: [1, 5, 5, 5]
+                    <br />
+                    <br />console.log(array1.fill(6)); <br />// expected output: [6, 6, 6, 6]
+                </p> -->
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

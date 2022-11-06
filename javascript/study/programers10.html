@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 제일 작은 수 제거하기</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    정수를 저장한 배열, arr 에서 가장 작은 수를 제거한 배열을 리턴하는 함수, solution을 완성해주세요. 단, 리턴하려는 배열이 빈 배열인 경우엔 배열에 -1을 채워 리턴하세요. 예를들어 arr이 [4,3,2,1]인 경우는 [4,3,2]를 리턴 하고, [10]면 [-1]을 리턴 합니다.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">
+                    ✔ arr은 길이 1 이상인 배열입니다.
+                    <br />✔ 인덱스 i, j에 대해 i ≠ j이면 arr[i] ≠ arr[j] 입니다.
+                </p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <!-- <th>x</th> -->
+                            <th>arr</th>
+                            <th>return</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <td>2</td> -->
+                            <td>[4,3,2,1]</td>
+                            <td>[4,3,2]</td>
+                        </tr>
+                        <tr>
+                            <!-- <td>4</td> -->
+                            <td>[10]</td>
+                            <td>[-1]</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <h3 class="t_tit2">■ 입출력 예</h3>
+                <p class="t_desc">
+                    1. 10을 3으로 나눈 나머지가 1이고, 3보다 작은 자연수 중에서 문제의 조건을 만족하는 수가 없으므로, 3을 return 해야 합니다.
+                    <br />
+                    2. 12를 11로 나눈 나머지가 1이고, 11보다 작은 자연수 중에서 문제의 조건을 만족하는 수가 없으므로, 11을 return 해야 합니다.
+                </p> -->
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc">
+                    filter를 통해서 배열내의 최소수를 제외한 값들을 x라는 변수에 다시 반환해줍니다. 
+                    <br>문제에 빈배열은 -1넣어서 반환하라했으니 그냥 강제로 지정해주면 되겠죠 뭐...
+                    <br>쉽쥬? 근데 나보다 더 쉽게하겠지 고수들은
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(arr) {
+    let x = arr.filter((element) => element !== Math.min.apply(null,arr));
+    
+    if(x.length == 0){
+        x = [-1]
+    }
+    
+    return x
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc">
+                    제 방식과 거의 유사한데 순서가 다를뿐인것같네요. 굳👍
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(arr) {
+    const min = Math.min(...arr);
+    return arr.length !== 1 ? arr.filter(i => i !== min) : [-1]
+}
+</code></pre>
+                </div>
+                <br /><br />
+                <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">filter()</h3>
+                <p class="t_desc">
+                    filter() 함수는 특정 조건에 부합하는 값만 모아서 새로운 배열을 만들어서 리턴합니다.
+                </p>
+                <!-- <p class="t_box">
+                    const array1 = [1, 2, 3, 4];
+                    <br />
+                    <br />// fill with 0 from position 2 until position 4 <br />console.log(array1.fill(0, 2, 4)); <br />// expected output: [1, 2, 0,
+                    0]
+                    <br />
+                    <br />// fill with 5 from position 1 <br />console.log(array1.fill(5, 1)); <br />// expected output: [1, 5, 5, 5]
+                    <br />
+                    <br />console.log(array1.fill(6)); <br />// expected output: [6, 6, 6, 6]
+                </p> -->
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
