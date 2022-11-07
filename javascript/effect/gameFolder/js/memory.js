@@ -217,17 +217,17 @@ function memoryDisplayTime() {
 
 // 스타트버튼클릭
 memoryBtn.addEventListener("click", (e) => {
-    memoryTimeReaming = 10;
+    memoryTimeReaming = 20;
     memoryCountNum = 16;
     cardOne = cardTwo = "";
     memoryCount.innerText = `x ${memoryCountNum}`;
     memoryTime.innerText = memoryDisplayTime();
     memoryBtn.style.pointerEvents = "none";
     memoryWindow.style.display = "none";
-    memoryCardWindow.style.display = "none";
-    // memoryScoreWindow.style.display = "none";
+    memoryCardWindow.style.display = "block";
+    memoryScoreWindow.style.display = "none";
     memoryRankingWrite.style.display = "none";
-    memoryRanking.style.display = "block";
+    memoryRanking.style.display = "none";
     memoryCard.forEach((e) => {
         e.removeEventListener("click", flipCard);
     });
@@ -248,7 +248,6 @@ function memoryEndQuiz() {
     matchedCard = 0;
     memoryScore = memoryScore + memoryTimeReaming * 10;
     cardOne = cardTwo = "";
-
     // clearTimeout(memoryTimer);
     // memoryTimeReaming = 120;
     memoryBtn.innerText = "RESTART";
@@ -256,39 +255,49 @@ function memoryEndQuiz() {
         e.style.pointerEvents = "none";
     });
     memoryBtn.style.pointerEvents = "auto";
+    memoryCardWindow.style.display = "none";
     memoryScoreWindow.style.display = "block";
     memoryRankingWrite.style.display = "flex";
-    memoryRankingWriteDesc.innerText = `당신의 점수는 ${memoryScore}점 입니다👀`;
-    memoryRankingWriteBtn.addEventListener("click", () => {
-        let memoryInput = memoryRankingWriteInput.value;
-        memoryArr.push(memoryScore);
-        memoryArr.sort(function (a, b) {
-            b - a;
-        });
-        if (memoryArr.length >= 6) {
-            memoryArr.pop();
-            for (i = 0; i < memoryArr.length; i++) {
-                let x = `<tr>
-                <td>${i + 1}</td>
-                <td>${memoryInput}</td>
-                <td>${memoryArr[i]}</td>
-                </tr>`;
-                document.getElementById("memory__table").appendChild(x);
-            }
-        } else {
-            for (i = 0; i < memoryArr.length; i++) {
-                let x = `<tr>
-                <td>${i + 1}</td>
-                <td>${memoryInput}</td>
-                <td>${memoryArr[i]}</td>
-                </tr>`;
-                document.getElementById("memory__table").appendChild(x);
-            }
-        }
-
-        memoryRanking.style.display = "block";
-    });
+    memoryRankingWriteDesc.innerText = `당신의 점수는 ${memoryScore}점 입니다👀. 랭킹등록 하지 않을 시 기록되지 않습니다.`;
+    memoryRankingWriteBtn.addEventListener("click", memoryRangKing);
 }
+
+function memoryRangKing(){
+    memoryRankingWrite.style.display = "none";
+    let memoryInput = `${memoryRankingWriteInput.value}`;
+    let memoryData = {
+        name: memoryInput,
+        score: memoryScore
+    };
+    memoryArr.push(memoryData);
+    memoryArr.sort(function(a, b) {
+        return b.score - a.score;
+    }); 
+    if (memoryArr.length >= 5) {
+        memoryArr.pop();
+        document.querySelector("#memory__table").innerHTML = '';
+        for (i = 0; i < memoryArr.length; i++) {
+            let x = `<tr>
+            <td>${i + 1}</td>
+            <td>${memoryArr[i].name}</td>
+            <td>${memoryArr[i].score}</td>
+            </tr>`;
+            document.querySelector("#memory__table").innerHTML += x;
+        }
+    } else {
+        document.querySelector("#memory__table").innerHTML = '';
+        for (i = 0; i < memoryArr.length; i++) {
+            let x = `<tr>
+            <td>${i + 1}</td>
+            <td>${memoryArr[i].name}</td>
+            <td>${memoryArr[i].score}</td>
+            </tr>`;
+            document.querySelector("#memory__table").innerHTML += x;
+        }
+    }
+
+    memoryRanking.style.display = "block";
+};
 
 memorymusicStop.addEventListener("click", () => {
     memoryAudio.pause();

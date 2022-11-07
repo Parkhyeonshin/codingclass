@@ -403,6 +403,8 @@ let timeReamining = 5,        // 남은 시간
     score = 0,                  // 점수
     answers = {};               // 새로운 정답
 
+let searchArr = [];
+
 let answerCount = 0;
 let Timer = 0;
 let allPropertyCount = cssProperty.length;

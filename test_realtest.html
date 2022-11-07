@@ -20,6 +20,22 @@
 
 console.log(q1(1996));
         
+
+    let arr = [];
+    let memoryData = {
+        name: 222,
+        score: 18
+    };
+    let memoryData2 = {
+        name: 222,
+        score: 12
+    };
+    arr.push(memoryData);
+    arr.push(memoryData2);
+    arr.sort(function(a, b) {
+        return b.score - a.score;
+    }); 
+    console.log(arr)
     </script>
 
 </body>
