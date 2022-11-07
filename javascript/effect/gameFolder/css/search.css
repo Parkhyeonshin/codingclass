@@ -96,13 +96,19 @@
     box-sizing: border-box;
     padding: 130px auto;
 } */
+.search__inner .search__game{
+    /* display: none; */
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 100px;
+}
 .search__inner h1 {
     margin: 0 auto;
     text-align: center;
     font-weight: bold;
     font-size: 80px;
     line-height: 1.2;
-    margin-top: 100px;
     margin-bottom: 20px;
     color: goldenrod;
     text-shadow: -5px 0 #020313, 0 5px #020313, 5px 0 #020313, 0 -5px #020313;
@@ -112,6 +118,7 @@
 .search__inner .search__start{
     display: block;
 }
+
 .search__inner .restart{
     display: none;
 }
@@ -151,6 +158,7 @@
     color: black;
     font-size: 60px;
 }
+
 .search__inputbox {
     width: 70%;
     margin: 0 auto;
@@ -161,12 +169,152 @@
 }
 .search__inputbox > input {
     width: 100%;
-    font-size: 20px;
+    font-size: 25px;
     line-height: 1;
     padding: 0 20px;
     border: 3px solid #000;
     box-sizing: border-box;
 }
+.search__inner .search__game > label{
+    display: inline-block;
+    margin-top: 80px;
+    margin-left: 40px;
+    color: snow;
+    font-size: 20px;
+}
+.search__inner .search__game > input{
+    height: 26px;
+    line-height: 1;
+    font-size: 20px;
+    padding: 2px 8px;
+    /* display: none; */
+}
+.search__inner .search__game > .search__IDdesc{
+    line-height: 1;
+    font-size: 20px;
+    padding: 2px 8px;
+    text-decoration: underline;
+    display: inline-block;
+    display: none;
+    font-weight: bold;
+}
+.search__inner .search__game > .search__IDbtn{
+    height: 35px;
+    line-height: 1;
+    font-size: 20px;
+    padding: 2px 8px;
+    /* display: none; */
+}
+.search__inner .search__game > .search__IDbtn2{
+    height: 35px;
+    line-height: 1;
+    font-size: 20px;
+    padding: 2px 8px;
+
+}
+
+
+.search__inner .result__wrap{
+    display: none;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.search__inner .result__wrap .search__backBtn{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(212, 212, 212);
+    position: relative;
+    line-height: 1;
+    margin-left: 25px;
+    width: fit-content;
+    position: relative;
+}
+.search__inner .result__wrap .search__backBtn:hover{
+    color: black;
+    text-shadow: -2px 0 #fff, 0 2px #fff, 2px 0 #fff, 0 -2px #fff;
+}
+.search__inner .result__wrap .search__backBtn:hover::before{
+    content: '▶';
+    position: absolute;
+    top: 0%;
+    left: -18px;
+    color: black;
+    font-size: 15px;
+    line-height: 1.4;
+}
+.search__inner .result__wrap .search__Rangking{
+    width: 95%;
+    height: 80%;
+    background: rgba(0,0,0,0.9);
+    border-radius: 20px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    box-sizing: border-box;
+    padding: 30px 10%;
+}
+.search__inner .result__wrap .search__Rangking > h2{
+    color: snow;
+    text-shadow: -5px 0 #8994cf, 0 5px #8994cf, 5px 0 #8994cf, 0 -5px #8994cf;
+    font-size: 50px;
+    border-bottom: 2px solid #a09dda;
+    text-align: center;
+    line-height: 1.6;
+    margin: 0 auto;
+}
+.search__inner .result__wrap .search__Rangking .search__table{
+    width: 100%;
+    color: snow;
+}
+.search__inner .result__wrap .search__Rangking .search__table th{
+    font-size: 18px;
+    padding-bottom: 15px;
+}
+.search__inner .result__wrap .search__Rangking .search__table td{
+    text-align: center;
+}
+.search__inner .result__wrap .search__Rangking .search__table tr.first td{
+    color: gold;
+    position: relative;
+}
+.search__inner .result__wrap .search__Rangking table tr.mine td{
+    color: gold;
+    position: relative;
+}
+.search__inner .result__wrap .search__Rangking table tr.first td:first-child:before{
+    content: '🎉';
+    position: absolute;
+    top: 0;
+    left: 10px;
+}
+.search__inner .result__wrap .result {
+    background: rgba(0,0,0,0.9);
+    border-radius: 20px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    width: 95%;
+    height: 13%;
+    margin: 0 auto;
+    color: snow;
+    box-sizing: border-box;
+    padding: 10px 100px;
+}
+.search__inner .result__wrap .result > table{
+    width: 100%;
+    border-top: 1px solid snow;
+}
+.search__inner .result__wrap .result > table th{
+    font-size: 25px ;
+    color: gold;
+    line-height: 2.4;
+    text-shadow: -2px 0 #414ca9, 0 2px #414ca9, 2px 0 #414ca9, 0 -2px #414ca9;
+}
+
+
 
 .search__desc {
     width: 35%;
