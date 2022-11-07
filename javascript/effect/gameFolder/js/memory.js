@@ -14,8 +14,6 @@ const memoryCount = memoryWrap.querySelector(".memory__count__num");
 const memoryAudio = memoryWrap.querySelector("#memoryaudio");
 const memorymusicStop = memoryWrap.querySelector(".memory__audio .stop");
 
-
-
 let memoryTimer = 0;
 let memoryTimeReaming = 00;
 let memoryCountNum = 16;
@@ -32,14 +30,14 @@ let soundSuccess = new Audio(sound[2]);
 // 카드 뒤집기
 function flipCard(e) {
     let clickedCard = e.target;
-    console.log(clickedCard)
-    console.log(cardOne)
+    console.log(clickedCard);
+    console.log(cardOne);
     if (clickedCard !== cardOne && !disableDeck) {
         clickedCard.classList.add("flip");
         if (!cardOne) {
             return (cardOne = clickedCard);
         }
-        console.log("뒤집기성공")
+        console.log("뒤집기성공");
         cardTwo = clickedCard;
         disableDeck = true;
 
@@ -47,8 +45,8 @@ function flipCard(e) {
         let cardTwoImg = cardTwo.querySelector(".back img").src;
 
         matchCards(cardOneImg, cardTwoImg);
-    }else{
-        console.log("뒤집기실행문오류")
+    } else {
+        console.log("뒤집기실행문오류");
     }
 }
 
@@ -73,14 +71,13 @@ function matchCards(img1, img2) {
         cardTwo.removeEventListener("click", flipCard);
         cardOne = cardTwo = "";
         soundMatch.play();
-        soundMatch.volume=1;
+        soundMatch.volume = 1;
         memoryCount.innerText = `x ${memoryCountNum}`;
         disableDeck = false;
     } else {
         // alert("이미지가 일치하지 않습니다.");
 
         setTimeout(() => {
-            
             cardOne.classList.add("shakeX");
             cardTwo.classList.add("shakeX");
         }, 500);
@@ -119,12 +116,12 @@ function shuffledCard() {
         let imgTag = card.querySelector(".back img");
         imgTag.src = `https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/img/memory0${arr[index]}.png`;
     });
-    console.log(cardOne)
+    console.log(cardOne);
 }
 // shuffledCard();
 
 // 카드 클릭
-function CardClick(){
+function CardClick() {
     memoryCard.forEach((card) => {
         card.addEventListener("click", flipCard);
     });
@@ -133,7 +130,6 @@ function CardClick(){
 // function clickCard(){
 //     flipCard();
 // }
-
 
 // 버튼 클릭
 const Btn = document.querySelector(".icon3");
@@ -161,9 +157,9 @@ document.querySelector(".memory__close").addEventListener("click", () => {
     memoryBtn.style.pointerEvents = "auto";
     memoryWindow.style.display = "block";
     memoryCardWindow.style.display = "none";
-    memoryCard.forEach(e=>{
-        e.removeEventListener("click", flipCard)
-    })
+    memoryCard.forEach((e) => {
+        e.removeEventListener("click", flipCard);
+    });
     shuffledCard();
     CardClick();
     memoryBtn.innerText = "START";
@@ -213,9 +209,9 @@ memoryBtn.addEventListener("click", (e) => {
     memoryBtn.style.pointerEvents = "none";
     memoryWindow.style.display = "none";
     memoryCardWindow.style.display = "block";
-    memoryCard.forEach(e=>{
-        e.removeEventListener("click", flipCard)
-    })
+    memoryCard.forEach((e) => {
+        e.removeEventListener("click", flipCard);
+    });
     CardClick();
     setTimeout(() => {
         memoryTimer = setInterval(memoryReduceTime, 1000);
@@ -247,11 +243,10 @@ memorymusicStop.addEventListener("click", () => {
     memorymusicStop.style.display = "none";
     document.querySelector(".memory__audio .play").classList.add("show");
     document.querySelector(".memory__audio .play").style.display = "block";
-})
+});
 const memorymusicPlay = document.querySelector(".memory__audio .play").addEventListener("click", () => {
     memoryAudio.play();
     memoryAudio.volume = 0.5;
     memorymusicStop.style.display = "block";
     document.querySelector(".memory__audio .play").style.display = "none";
-
-})
+});
