@@ -453,14 +453,41 @@
                 <div id="searchGame">
                     <div class="search__box">
                         <div class="search__inner">
-                            <h1>CSS 속성 검색하기</h1>
-                            <div class="search__inputbox">
-                                <label for="search">검색하기</label>
-                                <input type="text" id="search" placeholder="CSS 속성을 입력하세요" />
+                            <div class="search__game">
+                                <h1>CSS 속성 검색하기</h1>
+                                <div class="search__inputbox">
+                                    <label for="search">검색하기</label>
+                                    <input type="text" id="search" placeholder="CSS 속성을 입력하세요" />
+                                </div>
+                                <div class="search__start">게임 시작하기</div>
+                                <div class="restart">다시 도전하기</div>
+                                <div class="search__RangkingView">랭킹 보기</div>
                             </div>
-                            <div class="search__start">게임 시작하기</div>
-                            <div class="restart">다시 도전하기</div>
-                            <div class="result"></div>
+                            <div class="result__wrap">
+                                <div class="search__backBtn">Back</div>
+                                <div class="search__Rangking">
+                                    <h2>Rangking</h2>
+                                    <table class="search__table">
+                                        <colgroup>
+                                            <col style="width: 33.3%" />
+                                            <col style="width: 33.3%;"/>
+                                            <col style="width: 33.3%" />
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>Rank</th>
+                                                <th>Name</th>
+                                                <th>Score</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="search__table">
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="result">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="search__desc">

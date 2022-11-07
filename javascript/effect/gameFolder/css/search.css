@@ -96,7 +96,7 @@
     box-sizing: border-box;
     padding: 130px auto;
 } */
-.search__inner > h1 {
+.search__inner h1 {
     margin: 0 auto;
     text-align: center;
     font-weight: bold;
@@ -108,12 +108,14 @@
     text-shadow: -5px 0 #020313, 0 5px #020313, 5px 0 #020313, 0 -5px #020313;
 
 }
+
 .search__inner .search__start{
     display: block;
 }
 .search__inner .restart{
     display: none;
 }
+.search__inner .search__RangkingView,
 .search__inner .search__start,
 .search__inner .restart{
     font-size: 60px;
@@ -127,12 +129,19 @@
     position: relative;
     width: fit-content;
 }
+.search__inner .search__RangkingView{
+    display: block;
+    margin-top: 10px;
+    line-height: 1;
+}
+.search__inner .search__RangkingView:hover,
 .search__inner .search__start:hover,
 .search__inner .restart:hover{
     /* background: rgba(0,0,0,0.5); */
     color: black;
     text-shadow: -5px 0 #fff, 0 5px #fff, 5px 0 #fff, 0 -5px #fff;
 }
+.search__inner .search__RangkingView:hover::before,
 .search__inner .search__start:hover::before,
 .search__inner .restart:hover::before{
     content: '▶';

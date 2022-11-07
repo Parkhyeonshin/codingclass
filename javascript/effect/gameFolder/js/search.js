@@ -384,8 +384,9 @@ const cssProperty = [
 ];
 
 const searchWrap = document.querySelector("#searchGame");
-const serachTime = searchWrap.querySelector(".search__time span");
-const serachList = searchWrap.querySelector(".search__list");
+const searchTime = searchWrap.querySelector(".search__time span");
+const searchList = searchWrap.querySelector(".search__list");
+const searchRangking = searchWrap.querySelector(".result__wrap");
 const searchAnswers = searchWrap.querySelector(".search__answers");
 const searchMissAnswers = searchWrap.querySelector(".search__missAnswers");
 const searchStart = searchWrap.querySelector(".search__start");
@@ -411,7 +412,7 @@ let allPropertyCount = cssProperty.length;
 
 function updateList() {
     cssProperty.forEach(data => {
-        serachList.innerHTML += `<span>${data.name}</span>`;
+        searchList.innerHTML += `<span>${data.name}</span>`;
     });
     searchNum.innerHTML = cssProperty.length; // 프로퍼티 총 갯수 
 }
@@ -425,7 +426,7 @@ function startQuiz() {
     answerCount = 0;
     // 시작 버튼 없애기, 속성 리스트 없애기
     searchStart.style.display = "none";
-    serachList.style.display = "none";
+    searchList.style.display = "none";
 
     // 게임 시작되면? --> 시간 설정
 
@@ -504,7 +505,7 @@ function reduceTime() {
         endQuiz();
     }
 
-    serachTime.innerText = displayTime();
+    searchTime.innerText = displayTime();
 }
 
 // 시간 표시하기 (분, 초 변환)
@@ -551,7 +552,7 @@ function restart(){
     searchResultWrap.classList.remove("show");
     searchStart.style.display = "block";
     searchReStart.style.display ="none";
-    serachList.style.display = "none";
+    searchList.style.display = "none";
     searchAnswers.style.display = "none";
     searchAnswers.innerHTML = ``;
     searchMissAnswers.style.display = "none";
