@@ -8,8 +8,13 @@ const memoryCard = memoryWrap.querySelectorAll(".cards li");
 const memoryTime = memoryWrap.querySelector(".memory__timer");
 const memoryBtn = memoryWrap.querySelector(".memory__btn");
 const memoryWindow = memoryWrap.querySelector(".memory__window");
+const memoryScoreWindow = memoryWrap.querySelector(".memory__score");
+const memoryRankingWrite = memoryWrap.querySelector(".memory__score .rangkingWrite");
+const memoryRankingWriteInput = document.getElementById("memoryInput");
+const memoryRankingWriteBtn = memoryWrap.querySelector(".memory__score .rangkingWrite button");
+const memoryRankingWriteDesc = memoryWrap.querySelector(".memory__score .rangkingWrite p");
+const memoryRanking = memoryWrap.querySelector(".memory__score .rangkingBox");
 const memoryMain = memoryWrap.querySelector(".memory__windowMain");
-const memoryRanking = memoryWrap.querySelector(".memory__windowRanking");
 const memoryCount = memoryWrap.querySelector(".memory__count__num");
 const memoryAudio = memoryWrap.querySelector("#memoryaudio");
 const memorymusicStop = memoryWrap.querySelector(".memory__audio .stop");
@@ -17,6 +22,8 @@ const memorymusicStop = memoryWrap.querySelector(".memory__audio .stop");
 let memoryTimer = 0;
 let memoryTimeReaming = 00;
 let memoryCountNum = 16;
+let memoryScore = 15;
+let memoryArr = [];
 
 let cardOne, cardTwo;
 let disableDeck = false;
@@ -54,6 +61,7 @@ function flipCard(e) {
 function matchCards(img1, img2) {
     if (img1 == img2) {
         // 같을 경우
+        memoryScore += 5;
         matchedCard++;
         // alert("이미지가 일치합니다.⎛⎝.⎛° ͜ʖ°⎞.⎠⎞");
         memoryCountNum--;
@@ -76,6 +84,11 @@ function matchCards(img1, img2) {
         disableDeck = false;
     } else {
         // alert("이미지가 일치하지 않습니다.");
+        if (memoryScore <= 5) {
+            memoryScore = 0;
+        } else {
+            memoryScore += -5;
+        }
 
         setTimeout(() => {
             cardOne.classList.add("shakeX");
@@ -156,6 +169,9 @@ document.querySelector(".memory__close").addEventListener("click", () => {
     memoryTime.innerText = memoryDisplayTime();
     memoryBtn.style.pointerEvents = "auto";
     memoryWindow.style.display = "block";
+    memoryScoreWindow.style.display = "none";
+    memoryRankingWrite.style.display = "none";
+    memoryRanking.style.display = "none";
     memoryCardWindow.style.display = "none";
     memoryCard.forEach((e) => {
         e.removeEventListener("click", flipCard);
@@ -201,14 +217,17 @@ function memoryDisplayTime() {
 
 // 스타트버튼클릭
 memoryBtn.addEventListener("click", (e) => {
-    memoryTimeReaming = 90;
+    memoryTimeReaming = 10;
     memoryCountNum = 16;
     cardOne = cardTwo = "";
     memoryCount.innerText = `x ${memoryCountNum}`;
     memoryTime.innerText = memoryDisplayTime();
     memoryBtn.style.pointerEvents = "none";
     memoryWindow.style.display = "none";
-    memoryCardWindow.style.display = "block";
+    memoryCardWindow.style.display = "none";
+    // memoryScoreWindow.style.display = "none";
+    memoryRankingWrite.style.display = "none";
+    memoryRanking.style.display = "block";
     memoryCard.forEach((e) => {
         e.removeEventListener("click", flipCard);
     });
@@ -220,12 +239,14 @@ memoryBtn.addEventListener("click", (e) => {
     memorymusicStop.style.display = "block";
     memoryAudio.play();
     memoryAudio.volume = 0.5;
+    memoryScore = 15;
 });
 
 // 게임끝나면
 function memoryEndQuiz() {
     clearInterval(memoryTimer);
     matchedCard = 0;
+    memoryScore = memoryScore + memoryTimeReaming * 10;
     cardOne = cardTwo = "";
 
     // clearTimeout(memoryTimer);
@@ -235,6 +256,38 @@ function memoryEndQuiz() {
         e.style.pointerEvents = "none";
     });
     memoryBtn.style.pointerEvents = "auto";
+    memoryScoreWindow.style.display = "block";
+    memoryRankingWrite.style.display = "flex";
+    memoryRankingWriteDesc.innerText = `당신의 점수는 ${memoryScore}점 입니다👀`;
+    memoryRankingWriteBtn.addEventListener("click", () => {
+        let memoryInput = memoryRankingWriteInput.value;
+        memoryArr.push(memoryScore);
+        memoryArr.sort(function (a, b) {
+            b - a;
+        });
+        if (memoryArr.length >= 6) {
+            memoryArr.pop();
+            for (i = 0; i < memoryArr.length; i++) {
+                let x = `<tr>
+                <td>${i + 1}</td>
+                <td>${memoryInput}</td>
+                <td>${memoryArr[i]}</td>
+                </tr>`;
+                document.getElementById("memory__table").appendChild(x);
+            }
+        } else {
+            for (i = 0; i < memoryArr.length; i++) {
+                let x = `<tr>
+                <td>${i + 1}</td>
+                <td>${memoryInput}</td>
+                <td>${memoryArr[i]}</td>
+                </tr>`;
+                document.getElementById("memory__table").appendChild(x);
+            }
+        }
+
+        memoryRanking.style.display = "block";
+    });
 }
 
 memorymusicStop.addEventListener("click", () => {

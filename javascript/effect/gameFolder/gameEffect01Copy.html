@@ -112,7 +112,6 @@
                                 <div class="memory__windowMain">
                                     <div class="memory__windowImg"></div>
                                 </div>
-                                <div class="memory__windowRanking"></div>
                             </div>
                             <div class="memory__card">
                                 <ul class="cards">
@@ -342,6 +341,53 @@
                                     </li>
                                 </ul>
                             </div>
+                            <div class="memory__scroe">
+                                <div class="rangkingWrite">
+                                    <p>당신의 점수는 2000점 입니다👀</p>
+                                    <input id="memoryInput" type="text" required />
+                                    <button>버튼</button>
+                                </div>
+
+                                <div class="rangkingBox">
+                                    <h2>Rangking</h2>
+                                    <table class="memory__table">
+                                        <colgroup>
+                                            <col style="width: 15%" />
+                                            <col style="width: 45%" />
+                                            <col style="width: 40%" />
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>Rank</th>
+                                                <th>Name</th>
+                                                <th>Score</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="memory__table">
+                                            <tr>
+                                                <td>1st</td>
+                                                <td>이름1</td>
+                                                <td>1222</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2nd</td>
+                                                <td>이름2</td>
+                                                <td>2222</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3rd</td>
+                                                <td>이름3</td>
+                                                <td>3333</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4th</td>
+                                                <td>이름4</td>
+                                                <td>4444</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="memory__desc">
@@ -504,9 +550,7 @@
                             </p>
                         </div>
                         <div class="search__result">
-                            <div class="search__answers">
-
-                            </div>
+                            <div class="search__answers"></div>
                             <div class="search__Listbox">
                                 <div class="search__missAnswers"></div>
                                 <div class="search__list"></div>
@@ -520,7 +564,6 @@
                             <div class="search__time">
                                 <span>2:00</span>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
@@ -533,7 +576,7 @@
                     <div class="source__warning">
                         <a href="https://github.com/Parkhyeonshin/codingclass/tree/main/javascript/effect/gameFolder" target="_blank">
                             👉창이 뜨지 않는다면 여기를 클릭해주세요👈
-                            <br>깃허브를 새 창으로 열어드릴게요
+                            <br />깃허브를 새 창으로 열어드릴게요
                         </a>
                         <div class="source__close2">X</div>
                     </div>
@@ -790,13 +833,13 @@
             const SourceBtn = document.querySelector("#source");
             document.querySelector(".icon1").addEventListener("click", () => {
                 document.querySelector("#source").style.display = "block";
-                document.querySelector(".source__warning").style.display="block "
+                document.querySelector(".source__warning").style.display = "block ";
             });
             document.querySelector(".source__close").addEventListener("click", () => {
                 document.querySelector("#source").style.display = "none";
             });
             document.querySelector(".source__close2").addEventListener("click", () => {
-                document.querySelector(".source__warning").style.display="none"
+                document.querySelector(".source__warning").style.display = "none";
             });
         </script>
     </body>

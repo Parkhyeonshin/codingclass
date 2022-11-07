@@ -67,6 +67,7 @@
     width: 100%;
     height: 100%;
     /* background: #000; */
+    /* display: none; */
 }
 .memory__windowMain {
     box-sizing: border-box;
@@ -217,6 +218,102 @@
     75% {
         opacity: 0;
     }
+}
+.memory__scroe {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 60px;
+    margin: 0 auto;
+    /* display: block; */
+    display: none;
+}
+.memory__scroe .rangkingWrite {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 60px;
+    /* display: flex; */
+    display: none;
+    flex-wrap: wrap;
+}
+.memory__scroe .rangkingWrite > p {
+    color: white;
+}
+
+.memory__scroe .rangkingWrite > input {
+    width: 100%;
+    height: 60px;
+    font-family: "Creepster", cursive !important;
+    text-shadow: 0px 0px 15px rgb(235, 148, 49);
+    font-size: 2vw;
+    color: rgba(124, 77, 23, 0.3);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    box-shadow: inset 0px 0px 5px rgb(235, 148, 49);
+    border: none;
+}
+.memory__scroe .rangkingWrite > button {
+    width: 40%;
+    height: fit-content;
+    padding: 15px;
+    text-shadow: 0px 0px 15px rgb(235, 148, 49);
+    font-size: 2vw;
+    font-family: "Creepster", cursive !important;
+    background: none;
+    border-radius: 30px;
+    box-shadow: inset 0px 0px 5px rgb(235, 148, 49);
+}
+
+.memory__scroe .rangkingBox {
+    display: none;
+}
+.memory__scroe .rangkingBox h2 {
+    font-family: "Creepster", cursive !important;
+    color: #000;
+    text-shadow: 0px 0px 15px rgb(235, 148, 49);
+    font-size: 5vw;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+.memory__scroe .rangkingBox .memory__table {
+    width: 100%;
+    color: #111;
+    text-shadow: 0px 0px 4px rgb(235, 148, 49);
+    font-size: 3vw;
+    margin-top: 20px;
+}
+.memory__scroe .rangkingBox .memory__table > thead th {
+    font-family: "Creepster", cursive !important;
+    text-shadow: 0px 0px 8px rgb(235, 148, 49);
+    font-size: 4vw;
+    padding-bottom: 20px;
+}
+.memory__scroe .rangkingBox .memory__table tbody {
+    text-align: center;
+}
+.memory__scroe .rangkingBox .memory__table tbody td {
+    padding: 30px;
+    font-family: "Creepster", cursive !important;
+    text-shadow: 0px 0px 8px rgb(235, 148, 49);
+    font-size: 2.6vw;
+}
+.memory__scroe .rangkingBox .memory__table tbody tr:first-child td {
+    font-family: "Creepster", cursive !important;
+    text-shadow: 0px 0px 8px orangered;
+    font-size: 3.5vw;
+}
+.memory__scroe .rangkingBox .memory__table tbody tr:nth-child(2) td {
+    font-family: "Creepster", cursive !important;
+    text-shadow: 0px 0px 8px rgb(235, 125, 36);
+    font-size: 3vw;
+}
+.memory__scroe .rangkingBox .memory__table tbody tr:nth-child(3) td {
+    font-family: "Creepster", cursive !important;
+    text-shadow: 0px 0px 8px rgb(235, 134, 52);
+    font-size: 3vw;
 }
 
 .memory__desc {
