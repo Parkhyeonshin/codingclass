@@ -8,9 +8,12 @@
 }
 
 .tetris__box {
-    width: 63%;
+    width: 35%;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0);
+    /* background: url(https://i.pinimg.com/originals/4f/a5/87/4fa587d0e673c3d237ee7821bf3056fb.gif); */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     border-radius: 20px;
     border: 2px solid rgba(208, 233, 252, 0.9);
     margin: 0 auto;
@@ -24,8 +27,23 @@
     overflow: hidden;
     overflow-y: auto;
     animation: flicker 3.5s infinite alternate;
+    /* background: url(https://i.pinimg.com/originals/4f/a5/87/4fa587d0e673c3d237ee7821bf3056fb.gif); */
     /* background: url(https://img.freepik.com/free-vector/arcade-game-world-and-pixel-scene_24640-45884.jpg?w=996&t=st=1667497458~exp=1667498058~hmac=d9146b3ed747f42b7b6bcf2820e0756aeef31b8b64ff08f67483b7a516f1ba14); */
     background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.tetris__inner::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background: url(https://mblogthumb-phinf.pstatic.net/MjAxOTA4MDdfMTEw/MDAxNTY1MTg1MDk1OTUz.3fjmL-ODlTYUGNz88uVmGvwLT7JXWB4ZJtweP7L8gdcg.R4z5A8mfmCfsqGKS9pwYFjp-MB_llcSNzZdRLnlG48Mg.GIF.studygir/aqqius_%283%29.gif?type=w2); */
+    opacity: 0.2;
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
 }
 @keyframes flicker {
@@ -52,9 +70,10 @@
 }
 .playground {
     /* border: 2px solid #fff; */
-    width: 50%;
+    width: fit-content;
     margin: 0 auto;
     box-sizing: border-box;
+    display: block;
 }
 .playground li {
     list-style: none;
