@@ -2,13 +2,15 @@
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
-    /* opacity: 0; */
+    opacity: 0;
     transition: opacity 1s ease-in;
-    display: flex;
+    /* display: flex; */
+    display: none;
 }
 
 .tetris__box {
-    width: 37%;
+    /* width: 37%; */
+    min-width: 460px;
     overflow: hidden;
     /* background: url(https://i.pinimg.com/originals/85/be/94/85be94350b6cefd78140c8c8232c75e5.gif); */
     background: url(https://i.pinimg.com/originals/3f/9f/4c/3f9f4c9276f7a75e33c67001d7c997d2.gif);
@@ -103,7 +105,7 @@
 .playground > ul > li > ul > li {
     width: 40px;
     height: 40px;
-    border: 1px solid snow;
+    border: 1px solid #455468;
 }
 
 .Tmino {

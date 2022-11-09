@@ -17,7 +17,9 @@ let tetrisTempMovingItem;
 let tetrisSettimeout;
 let tetrisEnd = false;
 let tetrisDurationTimeout;
-
+let tetrisHi = new Audio ("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/hi.mp3")
+console.log(tetrisHi)
+console.log(tetrisAudio)
 // 블록 정보
 const tetrisMovingItem = {
     type: "Tmino",
@@ -473,4 +475,30 @@ const tetrismusicPlay = document.querySelector(".tetris__audio .play").addEventL
     tetrisAudioStop.style.display = "block";
     document.querySelector(".tetris__audio .play").style.display = "none";
 
+})
+
+document.querySelector(".icon5").addEventListener("click",()=>{
+    document.querySelector("#game__box").style.display = "block";
+    tetrisWrap.style.display = "flex";
+    setTimeout(()=>{
+        tetrisWrap.style.opacity = "1";
+        tetrisHi.play();
+    }, 500)
+})
+
+
+document.querySelector(".tetris__close").addEventListener("click",()=>{
+    document.querySelector("#game__box").style.display = "none";
+    tetrisWrap.style.display ="none";
+    tetrisWrap.style.opacity ="0";
+    tetrisAudio.pause();
+    tetrisAudio.currentTime = 0;
+    tetrisAudioStop.style.display = "none";
+    tetrisEnd = true;
+    clearInterval(tetrisDownInterval);
+    clearInterval(tetrisDurationTimeout);
+    playground.innerHTML = '';
+    tetrisDuration = 1600;
+    tetrisScore = 0;
+    tetrisCombo=0;
 })
