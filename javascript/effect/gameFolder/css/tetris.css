@@ -8,19 +8,40 @@
 }
 
 .tetris__box {
-    width: 35%;
+    width: 37%;
     overflow: hidden;
-    /* background: url(https://i.pinimg.com/originals/4f/a5/87/4fa587d0e673c3d237ee7821bf3056fb.gif); */
+    /* background: url(https://i.pinimg.com/originals/85/be/94/85be94350b6cefd78140c8c8232c75e5.gif); */
+    background: url(https://i.pinimg.com/originals/3f/9f/4c/3f9f4c9276f7a75e33c67001d7c997d2.gif);
+    /* background: url(https://i.pinimg.com/originals/e0/75/fc/e075fc6aa746106efcdf892a6cc15ea3.gif); */
     background-size: cover;
-    background-position: center center;
+    background-position: top center;
     background-repeat: no-repeat;
     border-radius: 20px;
     border: 2px solid rgba(208, 233, 252, 0.9);
     margin: 0 auto;
+    position: relative;
+}
+.tetris__box::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background: url(https://mblogthumb-phinf.pstatic.net/MjAxOTA4MDdfMTEw/MDAxNTY1MTg1MDk1OTUz.3fjmL-ODlTYUGNz88uVmGvwLT7JXWB4ZJtweP7L8gdcg.R4z5A8mfmCfsqGKS9pwYFjp-MB_llcSNzZdRLnlG48Mg.GIF.studygir/aqqius_%283%29.gif?type=w2); */
+    background: url(https://i.pinimg.com/originals/4d/a4/86/4da486537d1bf2734f755fcd1d8ff2e3.gif);
+    /* background: url(https://i.pinimg.com/originals/6e/f1/1b/6ef11bc494a9d828544432414a305409.gif); */
+    /* background: url(https://i.pinimg.com/originals/ca/2c/b6/ca2cb65c5e194793ea50ee3fc21328ed.gif); */
+    /* background: url(https://i.pinimg.com/originals/85/be/94/85be94350b6cefd78140c8c8232c75e5.gif); */
+    opacity: 0.7;
+    background-size: contain;
+    background-position:bottom center;
+    background-repeat: no-repeat;
 }
 .tetris__inner {
     width: 100%;
-    height: calc(100vh - 120px);
+    /* height: calc(100vh - 120px); */
+    height: 740px;
     /* border: 2px solid #e27e40cc; */
     border-radius: 20px;
     position: relative;
@@ -33,19 +54,7 @@
     background-position: center center;
     background-repeat: no-repeat;
 }
-.tetris__inner::before{
-    content: '';
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* background: url(https://mblogthumb-phinf.pstatic.net/MjAxOTA4MDdfMTEw/MDAxNTY1MTg1MDk1OTUz.3fjmL-ODlTYUGNz88uVmGvwLT7JXWB4ZJtweP7L8gdcg.R4z5A8mfmCfsqGKS9pwYFjp-MB_llcSNzZdRLnlG48Mg.GIF.studygir/aqqius_%283%29.gif?type=w2); */
-    opacity: 0.2;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
+
 @keyframes flicker {
     0%,
     19%,
@@ -66,10 +75,12 @@
     height: 100%;
     width: 100%;
     box-sizing: border-box;
-    padding-top: 100px;
+    /* padding-top: 100px; */
 }
 .playground {
-    /* border: 2px solid #fff; */
+    border: 30px solid #011937;
+    border-top: 70px solid #011937;
+    border-radius: 20px;
     width: fit-content;
     margin: 0 auto;
     box-sizing: border-box;
@@ -79,6 +90,7 @@
     list-style: none;
 }
 .playground > ul {
+    background: rgba(0,0,0,0.4);
 }
 
 .playground > ul > li {

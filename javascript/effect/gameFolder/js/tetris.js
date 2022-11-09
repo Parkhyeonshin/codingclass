@@ -3,6 +3,8 @@ const playground = tetrisWrap.querySelector(".playground > ul");
 const tetrisNumText = tetrisWrap.querySelector(".tetris__count__num");
 const tetrisComboText = tetrisWrap.querySelector(".tetris__count__combo");
 const tetrisStartBtn = tetrisWrap.querySelector(".tetris__start");
+const tetrisAudio = tetrisWrap.querySelector("#tetrisaudio");
+const tetrisAudioStop = tetrisWrap.querySelector(".tetris__audio .stop");
 
 // 변수설정
 let tetrisrouws = 15,
@@ -213,7 +215,9 @@ const blocks = {
 // 시작하기
 function init() {
     tetrisTempMovingItem = { ...tetrisMovingItem }; // 객체 안의 데이터만 가져올 수 있음
-
+    tetrisAudioStop.style.display = "block";
+    tetrisAudio.currentTime =0;
+    tetrisAudio.play();
     playground.innerHTML = '';
     for (i = 0; i < tetrisrouws; i++) {
         prependNewLine();
@@ -450,5 +454,23 @@ function tetrisEndfunc(){
     tetrisEnd = true;
     clearInterval(tetrisDownInterval);
     clearInterval(tetrisDurationTimeout);
+    tetrisAudio.pause();
+    tetrisAudio.currentTime = 0;
+    tetrisAudioStop.style.display = "none";
+    document.querySelector(".tetris__audio .play").style.display = "none";
 
 }
+
+tetrisAudioStop.addEventListener("click", () => {
+    tetrisAudio.pause();
+    tetrisAudio.currentTime = 0;
+    tetrisAudioStop.style.display = "none";
+    document.querySelector(".tetris__audio .play").classList.add("show");
+    document.querySelector(".tetris__audio .play").style.display = "block";
+})
+const tetrismusicPlay = document.querySelector(".tetris__audio .play").addEventListener("click", () => {
+    tetrisAudio.play();
+    tetrisAudioStop.style.display = "block";
+    document.querySelector(".tetris__audio .play").style.display = "none";
+
+})
