@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="./css/memory.css" />
         <link rel="stylesheet" href="./css/source.css" />
         <link rel="stylesheet" href="./css/search.css" />
+        <link rel="stylesheet" href="./css/tetris.css" />
 
         <style>
             @import url("https://fonts.googleapis.com/css2?family=Russo+One&family=Yellowtail&display=swap");
@@ -45,7 +46,7 @@
                 padding: 20px;
                 width: 100%;
                 height: calc(100vh - 85px);
-                /* display: flex; */
+                display: flex;
             }
         </style>
     </head>
@@ -607,119 +608,94 @@
                     </div>
                 </div>
                 <div id="tetrisGame">
-                    <div class="tetris__wrap">
-                        <div class="tetris__box">
-                            <div class="tetris__inner">
-                                <div class="tetris__wrap">
-                                    <div class="tetris__inner">
-                                        <div class="tetris__start"></div>
-                                        <div class="tetris__restart"></div>
-                                        <div class="tetris__play">
-                                            <div class="playground">
-                                                <ul>
-                                                    <li></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="playground"></div>
+                    <div class="tetris__box">
+                        <div class="tetris__inner">
+                            <!-- <div class="tetris__start"></div> -->
+                            <!-- <div class="tetris__restart"></div> -->
+                            <div class="tetris__play">
+                                <div class="playground">
+                                    <ul></ul>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="tetris__desc">
-                            <div class="tetris__header">
-                                <div class="tetris__audio">
-                                    <span>○</span>
-                                    <span class="play">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M15 6.3706C15 4.65827 12.9884 3.73774 11.6926 4.85712L8.36317 7.73321C7.99989 8.04704 7.53583 8.21972 7.05576 8.21973L5.49998 8.21974C4.11928 8.21975 3 9.33903 3 10.7197V14.0127C3 15.3934 4.11929 16.5127 5.5 16.5127H7.0558C7.53587 16.5127 7.99993 16.6854 8.36322 16.9992L11.6926 19.8753C12.9884 20.9947 15 20.0741 15 18.3618V12.3662V6.3706Z"
-                                                fill="#223547"
-                                                stroke="#223547"
-                                                stroke-width="1.5"
-                                            />
-                                            <path
-                                                d="M18 15.3667C18.6279 14.531 19 13.4923 19 12.3667C19 11.2411 18.6279 10.2024 18 9.3667"
-                                                stroke="#223547"
-                                                stroke-width="1.5"
-                                                stroke-linecap="round"
-                                            />
-                                            <path
-                                                d="M20 18.3667C21.2558 16.6954 22 14.6179 22 12.3667C22 10.1155 21.2558 8.03802 20 6.3667"
-                                                stroke="#223547"
-                                                stroke-width="1.5"
-                                                stroke-linecap="round"
-                                            />
-                                        </svg>
-                                    </span>
-                                    <span class="stop">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M14 6.3706C14 4.65827 11.9884 3.73774 10.6926 4.85712L7.36317 7.73321C6.99989 8.04704 6.53583 8.21972 6.05576 8.21973L4.49998 8.21974C3.11928 8.21975 2 9.33903 2 10.7197V14.0127C2 15.3934 3.11929 16.5127 4.5 16.5127H6.0558C6.53587 16.5127 6.99993 16.6854 7.36322 16.9992L10.6926 19.8753C11.9884 20.9947 14 20.0741 14 18.3618V12.3662V6.3706Z"
-                                                fill="#223547"
-                                                stroke="#223547"
-                                                stroke-width="1.5"
-                                            />
-                                            <path
-                                                d="M18 14.1215L22.2427 9.87891"
-                                                stroke="#223547"
-                                                stroke-width="1.5"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                            />
-                                            <path
-                                                d="M18 9.87894L22.2427 14.1216"
-                                                stroke="#223547"
-                                                stroke-width="1.5"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                            />
-                                        </svg>
-                                    </span>
-                                    <audio
-                                        id="tetrisaudio"
-                                        src="https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/tetris_audio.mp3"
-                                        loop="loop"
-                                    ></audio>
-                                </div>
-                                <h3>Tetris Game</h3>
-                                <div class="tetris__close">X</div>
-                            </div>
-                            <div class="tetris__info">
-                                <p>
-                                    기억력 테스트 게임입니다.
-                                    <br />
-                                    특별히 할로윈 에디션으로 준비했습니다. <br />
-                                    <em>TRICK OR TREAT !!🍭</em>
-                                </p>
-                            </div>
-                            <div class="tetris__result">
-                                <div class="tetris__timer">00:00</div>
-                                <div class="tetris__count">
-                                    <img src="./img/tetris__count.png" alt="카드갯수" />
-                                    <p class="tetris__count__num">x 16</p>
-                                </div>
-                            </div>
-                            <div class="tetris__btn__box">
-                                <div class="tetris__btn tetris__start">START</div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- //샘거 -->
-                    <div class="tetris__wrap">
-                        <div class="tetris__inner">
-                            <div class="tetris__start"></div>
-                            <div class="tetris__restart"></div>
-                            <div class="tetris__play">
-                                <div class="playground">
-                                    <ul>
-                                        <li></li>
-                                    </ul>
-                                </div>
+                    <div class="tetris__desc">
+                        <div class="tetris__header">
+                            <div class="tetris__audio">
+                                <span>○</span>
+                                <span class="play">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M15 6.3706C15 4.65827 12.9884 3.73774 11.6926 4.85712L8.36317 7.73321C7.99989 8.04704 7.53583 8.21972 7.05576 8.21973L5.49998 8.21974C4.11928 8.21975 3 9.33903 3 10.7197V14.0127C3 15.3934 4.11929 16.5127 5.5 16.5127H7.0558C7.53587 16.5127 7.99993 16.6854 8.36322 16.9992L11.6926 19.8753C12.9884 20.9947 15 20.0741 15 18.3618V12.3662V6.3706Z"
+                                            fill="#223547"
+                                            stroke="#223547"
+                                            stroke-width="1.5"
+                                        />
+                                        <path
+                                            d="M18 15.3667C18.6279 14.531 19 13.4923 19 12.3667C19 11.2411 18.6279 10.2024 18 9.3667"
+                                            stroke="#223547"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                        />
+                                        <path
+                                            d="M20 18.3667C21.2558 16.6954 22 14.6179 22 12.3667C22 10.1155 21.2558 8.03802 20 6.3667"
+                                            stroke="#223547"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                        />
+                                    </svg>
+                                </span>
+                                <span class="stop">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14 6.3706C14 4.65827 11.9884 3.73774 10.6926 4.85712L7.36317 7.73321C6.99989 8.04704 6.53583 8.21972 6.05576 8.21973L4.49998 8.21974C3.11928 8.21975 2 9.33903 2 10.7197V14.0127C2 15.3934 3.11929 16.5127 4.5 16.5127H6.0558C6.53587 16.5127 6.99993 16.6854 7.36322 16.9992L10.6926 19.8753C11.9884 20.9947 14 20.0741 14 18.3618V12.3662V6.3706Z"
+                                            fill="#223547"
+                                            stroke="#223547"
+                                            stroke-width="1.5"
+                                        />
+                                        <path
+                                            d="M18 14.1215L22.2427 9.87891"
+                                            stroke="#223547"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                        <path
+                                            d="M18 9.87894L22.2427 14.1216"
+                                            stroke="#223547"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                </span>
+                                <audio
+                                    id="tetrisaudio"
+                                    src="https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/tetris_audio.mp3"
+                                    loop="loop"
+                                ></audio>
+                            </div>
+                            <h3>Tetris Game</h3>
+                            <div class="tetris__close">X</div>
+                        </div>
+                        <div class="tetris__info">
+                            <p>
+                                테트리스입니다
+                                <br />
+                                잔버그가 많겠지만 적당히 즐겨주세요 <br />
+                                <em>🍭</em>
+                            </p>
+                        </div>
+                        <div class="tetris__result">
+                            <div class="tetris__count">
+                                <img src="./img/tetris__count.png" alt="카드갯수" />
+                                <p class="tetris__count__num">x 16</p>
                             </div>
                         </div>
-                        <div class="playground"></div>
+                        <div class="tetris__btn__box">
+                            <div class="tetris__btn tetris__start">START</div>
+                            <div class="tetris__timer">00:00</div>
+                        </div>
                     </div>
                 </div>
             </div>
