@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 자릿수 더하기</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    자연수 N이 주어지면, N의 각 자릿수의 합을 구해서 return 하는 solution 함수를 만들어 주세요. 예를들어 N = 123이면 1 + 2 + 3 = 6을
+                    return 하면 됩니다.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">
+                    ✔ N의 범위 : 100,000,000 이하의 자연수
+                    <!-- <br />✔ n은 1000 이하인 자연수입니다. -->
+                </p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <!-- <th>x</th> -->
+                            <th>N</th>
+                            <th>answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <td>2</td> -->
+                            <td>123</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <!-- <td>4</td> -->
+                            <td>987</td>
+                            <td>24</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <p class="t_desc">
+                    1. 문제의 예시와 같습니다.
+                    <br />
+                    2. 9 + 8 + 7 = 24이므로 24를 return 하면 됩니다.
+                </p>
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc">
+                    123 = > 백의자리 :1, 십의자리 :2, 일의자리: 3
+                    <br />백의자리는 1 / 100 => 1 , 그리고 123 % 100은 23; 이걸 n에 덮어씌우니깐 <br />십의자리 23/10 => 2, 23%10 =>3;
+                    <br />이런식으로 합니다. <br />말로풀어서 못하겠습니다 죄송
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(n) {
+    var answer = 0;
+
+    for (i = 100000000; i >= 1; i=i/10) {
+        if ((n / i) > 0) {
+            answer += Math.floor(n / i);
+            n = n % i;
+        }
+    }
+    return answer;
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc"></p>
+                <div class="t_code">
+                    <pre><code class="language-js">unction solution(n){
+    // 쉬운방법
+    return (n+"").split("").reduce((acc, curr) => acc + parseInt(curr), 0)
+}
+</code></pre>
+                </div>
+                <br /><br />
+                <!-- <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">Math.floor()</h3>
+                <p class="t_desc">소숫점 버리기입니당</p> -->
+                <!-- <p class="t_box">
+                    const array1 = [1, 2, 3, 4];
+                    <br />
+                    <br />// fill with 0 from position 2 until position 4 <br />console.log(array1.fill(0, 2, 4)); <br />// expected output: [1, 2, 0,
+                    0]
+                    <br />
+                    <br />// fill with 5 from position 1 <br />console.log(array1.fill(5, 1)); <br />// expected output: [1, 5, 5, 5]
+                    <br />
+                    <br />console.log(array1.fill(6)); <br />// expected output: [6, 6, 6, 6]
+                </p> -->
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

@@ -9,12 +9,13 @@
         <link rel="icon" href="data:," />
         <link href="https://webfontworld.github.io/tmon/Tmon.css" rel="stylesheet" />
         <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet" />
-        <link rel="stylesheet" href="../assets/css/bg.css" />
+        <!-- <link rel="stylesheet" href="../assets/css/bg.css" /> -->
         <link rel="stylesheet" href="../assets/css/game.css" />
         <link rel="stylesheet" href="../assets/css/music.css" />
         <link rel="stylesheet" href="../assets/css/game__search.css" />
         <link rel="stylesheet" href="../assets/css/search__ani.css" />
         <link rel="stylesheet" href="../assets/css/memory.css" />
+        <link rel="stylesheet" href="../assets/css/tetris.css" />
 
         <style>
             @font-face {
@@ -83,7 +84,7 @@
         </style>
     </head>
 
-    <body>
+    <body style="background-color: #acacac">
         <header id="header">
             <h1>BangBang In To The Room</h1>
             <div class="time"></div>
@@ -1097,12 +1098,26 @@
             </div>
         </div>
 
+        <div class="tetris__wrap">
+            <div class="tetris__inner">
+                <div class="tetris__start"></div>
+                <div class="tetris__restart"></div>
+                <div class="tetris__play">
+                    <div class="playground">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="playground"></div>
+        </div>
+
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
         <!-- <script src="../assets/js/gsap.js"></script> -->
         <script src="../assets/js/music.js"></script>
         <script src="../assets/js/searchgame.js"></script>
         <script src="../assets/js/memory.js"></script>
+        <script src="../assets/js/tetris.js"></script>
         <script>
             const cursor = document.querySelector(".mouse__cursor img");
 

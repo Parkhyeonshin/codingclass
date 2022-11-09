@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit" data-ke-size="size26">프로그래머스Lv.1 : 부족한 금액 계산하기</h2>
+                <hr data-ke-style="style1" />
+                <h3 class="t_tit2" data-ke-size="size23">■ 문제 설명</h3>
+                <p class="t_desc" data-ke-size="size16">
+                    새로 생긴 놀이기구는 인기가 매우 많아 줄이 끊이질 않습니다. 이 놀이기구의 원래 이용료는 price원 인데, 놀이기구를 N 번 째
+                    이용한다면 원래 이용료의 N배를 받기로 하였습니다. 즉, 처음 이용료가 100이었다면 2번째에는 200, 3번째에는 300으로 요금이
+                    인상됩니다. 놀이기구를 count번 타게 되면 현재 자신이 가지고 있는 금액에서 얼마가 모자라는지를 return 하도록 solution 함수를
+                    완성하세요. 단, 금액이 부족하지 않으면 0을 return 하세요.
+                </p>
+                <h3 class="t_tit2" data-ke-size="size23">■ 제한 조건</h3>
+                <p class="t_desc" data-ke-size="size16">
+                    ✔ 놀이기구의 이용료 price : 1 &le; price &le; 2,500, price는 자연수 <br />✔ 처음 가지고 있던 금액 money : 1 &le; money &le;
+                    1,000,000,000, money는 자연수 <br />✔ 놀이기구의 이용 횟수 count : 1 &le; count &le; 2,500, count는 자연수
+                    <!-- <br />✔ n은 1000 이하인 자연수입니다. -->
+                </p>
+                <h3 class="t_tit2" data-ke-size="size23">■ 입출력 예</h3>
+                <table class="t_table" data-ke-align="alignLeft">
+                    <thead>
+                        <tr>
+                            <!-- <th>x</th> -->
+                            <th>price</th>
+                            <th>money</th>
+                            <th>count</th>
+                            <th>result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <td>2</td> -->
+                            <td>3</td>
+                            <td>20</td>
+                            <td>4</td>
+                            <td>10</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2" data-ke-size="size23">■ 입출력 예</h3>
+                <p class="t_desc" data-ke-size="size16">
+                    이용금액이 3인 놀이기구를 4번 타고 싶은 고객이 현재 가진 금액이 20이라면, 총 필요한 놀이기구의 이용 금액은 30 (= 3+6+9+12) 이 되어
+                    10만큼 부족하므로 10을 return 합니다.
+                </p>
+                <hr data-ke-style="style1" />
+                <h3 class="t_tit2" data-ke-size="size23">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc" data-ke-size="size16">
+                    탄 횟수 n만큼을 price에 곱해주고 다 더한 값에서 내가 가진 전액을 뺍니다. <br />잔액이 남는다는 것은 전액이 더 많다는 뜻이니
+                    '-'값으로 나올것이므로 조건문으로 0보다 작으면 0을 반환시킵니다.
+                </p>
+                <div class="t_code">
+                    <pre class="matlab"><code>function solution(price, money, count) {
+                    var answer = 0;
+                    for(i=1; i &lt;= count; i++){
+                        answer += (price*i)
+                    }
+                    answer = answer - money;
+                    if(answer&lt;0){
+                        answer = 0;
+                    }
+                    return answer;
+                }
+                </code></pre>
+                </div>
+                <h3 class="t_tit2" data-ke-size="size23">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc" data-ke-size="size16">수알못이라서 이해못하겠습니다. 결과만 같음 되겠죠 뭐 <br />삼항연산자나 잘써버릇 합시다...</p>
+                <div class="t_code">
+                    <pre class="ada"><code>function solution(price, money, count) {
+                    const tmp = price * count * (count + 1) / 2 - money;
+                    return tmp &gt; 0 ? tmp : 0;
+                }
+                </code></pre>
+                </div>
+                <br /><br /><!-- <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                                <h3 class="t_tit3">Math.floor()</h3>
+                                <p class="t_desc">소숫점 버리기입니당</p> -->
+                <!-- <p class="t_box">
+                                    const array1 = [1, 2, 3, 4];
+                                    <br />
+                                    <br />// fill with 0 from position 2 until position 4 <br />console.log(array1.fill(0, 2, 4)); <br />// expected output: [1, 2, 0,
+                                    0]
+                                    <br />
+                                    <br />// fill with 5 from position 1 <br />console.log(array1.fill(5, 1)); <br />// expected output: [1, 5, 5, 5]
+                                    <br />
+                                    <br />console.log(array1.fill(6)); <br />// expected output: [6, 6, 6, 6]
+                                </p> -->
+                <hr style="margin-bottom: 10px" data-ke-style="style1" />
+                <p class="t_desc" style="font-size: 14px; text-align: center" data-ke-size="size16">
+                    🙇&zwj;♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇&zwj;♂️
+                </p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

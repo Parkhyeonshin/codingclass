@@ -1,42 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-        function q1(num) {
-    let answer = 0;
-    while(num) {
-        answer += num % 10;
-        console.log(answer)
-        num = parseInt(num / 10);
-    }
-    return answer;
-}
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        ddddd
+        <script>
+            function solution(n) {
+                var answer = 0;
 
-console.log(q1(1996));
-        
+                for (i = 100000000; i >= 1; i / 10) {
+                    if (n / i > 0) {
+                        answer += n / i;
+                        n = n % i;
+                    }
+                }
 
-    let arr = [];
-    let memoryData = {
-        name: 222,
-        score: 18
-    };
-    let memoryData2 = {
-        name: 222,
-        score: 12
-    };
-    arr.push(memoryData);
-    arr.push(memoryData2);
-    arr.sort(function(a, b) {
-        return b.score - a.score;
-    }); 
-    console.log(arr)
-    </script>
+                return answer;
 
-</body>
+                console.log(answer);
+            }
+            solution(123);
+        </script>
+    </body>
 </html>
