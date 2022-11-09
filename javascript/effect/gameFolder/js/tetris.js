@@ -230,6 +230,11 @@ function prependNewLine() {
 
 // 블록 출력하기
 function renderBlocks(moveType = "") {
+    // const ty = tetrisTempMovingItem.type;
+    // const di = tetrisTempMovingItem.direction;
+    // const to = tetrisTempMovingItem.top;
+    // const le = tetrisTempMovingItem.left;
+
     const { type, direction, top, left } = tetrisTempMovingItem;
     const movingBlocks = document.querySelectorAll(".moving");
     movingBlocks.forEach((moving) => {
@@ -245,16 +250,7 @@ function renderBlocks(moveType = "") {
         const isAvailable = checkEmpty(target);
 
         if (isAvailable) {
-            let xx = playground.querySelector("ul > li > ul");
-            let xxx = xx.querySelectorAll("li");
-            xxx.forEach((e) => {
-                if (e.classList.contains("seized")) {
-                    // tetrisEnd();
-                    return;
-                } else {
-                    target.classList.add(type, "moving");
-                }
-            });
+            target.classList.add(type, "moving");
         } else {
             tetrisTempMovingItem = { ...tetrisMovingItem };
 
@@ -284,16 +280,6 @@ function seizeBlock() {
 }
 // 한줄 제거하기
 function checkMatch() {
-    let xx = playground.querySelector("ul > li > ul");
-    let xxx = xx.querySelectorAll("li");
-    xxx.forEach((e) => {
-        if (e.classList.contains("seized")) {
-            // tetrisEnd();
-            return;
-        } else {
-            return true;
-        }
-    });
     const childNodes = playground.childNodes;
     childNodes.forEach((child) => {
         let matched = true;
@@ -314,17 +300,6 @@ function checkMatch() {
 
 // 새로운 블럭 만들기
 function generateNewBlcok() {
-    let xx = playground.querySelector("ul > li > ul");
-    let xxx = xx.querySelectorAll("li");
-    xxx.forEach((e) => {
-        if (e.classList.contains("seized")) {
-            // tetrisEnd();
-            moveBlock("end", 1);
-            return;
-        } else {
-            return true;
-        }
-    });
     clearInterval(tetrisDownInterval);
     tetrisDownInterval = setInterval(() => {
         moveBlock("top", 1);
@@ -343,16 +318,6 @@ function generateNewBlcok() {
 
 // 빈칸 확인하기
 function checkEmpty(target) {
-    let xx = playground.querySelector("ul > li > ul");
-    let xxx = xx.querySelectorAll("li");
-    xxx.forEach((e) => {
-        if (e.classList.contains("seized")) {
-            // tetrisEnd();
-            return;
-        } else {
-            return true;
-        }
-    });
     if (!target || target.classList.contains("seized")) {
         return;
     }
@@ -361,9 +326,6 @@ function checkEmpty(target) {
 
 // 블록 움직이기
 function moveBlock(moveType, amount) {
-    if (moveType == "end") {
-        return;
-    }
     tetrisTempMovingItem[moveType] += amount;
     renderBlocks(moveType);
 }
