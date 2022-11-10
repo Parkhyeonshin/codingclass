@@ -24,8 +24,6 @@ let tetrisHi = new Audio("https://parkhyeonshin.github.io/codingclass/javascript
     tetrisSeizeSound = new Audio("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/tetrisSeize.mp3");
 let tetrisLv = 0;
 
-console.log(tetrisHi);
-console.log(tetrisAudio);
 // 블록 정보
 const tetrisMovingItem = {
     type: "Tmino",
@@ -230,6 +228,7 @@ function init() {
     for (i = 0; i < tetrisrouws; i++) {
         prependNewLine();
     }
+    tetrisNext.innerHTML = "";
     prependNewLine(); // 블록 라인 만들기
     for (j = 0; j < 4; j++) {
         prependNextLine();
@@ -244,7 +243,6 @@ function init() {
     tetrisDurationTimeout = setInterval(() => {
         tetrisDuration += -100;
         tetrisDuration <= 280 ? clearInterval(tetrisDurationTimeout) : null;
-        console.log(tetrisDuration);
     }, 15000);
 }
 
@@ -278,7 +276,6 @@ function renderBlocks(moveType = "") {
     if (tetrisEnd) {
         return;
     }
-    // console.log('블록출력하기')
     // const ty = tetrisTempMovingItem.type;
     // const di = tetrisTempMovingItem.direction;
     // const to = tetrisTempMovingItem.top;
@@ -320,7 +317,6 @@ function renderBlocks(moveType = "") {
 
 // 블록 감지하기
 function seizeBlock() {
-    // console.log('블록감지하기')
     let xx = playground.querySelector("ul > li > ul");
     let xxx = xx.querySelectorAll("li");
     xxx.forEach((e) => {
@@ -328,7 +324,6 @@ function seizeBlock() {
             tetrisEndfunc();
             return;
         } else {
-            // console.log('감지통과')
         }
     });
     const movingBlocks = document.querySelectorAll(".moving");
@@ -336,15 +331,13 @@ function seizeBlock() {
         moving.classList.remove("moving");
         moving.classList.add("seized");
     });
-    // checkEmpty();
+    checkEmpty();
     checkMatch();
 }
 // 한줄 제거하기
 function checkMatch() {
-    console.log("checkMatch");
     const childNodes = playground.childNodes;
     childNodes.forEach((child) => {
-        console.log("check");
         let matched = true;
         child.children[0].childNodes.forEach((li) => {
             if (!li.classList.contains("seized")) {
@@ -357,13 +350,10 @@ function checkMatch() {
             prependNewLine();
             tetrisCombo++;
             tetrisScore += tetrisCombo;
-            console.log("콤보" + tetrisCombo);
-            console.log("점수" + tetrisScore);
             tetrisNumText.textContent = `${tetrisScore} 점!`;
             tetrisSeizeSound.play();
             tetrisComboText.textContent = `${tetrisCombo} Combo🎈`;
         } else {
-            console.log("콤보초기화");
             tetrisCombo--;
             tetrisCombo <= 0 ? (tetrisCombo = 0) : null;
             tetrisComboText.textContent = "";
@@ -396,7 +386,6 @@ function generateNewBlcok(desc) {
 
 // 빈칸 확인하기
 function checkEmpty(target) {
-    // console.log('checkEmpty')
     if (!target || target.classList.contains("seized")) {
         return;
     }
@@ -413,7 +402,6 @@ function moveBlock(moveType, amount) {
             moveBlock("top", 1);
         }, tetrisDuration);
 
-        // console.log('moveblock')
         tetrisTempMovingItem[moveType] += amount;
         renderBlocks(moveType);
     } else {
