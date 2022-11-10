@@ -86,7 +86,7 @@ https://parkhyeonshin.github.io/codingclass/javascript/effect/parallaxEffect07.h
 
 ## 게임 이펙트
 
-https://parkhyeonshin.github.io/codingclass/javascript/effect/gameEffect01__hs.html
+https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/gameEffect01Copy.html   
 
 ## 리액트/뷰 수업 예제
 
