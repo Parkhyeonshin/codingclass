@@ -5,6 +5,7 @@ const tetrisComboText = tetrisWrap.querySelector(".tetris__count__combo");
 const tetrisStartBtn = tetrisWrap.querySelector(".tetris__start");
 const tetrisAudio = tetrisWrap.querySelector("#tetrisaudio");
 const tetrisAudioStop = tetrisWrap.querySelector(".tetris__audio .stop");
+const tetrisNext = tetrisWrap.querySelector(".tetris__count__next > ul");
 
 // 변수설정
 let tetrisrouws = 15,
@@ -19,7 +20,7 @@ let tetrisEnd = false;
 let tetrisDurationTimeout;
 let tetrisHi = new Audio("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/hi.mp3"),
     // tetrisEndSound = new Audio("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/tetwrisEndmp3.mp3"),
-    tetrisEndSound = new Audio("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/tetwrisEndmp3.mp3"),
+    tetrisEndSound = new Audio("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/tetrisEndmp3.mp3"),
     tetrisSeizeSound = new Audio("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/tetrisSeize.mp3");
 let tetrisLv = 0;
 
@@ -230,6 +231,9 @@ function init() {
         prependNewLine();
     }
     prependNewLine(); // 블록 라인 만들기
+    for (j = 0; j < 4; j++) {
+        prependNextLine();
+    }
     tetrisEnd = false;
     tetrisDuration = 1600;
     tetrisScore = 0;
@@ -255,6 +259,18 @@ function prependNewLine() {
 
     li.prepend(ul);
     playground.prepend(li);
+}
+
+// 다음 블록 창
+function prependNextLine() {
+    const li = document.createElement("li"); //엘리먼트 만들기
+    const ul = document.createElement("ul");
+    for (k = 0; k < 4; k++) {
+        const matrix = document.createElement("li");
+        ul.prepend(matrix);
+    }
+    li.prepend(ul);
+    tetrisNext.prepend(li);
 }
 
 // 블록 출력하기
@@ -317,11 +333,10 @@ function seizeBlock() {
     });
     const movingBlocks = document.querySelectorAll(".moving");
     movingBlocks.forEach((moving) => {
-        tetrisSeizeSound.play();
         moving.classList.remove("moving");
         moving.classList.add("seized");
     });
-    checkEmpty();
+    // checkEmpty();
     checkMatch();
 }
 // 한줄 제거하기
@@ -345,6 +360,7 @@ function checkMatch() {
             console.log("콤보" + tetrisCombo);
             console.log("점수" + tetrisScore);
             tetrisNumText.textContent = `${tetrisScore} 점!`;
+            tetrisSeizeSound.play();
             tetrisComboText.textContent = `${tetrisCombo} Combo🎈`;
         } else {
             console.log("콤보초기화");
@@ -362,26 +378,20 @@ function generateNewBlcok(desc) {
         return;
     }
 
-    if (desc == "end") {
-        console.log("generend");
-        return;
-    } else {
-        console.log("generate");
-        clearInterval(tetrisDownInterval);
-        tetrisDownInterval = setInterval(() => {
-            moveBlock("top", 1);
-        }, tetrisDuration);
+    clearInterval(tetrisDownInterval);
+    tetrisDownInterval = setInterval(() => {
+        moveBlock("top", 1);
+    }, tetrisDuration);
 
-        const blockArray = Object.entries(blocks);
-        const tetrisRandomIndex = Math.floor(Math.random() * blockArray.length);
+    const blockArray = Object.entries(blocks);
+    const tetrisRandomIndex = Math.floor(Math.random() * blockArray.length);
 
-        tetrisMovingItem.type = blockArray[tetrisRandomIndex][0];
-        tetrisMovingItem.top = 0;
-        tetrisMovingItem.left = 3;
-        tetrisMovingItem.direction = 0;
-        tetrisTempMovingItem = { ...tetrisMovingItem };
-        renderBlocks();
-    }
+    tetrisMovingItem.type = blockArray[tetrisRandomIndex][0];
+    tetrisMovingItem.top = 0;
+    tetrisMovingItem.left = 3;
+    tetrisMovingItem.direction = 0;
+    tetrisTempMovingItem = { ...tetrisMovingItem };
+    renderBlocks();
 }
 
 // 빈칸 확인하기
@@ -528,4 +538,6 @@ document.querySelector(".tetris__close").addEventListener("click", () => {
     tetrisDuration = 1600;
     tetrisScore = 0;
     tetrisCombo = 0;
+    tetrisWrap.querySelector(".tetris__black1").classList.remove("end");
+    tetrisWrap.querySelector(".tetris__black2").classList.remove("end");
 });
