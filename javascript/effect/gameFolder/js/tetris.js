@@ -17,7 +17,10 @@ let tetrisTempMovingItem;
 let tetrisSettimeout;
 let tetrisEnd = false;
 let tetrisDurationTimeout;
-let tetrisHi = new Audio("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/hi.mp3");
+let tetrisHi = new Audio("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/hi.mp3"),
+    // tetrisEndSound = new Audio("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/tetwrisEndmp3.mp3"),
+    tetrisEndSound = new Audio("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/tetwrisEndmp3.mp3"),
+    tetrisSeizeSound = new Audio("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/tetrisSeize.mp3");
 let tetrisLv = 0;
 
 console.log(tetrisHi);
@@ -314,6 +317,7 @@ function seizeBlock() {
     });
     const movingBlocks = document.querySelectorAll(".moving");
     movingBlocks.forEach((moving) => {
+        tetrisSeizeSound.play();
         moving.classList.remove("moving");
         moving.classList.add("seized");
     });
@@ -472,6 +476,7 @@ tetrisStartBtn.addEventListener("click", (e) => {
 
 function tetrisEndfunc() {
     tetrisEnd = true;
+    tetrisEndSound.play();
     clearInterval(tetrisDownInterval);
     clearInterval(tetrisDurationTimeout);
     tetrisAudio.pause();
