@@ -34,7 +34,7 @@
     background: url(https://i.pinimg.com/originals/4d/a4/86/4da486537d1bf2734f755fcd1d8ff2e3.gif);
     /* background: url(https://i.pinimg.com/originals/6e/f1/1b/6ef11bc494a9d828544432414a305409.gif); */
     /* background: url(https://i.pinimg.com/originals/ca/2c/b6/ca2cb65c5e194793ea50ee3fc21328ed.gif); */
-    /* background: url(https://i.pinimg.com/originals/85/be/94/85be94350b6cefd78140c8c8232c75e5.gif); */
+    background: url(https://i.pinimg.com/originals/85/be/94/85be94350b6cefd78140c8c8232c75e5.gif);
     opacity: 0.7;
     background-size: contain;
     background-position: bottom center;
@@ -129,6 +129,7 @@
         box-shadow: 0 0 10px rgba(33, 156, 243, 0.5), 0 0 20px rgba(33, 156, 243, 0.5), 0 0 30px rgba(33, 156, 243, 0.5);
     }
 }
+
 .tetris__start {
 }
 .tetris__restart {
@@ -140,7 +141,17 @@
     /* padding-top: 100px; */
     position: relative;
 }
-.tetris__play {
+.tetris__count__combo {
+    font-family: "CrownMychew";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    font-size: 50px;
+    color: snow;
+    z-index: 200;
+    text-shadow: 0px 0px 20px #ff7900;
+    text-shadow: -5px 0px #5f7eac, 0px 5px #5f7eac, 5px 0px #5f7eac, 0px -5px #5f7eac;
 }
 .playground {
     border: 30px solid #011937;
