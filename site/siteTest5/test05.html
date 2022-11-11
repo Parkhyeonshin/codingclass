@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 18px;
+            color: #333;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* header */
+        #header {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            padding: 0 15px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #header .header__logo {
+            width: 40%;
+        }
+        #header .header__logo a {
+            line-height: 100px;
+            color: #bf6565;
+            font-weight: bold;
+            font-size: 1.7rem;
+        }
+        #header .header__menu {
+            width: 53.5%;
+        }
+
+        #header .header__menu ul {
+            width: 100%;
+            text-align: center;
+        }
+        #header .header__menu ul li {
+            width: 24%;
+            display: inline-block;
+            font-weight: bold;
+            position: relative;
+            margin-left: -6px;
+        }
+        #header .header__menu ul li {
+            margin-right: -1px;
+        }
+
+        .lv2 {
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+            padding-top: 0px;
+            margin-top: 0px;
+            padding-bottom: 0px;
+            margin-bottom: 0px;
+            display: none;
+            background: white;
+            top: 100%;
+        }
+        .lv2 > li {
+            display: block !important;
+            width: 100% !important;
+            height: fit-content;
+            margin-left: 0px !important;
+        }
+        .lv2 > li > a {
+            width: 100%;
+            font-weight: normal !important;
+        }
+        #header li {
+            padding: 10px 0;
+        }
+        #header .header__menu ul li:hover {
+            background: rgb(199, 101, 101);
+        }
+        #header .header__menu ul li:hover > a {
+            color: #fff;
+        }
+        ul.lv2 li:hover {
+            background: rgb(207, 123, 123) !important;
+        }
+        ul.lv2 li:hover > a {
+            color: #fff;
+            /* background: rgb(230, 152, 152); */
+        }
+
+        /* main */
+        .slidetype {
+            width: 100%;
+            height: fit-content;
+            background: #f5f5f5;
+        }
+        .slidetype .slideinner {
+            background: #666;
+            height: 300px;
+            overflow: hidden;
+        }
+        .slidetype .slideinner .slideview {
+            background: #000;
+            transform: translateY(-600px);
+        }
+        .slidetype .slideinner .slideview img {
+            vertical-align: top;
+        }
+        .slidetype .slideinner .slideview a {
+            position: relative;
+        }
+        .slidetype .slideinner .slideview a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgb(250, 240, 240);
+            padding: 10px 20px;
+            font-size: 0.85rem;
+        }
+        .slidetype .slideinner .slideview a:nth-child(1):before {
+            content: "슬라이드내용1";
+        }
+        .slidetype .slideinner .slideview a:nth-child(2):before {
+            content: "슬라이드내용2";
+        }
+        .slidetype .slideinner .slideview a:nth-child(3):before {
+            content: "슬라이드내용3";
+        }
+        .slidetype .slideinner .slideview a:nth-child(4):before {
+            content: "슬라이드내용1";
+        }
+
+        .imgtexttype {
+            display: flex;
+            justify-content: space-between;
+            height: 200px;
+        }
+
+        .imgtexttype .textType {
+            width: 34%;
+        }
+        .imgtexttype .textType ul {
+            display: flex;
+            /* margin-top: 10px; */
+            align-items: center;
+            line-height: 2;
+        }
+        .imgtexttype .textType .tab ul li a {
+            font-weight: bold;
+            padding: 10px 15px;
+        }
+        .imgtexttype .textType .tab ul li.active a {
+            background: #fff5f5;
+        }
+        .imgtexttype .tab__desc {
+            height: 164px;
+            background: #fff5f5;
+        }
+        .imgtexttype .tab__desc ul {
+            display: block;
+            padding: 10px 0;
+        }
+        .imgtexttype .tab__desc ul li {
+            display: flex;
+            justify-content: space-between;
+            padding-right: 15px;
+            background: #fff5f5;
+        }
+        .imgtexttype .tab__desc ul li:hover a,
+        .imgtexttype .tab__desc ul li:hover span {
+            text-decoration: underline;
+        }
+        .imgtexttype .tab__desc ul li a,
+        .imgtexttype .tab__desc ul li span {
+            line-height: 2;
+            font-weight: normal;
+        }
+        .imgtexttype .tab__desc ul li a {
+            padding-left: 15px;
+        }
+        .imgtexttype .tab__imgWrap {
+            display: flex;
+            padding: 20px 10px;
+            height: 164px;
+            background: #fff5f5;
+
+            justify-content: space-between;
+            display: none;
+        }
+        .tab__imgWrap a {
+            width: 30%;
+        }
+        .tab__imgWrap a img {
+            width: 100%;
+        }
+
+        .imgtexttype .imgType {
+            width: 67%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .imgtexttype .imgType a {
+            position: relative;
+        }
+        .imgtexttype .imgType a:first-child::before {
+            content: "배너";
+            background: white;
+            font-weight: bold;
+            padding: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .imgtexttype .imgType a:last-child::before {
+            content: "바로가기";
+            background: white;
+            font-weight: bold;
+            padding: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* footer */
+        #footer {
+            height: 100px;
+            width: 100%;
+            background: #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+        }
+        #footer .footer__logo {
+            width: 25%;
+        }
+        #footer .footer__logo a {
+            line-height: 100px;
+            color: #808080;
+            font-weight: bold;
+            font-size: 1.7rem;
+        }
+        #footer .footer__desc {
+            width: 50%;
+            text-align: center;
+        }
+        #footer p {
+            font-size: 0.885rem;
+        }
+        #footer .footer__sns {
+            width: 25%;
+            text-align: right;
+            padding-right: 15px;
+        }
+        #footer .footer__sns img {
+            width: 20px;
+            height: 20px;
+            margin-left: 15px;
+        }
+
+        .popup {
+            position: absolute;
+            top: 38%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid black;
+            padding: 20px;
+            z-index: 1;
+            background: white;
+            width: 30%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .popup > h2 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .popup > p {
+            font-size: 0.85rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .popup > button {
+            padding: 5px;
+            border-radius: 10px;
+            border: 0;
+            background: #f5f5f5;
+            display: inline-block;
+            text-align: right;
+            float: right;
+            font-size: 0.5rem;
+        }
+    </style>
+
+    <body>
+        <div class="container">
+            <div class="popup">
+                <h2>A-1 Just 쇼핑몰 팝업</h2>
+                <p>여기에 팝업 내용을 입력하세요</p>
+                <button>
+                    <p>X 닫기</p>
+                </button>
+            </div>
+            <header id="header">
+                <div class="header__logo">
+                    <a href="#">JUST 쇼핑몰</a>
+                </div>
+                <div class="header__menu">
+                    <ul>
+                        <li>
+                            <a href="#">탑</a>
+                            <ul class="lv2">
+                                <li><a href="#">블라우스</a></li>
+                                <li><a href="#">티</a></li>
+                                <li><a href="#">셔츠</a></li>
+                                <li><a href="#">니트</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">아우터</a>
+                            <ul class="lv2">
+                                <li><a href="#">자켓</a></li>
+                                <li><a href="#">코트</a></li>
+                                <li><a href="#">가디건</a></li>
+                                <li><a href="#">머플러</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">팬츠</a>
+                            <ul class="lv2">
+                                <li><a href="#">가디건</a></li>
+                                <li><a href="#">블라우스</a></li>
+                                <li><a href="#">머플러</a></li>
+                                <li><a href="#">니트</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">악세서리</a>
+                            <ul class="lv2">
+                                <li><a href="#">니트</a></li>
+                                <li><a href="#">셔츠</a></li>
+                                <li><a href="#">블라우스</a></li>
+                                <li><a href="#">티</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <main id="main">
+                <section class="slidetype">
+                    <div class="slideinner">
+                        <div class="slideview">
+                            <a href="#"><img src="https://webstudybasic.pe.kr/landing/source/A-1/images/slide02.png" alt="슬라이드1" /></a>
+                            <a href="#"><img src="https://webstudybasic.pe.kr/landing/source/A-1/images/slide03.png" alt="슬라이드2" /></a>
+                            <a href="#"><img src="https://webstudybasic.pe.kr/landing/source/A-1/images/slide01.png" alt="슬라이드3" /></a>
+                            <a href="#"></a>
+                        </div>
+                    </div>
+                </section>
+                <section class="imgtexttype">
+                    <div class="textType">
+                        <div class="tab">
+                            <ul>
+                                <li class="active"><a href="#">공지사항</a></li>
+                                <li><a href="#">갤러리</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab__desc">
+                            <ul>
+                                <li><a href="#">공지사33항항항ㅎ앟앟ㅇ핳앟ㅇ</a><span>22.11.11</span></li>
+                                <li><a href="#">공지사ㅇ핳앟ㅇ</a><span>22.11.11</span></li>
+                                <li><a href="#">공지사122121ㅎ앟앟ㅇ핳앟ㅇ</a><span>22.11.11</span></li>
+                                <li><a href="#">공지사앟앟ㅇ핳앟ㅇ</a><span>22.11.11</span></li>
+                            </ul>
+                            <div class="tab__imgWrap">
+                                <a href="#"><img src="https://webstudybasic.pe.kr/landing/source/A-1/images/gallery01.png" alt="텍박이미지1" /></a>
+                                <a href="#"><img src="https://webstudybasic.pe.kr/landing/source/A-1/images/gallery02.png" alt="텍박이미지2" /></a>
+                                <a href="#"><img src="https://webstudybasic.pe.kr/landing/source/A-1/images/gallery03.png" alt="텍박이미지3" /></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="imgType">
+                        <a href="#">
+                            <img src="https://webstudybasic.pe.kr/landing/source/A-1/images/banner.png" alt="이미지1" />
+                        </a>
+                        <a href="#">
+                            <img src="https://webstudybasic.pe.kr/landing/source/A-1/images/link.png" alt="이미지2" />
+                        </a>
+                    </div>
+                </section>
+            </main>
+            <footer id="footer">
+                <div class="footer__logo">
+                    <a href="#">JUST 쇼핑몰</a>
+                </div>
+                <div class="footer__desc">
+                    <p>Copyright All rights reserved JUST 쇼핑몰</p>
+                </div>
+                <div class="footer__sns">
+                    <a href="#"><img src="https://webstudybasic.pe.kr/landing/source/A-1/images/facebook.webp" alt="facebook" /></a>
+                    <a href="#"><img src="https://webstudybasic.pe.kr/landing/source/A-1/images/instagram.webp" alt="instagram" /></a>
+                    <a href="#"><img src="https://webstudybasic.pe.kr/landing/source/A-1/images/twitter.webp" alt="twitter" /></a>
+                </div>
+            </footer>
+        </div>
+    </body>
+
+    <script src="./script/jquery-3.6.0.js"></script>
+    <script>
+        const slideWrap = document.querySelector(".slidetype");
+        const slideInner = slideWrap.querySelector(".slideinner");
+        const slideView = slideWrap.querySelector(".slideview");
+        const slideImg = slideWrap.querySelectorAll(".slideview img");
+        const textWrap = document.querySelector(".textType");
+        const textTab = textWrap.querySelectorAll(".tab > ul > li");
+        const textNotice = textWrap.querySelector(".tab__desc >ul");
+        const textNoticeli = textWrap.querySelectorAll(".tab__desc >ul >li");
+        const textGall = textWrap.querySelector(".tab__imgWrap");
+
+        let sliderWidth = 300 * slideImg.length,
+            slideIndex = 0,
+            transformhegiht = 0;
+
+        const clone = slideImg[0].cloneNode();
+        slideView.querySelectorAll("a")[3].appendChild(clone);
+
+        setInterval(() => {
+            slideIndex++;
+            slideView.style.transition = `all 0.6s`;
+            slideView.style.transform = `translateY(-${slideIndex * 300}px)`;
+
+            if (slideIndex >= slideImg.length) {
+                setTimeout(() => {
+                    slideView.style.transition = `0s`;
+                    slideView.style.transform = `translateY(-0px)`;
+                }, 700);
+                slideIndex = 0;
+            }
+        }, 2000);
+
+        // 공지사항<=>갤러리
+        textTab[0].addEventListener("click", (e) => {
+            textTab[0].classList.add("active");
+            textTab[1].classList.remove("active");
+            textNotice.style.display = "block";
+            textGall.style.display = "none";
+        });
+        textTab[1].addEventListener("click", (e) => {
+            textTab[1].classList.add("active");
+            textTab[0].classList.remove("active");
+            textNotice.style.display = "none";
+            textGall.style.display = "flex";
+        });
+        document.querySelector("button").addEventListener("click", () => {
+            document.querySelector(".popup").style.opacity = "0";
+            document.querySelector(".popup").style.display = "none";
+        });
+
+        // textNoticeli.addEventListener("click", () => {
+        //     document.querySelector(".popup").style.display = "block";
+        // });
+
+        textNoticeli.forEach((e) => {
+            console.log(e);
+            e.addEventListener("click", () => {
+                document.querySelector(".popup").style.opacity = "1";
+                document.querySelector(".popup").style.display = "block";
+            });
+        });
+
+        $(function () {
+            //header menu--------------------------------------------------------
+            $("header .header__menu >ul").mouseenter(function () {
+                $("ul.lv2").slideDown(800);
+            });
+
+            $("header .header__menu >ul").mouseleave(function () {
+                $("ul.lv2").stop().slideUp(500);
+            });
+        });
+    </script>
+</html>

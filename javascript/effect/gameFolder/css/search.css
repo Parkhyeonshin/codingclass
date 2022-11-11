@@ -96,7 +96,7 @@
     box-sizing: border-box;
     padding: 130px auto;
 } */
-.search__inner .search__game{
+.search__inner .search__game {
     /* display: none; */
     height: 100%;
     width: 100%;
@@ -112,19 +112,18 @@
     margin-bottom: 20px;
     color: goldenrod;
     text-shadow: -5px 0 #020313, 0 5px #020313, 5px 0 #020313, 0 -5px #020313;
-
 }
 
-.search__inner .search__start{
+.search__inner .search__start {
     display: block;
 }
 
-.search__inner .restart{
+.search__inner .restart {
     display: none;
 }
 .search__inner .search__RangkingView,
 .search__inner .search__start,
-.search__inner .restart{
+.search__inner .restart {
     font-size: 60px;
     text-align: center;
     font-weight: bold;
@@ -136,22 +135,22 @@
     position: relative;
     width: fit-content;
 }
-.search__inner .search__RangkingView{
+.search__inner .search__RangkingView {
     display: block;
     margin-top: 10px;
     line-height: 1;
 }
 .search__inner .search__RangkingView:hover,
 .search__inner .search__start:hover,
-.search__inner .restart:hover{
+.search__inner .restart:hover {
     /* background: rgba(0,0,0,0.5); */
     color: black;
     text-shadow: -5px 0 #fff, 0 5px #fff, 5px 0 #fff, 0 -5px #fff;
 }
 .search__inner .search__RangkingView:hover::before,
 .search__inner .search__start:hover::before,
-.search__inner .restart:hover::before{
-    content: '▶';
+.search__inner .restart:hover::before {
+    content: "▶";
     position: absolute;
     top: 0%;
     left: -70px;
@@ -175,21 +174,21 @@
     border: 3px solid #000;
     box-sizing: border-box;
 }
-.search__inner .search__game > label{
+.search__inner .search__game > label {
     display: inline-block;
     margin-top: 80px;
     margin-left: 40px;
     color: snow;
     font-size: 20px;
 }
-.search__inner .search__game > input{
+.search__inner .search__game > input {
     height: 26px;
     line-height: 1;
     font-size: 20px;
     padding: 2px 8px;
     /* display: none; */
 }
-.search__inner .search__game > .search__IDdesc{
+.search__inner .search__game > .search__IDdesc {
     line-height: 1;
     font-size: 20px;
     padding: 2px 8px;
@@ -198,30 +197,31 @@
     display: none;
     font-weight: bold;
 }
-.search__inner .search__game > .search__IDbtn{
+.search__inner .search__game > .search__IDbtn {
     height: 35px;
     line-height: 1;
     font-size: 20px;
     padding: 2px 8px;
     /* display: none; */
 }
-.search__inner .search__game > .search__IDbtn2{
+.search__inner .search__game > .search__IDbtn2 {
     height: 35px;
     line-height: 1;
     font-size: 20px;
     padding: 2px 8px;
-
+    display: none;
 }
-
-
-.search__inner .result__wrap{
+.search__game {
+    /* display: none; */
+}
+.search__inner .result__wrap {
     display: none;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
     padding: 20px;
 }
-.search__inner .result__wrap .search__backBtn{
+.search__inner .result__wrap .search__backBtn {
     font-size: 25px;
     font-weight: bold;
     color: rgb(212, 212, 212);
@@ -231,12 +231,12 @@
     width: fit-content;
     position: relative;
 }
-.search__inner .result__wrap .search__backBtn:hover{
+.search__inner .result__wrap .search__backBtn:hover {
     color: black;
     text-shadow: -2px 0 #fff, 0 2px #fff, 2px 0 #fff, 0 -2px #fff;
 }
-.search__inner .result__wrap .search__backBtn:hover::before{
-    content: '▶';
+.search__inner .result__wrap .search__backBtn:hover::before {
+    content: "▶";
     position: absolute;
     top: 0%;
     left: -18px;
@@ -244,10 +244,10 @@
     font-size: 15px;
     line-height: 1.4;
 }
-.search__inner .result__wrap .search__Rangking{
+.search__inner .result__wrap .search__Rangking {
     width: 95%;
     height: 80%;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 0, 0, 0.9);
     border-radius: 20px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
@@ -257,7 +257,7 @@
     box-sizing: border-box;
     padding: 30px 10%;
 }
-.search__inner .result__wrap .search__Rangking > h2{
+.search__inner .result__wrap .search__Rangking > h2 {
     color: snow;
     text-shadow: -5px 0 #8994cf, 0 5px #8994cf, 5px 0 #8994cf, 0 -5px #8994cf;
     font-size: 50px;
@@ -266,33 +266,33 @@
     line-height: 1.6;
     margin: 0 auto;
 }
-.search__inner .result__wrap .search__Rangking .search__table{
+.search__inner .result__wrap .search__Rangking .search__table {
     width: 100%;
     color: snow;
 }
-.search__inner .result__wrap .search__Rangking .search__table th{
+.search__inner .result__wrap .search__Rangking .search__table th {
     font-size: 18px;
     padding-bottom: 15px;
 }
-.search__inner .result__wrap .search__Rangking .search__table td{
+.search__inner .result__wrap .search__Rangking .search__table td {
     text-align: center;
 }
-.search__inner .result__wrap .search__Rangking .search__table tr.first td{
+/* .search__inner .result__wrap .search__Rangking .search__table tr.first td {
+    color: gold;
+    position: relative;
+} */
+.search__inner .result__wrap .search__Rangking table tr.mine td {
     color: gold;
     position: relative;
 }
-.search__inner .result__wrap .search__Rangking table tr.mine td{
-    color: gold;
-    position: relative;
-}
-.search__inner .result__wrap .search__Rangking table tr.first td:first-child:before{
-    content: '🎉';
+.search__inner .result__wrap .search__Rangking table tr.first.mine td:first-child:before {
+    content: "🎉";
     position: absolute;
     top: 0;
     left: 10px;
 }
 .search__inner .result__wrap .result {
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 0, 0, 0.9);
     border-radius: 20px;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
@@ -303,18 +303,16 @@
     box-sizing: border-box;
     padding: 10px 100px;
 }
-.search__inner .result__wrap .result > table{
+.search__inner .result__wrap .result > table {
     width: 100%;
     border-top: 1px solid snow;
 }
-.search__inner .result__wrap .result > table th{
-    font-size: 25px ;
+.search__inner .result__wrap .result > table th {
+    font-size: 25px;
     color: gold;
     line-height: 2.4;
     text-shadow: -2px 0 #414ca9, 0 2px #414ca9, 2px 0 #414ca9, 0 -2px #414ca9;
 }
-
-
 
 .search__desc {
     width: 35%;
@@ -403,7 +401,6 @@
     align-items: flex-start;
     padding: 20px;
     justify-content: space-evenly;
-
 }
 
 .search__desc .search__result .search__answers {
@@ -417,7 +414,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-.search__desc .search__result .search__answers >span{
+.search__desc .search__result .search__answers > span {
     display: block;
     line-height: 1.8;
     color: rgb(95, 141, 160);
@@ -433,18 +430,18 @@
     scrollbar-width: none;
 }
 .search__desc .search__result .search__Listbox::-webkit-scrollbar,
-.search__desc .search__result .search__answers::-webkit-scrollbar{
+.search__desc .search__result .search__answers::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
 }
-.search__desc .search__result .search__Listbox .search__missAnswers{
-   color: indianred;
+.search__desc .search__result .search__Listbox .search__missAnswers {
+    color: indianred;
 }
 .search__desc .search__result .search__Listbox .search__missAnswers > span,
-.search__desc .search__result .search__Listbox .search__list > span{
+.search__desc .search__result .search__Listbox .search__list > span {
     display: block;
     line-height: 1.8;
 }
-.search__desc .search__result .search__count{
+.search__desc .search__result .search__count {
     width: 100%;
     display: flex;
     border-top: 2px solid rgba(208, 233, 252, 0.9);
@@ -453,12 +450,12 @@
     box-sizing: border-box;
     padding: 6px 5px 0px 5px;
 }
-.search__desc .search__result .search__count >div:first-child{
+.search__desc .search__result .search__count > div:first-child {
     width: 50%;
     box-sizing: border-box;
     padding-left: 15px;
 }
-.search__desc .search__result .search__count >div:last-child{
+.search__desc .search__result .search__count > div:last-child {
     width: 50%;
     box-sizing: border-box;
     padding-left: 20px;
