@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 문자열 정수로 바꾸기</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">문자열 s를 숫자로 변환한 결과를 반환하는 함수, solution을 완성하세요.</p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">
+                    ✔ s의 길이는 1 이상 5이하입니다.
+                    <br />✔ s의 맨앞에는 부호(+, -)가 올 수 있습니다. <br />✔ s는 부호와 숫자로만 이루어져있습니다. <br />✔ s는 "0"으로 시작하지
+                    않습니다.
+                    <!-- <br />✔ n은 1000 이하인 자연수입니다. -->
+                </p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <p class="t_desc">
+                    예를들어 str이 "1234"이면 1234를 반환하고, "-1234"이면 -1234를 반환하면 됩니다. str은 부호(+,-)와 숫자로만 구성되어 있고, 잘못된
+                    값이 입력되는 경우는 없습니다.
+                </p>
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc"></p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(s) {
+    return Number(s);
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc"></p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(s){
+return s/1
+}
+</code></pre>
+                </div>
+                <br /><br />
+                <!-- <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">Math.floor()</h3>
+                <p class="t_desc">소숫점 버리기입니당</p> -->
+                <!-- <p class="t_box">
+                    const array1 = [1, 2, 3, 4];
+                    <br />
+                    <br />// fill with 0 from position 2 until position 4 <br />console.log(array1.fill(0, 2, 4)); <br />// expected output: [1, 2, 0,
+                    0]
+                    <br />
+                    <br />// fill with 5 from position 1 <br />console.log(array1.fill(5, 1)); <br />// expected output: [1, 5, 5, 5]
+                    <br />
+                    <br />console.log(array1.fill(6)); <br />// expected output: [6, 6, 6, 6]
+                </p> -->
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

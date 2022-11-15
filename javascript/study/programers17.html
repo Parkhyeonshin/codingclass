@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 하샤드 수</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    양의 정수 x가 하샤드 수이려면 x의 자릿수의 합으로 x가 나누어져야 합니다. 예를 들어 18의 자릿수 합은 1+8=9이고, 18은 9로 나누어
+                    떨어지므로 18은 하샤드 수입니다. 자연수 x를 입력받아 x가 하샤드 수인지 아닌지 검사하는 함수, solution을 완성해주세요.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">
+                    ✔ x는 1 이상, 10000 이하인 정수입니다.
+                    <!-- <br />✔ n은 1000 이하인 자연수입니다. -->
+                </p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <!-- <th>x</th> -->
+                            <th>arr</th>
+                            <th>return</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <td>2</td> -->
+                            <td>10</td>
+                            <td>true</td>
+                        </tr>
+                        <tr>
+                            <!-- <td>2</td> -->
+                            <td>12</td>
+                            <td>true</td>
+                        </tr>
+                        <tr>
+                            <!-- <td>2</td> -->
+                            <td>11</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <!-- <td>2</td> -->
+                            <td>13</td>
+                            <td>false</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <p class="t_desc">
+                    1. 10의 모든 자릿수의 합은 1입니다. 10은 1로 나누어 떨어지므로 10은 하샤드 수입니다.
+                    <br />
+                    2. 12의 모든 자릿수의 합은 3입니다. 12는 3으로 나누어 떨어지므로 12는 하샤드 수입니다.
+                    <br />
+                    3. 11의 모든 자릿수의 합은 2입니다. 11은 2로 나누어 떨어지지 않으므로 11는 하샤드 수가 아닙니다.
+                    <br />
+                    4. 13의 모든 자릿수의 합은 4입니다. 13은 4로 나누어 떨어지지 않으므로 13은 하샤드 수가 아닙니다.
+                </p>
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc"></p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(x) { // x = 18
+    var sum = 0;
+    var arr = String(x).split(""); // [1,8]
+    
+    for(let i=0; i&lt;arr.length; i++){
+        sum += Number(arr[i]) 
+    }
+    return (x % sum == 0) ? true:false;
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc"></p>
+                <div class="t_code">
+                    <pre><code class="language-js">function Harshad(n){
+    return !(n % (n + "").split("").reduce((a, b) => +b + +a ));
+}
+</code></pre>
+                </div>
+                <br /><br />
+                <!-- <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">Math.floor()</h3>
+                <p class="t_desc">소숫점 버리기입니당</p> -->
+                <!-- <p class="t_box">
+                    const array1 = [1, 2, 3, 4];
+                    <br />
+                    <br />// fill with 0 from position 2 until position 4 <br />console.log(array1.fill(0, 2, 4)); <br />// expected output: [1, 2, 0,
+                    0]
+                    <br />
+                    <br />// fill with 5 from position 1 <br />console.log(array1.fill(5, 1)); <br />// expected output: [1, 5, 5, 5]
+                    <br />
+                    <br />console.log(array1.fill(6)); <br />// expected output: [6, 6, 6, 6]
+                </p> -->
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
