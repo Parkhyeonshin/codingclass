@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>gsap 가로모드</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .horizontalWrap {
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+            }
+            .horizontalSection {
+                overscroll-behavior: none;
+                width: 500%;
+                display: flex;
+                flex-wrap: nowrap;
+            }
+            .section {
+                width: 100%;
+                height: 100vh;
+            }
+            .section1 {
+                background-image: linear-gradient(to right, #ec77ab 0%, #7873f5 100%);
+            }
+            .section2 {
+                background-image: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
+            }
+            .section3 {
+                background-color: #e4e4e1;
+                background-image: radial-gradient(at top center, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0.03) 100%),
+                    linear-gradient(to top, rgba(255, 255, 255, 0.1) 0%, rgba(143, 152, 157, 0.6) 100%);
+                background-blend-mode: normal, multiply;
+            }
+            .section4 {
+                background-image: linear-gradient(-20deg, #616161 0%, #9bc5c3 100%);
+            }
+            .section5 {
+                background-image: linear-gradient(to top, #3b41c5 0%, #a981bb 49%, #ffc8a9 100%);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="horizontalWrap">
+            <div class="horizontalSection">
+                <section class="section section1"></section>
+                <section class="section section2"></section>
+                <section class="section section3"></section>
+                <section class="section section4"></section>
+                <section class="section section5"></section>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            const sections = gsap.utils.toArray(".section");
+
+            gsap.to(sections, {
+                xPercent: -100 * (sections.length - 1),
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".horizontalWrap",
+                    pin: true,
+                    scrub: 1,
+                    // end: () => `+=${document.querySelector(".square").offsetHeight}`,
+                    end: "+=5500",
+                    markers: true,
+                    // snap: 1 / (sections.length - 1),
+                },
+            });
+        </script>
+    </body>
+</html>
