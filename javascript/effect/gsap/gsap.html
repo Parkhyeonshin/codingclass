@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GSAP 연습</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            #contents > section {
+                min-height: 100vh;
+            }
+            #section1 {
+                background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            }
+            #section2 {
+                background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+            }
+
+            #section3 {
+                background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+            }
+            #section4 {
+                background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+            }
+            #section5 {
+                background-image: linear-gradient(to right, #3ab5b0 0%, #3d99be 31%, #56317a 100%);
+            }
+            #section6 {
+                background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+            }
+
+            .square {
+                width: 200px;
+                height: 200px;
+                background-image: linear-gradient(to top, #df89b5 0%, #bfd9fe 100%);
+                border-radius: 50%;
+                box-shadow: 20px 30px 30px rgba(0, 0, 0, 0.3);
+                position: relative;
+            }
+            .square::before {
+                content: "";
+                width: 35%;
+                height: 35%;
+                background: #000;
+                border-radius: 50%;
+                position: absolute;
+                top: 20%;
+                left: 10%;
+            }
+            .square::after {
+                content: "";
+                width: 35%;
+                height: 35%;
+                background: #000;
+                border-radius: 50%;
+                position: absolute;
+                top: 20%;
+                right: 10%;
+            }
+            .square.red {
+                background-image: linear-gradient(-225deg, #ffe29f 0%, #ffa99f 48%, #ff719a 100%);
+                border-radius: 50%;
+            }
+            .square .square__eye {
+                width: 28%;
+                height: 28%;
+                background: snow;
+                border-radius: 50%;
+                position: absolute;
+                top: 22%;
+                left: 13%;
+            }
+            .square .square__eye2 {
+                width: 28%;
+                height: 28%;
+                background: snow;
+                border-radius: 50%;
+                position: absolute;
+                top: 22%;
+                right: 13%;
+                z-index: 2;
+            }
+            .square .square__shy {
+                position: absolute;
+                width: 18%;
+                height: 5%;
+                background: rgba(255, 0, 0, 0.2);
+                box-shadow: 0 0 25px rgba(255, 0, 0, 1);
+                border-radius: 50%;
+                top: 55%;
+                left: 13%;
+            }
+            .square .square__shy2 {
+                position: absolute;
+                width: 18%;
+                height: 5%;
+                background: rgba(255, 0, 0, 0.2);
+                box-shadow: 0 0 25px rgba(255, 0, 0, 1);
+                border-radius: 50%;
+                top: 55%;
+                right: 13%;
+            }
+            .square .square__mouse {
+                width: 37%;
+                height: 50%;
+                background: rgb(238, 90, 90);
+                border-radius: 50%;
+                position: absolute;
+                top: 66%;
+                right: 50%;
+                transform: translateX(50%);
+                z-index: 2;
+                border-bottom-left-radius: 600px;
+                border-top-left-radius: 60px;
+                border-top-right-radius: 60px;
+                border-bottom-right-radius: 600px;
+                animation: mouse 0.3s infinite;
+            }
+            .square .square__mouse::before {
+                content: "";
+                width: 2%;
+                height: 60%;
+                background: rgba(255, 250, 250, 0.226);
+                position: absolute;
+                box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.534);
+                left: 50%;
+            }
+            .square .square__mouse2 {
+                position: absolute;
+                width: 120px;
+                height: 6px;
+                border-radius: 10px;
+                background: #000;
+                top: 65%;
+                right: 50%;
+                transform: translateX(50%);
+            }
+            @keyframes mouse {
+                0% {
+                    height: 0;
+                }
+                100% {
+                    height: 50%;
+                }
+            }
+            .square2 {
+                background-image: linear-gradient(-225deg, #69eacb 0%, #eaccf8 48%, #6654f1 100%);
+                width: 200px;
+                height: 200px;
+                border-radius: 10px;
+                position: relative;
+            }
+            .square2::after {
+                content: "";
+                position: absolute;
+                top: 10%;
+                left: -20%;
+                width: 10%;
+                height: 60%;
+                background: #000;
+                transform: rotate(-60deg);
+                border-bottom-left-radius: 10px;
+            }
+            .square2::before {
+                content: "";
+                position: absolute;
+                top: 10%;
+                left: -20%;
+                width: 10%;
+                height: 60%;
+                background: #000;
+                transform: rotate(-60deg);
+                border-bottom-left-radius: 10px;
+            }
+
+            .panel {
+                height: 100vh;
+                background-color: beige;
+            }
+            .box {
+                width: 100px;
+                height: 100px;
+                background: #414ca9;
+            }
+            .box-red {
+                background-color: rgb(230, 76, 76);
+            }
+            nav {
+                position: sticky;
+                top: 0;
+                transition: all 0.6s ease;
+                background-color: rgb(0, 53, 0);
+                color: burlywood;
+                padding: 15px;
+            }
+            ul {
+                text-align: center;
+            }
+            li {
+                display: inline-block;
+            }
+
+            .not-active {
+                background: snow;
+                color: #414ca9;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li>about</li>
+                <li>work</li>
+                <li>contact</li>
+            </ul>
+        </nav>
+
+        <div class="panel">
+            이미지프레소는 이미지최적화로 더 빠른 웹사이트를 가능하게 합니다. 3초 안에 웹사이트 콘텐츠를 불러오지 않으면, 모바일 사용자의 53%가
+            사이트를 이탈합니다. 블로그나 웹 페이지 속도를 높이는 가장 쉽고 직접적인 방법은 이미지의 용량을 줄이는 것 입니다. 쇼핑몰 웹사이트 로딩
+            속도를 높이고 싶다면, 이미지프레소를 검토해보세요
+        </div>
+        <div class="box"></div>
+        <div class="panel"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            ScrollTrigger.create({
+                trigger: ".panel",
+                start: "top 6%",
+                markers: true,
+                toggleClass: { targets: "nav", className: "not-active" },
+                onEnter: () => console.log("onEnter"),
+                onLeave: () => console.log("onLeave"),
+                onEnterBack: () => console.log("onEnterBack"),
+                onLeaveBack: () => console.log("onLeaveBack"),
+            });
+        </script>
+        <script>
+            // gsap.registerPlugin(ScrollTrigger);
+            // gsap.to(".square", {
+            //     // x: 1000,
+            //     duration: 3,
+            //     scrollTrigger: {
+            //         trigger: ".square",
+            //         start: "top 70%",
+            //         end: "top 30%",
+            //         markers: {
+            //             startColor: "blue",
+            //             endColor: "purple",
+            //             fontSize: "26px",
+            //         },
+            //         toggleClass: "red",
+            //         toggleActions: "none none none none",
+            //     },
+            // });
+
+            // gsap.to(".square", {
+            //     x: 1000,
+            //     duration: 2,
+            //     borderRadius: 0,
+            //     rotation: 300,
+            // });
+            // gsap.to(".square", {
+            //     y: 500,
+            //     duration: 2,
+            //     delay: 2,
+            //     borderRadius: 100,
+            //     skewX: 20,
+            // });
+            // gsap.to(".square", {
+            //     x: 0,
+            //     duration: 2,
+            //     delay: 4,
+            //     borderRadius: 0,
+            //     rotation: 0,
+            //     skewX: 0,
+            // });
+            // gsap.to(".square", {
+            //     y: 0,
+            //     duration: 2,
+            //     delay: 6,
+            //     borderRadius: 100,
+            // });
+
+            // 타임라인----
+            // const tl = gsap.timeline({ repeat: 2, yoyo: true });
+            // tl.to(".square", {
+            //     x: 1000,
+            //     duration: 2,
+            //     borderRadius: 0,
+            //     rotation: 300,
+            // })
+
+            //     .to(
+            //         ".square",
+            //         {
+            //             y: 500,
+            //             duration: 2,
+            //             borderRadius: 100,
+            //             skewX: 20,
+            //         },
+            //         "-=1.5"
+            //     )
+            //     .to(".square", {
+            //         x: 0,
+            //         duration: 2,
+            //         borderRadius: 0,
+            //         rotation: 0,
+            //         skewX: 0,
+            //     })
+            //     .to(
+            //         ".square",
+            //         {
+            //             y: 0,
+            //             duration: 2,
+            //             borderRadius: 100,
+            //         },
+            //         "-=1.2"
+            //     );
+
+            // const tl = gsap.timeline({
+            //     repeat: Infinity,
+            //     scrollTrigger: {
+            //         trigger: ".square",
+            //         markers: true,
+            //         start: "top 80%",
+            //         end: "top 30%",
+            //         scrub: 20,
+            //     },
+            // });
+            // tl.to(".square", {
+            //     x: 1000,
+            //     duration: 2,
+            //     borderRadius: 0,
+            //     rotation: 300,
+            // })
+
+            //     .to(
+            //         ".square",
+            //         {
+            //             y: 500,
+            //             duration: 2,
+            //             borderRadius: 100,
+            //             skewX: 20,
+            //         },
+            //         "-=1.5"
+            //     )
+            //     .to(".square", {
+            //         x: 0,
+            //         duration: 2,
+            //         borderRadius: 0,
+            //         rotation: 0,
+            //         skewX: 0,
+            //     })
+            //     .to(
+            //         ".square",
+            //         {
+            //             y: 0,
+            //             duration: 2,
+            //             borderRadius: 100,
+            //         },
+            //         "-=3.5"
+            //     );
+        </script>
+        <script>
+            // 백업용
+
+            // gsap.to(".square", {
+            //     x: 1000,
+            //     duration: 5,
+            //     scrollTrigger: {
+            //         trigger: ".square",
+            //         start: "top 70%",
+            //         // end: () => `+=${document.querySelector(".square").offsetHeight}`,
+            //         end: "top 30%",
+            //         toggleActions: "restart pause resume reset",
+            //         // toggleActions:{ onEnter, onLeave, onEnterBack, onLeaveBack }
+            //         // {속성값 : paly, pause, resume, reset, restart, complete, revers, none}
+            //         markers: {
+            //             startColor: "blue",
+            //             endColor: "purple",
+            //             fontSize: "26px",
+            //         },
+            //         toggleClass: "red",
+            //         scrub: 4,
+            //         scrub: true,
+            //         scrub : 스크롤할때마다 조금씩 작동, true 혹은 숫자로도 사용가능
+
+            //         pin : 고정 : true, false, '선택자명'
+            //     },
+            // });
+        </script>
+    </body>
+</html>

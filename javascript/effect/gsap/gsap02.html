@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <style>
+            .img__wrap {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                margin: 0 auto;
+                width: 1200px;
+                margin-top: 1000px;
+            }
+            .img {
+                height: 500px;
+            }
+            .img:nth-child(1) {
+                background: url(https://media.istockphoto.com/id/1314804930/ko/%EC%82%AC%EC%A7%84/%ED%81%B0-%EA%B0%88%EC%83%89-%EB%88%88%EC%9D%84-%EA%B0%80%EC%A7%84-%EC%B9%98%EC%99%80%EC%99%80-%EA%B0%9C-%ED%8C%8C%ED%8B%B0-%EB%AA%A8%EC%9E%90%EC%97%90-%EC%83%9D%EC%9D%BC-%EA%B0%9C.jpg?s=612x612&w=0&k=20&c=TCIpsgykIY2uIgsQgQ-ipCgqAfqP-tDs_d-cdL3ThPk=);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .img:nth-child(2) {
+                background: url(https://media.istockphoto.com/id/1081133354/ko/%EC%82%AC%EC%A7%84/%EA%B0%9C-%EB%BF%94-%EB%85%B8%EB%9E%80%EC%83%89-%EC%86%8C%ED%8C%8C%EC%97%90-%EC%95%89%EC%95%84-%EC%9E%85%EA%B3%A0.jpg?s=612x612&w=0&k=20&c=xVfFQ27dL-ALlZMWz45Atm0efpgU7AVj0O1rytTFMxo=);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .img:nth-child(3) {
+                background: url(https://media.istockphoto.com/id/1400111751/ko/%EC%82%AC%EC%A7%84/%ED%95%A5%EB%8A%94-%EA%B0%9C%EB%8A%94-%ED%85%8C%EC%9D%B4%EB%B8%94%EC%97%90-%EC%95%89%EC%95%84%EC%84%9C-%EC%9D%8C%EC%8B%9D%EC%9D%84-%EB%A8%B9%EA%B3%A0-%EC%82%AC%EB%9E%8C%EC%B2%98%EB%9F%BC-%EC%98%B7%EC%9D%84-%EC%9E%85%EA%B3%A0-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4.jpg?s=612x612&w=0&k=20&c=lBckehWUCsIayPmo_9Hf1qocVZyX2Y-1jiFm0qvheOk=);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .img:nth-child(4) {
+                background: url(https://media.istockphoto.com/id/1210395691/ko/%EC%82%AC%EC%A7%84/%EB%B0%94%EB%82%98%EB%82%98-%EC%8A%A4%ED%94%8C%EB%A6%BF-%EB%8B%A5%EC%8A%A4%ED%9B%88%ED%8A%B8.jpg?s=612x612&w=0&k=20&c=uOb7VWDboQhxLJSuQvc9xfnvZm5YB3_uoSONv_ou5bA=);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .img:nth-child(5) {
+                background: url(https://media.istockphoto.com/id/1207359674/ko/%EC%82%AC%EC%A7%84/%EB%9A%B1%EB%9A%B1%ED%95%9C-%EA%B0%9C-%EC%86%8C%ED%8C%8C-%EA%B0%90%EC%9E%90-%ED%8C%9D%EC%BD%98-%EC%B4%88%EC%BD%9C%EB%A6%BF-%ED%8C%A8%EC%8A%A4%ED%8A%B8-%ED%91%B8%EB%93%9C%EB%A5%BC-%EB%A8%B9%EA%B3%A0-%ED%85%94%EB%A0%88%EB%B9%84%EC%A0%84%EC%9D%84%EB%B3%B4%EA%B3%A0-%EC%9E%A0%EB%93%A4%EC%97%88%EB%8B%A4-%EA%B2%8C%EC%9C%BC%EB%A5%B8-%EC%82%AC%EB%9E%8C%EC%9D%98-%ED%8C%A8%EB%9F%AC%EB%94%94.jpg?s=612x612&w=0&k=20&c=zwZtu26rZtRCWAGbbVC-hFr6DpDziJ0HBa1LRfivuWE=);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .img:nth-child(6) {
+                background: url(https://images.unsplash.com/photo-1668448388988-a901c54d954e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .img:nth-child(7) {
+                background: url(https://media.istockphoto.com/id/1277987909/ko/%EC%82%AC%EC%A7%84/%EA%B7%B8%EC%9D%98-%EB%A8%B8%EB%A6%AC%EC%97%90-%EC%84%A0%EB%AC%BC-%EC%83%81%EC%9E%90%EC%99%80-%EA%B0%9C.jpg?s=612x612&w=0&k=20&c=SgCIJtgXp_VIh3zc5ECDw116vmwjR2M-tnRP2DKI9xc=);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .img:nth-child(8) {
+                background: url(https://images.unsplash.com/photo-1668502915240-bfdb9e7ff272?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .img:nth-child(9) {
+                background: url(https://images.unsplash.com/photo-1668457248689-7d52055d6171?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .img:nth-child(10) {
+                background: url(https://images.unsplash.com/photo-1668417008465-da390a5d0add?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .img:nth-child(11) {
+                background: url(https://images.unsplash.com/photo-1668067446629-307d4ef9e0f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=697&q=80);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .img:nth-child(12) {
+                background: url(https://images.unsplash.com/photo-1668435548494-e715c74c4ceb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .img:nth-child(13) {
+                background: url(https://images.unsplash.com/photo-1668503714926-2b80a246de00?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=751&q=80);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .img:nth-child(14) {
+                background: url(https://plus.unsplash.com/premium_photo-1661693573767-11ffef7c788b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .img:nth-child(15) {
+                background: url(https://images.unsplash.com/photo-1668503714845-e5d67cc94f05?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=681&q=80);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="img__wrap">
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+            <div class="img"></div>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@latest/bundled/lenis.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 스무스효과
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+
+            requestAnimationFrame(raf);
+
+            const tl = gsap
+                .timeline({
+                    ScrollTrigger: {
+                        trigger: ".img__wrap .img",
+                        scrub: true,
+                    },
+                })
+                .to(".img", {
+                    y: -1000,
+                    scrub: true,
+                    stagger: 0.2, //하나씩 시간차부여 (=패럴랙스 글자쪼개서 하듯이)
+                    easing: "powerl.out",
+                });
+        </script>
+    </body>
+</html>
