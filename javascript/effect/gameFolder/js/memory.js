@@ -217,7 +217,7 @@ function memoryDisplayTime() {
 
 // 스타트버튼클릭
 memoryBtn.addEventListener("click", (e) => {
-    memoryTimeReaming = 20;
+    memoryTimeReaming = 90;
     memoryCountNum = 16;
     cardOne = cardTwo = "";
     memoryCount.innerText = `x ${memoryCountNum}`;
@@ -262,20 +262,20 @@ function memoryEndQuiz() {
     memoryRankingWriteBtn.addEventListener("click", memoryRangKing);
 }
 
-function memoryRangKing(){
+function memoryRangKing() {
     memoryRankingWrite.style.display = "none";
     let memoryInput = `${memoryRankingWriteInput.value}`;
     let memoryData = {
         name: memoryInput,
-        score: memoryScore
+        score: memoryScore,
     };
     memoryArr.push(memoryData);
-    memoryArr.sort(function(a, b) {
+    memoryArr.sort(function (a, b) {
         return b.score - a.score;
-    }); 
+    });
     if (memoryArr.length >= 5) {
         memoryArr.pop();
-        document.querySelector("#memory__table").innerHTML = '';
+        document.querySelector("#memory__table").innerHTML = "";
         for (i = 0; i < memoryArr.length; i++) {
             let x = `<tr>
             <td>${i + 1}</td>
@@ -285,7 +285,7 @@ function memoryRangKing(){
             document.querySelector("#memory__table").innerHTML += x;
         }
     } else {
-        document.querySelector("#memory__table").innerHTML = '';
+        document.querySelector("#memory__table").innerHTML = "";
         for (i = 0; i < memoryArr.length; i++) {
             let x = `<tr>
             <td>${i + 1}</td>
@@ -297,7 +297,7 @@ function memoryRangKing(){
     }
 
     memoryRanking.style.display = "block";
-};
+}
 
 memorymusicStop.addEventListener("click", () => {
     memoryAudio.pause();

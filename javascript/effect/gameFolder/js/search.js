@@ -636,7 +636,7 @@ const searchRkBack = searchWrap.querySelector(".search__backBtn");
 const searchRkView = searchWrap.querySelector(".search__RangkingView");
 const serachRkmy = searchWrap.querySelectorAll(".result > table > thead > tr > th");
 
-let timeReamining = 5, // 남은 시간
+let timeReamining = 120, // 남은 시간
     score = 0, // 점수
     answers = {}; // 새로운 정답
 
@@ -677,9 +677,10 @@ function startQuiz() {
     searchAudio.play();
 
     // 점수 계산
-
+    searchAnswers.innerText = ``;
     // 정답 체크
     checkAnswers();
+    searchRkView.style.display = "none";
 }
 
 // 인풋 체크(인풋박스 감지?)
@@ -774,6 +775,8 @@ function endQuiz() {
     // searchResult.innerHTML = `END <br> ${answerCount} / ${cssProperty.length} <br> Score : ${point}`;
 
     // 랭킹 박스 출력
+    searchRkView.style.display = "block";
+
     document.querySelector(".search__game").style.display = "none";
     searchRangking.style.display = "block";
 }
@@ -833,18 +836,40 @@ const searchmusicPlay = document.querySelector(".search__audio .play").addEventL
 document.querySelector(".icon2").addEventListener("click", () => {
     document.querySelector("#game__box").style.display = "block";
     searchWrap.style.display = "flex";
+    searchStart.style.display = "block";
+    searchList.style.display = "block";
     setTimeout(() => {
         searchWrap.style.opacity = "1";
     }, 500);
 });
 
 document.querySelector(".search__close").addEventListener("click", () => {
+    clearInterval(Timer);
     document.querySelector("#game__box").style.display = "none";
     searchWrap.style.display = "none";
     searchWrap.style.opacity = "0";
     searchAudio.pause();
     searchAudio.currentTime = 0;
     searchmusicStop.style.display = "none";
+    updateList();
+    searchTime.innerText = `2:00`;
+    searchAnswers.innerHTML = `오른쪽 속성값을 보면서 공부해보세요.
+    <br />스크롤가능합니다. <br />--정답은 이곳에 출력 됩니다--`;
+    searchUsername = document.getElementById("search__ID").value = "";
+    searchUsername = null;
+    searchWrap.querySelector("#search__ID").style.display = "inline";
+    searchWrap.querySelector(".search__IDdesc").textContent = "";
+    searchWrap.querySelector(".search__IDdesc").style.display = "none";
+    searchWrap.querySelector(".search__IDbtn").style.display = "inline";
+    searchWrap.querySelector(".search__IDbtn2").style.display = "none";
+    tetrisEnd = true;
+    searchRkView.style.display = "block";
+    document.querySelector(".answerNum").innerText = "0";
+
+    // 인풋박스 초기화
+    searchInput.value = "";
+
+    answerCount = 0;
 });
 
 searchWrap.querySelector(".search__IDbtn").addEventListener("click", () => {

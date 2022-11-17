@@ -592,7 +592,10 @@
                             </p>
                         </div>
                         <div class="search__result">
-                            <div class="search__answers"></div>
+                            <div class="search__answers">
+                                오른쪽 속성값을 보면서 공부해보세요.
+                                <br />스크롤가능합니다. <br />--정답은 이곳에 출력 됩니다--
+                            </div>
                             <div class="search__Listbox">
                                 <div class="search__missAnswers"></div>
                                 <div class="search__list"></div>
@@ -699,13 +702,13 @@
                                     <ul></ul>
                                 </div>
                                 <div class="tetris__lvBox">
-                                    <p class="tetris__count__num">x 16</p>
-                                    <p class="tetris__count__Lv">x 16</p>
+                                    <p class="tetris__count__num">00점</p>
+                                    <!-- <p class="tetris__count__Lv">x 16</p> -->
                                 </div>
                             </div>
                         </div>
                         <div class="tetris__btn__box">
-                            <!-- <div class="tetris__timer">00:00</div> -->
+                            <div class="tetris__LV">Lv. 01</div>
                         </div>
                     </div>
                 </div>
@@ -828,28 +831,28 @@
                     firstPage.style.transition = "all 1s";
                     firstPage.style.opacity = "0";
                     mentstart();
-                }, 0);
+                }, 1100);
             });
 
             function mentstart() {
                 setTimeout(() => {
                     document.querySelector(".mainStart__header1").style.display = "none";
                     document.querySelector(".mainStart__header2").style.display = "block";
-                }, 0);
+                }, 1000);
                 setTimeout(() => {
                     document.querySelector(".mainStart__header2").style.opacity = "1";
-                }, 0);
+                }, 1500);
                 setTimeout(() => {
                     document.querySelector(".mainStart__header2").style.opacity = "0";
-                }, 0);
+                }, 3000);
                 setTimeout(() => {
                     document.querySelector("#header").style.top = "0";
                     document.querySelector("#footer").style.bottom = "0";
                     document.querySelector("#text").style.display = "none";
-                }, 0);
+                }, 4000);
                 setTimeout(() => {
                     document.querySelector("#main").style.display = "block";
-                }, 0);
+                }, 6000);
                 setTimeout(() => {
                     document.querySelectorAll(".icon").forEach((e, i) => {
                         setTimeout(() => {
@@ -857,10 +860,14 @@
                             e.style.transition = "opacity 1s, transform 0.5s, filter 0.5s";
                         }, 50 * i);
                     });
-                }, 0);
+                }, 6500);
                 setTimeout(() => {
                     document.querySelector(".music__inner").style.bottom = "50px";
-                }, 0);
+                    musicAudio.play();
+                    document.querySelector(".music__wrap").classList.add("paused");
+                    document.querySelector("#control-play").setAttribute("title", "정지");
+                    document.querySelector("#control-play").setAttribute("class", "stop");
+                }, 8000);
             }
 
             // 마우스 커서 변경

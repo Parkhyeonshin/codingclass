@@ -327,6 +327,16 @@
     box-sizing: border-box;
     padding-left: 20px;
 }
+.tetris__desc .tetris__result .tetris__count .tetris__count__num {
+    font-family: "CrownMychew";
+    font-size: 80px;
+    text-shadow: 0px 0px 6px pink;
+    color: snow;
+}
+.tetris__LV {
+    font-size: 40px;
+    margin: 0 auto;
+}
 .tetris__desc .tetris__btn__box {
     background: #111;
     border-bottom: 2px solid rgba(208, 233, 252, 0.9);

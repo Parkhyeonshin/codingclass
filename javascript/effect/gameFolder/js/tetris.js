@@ -22,7 +22,7 @@ let tetrisHi = new Audio("https://parkhyeonshin.github.io/codingclass/javascript
     // tetrisEndSound = new Audio("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/tetwrisEndmp3.mp3"),
     tetrisEndSound = new Audio("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/tetrisEndmp3.mp3"),
     tetrisSeizeSound = new Audio("https://parkhyeonshin.github.io/codingclass/javascript/effect/gameFolder/audio/tetrisSeize.mp3");
-let tetrisLv = 0;
+let tetrisLv = 1;
 
 // 블록 정보
 const tetrisMovingItem = {
@@ -243,7 +243,11 @@ function init() {
     tetrisDurationTimeout = setInterval(() => {
         tetrisDuration += -100;
         tetrisDuration <= 280 ? clearInterval(tetrisDurationTimeout) : null;
-    }, 15000);
+        tetrisLv++;
+        tetrisLv < 10
+            ? (document.querySelector(".tetris__LV").innerText = `Lv. 0${tetrisLv}`)
+            : (document.querySelector(".tetris__LV").innerText = `Lv. ${tetrisLv}`);
+    }, 10000);
 }
 
 // 블록 만들기
