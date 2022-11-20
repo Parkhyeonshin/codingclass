@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 없는 숫자 더하기</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    0부터 9까지의 숫자 중 일부가 들어있는 정수 배열 numbers가 매개변수로 주어집니다. numbers에서 찾을 수 없는 0부터 9까지의 숫자를
+                    모두 찾아 더한 수를 return 하도록 solution 함수를 완성해주세요.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">
+                    ✔ 1 ≤ numbers의 길이 ≤ 9
+                    <br />✔ 0 ≤ numbers의 모든 원소 ≤ 9 <br />numbers의 모든 원소는 서로 다릅니다.
+                </p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <!-- <th>x</th> -->
+                            <th>numbers</th>
+                            <th>result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <td>2</td> -->
+                            <td>[1,2,3,4,6,7,8,0]</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <!-- <td>2</td> -->
+                            <td>[5,8,4,0,6,7,9]</td>
+                            <td>6</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <p class="t_desc">
+                    1. 5, 9가 numbers에 없으므로, 5 + 9 = 14를 return 해야 합니다.
+                    <br />
+                    2. 1, 2, 3이 numbers에 없으므로, 1 + 2 + 3 = 6을 return 해야 합니다.
+                </p>
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc">0부터 9까지 중에 numbers에 없는 숫자들만 플러스시켰습니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(numbers) {
+    var answer = 0;
+    for(let i=0; i&lt;10; i++){
+        if(!numbers.includes(i)) answer += i; 
+    } 
+    return answer;
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc"></p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(numbers) {
+    return 45 - numbers.reduce((cur, acc) => cur + acc, 0);
+}
+</code></pre>
+                </div>
+                <br /><br />
+                <!-- <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">Math.floor()</h3>
+                <p class="t_desc">소숫점 버리기입니당</p> -->
+                <!-- <p class="t_box">
+                    const array1 = [1, 2, 3, 4];
+                    <br />
+                    <br />// fill with 0 from position 2 until position 4 <br />console.log(array1.fill(0, 2, 4)); <br />// expected output: [1, 2, 0,
+                    0]
+                    <br />
+                    <br />// fill with 5 from position 1 <br />console.log(array1.fill(5, 1)); <br />// expected output: [1, 5, 5, 5]
+                    <br />
+                    <br />console.log(array1.fill(6)); <br />// expected output: [6, 6, 6, 6]
+                </p> -->
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
