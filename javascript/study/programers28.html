@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 직사각형 별찍기</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    이 문제에는 표준 입력으로 두 개의 정수 n과 m이 주어집니다.
+                    <br />별(*) 문자를 이용해 가로의 길이가 n, 세로의 길이가 m인 직사각형 형태를 출력해보세요.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">✔ 행렬 arr1, arr2의 행과 열의 길이는 500을 넘지 않습니다.</p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <p class="t_desc">
+                    *****
+                    <br />***** <br />*****
+                </p>
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc">
+                    function도 없고...다들 초면인데 이게뭐람..? 결국 구글링을 참조했다.
+                    <br />그래도 for문 반복으로 출력하는건 다 맞췄으니까 좋아하고 말아야징 ㅎ
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">process.stdin.setEncoding('utf8');
+process.stdin.on('data', data => {
+    const n = data.split(" ");
+    const a = Number(n[0]), b = Number(n[1]);
+    for(i=0;i&lt;b;i++){
+        let star = ''
+        for(j=0;j&lt;a;j++){
+            star += '*';
+        }
+    console.log(star)
+    }
+});
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc">
+                    repeat으로 한행에 n개만큼 반복해주고
+                    <br />m줄만큼 출력해준다... wow!!
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">process.stdin.setEncoding('utf8');
+process.stdin.on('data', data => {
+    const n = data.split(" ");
+    const a = Number(n[0]), b = Number(n[1]);
+    const row = '*'.repeat(a)
+    for(let i =0; i &lt; b; i++){
+        console.log(row)
+    }
+
+});
+</code></pre>
+                </div>
+                <br /><br />
+                <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">console.log는 실행할때마다 개행을 한다(줄띄움)</h3>
+                <p class="t_desc">
+                    그래서 아무리 return을 해도 안되는거였나보다. 애초에 return으로 줄띄움을 어떻게 구현하나 해서 막히고 있었는데...😂
+                    <br />점점 프로그래머스가 아는 걸 어떻게 응용하나 싸움이 되는 거같다.(이게 어떻게 1레벨....?)
+                </p>
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
