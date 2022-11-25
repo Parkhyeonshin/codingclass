@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 약수의 개수와 덧셈</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    두 정수 left와 right가 매개변수로 주어집니다. left부터 right까지의 모든 수들 중에서, 약수의 개수가 짝수인 수는 더하고, 약수의
+                    개수가 홀수인 수는 뺀 수를 return 하도록 solution 함수를 완성해주세요.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">✔ 1 ≤ left ≤ right ≤ 1,000</p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <p class="t_desc">직접보세요</p>
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc">
+                    function도 없고...다들 초면인데 이게뭐람..? 결국 구글링을 참조했다.
+                    <br />그래도 for문 반복으로 출력하는건 다 맞췄으니까 좋아하고 말아야징 ㅎ
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(left, right) {
+    let sum = 0;
+    for(let i = left; i &lt;= right; i++) {
+        let divides = [];
+        for (let j = 0; j &lt;= i; j++) {
+            if(i % j === 0) divides.push(j);
+        }
+        sum += divides.length % 2 === 0 ? i : -i;
+    }
+    return sum;
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc"></p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(left, right) {
+    var answer = 0;
+    for (let i = left; i &lt;= right; i++) {
+        if (Number.isInteger(Math.sqrt(i))) {
+            answer -= i;
+        } else {
+            answer += i;
+        }
+    }
+    return answer;
+}ㄴ
+</code></pre>
+                </div>
+                <!-- <br /><br />
+                <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">console.log는 실행할때마다 개행을 한다(줄띄움)</h3>
+                <p class="t_desc">
+                    그래서 아무리 return을 해도 안되는거였나보다. 애초에 return으로 줄띄움을 어떻게 구현하나 해서 막히고 있었는데...😂
+                    <br />점점 프로그래머스가 아는 걸 어떻게 응용하나 싸움이 되는 거같다.(이게 어떻게 1레벨....?)
+                </p> -->
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
