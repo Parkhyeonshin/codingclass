@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 최대공약수와 최소공배수</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    두 수를 입력받아 두 수의 최대공약수와 최소공배수를 반환하는 함수, solution을 완성해 보세요. 배열의 맨 앞에 최대공약수, 그다음
+                    최소공배수를 넣어 반환하면 됩니다. 예를 들어 두 수 3, 12의 최대공약수는 3, 최소공배수는 12이므로 solution(3, 12)는 [3, 12]를
+                    반환해야 합니다.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">✔ 두 수는 1이상 1000000이하의 자연수입니다.</p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <!-- <th>x</th> -->
+                            <th>n</th>
+                            <th>m</th>
+                            <th>return</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <td>2</td> -->
+                            <td>3</td>
+                            <td>12</td>
+                            <td>[3,12]</td>
+                        </tr>
+                        <tr>
+                            <!-- <td>2</td> -->
+                            <td>2</td>
+                            <td>5</td>
+                            <td>[1,10]</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">입출력 예 설명</h3>
+                <p class="t_desc">✔ 자연수 2와 5의 최대공약수는 1, 최소공배수는 10이므로 [1, 10]을 리턴해야 합니다.</p>
+
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc"></p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(n, m) {
+    var answer = [];
+    const greatest = (a, b) => {  
+        if (b === 0) return a   
+        return greatest(b, a % b)  
+    }
+    const least = (a,b) => (a*b) / greatest(a,b)
+    return [greatest(n,m), least(n,m)]
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc"></p>
+                <div class="t_code">
+                    <pre><code class="language-js">function gcdlcm(a, b) {
+    var r;
+    for(var ab= a*b;r = a % b;a = b, b = r){}
+    return [b, ab/b];
+}
+</code></pre>
+                </div>
+                <!-- <br /><br />
+                <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">console.log는 실행할때마다 개행을 한다(줄띄움)</h3>
+                <p class="t_desc">
+                    그래서 아무리 return을 해도 안되는거였나보다. 애초에 return으로 줄띄움을 어떻게 구현하나 해서 막히고 있었는데...😂
+                    <br />점점 프로그래머스가 아는 걸 어떻게 응용하나 싸움이 되는 거같다.(이게 어떻게 1레벨....?)
+                </p> -->
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
