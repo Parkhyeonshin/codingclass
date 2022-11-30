@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 숫자 문자열과 영단어</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    네오와 프로도가 숫자놀이를 하고 있습니다. 네오가 프로도에게 숫자를 건넬 때 일부 자릿수를 영단어로 바꾼 카드를 건네주면 프로도는
+                    원래 숫자를 찾는 게임입니다. 다음은 숫자의 일부 자릿수를 영단어로 바꾸는 예시입니다.
+                    <br />
+                    1478 → "one4seveneight"
+                    <br />
+                    234567 → "23four5six7"
+                    <br />
+                    10203 → "1zerotwozero3"
+                    <br />이렇게 숫자의 일부 자릿수가 영단어로 바뀌어졌거나, 혹은 바뀌지 않고 그대로인 문자열 s가 매개변수로 주어집니다. s가 의미하는
+                    원래 숫자를 return 하도록 solution 함수를 완성해주세요. 참고로 각 숫자에 대응되는 영단어는 다음 표와 같습니다.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">
+                    ✔ 문자열 전체의 짝/홀수 인덱스가 아니라, 단어(공백을 기준)별로 짝/홀수 인덱스를 판단해야합니다.
+                    <br />✔ 첫 번째 글자는 0번째 인덱스로 보아 짝수번째 알파벳으로 처리해야 합니다.
+                </p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <!-- <th>x</th> -->
+                            <th>숫자</th>
+                            <th>영단어</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>zero</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>one</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>two</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>three</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>four</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>five</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>six</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>seven</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>eight</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>nine</td>
+                        </tr>
+                        <!-- <tr>
+                            <td>"z"</td>
+                            <td>1</td>
+                            <td>"a"</td>
+                        </tr>
+                        <tr>
+                            <td>"aBz"</td>
+                            <td>4</td>
+                            <td>"eFd"</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">제한사항</h3>
+                <p class="t_desc">
+                    ✔ 1 ≤ s의 길이 ≤ 50
+                    <br />✔ s가 "zero" 또는 "0"으로 시작하는 경우는 주어지지 않습니다. <br />✔ return 값이 1 이상 2,000,000,000 이하의 정수가 되는
+                    올바른 입력만 s로 주어집니다.
+                </p>
+                <h3 class="t_tit2">입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <!-- <th>x</th> -->
+                            <th>s</th>
+                            <th>result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>"one4seveneight"</td>
+                            <td>1478</td>
+                        </tr>
+                        <tr>
+                            <td>"23four5six7"</td>
+                            <td>234567</td>
+                        </tr>
+                        <tr>
+                            <td>"2three45sixseven"</td>
+                            <td>234567</td>
+                        </tr>
+                        <tr>
+                            <td>"123"</td>
+                            <td>123</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">입출력 예 설명</h3>
+                <h3 class="t_tit3">입출력 예#1, #2</h3>
+                <p class="t_desc">✔ 문제 예시와 같습니다.</p>
+                <h3 class="t_tit3">입출력 예#3</h3>
+                <p class="t_desc">
+                    ✔ "three"는 3, "six"는 6, "seven"은 7에 대응되기 때문에 정답은 입출력 예 #2와 같은 234567이 됩니다. ✔ 입출력 예 #2와 #3과 같이
+                    같은 정답을 가리키는 문자열이 여러 가지가 나올 수 있습니다.
+                </p>
+                <h3 class="t_tit3">입출력 예#4</h3>
+                <p class="t_desc">✔ s에는 영단어로 바뀐 부분이 없습니다.</p>
+
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc">
+                    charAt()으로 한글자씩 뽑아서 변수에 넣어버립니다. 여기서 isNaN()으로 숫자인 경우에는 바로 정답으로 보내버리고,
+                    <br />문자인 경우에는 새로운 변수에 추가시킨뒤 이렇게 만들어진 변수를 switch문(if문도 무관)으로 비교해줍니다. <br />현재 주어진
+                    문자는 스펠링이 정직하게 있으므로 switch만으로도 비교가 가능하답니다. <br />아무튼 케이스는 9개인데, 저는 멍청하므로 그냥
+                    노가다작업을 했습니다. 고수들은 더 다른방법이 있겠죠뭐 <br />하나의 숫자 스펠링이(ex_one) 이 새로만든 변수에서 완성이되면 해당하는
+                    숫자로 반환, 기존 정답에 추가해주면 문자열을 하나의 숫자로 대체할 수 있습니다. <br />숫자로 변신시켜주었다면 잊지말고 문자열을
+                    초기화해줍시다. <br />이런식으로 반복하면 될 것 같아요. 이 정도면 카카오인턴 낙하산으로라도 가능한건가요 ^,^?
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(s) {
+    var answer = '';
+    let xx ='';
+    for(i=0;i&lt;s.length;i++){
+        ss = s.charAt(i)
+        if(!isNaN(ss)){
+            answer+=ss
+        }else{
+            xx+=ss;
+            switch(xx){
+                case 'zero':
+                    answer+=0;
+                    xx='';
+                    break;
+                case 'one':
+                    answer+=1;
+                    xx='';
+                    break;
+                case 'two':
+                    answer+=2;
+                    xx='';
+                    break;
+                case 'three':
+                    answer+=3;
+                    xx='';
+                    break;
+                case 'four':
+                    answer+=4;
+                    xx='';
+                    break;
+                case 'five':
+                    answer+=5;
+                    xx='';
+                    break;
+                case 'six':
+                    answer+=6;
+                    xx='';
+                    break;
+                case 'seven':
+                    answer+=7;
+                    xx='';
+                    break;
+                case 'eight':
+                    answer+=8;
+                    xx='';
+                    break;
+                case 'nine':
+                    answer+=9;
+                    xx='';
+                    break;
+            }
+        }
+    }
+    
+    console.log(xx)
+    return Number(answer);
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc">이거 이해못하면 낙하산으로도 입사불가능일거 같은데 이해가 잘안됩니다 수고 <br />5번 봤는데 모르겠음 수고</p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(s) {
+    let numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+    var answer = s;
+
+    for(let i=0; i&lt; numbers.length; i++) {
+        let arr = answer.split(numbers[i]);
+        answer = arr.join(i);
+    }
+
+    return Number(answer);
+}
+</code></pre>
+                </div>
+                <br /><br />
+                <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">isNaN(숫자)는 true가 아니라 false다.</h3>
+                <p class="t_desc">당연히 true인줄알고 많이 헤맸다^^</p>
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
