@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 두 개 뽑아서 더하기</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    정수 배열 numbers가 주어집니다. numbers에서 서로 다른 인덱스에 있는 두 개의 수를 뽑아 더해서 만들 수 있는 모든 수를 배열에
+                    오름차순으로 담아 return 하도록 solution 함수를 완성해주세요.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">
+                    ✔ numbers의 길이는 2 이상 100 이하입니다.
+                    <br />&nbsp;- numbers의 모든 수는 0 이상 100 이하입니다.
+                </p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>numbers</th>
+                            <th>result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>[2,1,3,4,1]</td>
+                            <td>[2,3,4,5,6,7]</td>
+                        </tr>
+                        <tr>
+                            <td>[5,0,2,7]</td>
+                            <td>[2,5,7,9,12]</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">입출력 예 설명</h3>
+                <h3 class="t_tit3">입출력 예#1</h3>
+                <p class="t_desc">
+                    2 = 1 + 1 입니다. (1이 numbers에 두 개 있습니다.)
+                    <br />✔ 3 = 2 + 1 입니다. <br />✔ 4 = 1 + 3 입니다. <br />✔ 5 = 1 + 4 = 2 + 3 입니다. <br />✔ 6 = 2 + 4 입니다. <br />✔ 7 = 3 + 4
+                    입니다. <br />✔ 따라서 [2,3,4,5,6,7] 을 return 해야 합니다.
+                </p>
+                <h3 class="t_tit3">입출력 예#2</h3>
+                <p class="t_desc">
+                    2 = 0 + 2 입니다.
+                    <br />✔ 5 = 5 + 0 입니다. <br />✔ 7 = 0 + 7 = 5 + 2 입니다. <br />✔ 9 = 2 + 7 입니다. <br />✔ 12 = 5 + 7 입니다. <br />✔ 따라서
+                    [2,5,7,9,12] 를 return 해야 합니다.
+                </p>
+
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc"></p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(numbers) {
+    const temp = []
+
+    for (let i = 0; i &lt; numbers.length; i++) {
+        for (let j = i + 1; j &lt; numbers.length; j++) {
+            temp.push(numbers[i] + numbers[j])
+        }
+    }
+
+    const answer = [...new Set(temp)]
+
+    return answer.sort((a, b) => a - b)
+}
+</code></pre>
+                </div>
+                <!-- <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc">
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(numbers) {
+                        const temp = []
+                    
+                        for (let i = 0; i &lt; numbers.length; i++) {
+                            for (let j = i + 1; j &lt; numbers.length; j++) {
+                                temp.push(numbers[i] + numbers[j])
+                            }
+                        }
+                    
+                        const answer = [...new Set(temp)]
+                    
+                        return answer.sort((a, b) => a - b)
+                    }
+</code></pre>
+                </div> -->
+                <br /><br />
+                <!-- <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">isNaN(숫자)는 true가 아니라 false다.</h3>
+                <p class="t_desc">당연히 true인줄알고 많이 헤맸다^^</p> -->
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
