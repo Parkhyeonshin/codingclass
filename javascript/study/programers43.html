@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header">
+            <!-- 시멘트태그(heaer, main, footer 등)-->
+            <h1><a href="#">프로그래머스</a></h1>
+        </header>
+        <!-- //header -->
+        <main id="main">
+            <!--main start-->
+            <div class="document">
+                <h2 class="t_tit">프로그래머스Lv.1 : 완주하지 못한 선수</h2>
+                <hr />
+                <h3 class="t_tit2">■ 문제 설명</h3>
+                <p class="t_desc">
+                    수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다. 마라톤에 참여한
+                    선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때, 완주하지 못한 선수의 이름을
+                    return 하도록 solution 함수를 작성해주세요.
+                </p>
+                <h3 class="t_tit2">■ 제한 조건</h3>
+                <p class="t_desc">
+                    ✔ 마라톤 경기에 참여한 선수의 수는 1명 이상 100,000명 이하입니다.
+                    <br />✔ completion의 길이는 participant의 길이보다 1 작습니다. <br />✔ 참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로
+                    이루어져 있습니다. <br />✔ 참가자 중에는 동명이인이 있을 수 있습니다.
+                </p>
+                <h3 class="t_tit2">■ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>participant</th>
+                            <th>completion</th>
+                            <th>return</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>["leo", "kiki", "eden"]</td>
+                            <td>["eden", "kiki"]</td>
+                            <td>"leo"</td>
+                        </tr>
+                        <tr>
+                            <td>["marina", "josipa", "nikola", "vinko", "filipa"]</td>
+                            <td>["josipa", "filipa", "marina", "nikola"]</td>
+                            <td>"vinko"</td>
+                        </tr>
+                        <tr>
+                            <td>["mislav", "stanko", "mislav", "ana"]</td>
+                            <td>["stanko", "ana", "mislav"]</td>
+                            <td>"mislav"</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">입출력 예 설명</h3>
+                <h3 class="t_tit3">예제#1</h3>
+                <p class="t_desc">✔ "leo"는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.</p>
+                <h3 class="t_tit3">예제#2</h3>
+                <p class="t_desc">✔ "vinko"는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.</p>
+                <h3 class="t_tit3">예제#3</h3>
+                <p class="t_desc">✔ "mislav"는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.</p>
+
+                <hr />
+                <h3 class="t_tit2">■ 내멋대로 풀어헤치기😜</h3>
+                <p class="t_desc">
+                    1차시도 : 참여선수 i번째에서 완주한선수들과 하나씩 비교함. 그리고 이름이 일치하면 참여선수명단과 완주선수명단에서 일치한 인덱스를
+                    제거함. 그러다보면 참여선수배열은 2개가 남고 완주선수는 한명이 남게되는데 한번더 if문으로 처리했으나 출력이너무 많다고 안되는걸
+                    보니 좋은방법이 아닌가 싶어서 고민
+                    <br />
+                    2차시도 : 어차피 완주 배열은 시도배열의 -1길이니까 오름차순이나 내림차순으로 정렬한 뒤에 각 인덱스끼리 비교하면 하나쯤은
+                    불일치할거같아서 불일치하는 값 반환시켰더니 됌.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(participant, completion) {
+    let answer = '';
+//     participant.forEach((e,i)=>{
+//         completion.forEach((x,y)=>{
+//             if(e == x){
+//               participant.splice(i,1);
+//                 i--;
+// // [ 'leo', 'eden' ]
+//                 completion.splice(y,1);
+//                 y--;
+
+// // [ 'eden' ]
+//             } 
+//         })
+//     })
+//     participant[0] == completion[0]? answer = participant[1] : answer = participant[0];
+//     return answer;
+participant.sort();
+    completion.sort()
+    for(i=0; i&lt;participant.length;i++){
+        if(participant[i] !== completion[i]){
+            return participant[i];
+        }
+    }
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">■ 다른사람 입맛도 맛보기 😋</h3>
+                <p class="t_desc">
+                    $는 제이쿼리만 하는게 아닌가...? <br />var
+                    solution=(participant,completion)=>participant.find(name=>!completion[name]--,completion.map(name=>completion[name]=(completion[name]|0)+1))
+                    새―2020.05.08 11:40 새 완주자 배열을 {이름:완주자배열에 등장하는 횟수}로 맵핑하고, 그 맵에 참가자 이름 하나씩 넣어서 찾아볼때마다
+                    횟수 떨어뜨려서 횟수 0나오는 놈 찾아뱉는 함수같네요 <br />라고 하지만 뭔지...?
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">
+var solution=(_,$)=>_.find(_=>!$[_]--,$.map(_=>$[_]=($[_]|0)+1))
+</code></pre>
+                </div>
+                <br /><br />
+                <!-- <h3 class="t_tit2">📌 나혼자 공부...</h3>
+                <h3 class="t_tit3">isNaN(숫자)는 true가 아니라 false다.</h3>
+                <p class="t_desc">당연히 true인줄알고 많이 헤맸다^^</p> -->
+
+                <hr style="margin-bottom: 10px" />
+                <p class="t_desc" style="font-size: 14px; text-align: center">🙇‍♀️ 틀린 점에 대한 지적은 언제나 환영합니다 🙇‍♂️</p>
+            </div>
+        </main>
+        <!-- //main end -->
+        <footer id="footer">
+            <a href="mailto:sshin4882@naver.com">sshin4882@naver.com</a>
+        </footer>
+        <!-- //footer -->
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>
